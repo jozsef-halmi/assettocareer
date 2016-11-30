@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship", "Asse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Configurator", "Assetto.Configurator\Assetto.Configurator.csproj", "{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.SharedMemory", "Assetto.SharedMemory\Assetto.SharedMemory.csproj", "{D99F35F2-D3E0-41E5-A877-3F8983283D11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D99F35F2-D3E0-41E5-A877-3F8983283D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99F35F2-D3E0-41E5-A877-3F8983283D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99F35F2-D3E0-41E5-A877-3F8983283D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99F35F2-D3E0-41E5-A877-3F8983283D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
