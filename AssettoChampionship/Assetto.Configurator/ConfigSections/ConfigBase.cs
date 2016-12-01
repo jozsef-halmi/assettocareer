@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assetto.Common.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,12 @@ namespace Assetto.Configurator.ConfigSections
     public class ConfigBase
     {
         public string Header { get; set; }
+        public EventData EventData { get; set; }
+
+        public ConfigBase(EventData eventData)
+        {
+            this.EventData = eventData;
+        }
 
         public override string ToString()
         {

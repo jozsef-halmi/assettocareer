@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigSections\BasicConfig.cs" />
+    <Compile Include="ConfigSections\RaceConfig.cs" />
     <Compile Include="ConfigSections\ConfigBase.cs" />
     <Compile Include="EventConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
