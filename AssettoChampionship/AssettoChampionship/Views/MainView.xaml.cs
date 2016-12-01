@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
-namespace AssettoChampionship
+namespace AssettoChampionship.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainView : MetroWindow
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
         }
