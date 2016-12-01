@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39D17DEB-409D-4EDD-BE26-C6FA36CE668B}</ProjectGuid>
+    <ProjectGuid>{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Assetto.Data</RootNamespace>
-    <AssemblyName>Assetto.Data</AssemblyName>
+    <RootNamespace>Assetto.Common</RootNamespace>
+    <AssemblyName>Assetto.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SupportedCars.cs" />
+    <Compile Include="Data\CarData.cs" />
+    <Compile Include="Data\LayoutData.cs" />
+    <Compile Include="Data\TrackData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupportedTracks.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
-      <Project>{c05be200-2b0f-4cf5-afff-7b0a63c16058}</Project>
-      <Name>Assetto.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

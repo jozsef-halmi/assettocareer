@@ -40,7 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigSections\BasicConfig.cs" />
+    <Compile Include="ConfigSections\ConfigBase.cs" />
+    <Compile Include="EventConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
+      <Project>{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}</Project>
+      <Name>Assetto.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
