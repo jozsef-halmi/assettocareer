@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\StringValue.cs" />
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
     <Compile Include="Data\DriverData.cs" />
@@ -47,10 +48,12 @@
     <Compile Include="Data\LayoutData.cs" />
     <Compile Include="Data\OpponentData.cs" />
     <Compile Include="Data\PlayerData.cs" />
+    <Compile Include="Data\SessionData.cs" />
     <Compile Include="Data\SkinData.cs" />
     <Compile Include="Data\TrackData.cs" />
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\EventType.cs" />
+    <Compile Include="Extensions\StringEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

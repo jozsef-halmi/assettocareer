@@ -15,19 +15,12 @@ namespace Assetto.Common.Data
 
         public PlayerData Player { get; set; }
 
-        //public CarData Car { get; set; }
-
-        //public SkinData Skin { get; set; }
-
-        //public CarConfigData CarConfig { get; set; }
-
         public List<OpponentData> Opponents { get; set; }
 
-        public EventType Type { get; set; }
+        public List<SessionData> Sessions { get; set; }
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
 
-        public int LapCount { get; set; }
 
     }
 }
