@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigSections\DynamicTrackConfig.cs" />
+    <Compile Include="ConfigSections\WeatherConfig.cs" />
+    <Compile Include="ConfigSections\TemperatureConfig.cs" />
+    <Compile Include="ConfigSections\LapInvalidatorConfig.cs" />
+    <Compile Include="ConfigSections\LightningConfig.cs" />
     <Compile Include="ConfigSections\RaceConfig.cs" />
     <Compile Include="ConfigSections\ConfigBase.cs" />
     <Compile Include="EventConfig.cs" />

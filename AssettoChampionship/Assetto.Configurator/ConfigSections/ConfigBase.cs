@@ -19,7 +19,8 @@ namespace Assetto.Configurator.ConfigSections
 
         public override string ToString()
         {
-            return string.Format("[{0}]", this.Header);
+            return $"[{this.Header}]";
+            //return string.Format("[{0}]", this.Header);
         }
     }
 }
