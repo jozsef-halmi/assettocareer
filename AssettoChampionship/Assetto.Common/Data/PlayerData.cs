@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assetto.Common.Data
 {
-    public class OpponentData : DriverData
+    public class PlayerData : DriverData
     {
-        public int Level { get; set; }
 
     }
 }

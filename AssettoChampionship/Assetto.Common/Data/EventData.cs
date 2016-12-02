@@ -13,11 +13,13 @@ namespace Assetto.Common.Data
 
         public LayoutData Layout { get; set; }
 
-        public CarData Car { get; set; }
+        public PlayerData Player { get; set; }
 
-        public SkinData Skin { get; set; }
+        //public CarData Car { get; set; }
 
-        public CarConfigData CarConfig { get; set; }
+        //public SkinData Skin { get; set; }
+
+        //public CarConfigData CarConfig { get; set; }
 
         public List<OpponentData> Opponents { get; set; }
 

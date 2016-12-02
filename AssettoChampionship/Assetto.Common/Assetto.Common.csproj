@@ -42,9 +42,11 @@
   <ItemGroup>
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
+    <Compile Include="Data\DriverData.cs" />
     <Compile Include="Data\EventData.cs" />
     <Compile Include="Data\LayoutData.cs" />
     <Compile Include="Data\OpponentData.cs" />
+    <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\SkinData.cs" />
     <Compile Include="Data\TrackData.cs" />
     <Compile Include="Enum\PenaltyType.cs" />

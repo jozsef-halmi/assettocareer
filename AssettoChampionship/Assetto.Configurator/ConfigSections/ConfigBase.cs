@@ -12,6 +12,10 @@ namespace Assetto.Configurator.ConfigSections
         public string Header { get; set; }
         public EventData EventData { get; set; }
 
+        public ConfigBase()
+        {
+        }
+
         public ConfigBase(EventData eventData)
         {
             this.EventData = eventData;

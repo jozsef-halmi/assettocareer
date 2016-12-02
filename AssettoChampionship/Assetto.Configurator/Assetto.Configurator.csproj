@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigSections\DynamicTrackConfig.cs" />
+    <Compile Include="ConfigSections\DriverConfig.cs" />
+    <Compile Include="ConfigSections\OpponentConfig.cs" />
+    <Compile Include="ConfigSections\PlayerConfig.cs" />
     <Compile Include="ConfigSections\WeatherConfig.cs" />
     <Compile Include="ConfigSections\TemperatureConfig.cs" />
     <Compile Include="ConfigSections\LapInvalidatorConfig.cs" />
