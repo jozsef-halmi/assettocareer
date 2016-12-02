@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assetto.Common.Enum
+namespace Assetto.Data
 {
-    public enum JumpStartPenaltyType
+    public class Skins
     {
-        None,
-        Pit,
-        DriveThrough
+        public static string Abarth500RaceCarOfficialSkin1 = "0_official";
+
     }
 }

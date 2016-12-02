@@ -10,6 +10,15 @@ namespace Assetto.Data
     public class SupportedSeries
     {
         // return EventData here
-
+        public static SeriesData AbarthRaceSeries = new SeriesData()
+        {
+            Name = "Trofeo Abarth 500"
+            , Description = "TO DO"
+            , ImageUrl = ""
+            , VideoUrl = ""
+            , Events = new List<EventData>() {
+                SupportedEvents.Abarth500RaceEvent1
+            }
+        };
     }
 }

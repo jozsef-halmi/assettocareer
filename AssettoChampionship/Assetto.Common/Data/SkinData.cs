@@ -9,5 +9,6 @@ namespace Assetto.Common.Data
     public class SkinData
     {
         public string Name { get; set; }
+        public string FriendlyName { get; set; }
     }
 }

@@ -9,13 +9,14 @@ namespace Assetto.Data
 {
     public static class SupportedCars
     {
-        public static List<CarData> Cars = new List<CarData>()
+        public static Dictionary<string, CarData> CarsDictionary = new Dictionary<string, CarData>()
         {
-            new CarData() {
-                Name = "abarth500_s1"
-                , FriendlyName = "Abarth 500 EsseEsse Step1"
-                , Description = "The Step1 tuned version of Abarth500 EsseEsse has non adjustable aftermarket dampers and lowered springs and an ECU reprogramming which gives a little more boost on the turbos, gaining a fair amount of power and torque."
-            }
+            { Cars.Abarth500RaceCar,  new CarData() {
+                Name = Cars.Abarth500RaceCar
+                , FriendlyName = "Abarth 500 Assetto Corse"
+                , Description = "Description for Abarth 500 Assetto Corse"
+            } }
+           
         };
     }
 }

@@ -22,13 +22,13 @@ namespace Assetto.Configurator.ConfigSections
             sb.AppendLine(base.ToString());
             sb.AppendLine("TRACK=" + this.EventData.Track.Name);
             sb.AppendLine("CONFIG_TRACK=" + this.EventData.Layout.Name);
-            sb.AppendLine("MODEL=" + this.EventData.CarConfig.Name);
+            sb.AppendLine("MODEL=" + this.EventData.Player.CarConfig.Name);
             sb.AppendLine("CARS=" + this.EventData.Opponents.Count + 1);
             sb.AppendLine("FIXED_SETUP=0");
             sb.AppendLine("PENALTIES=1");
-            sb.AppendLine("SKIN=" + this.EventData.Skin.Name);
+            sb.AppendLine("SKIN=" + this.EventData.Player.Skin.Name);
             sb.AppendLine("DRIFT_MODE=0");
-            sb.AppendLine("RACE_LAPS=" + this.EventData.LapCount);
+            //sb.AppendLine("RACE_LAPS=" + this.EventData.LapCount);
             sb.AppendLine("JUMP_START_PENALTY=" + this.EventData.JumpStartPenalty);
             sb.AppendLine("AI_CLASS=open");
             sb.AppendLine("ARM_FIRST_LAP = 0");

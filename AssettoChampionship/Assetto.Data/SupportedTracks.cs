@@ -9,11 +9,9 @@ namespace Assetto.Data
 {
     public static class SupportedTracks
     {
-        public static List<TrackData> Tracks = new List<TrackData>()
+        public static Dictionary<string, TrackData> TracksDictionary = new Dictionary<string, TrackData>()
         {
-            new TrackData() {
-                Name = "magione"
-                , FriendlyName = "Magione"
+            { Assetto.Data.Tracks.Magione, new TrackData() { Name = "magione", FriendlyName = "Magione" }
             }
         };
     }

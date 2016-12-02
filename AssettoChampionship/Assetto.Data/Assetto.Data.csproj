@@ -40,10 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cars.cs" />
+    <Compile Include="Skins.cs" />
+    <Compile Include="SupportedEvents.cs" />
+    <Compile Include="SupportedOpponents.cs" />
+    <Compile Include="SupportedPlayers.cs" />
     <Compile Include="SupportedSeries.cs" />
     <Compile Include="SupportedCars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupportedSessions.cs" />
+    <Compile Include="SupportedSkins.cs" />
     <Compile Include="SupportedTracks.cs" />
+    <Compile Include="Tracks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
