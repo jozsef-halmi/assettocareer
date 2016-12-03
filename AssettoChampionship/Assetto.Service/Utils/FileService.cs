@@ -17,6 +17,7 @@ namespace Assetto.Service
 
         public void WriteFile(string path, string contents)
         {
+            // It overwrites the file.
             File.WriteAllText(path, contents);
         }
     }

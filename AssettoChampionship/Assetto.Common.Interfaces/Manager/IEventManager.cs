@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Assetto.Common.Interfaces.Manager
 {
-    public interface ISeriesManager
+    public interface IEventManager
     {
-        IEnumerable<SeriesData> GetAvailableSeries();
+        void StartEvent(EventData eventData);
+
     }
 }

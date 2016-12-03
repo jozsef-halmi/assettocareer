@@ -21,18 +21,21 @@ namespace AssettoChampionship.ViewModels
         // Managers
         public ISeriesManager SeriesManager { get; set; }
         public IEventAggregator EventAggregator { get; set; }
+        public IEventManager EventManager { get; set; }
 
         public MainViewModel(ISeriesManager seriesManager
-            , IEventAggregator eventAggregator)
+            , IEventAggregator eventAggregator
+            , IEventManager eventManager)
         {
             this.SeriesManager = seriesManager;
             this.AvailableSeries = new BindableCollection<SeriesData>(SeriesManager.GetAvailableSeries());
             this.EventAggregator = eventAggregator;
+            this.EventManager = eventManager;
 
             // Mock
             var seriesData = AvailableSeries.First();
             var eventData = seriesData.Events.First();
-            SeriesManager.StartEvent(eventData);
+            this.EventManager.StartEvent(eventData);
         }
 
         protected override void OnActivate()

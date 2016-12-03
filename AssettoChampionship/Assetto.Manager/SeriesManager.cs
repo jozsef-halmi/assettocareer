@@ -37,13 +37,5 @@ namespace Assetto.Manager
             }
 
         }
-
-        public void StartEvent(EventData eventData)
-        {
-            var eventConfig = new EventConfig(eventData);
-            var str = eventConfig.ToString();
-            var a = 5;
-        }
-
     }
 }
