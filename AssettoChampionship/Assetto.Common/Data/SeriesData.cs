@@ -14,6 +14,7 @@ namespace Assetto.Common.Data
         public string ImageUrl { get; set; }
         public string VideoUrl { get; set; }
         public List<EventData> Events { get; set; }
+        public Guid Id { get; set; }
 
     }
 }

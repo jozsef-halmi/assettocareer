@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-               xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:local="clr-namespace:AssettoChampionship.Views"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
             BorderThickness="0" 
             GlowBrush="Black"
@@ -16,9 +18,32 @@
              d:DesignHeight="300" d:DesignWidth="300">
         <StackPanel>
             <TextBox x:Name="Name" />
-            <Button x:Name="SayHello"
-                Content="Click Me" />
-        </StackPanel>
+        <Button Content="Click Me">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <cal:ActionMessage MethodName="SayHello" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <ListBox x:Name="AvailableSeries"  
+                 Background="LightBlue">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <cal:ActionMessage MethodName="SeriesSelected" >
+                                        <cal:Parameter Value="{Binding Id}" />
+                                    </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <TextBlock Text="{Binding Name}">
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="settings" />

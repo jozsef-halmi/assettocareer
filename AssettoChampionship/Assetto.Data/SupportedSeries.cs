@@ -12,7 +12,8 @@ namespace Assetto.Data
         // return EventData here
         public static SeriesData AbarthRaceSeries = new SeriesData()
         {
-            Name = "Trofeo Abarth 500"
+            Id = Guid.NewGuid()
+            , Name = "Trofeo Abarth 500"
             , Description = "TO DO"
             , ImageUrl = ""
             , VideoUrl = ""
