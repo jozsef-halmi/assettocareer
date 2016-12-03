@@ -7,22 +7,23 @@ using Assetto.Common.Data;
 
 namespace Assetto.Configurator.ConfigSections
 {
-    public class LightningConfig : ConfigBase
+    public class GhostCarConfig : ConfigBase
     {
-        public LightningConfig(EventData eventData) : base(eventData)
+        public GhostCarConfig(EventData eventData) 
         {
-            this.Header = "LIGHTING";
+            this.Header = "GHOST_CAR";
         }
 
         public override string ToString()
         {
-            // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
+            sb.AppendLine("RECORDING=0");
+            sb.AppendLine("PLAYING=0");
+            sb.AppendLine("SECONDS_ADVANTAGE=0");
+            sb.AppendLine("LOAD=1");
+            sb.AppendLine("FILE=");
 
-            sb.AppendLine("SUN_ANGLE=16");
-            sb.AppendLine("TIME_MULT=1");
-            sb.AppendLine("CLOUD_SPEED=0.2");
             return sb.ToString();
         }
     }

@@ -55,6 +55,8 @@
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Extensions\StringEnum.cs" />
+    <Compile Include="Framework\ChangePageMessage.cs" />
+    <Compile Include="Framework\ChangePageParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

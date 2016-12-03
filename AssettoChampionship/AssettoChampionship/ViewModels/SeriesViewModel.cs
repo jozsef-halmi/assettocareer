@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class SeriesPageViewModel : PropertyChangedBase
+    public class SeriesViewModel : PropertyChangedBase
     {
-        public SeriesPageViewModel()
+        public SeriesViewModel()
         {
 
         }

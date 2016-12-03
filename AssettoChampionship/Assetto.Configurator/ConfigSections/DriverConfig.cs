@@ -13,13 +13,15 @@ namespace Assetto.Configurator.ConfigSections
 
         public DriverConfig(DriverData driverData, int carId) 
         {
-            this.Header = $"[CAR_{carId}]";
+            this.Header = $"CAR_{carId}";
             this.DriverData = driverData;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+
             sb.AppendLine("MODEL=" + this.DriverData.Car.Name);
             sb.AppendLine("MODEL_CONFIG=" + this.DriverData.CarConfig?.Name);
             sb.AppendLine("SKIN=" + this.DriverData.Skin.Name);

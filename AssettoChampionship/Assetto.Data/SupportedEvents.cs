@@ -14,7 +14,7 @@ namespace Assetto.Data
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough
             , Track =  SupportedTracks.TracksDictionary[Assetto.Data.Tracks.Magione]
             , Layout = null
-            , Player = SupportedPlayers.Abarth500RaceNvidia
+            , Player = SupportedPlayers.Abarth500RaceOfficial
             , Opponents = SupportedOpponents.OpponentsDictionary[Cars.Abarth500RaceCar]
             , Sessions = new List<SessionData>() {
                 SupportedSessions.Abarth500RaceEvent1Qualy

@@ -18,6 +18,7 @@ namespace Assetto.Configurator.ConfigSections
         {
             // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
             sb.AppendLine("AMBIENT=32");
             sb.AppendLine("ROAD=45");
             return sb.ToString();

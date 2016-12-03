@@ -7,22 +7,20 @@ using Assetto.Common.Data;
 
 namespace Assetto.Configurator.ConfigSections
 {
-    public class LightningConfig : ConfigBase
+    public class ReplayConfig : ConfigBase
     {
-        public LightningConfig(EventData eventData) : base(eventData)
+        public ReplayConfig(EventData eventData) 
         {
-            this.Header = "LIGHTING";
+            this.Header = "REPLAY";
         }
 
         public override string ToString()
         {
-            // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
+            sb.AppendLine("FILENAME=");
+            sb.AppendLine("ACTIVE=0");
 
-            sb.AppendLine("SUN_ANGLE=16");
-            sb.AppendLine("TIME_MULT=1");
-            sb.AppendLine("CLOUD_SPEED=0.2");
             return sb.ToString();
         }
     }

@@ -17,14 +17,13 @@ using System.Windows.Shapes;
 namespace AssettoChampionship.Views
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class ShellView : MetroWindow
     {
-        public MainView()
+        public ShellView()
         {
             InitializeComponent();
         }
- 
     }
 }

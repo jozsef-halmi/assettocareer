@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigSections\GrooveConfig.cs" />
+    <Compile Include="ConfigSections\ReplayConfig.cs" />
+    <Compile Include="ConfigSections\GhostCarConfig.cs" />
     <Compile Include="ConfigSections\DynamicTrackConfig.cs" />
     <Compile Include="ConfigSections\DriverConfig.cs" />
     <Compile Include="ConfigSections\OpponentConfig.cs" />

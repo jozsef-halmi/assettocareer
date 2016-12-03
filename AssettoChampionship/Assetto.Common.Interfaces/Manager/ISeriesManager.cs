@@ -10,5 +10,7 @@ namespace Assetto.Common.Interfaces.Manager
     public interface ISeriesManager
     {
         IEnumerable<SeriesData> GetAvailableSeries();
+        void StartEvent(EventData eventData);
+
     }
 }

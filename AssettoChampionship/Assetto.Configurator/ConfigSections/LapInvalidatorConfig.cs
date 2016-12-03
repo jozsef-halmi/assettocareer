@@ -18,6 +18,8 @@ namespace Assetto.Configurator.ConfigSections
         {
             // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+
             sb.AppendLine("ALLOWED_TYRES_OUT=2");
             return sb.ToString();
         }

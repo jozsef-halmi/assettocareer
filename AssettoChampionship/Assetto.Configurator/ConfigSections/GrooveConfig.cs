@@ -7,22 +7,21 @@ using Assetto.Common.Data;
 
 namespace Assetto.Configurator.ConfigSections
 {
-    public class LightningConfig : ConfigBase
+    public class GrooveConfig : ConfigBase
     {
-        public LightningConfig(EventData eventData) : base(eventData)
+        public GrooveConfig(EventData eventData) 
         {
-            this.Header = "LIGHTING";
+            this.Header = "GROOVE";
         }
 
         public override string ToString()
         {
-            // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
+            sb.AppendLine("VIRTUAL_LAPS=10");
+            sb.AppendLine("MAX_LAPS=30");
+            sb.AppendLine("STARTING_LAPS=0");
 
-            sb.AppendLine("SUN_ANGLE=16");
-            sb.AppendLine("TIME_MULT=1");
-            sb.AppendLine("CLOUD_SPEED=0.2");
             return sb.ToString();
         }
     }

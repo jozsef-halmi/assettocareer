@@ -9,10 +9,10 @@ namespace Assetto.Data
 {
     public class SupportedPlayers
     {
-        public static PlayerData Abarth500RaceNvidia = new PlayerData()
+        public static PlayerData Abarth500RaceOfficial= new PlayerData()
         {
             Car = SupportedCars.CarsDictionary[Assetto.Data.Cars.Abarth500RaceCar]
-            , Skin = SupportedSkins.SkinsDictionary[Skins.Abarth500RaceCarOfficialSkin1]
+            , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOfficialSkin1]
         };
     }
 }

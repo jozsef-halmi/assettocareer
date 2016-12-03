@@ -11,13 +11,14 @@ namespace Assetto.Configurator.ConfigSections
     {
         public WeatherConfig(EventData eventData) : base(eventData)
         {
-            this.Header = "TEMPERATURE";
+            this.Header = "WEATHER";
         }
 
         public override string ToString()
         {
             // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
             sb.AppendLine("NAME=3_clear");
             return sb.ToString();
         }

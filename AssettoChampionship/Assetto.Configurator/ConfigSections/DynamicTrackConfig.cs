@@ -18,6 +18,8 @@ namespace Assetto.Configurator.ConfigSections
         {
             // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+
             sb.AppendLine("SESSION_START=100");
             sb.AppendLine("SESSION_TRANSFER=100");
             sb.AppendLine("RANDOMNESS=0");

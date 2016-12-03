@@ -14,7 +14,7 @@ namespace Assetto.Configurator
 
         public EventConfig(EventData eventData)
         {
-            this.EventData = EventData;
+            this.EventData = eventData;
         }
 
         public override string ToString()
@@ -22,18 +22,30 @@ namespace Assetto.Configurator
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine(new RaceConfig(EventData).ToString());
-            sb.AppendLine();
+
+            sb.AppendLine(new GhostCarConfig(EventData).ToString());
+
+            sb.AppendLine(new ReplayConfig(EventData).ToString());
 
             sb.AppendLine(new LightningConfig(EventData).ToString());
-            sb.AppendLine();
+
+            sb.AppendLine(new GrooveConfig(EventData).ToString());
 
             sb.AppendLine(new DynamicTrackConfig(EventData).ToString());
-            sb.AppendLine();
 
             sb.AppendLine(new LapInvalidatorConfig(EventData).ToString());
-            sb.AppendLine();
+
+            sb.AppendLine(new TemperatureConfig(EventData).ToString());
+
+            sb.AppendLine(new WeatherConfig(EventData).ToString());
+
 
             // TODO: SESSION AND OTHERS HERE
+            for (int i = 0; i< EventData.Sessions.Count; i++)
+            {
+                sb.AppendLine(new SessionConfig(EventData.Sessions[i], i).ToString());
+                sb.AppendLine();
+            }
 
             sb.AppendLine(new PlayerConfig(EventData.Player).ToString());
             sb.AppendLine();
@@ -48,7 +60,6 @@ namespace Assetto.Configurator
             sb.AppendLine("ACTIVE=1");
             sb.AppendLine();
 
-            // TODO: AUTOSPAWN ADD
 
             return sb.ToString();
         }

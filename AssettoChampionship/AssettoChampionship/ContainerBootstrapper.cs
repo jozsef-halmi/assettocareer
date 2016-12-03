@@ -1,5 +1,6 @@
 ﻿using Assetto.Common.Interfaces.Manager;
 using Assetto.Manager;
+using AssettoChampionship.ViewModels;
 using Caliburn.Micro;
 using Microsoft.Practices.Unity;
 using System;
@@ -23,7 +24,6 @@ namespace AssettoChampionship
                 container.RegisterInstance<ISeriesManager>(new SeriesManager());
             }
 
-
             if (!container.IsRegistered<IWindowManager>())
             {
                 container.RegisterInstance<IWindowManager>(new WindowManager());
@@ -32,6 +32,26 @@ namespace AssettoChampionship
             {
                 container.RegisterInstance<IEventAggregator>(new EventAggregator());
             }
+
+            // View models
+            //if (!container.IsRegistered<ShellViewModel>())
+            //{
+            //    container.RegisterInstance<ShellViewModel>(
+            //        new ShellViewModel(container.Resolve<IEventAggregator>()
+            //        , container));
+            //}
+
+            //if (!container.IsRegistered<MainViewModel>())
+            //{
+            //    container.RegisterInstance<MainViewModel>(
+            //        new MainViewModel(container.Resolve<ISeriesManager>()
+            //        , container.Resolve<IEventAggregator>()));
+            //}
+
+            //if (!container.IsRegistered<SeriesViewModel>())
+            //{
+            //    container.RegisterInstance<SeriesViewModel>(new SeriesViewModel());
+            //}
 
         }
     }

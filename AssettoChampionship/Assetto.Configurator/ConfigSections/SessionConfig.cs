@@ -12,17 +12,18 @@ namespace Assetto.Configurator.ConfigSections
     {
         public SessionData SessionData { get; set; }
 
-        public SessionConfig(SessionData sessionData, int sessionId = 0)
+        public SessionConfig(SessionData sessionData, int sessionId)
         {
-            this.Header = $"[SESSION_${sessionId}]";
+            this.Header = $"SESSION_{sessionId}";
             this.SessionData = sessionData;
         }
 
         public override string ToString()
         {
             var sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
             sb.AppendLine("NAME=" + this.SessionData.EventType.GetStringValue());
-            sb.AppendLine("TYPE=" + this.SessionData.EventType);
+            sb.AppendLine("TYPE=" + (int)this.SessionData.EventType);
 
             if (this.SessionData.EventType == Common.Enum.EventType.Practice 
                 || this.SessionData.EventType == Common.Enum.EventType.Qualifying)
