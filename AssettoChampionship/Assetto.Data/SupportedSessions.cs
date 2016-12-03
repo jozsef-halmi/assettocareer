@@ -12,7 +12,8 @@ namespace Assetto.Data
         public static SessionData Abarth500RaceEvent1Qualy = new SessionData()
         {
             EventType = Common.Enum.EventType.Qualifying
-            , Duration = 15
+            , Duration = 10
+
         };
     }
 }
