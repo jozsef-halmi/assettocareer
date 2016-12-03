@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Manager\ISeriesManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IFileService.cs" />
     <Compile Include="Service\ILogService.cs" />
+    <Compile Include="Service\ISeriesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">

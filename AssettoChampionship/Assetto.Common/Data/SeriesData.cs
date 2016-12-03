@@ -10,6 +10,8 @@ namespace Assetto.Common.Data
     public class SeriesData
     {
         public string Name { get; set; }
+        public string FriendlyName { get; set; }
+
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string VideoUrl { get; set; }

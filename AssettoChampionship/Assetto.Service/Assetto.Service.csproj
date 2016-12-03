@@ -40,8 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogService.cs" />
+    <Compile Include="SeriesService.cs" />
+    <Compile Include="Utils\FileService.cs" />
+    <Compile Include="Utils\LogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Assetto.Common.Interfaces\Assetto.Common.Interfaces.csproj">
+      <Project>{67B1B0C4-8E91-4BB8-85BE-BC84841A94DC}</Project>
+      <Name>Assetto.Common.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
+      <Project>{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}</Project>
+      <Name>Assetto.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Assetto.Data\Assetto.Data.csproj">
+      <Project>{39D17DEB-409D-4EDD-BE26-C6FA36CE668B}</Project>
+      <Name>Assetto.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

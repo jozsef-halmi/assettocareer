@@ -193,6 +193,10 @@
       <Project>{bb3a9050-25a4-4ebf-a3ff-7ac203e0f5af}</Project>
       <Name>Assetto.Manager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Assetto.Service\Assetto.Service.csproj">
+      <Project>{1CC94B2D-D293-4A3C-84D6-3A638433D661}</Project>
+      <Name>Assetto.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

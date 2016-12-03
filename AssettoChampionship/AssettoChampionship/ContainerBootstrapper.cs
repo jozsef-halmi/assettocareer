@@ -1,5 +1,7 @@
 ﻿using Assetto.Common.Interfaces.Manager;
+using Assetto.Common.Interfaces.Service;
 using Assetto.Manager;
+using Assetto.Service;
 using AssettoChampionship.ViewModels;
 using Caliburn.Micro;
 using Microsoft.Practices.Unity;
@@ -16,13 +18,20 @@ namespace AssettoChampionship
         public static void RegisterTypes(IUnityContainer container)
         {
             // Registering types
+            // Managers
             container.RegisterType<ISeriesManager, SeriesManager>();
 
+            //Services
+            container.RegisterType<ISeriesService, SeriesService>();
+            container.RegisterType<IFileService, FileService>();
+            //container.RegisterType<ILogService, LogService>();
+
+
             // Registering instances
-            if (!container.IsRegistered<ISeriesManager>())
-            {
-                container.RegisterInstance<ISeriesManager>(new SeriesManager());
-            }
+            //if (!container.IsRegistered<ISeriesManager>())
+            //{
+            //    container.RegisterInstance<ISeriesManager>(new SeriesManager());
+            //}
 
             if (!container.IsRegistered<IWindowManager>())
             {
