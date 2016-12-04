@@ -25,6 +25,12 @@ namespace Assetto.Manager
         public ISeriesService SeriesService { get; set; }
         public IProcessService ProcessService { get; set; }
 
+        public Action<object> ConfigurationStarted { get; set; }
+        public Action<object> ConfigurationEnded { get; set; }
+        public Action<object> ACProcessStarted { get; set; }
+        public Action<object> ACProcessEnded { get; set; }
+
+
         public EventManager(IFileService fileService
             , ISeriesService seriesService
             , IProcessService processService)
@@ -34,11 +40,25 @@ namespace Assetto.Manager
             this.ProcessService = processService;
         }
 
+        public void SubscribeEvents(Action<object> configurationStarted
+            , Action<object> configurationEnded
+            , Action<object> processStarted
+            , Action<object> processEnded) {
+            this.ConfigurationStarted = configurationStarted;
+            this.ConfigurationEnded = configurationEnded;
+            this.ACProcessStarted = processStarted;
+            this.ACProcessEnded = processEnded;
+
+        }
+
 
         public void StartEvent(EventData eventData)
         {
+            this.ConfigurationStarted(new object());
             ConfigureEvent(eventData);
-            StartAssettoCorsa();
+            this.ConfigurationEnded(new object());
+
+            //StartAssettoCorsa();
         }
 
 
@@ -66,11 +86,12 @@ namespace Assetto.Manager
 
         private void AcsExeStartHandler(object sender, EventArgs e)
         {
-
+            this.ACProcessStarted(new object());
         }
 
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
+            this.ACProcessEnded(new object());
 
         }
 

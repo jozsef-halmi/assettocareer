@@ -2,10 +2,12 @@
 using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
 using Caliburn.Micro;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,10 +34,19 @@ namespace AssettoChampionship.ViewModels
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
 
+            this.EventManager.SubscribeEvents(this.ConfigurationStarted
+                , this.ConfigurationEnded
+                , this.ACProcessStarted
+                , this.ACProcessEnded);
+
+
+
             // Mock
-            var seriesData = AvailableSeries.First();
-            var eventData = seriesData.Events.First();
-            this.EventManager.StartEvent(eventData);
+
+
+
+   
+
         }
 
         protected override void OnActivate()
@@ -46,14 +57,69 @@ namespace AssettoChampionship.ViewModels
 
         public void SeriesSelected(Guid seriesId)
         {
-            EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
-                , action =>
-                {
-                    Task.Factory.StartNew(action);
-                });
+            var seriesData = AvailableSeries.First();
+            var eventData = seriesData.Events.First();
+
+            this.EventManager.StartEvent(eventData);
+
+            //EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
+            //    , action =>
+            //    {
+            //        Task.Factory.StartNew(action);
+            //    });
         }
 
+        #region callbacks
 
+        private void ConfigurationStarted(object o)
+        {
+            this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters() {
+                Text = "Config started"
+            })
+             , action =>
+             {
+                 Task.Factory.StartNew(action);
+             }
+            );
+        }
+
+        private void ConfigurationEnded(object o)
+        {
+            this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
+            {
+                Text = "Config ended"
+            })
+           , action =>
+           {
+               Task.Factory.StartNew(action);
+           });
+        }
+
+        private void ACProcessStarted(object o)
+        {
+            this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
+            {
+                Text = "AC start"
+            })
+           , action =>
+           {
+               Task.Factory.StartNew(action);
+           });
+        }
+
+        private void ACProcessEnded(object o)
+        {
+            this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
+            {
+                Text = "AC ended"
+            })
+           , action =>
+           {
+               Task.Factory.StartNew(action);
+           });
+        }
+
+        #endregion
 
 
 

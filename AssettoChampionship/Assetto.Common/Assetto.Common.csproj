@@ -56,6 +56,10 @@
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Extensions\StringEnum.cs" />
+    <Compile Include="Framework\UpdateDialogMessageParameters.cs" />
+    <Compile Include="Framework\UpdateDialogMessage.cs" />
+    <Compile Include="Framework\OpenDialogMessageParameters.cs" />
+    <Compile Include="Framework\OpenDialogMessage.cs" />
     <Compile Include="Framework\ChangePageMessage.cs" />
     <Compile Include="Framework\ChangePageParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

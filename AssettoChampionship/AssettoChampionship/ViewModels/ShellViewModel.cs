@@ -1,28 +1,39 @@
 ﻿using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
+using AssettoChampionship.Servies;
+using AssettoChampionship.ViewModels.Dialog;
+using AssettoChampionship.Views;
 using Caliburn.Micro;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
+using System.Windows.Threading;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class ShellViewModel : Conductor<object>, IHandle<ChangePageMessage>
+    public class ShellViewModel : Conductor<object>
+        , IHandle<ChangePageMessage>
+        , IHandle<OpenDialogMessage>
+        , IHandle<UpdateDialogMessage>
     {
-        //public IWindowManager WindowManager;
+        public IWindowManager WindowManager;
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
 
         public ShellViewModel(
-            //IWindowManager windowManager
-             IEventAggregator eventAggregator
+            IWindowManager windowManager
+            , IEventAggregator eventAggregator
             , IUnityContainer container)
         {
-            //this.WindowManager = windowManager;
+            this.WindowManager = windowManager;
             this.Container = container;
             this.EventAggregator = eventAggregator;
 
@@ -42,6 +53,23 @@ namespace AssettoChampionship.ViewModels
                 default:
                     break;
             }
+        }
+
+        public void Handle(OpenDialogMessage message)
+        {
+            WindowManager.ShowDialog(Container.Resolve<LoadingViewModel>(), null,null);
+            //ActivateItem(Container.Resolve<LoadingViewModel>());
+
+        }
+
+        public void Handle(UpdateDialogMessage message)
+        {
+            //var loadingVM = Container.Resolve<LoadingViewModel>();
+            //if (loadingVM.IsOpen)
+            //{
+            //    loadingVM.UpdateData(message.Data);
+
+            //}
         }
 
         public void ShowMainPage()
