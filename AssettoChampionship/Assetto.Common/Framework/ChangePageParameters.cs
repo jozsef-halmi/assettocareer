@@ -8,5 +8,6 @@ namespace Assetto.Common.Framework
 {
     public class ChangePageParameters
     {
+        public object Parameter { get; set; }
     }
 }

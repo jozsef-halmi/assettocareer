@@ -1,4 +1,5 @@
-﻿using Assetto.Common.Framework;
+﻿using Assetto.Common.Data;
+using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
 using AssettoChampionship.Servies;
 using AssettoChampionship.ViewModels.Dialog;
@@ -48,7 +49,13 @@ namespace AssettoChampionship.ViewModels
             switch (message.ViewModelType.Name)
             {
                 case "SeriesViewModel":
-                    ShowSeriesPage();
+                    ShowSeriesPage(message.Data);
+                    break;
+                case "EventsViewModel":
+                    ShowEventsPage(message.Data);
+                    break;
+                case "SessionsViewModel":
+                    ShowSessionsPage(message.Data);
                     break;
                 default:
                     break;
@@ -82,8 +89,20 @@ namespace AssettoChampionship.ViewModels
             ActivateItem(Container.Resolve<MainViewModel>());
         }
 
-        public void ShowSeriesPage() {
+        public void ShowSeriesPage(ChangePageParameters parameters) {
             ActivateItem(Container.Resolve<SeriesViewModel>());
+        }
+
+        public void ShowEventsPage(ChangePageParameters parameters)
+        {
+            var eventsVM = Container.Resolve<EventsViewModel>();
+            ActivateItem(eventsVM);
+            eventsVM.SetSeries(parameters.Parameter as SeriesData);
+        }
+
+        public void ShowSessionsPage(ChangePageParameters parameters)
+        {
+            ActivateItem(Container.Resolve<SessionsViewModel>());
         }
 
         //public void ShowPageTwo()

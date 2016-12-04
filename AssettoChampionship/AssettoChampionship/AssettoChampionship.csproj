@@ -103,14 +103,19 @@
     <Compile Include="ContainerBootstrapper.cs" />
     <Compile Include="Servies\DialogService.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
+    <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SeriesViewModel.cs" />
+    <Compile Include="ViewModels\SessionsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\Dialog\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EventsView.xaml.cs">
+      <DependentUpon>EventsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SeriesView.xaml.cs">
       <DependentUpon>SeriesView.xaml</DependentUpon>
@@ -145,6 +150,10 @@
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EventsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SeriesView.xaml">
       <SubType>Designer</SubType>

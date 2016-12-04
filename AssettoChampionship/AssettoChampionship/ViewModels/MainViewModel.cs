@@ -17,20 +17,16 @@ namespace AssettoChampionship.ViewModels
     //[Export(typeof(IShell))]
     public class MainViewModel : Screen
     {
-        // Databinded objects
-        public BindableCollection<SeriesData> AvailableSeries { get; set; }
+  
 
         // Managers
-        public ISeriesManager SeriesManager { get; set; }
         public IEventAggregator EventAggregator { get; set; }
         public IEventManager EventManager { get; set; }
 
-        public MainViewModel(ISeriesManager seriesManager
-            , IEventAggregator eventAggregator
+        public MainViewModel(
+            IEventAggregator eventAggregator
             , IEventManager eventManager)
         {
-            this.SeriesManager = seriesManager;
-            this.AvailableSeries = new BindableCollection<SeriesData>(SeriesManager.GetAvailableSeries());
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
 
@@ -39,14 +35,6 @@ namespace AssettoChampionship.ViewModels
                 , this.ACProcessStarted
                 , this.ACProcessEnded);
 
-
-
-            // Mock
-
-
-
-   
-
         }
 
         protected override void OnActivate()
@@ -54,20 +42,16 @@ namespace AssettoChampionship.ViewModels
             base.OnActivate();
         }
 
-
-        public void SeriesSelected(Guid seriesId)
-        {
-            var seriesData = AvailableSeries.First();
-            var eventData = seriesData.Events.First();
-
-            this.EventManager.StartEvent(eventData);
-
-            //EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
-            //    , action =>
-            //    {
-            //        Task.Factory.StartNew(action);
-            //    });
+        public void OpenSeries() {
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
+            , action =>
+            {
+                Task.Factory.StartNew(action);
+            }
+           );
         }
+
+     
 
         #region callbacks
 

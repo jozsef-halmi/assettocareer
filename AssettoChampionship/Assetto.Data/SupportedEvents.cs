@@ -11,7 +11,8 @@ namespace Assetto.Data
     {
         public static EventData Abarth500RaceEvent1 = new EventData()
         {
-            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough
+            FriendlyName = "Abarth 500 at Magione"
+            , JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough
             , Track =  SupportedTracks.TracksDictionary[Assetto.Data.Tracks.Magione]
             , Layout = null
             , Player = SupportedPlayers.Abarth500RaceOfficial

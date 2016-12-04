@@ -21,24 +21,13 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <ListBox x:Name="AvailableSeries"  
-                 Background="LightBlue">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="MouseLeftButtonDown">
-                                <cal:ActionMessage MethodName="SeriesSelected" >
-                                        <cal:Parameter Value="{Binding Id}" />
-                                    </cal:ActionMessage>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <TextBlock Text="{Binding FriendlyName}">
-                        </TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Button Content="Go to series">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <cal:ActionMessage MethodName="OpenSeries" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </StackPanel>
     
 </UserControl>
