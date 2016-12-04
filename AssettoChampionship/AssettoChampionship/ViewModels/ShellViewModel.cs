@@ -57,13 +57,18 @@ namespace AssettoChampionship.ViewModels
 
         public void Handle(OpenDialogMessage message)
         {
-            WindowManager.ShowDialog(Container.Resolve<LoadingViewModel>(), null,null);
-            //ActivateItem(Container.Resolve<LoadingViewModel>());
+            //WindowManager.ShowDialog(Container.Resolve<LoadingViewModel>(), null,null);
+            var loadingVM = Container.Resolve<LoadingViewModel>();
+            ActivateItem(loadingVM);
+            loadingVM.Text = message.Data.Text;
+
 
         }
 
         public void Handle(UpdateDialogMessage message)
         {
+            var loadingVM = Container.Resolve<LoadingViewModel>();
+            loadingVM.Text = message.Data.Text;
             //var loadingVM = Container.Resolve<LoadingViewModel>();
             //if (loadingVM.IsOpen)
             //{

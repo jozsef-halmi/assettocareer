@@ -9,11 +9,36 @@ using System.Threading.Tasks;
 
 namespace AssettoChampionship.ViewModels.Dialog
 {
-    public class LoadingViewModel : Screen
+    public class LoadingViewModel : PropertyChangedBase
     {
         public bool IsOpen { get; set; }
-        public string Title { get; set; }
-        public string Text { get; set; }
+
+
+        string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                NotifyOfPropertyChange(() => Title);
+            }
+        }
+
+        string _test;
+
+        public string Text
+        {
+            get { return _test; }
+            set
+            {
+                _test = value;
+                NotifyOfPropertyChange(() => Text);
+            }
+        }
+
+
         //public IWindowManager WindowManager;
         public IDialogCoordinator DialogCoordinator { get; set; }
 
