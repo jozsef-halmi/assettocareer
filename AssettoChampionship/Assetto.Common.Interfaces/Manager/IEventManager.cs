@@ -10,7 +10,7 @@ namespace Assetto.Common.Interfaces.Manager
     public interface IEventManager
     {
 
-        void StartEvent(EventData eventData);
+        void StartEvent(EventData eventData, SessionData session);
         void SubscribeEvents(Action<object> configurationStarted, Action<object> configurationEnded, Action<object> processStarted, Action<object> processEnded);
     }
 }

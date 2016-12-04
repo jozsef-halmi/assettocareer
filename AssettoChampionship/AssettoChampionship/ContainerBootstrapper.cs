@@ -49,6 +49,10 @@ namespace AssettoChampionship
                 container.RegisterInstance<IEventAggregator>(new EventAggregator());
             }
 
+            //Viewmodels
+            container.RegisterType<IEventManager>(new ContainerControlledLifetimeManager());
+
+
             // View models
             //if (!container.IsRegistered<ShellViewModel>())
             //{

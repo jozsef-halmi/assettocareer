@@ -38,7 +38,7 @@ namespace AssettoChampionship.ViewModels
         public void SetEvent(EventData selectedEvent)
         {
             this.Event = selectedEvent;
-            this.Sessions = new BindableCollection<SessionData>(selectedEvent.Sessions);
+            this.Sessions = new BindableCollection<SessionData>(selectedEvent.CareerSessions);
         }
 
         public void SessionSelected(Guid eventId)
@@ -46,7 +46,7 @@ namespace AssettoChampionship.ViewModels
             var selectedSession = this.Sessions.Where(e => e.Id == eventId).FirstOrDefault();
             if (selectedSession != null)
             {
-                EventManager.StartEvent
+                EventManager.StartEvent(this.Event, selectedSession);
             }
         }
 

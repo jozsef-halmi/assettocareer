@@ -57,17 +57,18 @@ namespace Assetto.Manager
         }
 
 
-        public void StartEvent(EventData eventData)
+        public void StartEvent(EventData eventData, SessionData session)
         {
             this.ConfigurationStarted(new object());
-            ConfigureEvent(eventData);
+            ConfigureEvent(eventData, session);
             this.ConfigurationEnded(new object());
 
             //StartAssettoCorsa();
         }
 
 
-        private void ConfigureEvent(EventData eventData) {
+        private void ConfigureEvent(EventData eventData, SessionData session) {
+            eventData.GameSessions = new List<SessionData>() { session };
             var eventConfig = new EventConfig(eventData);
             var raceIni = eventConfig.ToString();
 

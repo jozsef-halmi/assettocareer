@@ -41,9 +41,9 @@ namespace Assetto.Configurator
 
 
             // TODO: SESSION AND OTHERS HERE
-            for (int i = 0; i< EventData.Sessions.Count; i++)
+            for (int i = 0; i< EventData.GameSessions.Count; i++)
             {
-                sb.AppendLine(new SessionConfig(EventData.Sessions[i], i).ToString());
+                sb.AppendLine(new SessionConfig(EventData.GameSessions[i], i).ToString());
                 sb.AppendLine();
             }
 

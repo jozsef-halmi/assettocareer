@@ -21,7 +21,9 @@ namespace Assetto.Common.Data
 
         public List<OpponentData> Opponents { get; set; }
 
-        public List<SessionData> Sessions { get; set; }
+        public List<SessionData> GameSessions { get; set; }
+
+        public List<SessionData> CareerSessions { get; set; }
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
 

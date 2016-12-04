@@ -14,7 +14,12 @@ namespace Assetto.Data
             Id = Guid.NewGuid()
             , EventType = Common.Enum.EventType.Qualifying
             , Duration = 10
-
+        };
+        public static SessionData Abarth500RaceEvent1Race1 = new SessionData()
+        {
+            Id = Guid.NewGuid()
+           , EventType = Common.Enum.EventType.Race
+           , Laps = 5
         };
     }
 }

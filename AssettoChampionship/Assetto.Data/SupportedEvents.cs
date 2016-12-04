@@ -18,8 +18,9 @@ namespace Assetto.Data
             , Layout = null
             , Player = SupportedPlayers.Abarth500RaceOfficial
             , Opponents = SupportedOpponents.OpponentsDictionary[Cars.Abarth500RaceCar]
-            , Sessions = new List<SessionData>() {
+            , CareerSessions = new List<SessionData>() {
                 SupportedSessions.Abarth500RaceEvent1Qualy
+                , SupportedSessions.Abarth500RaceEvent1Race1
             }
         };
     }
