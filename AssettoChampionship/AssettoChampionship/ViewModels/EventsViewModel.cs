@@ -1,4 +1,5 @@
 ﻿using Assetto.Common.Data;
+using Assetto.Common.Framework;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,18 @@ namespace AssettoChampionship.ViewModels
         public void SetSeries(SeriesData series) {
             this.Series = series;
             this.Events = new BindableCollection<EventData>(series.Events);
+        }
+
+        public void EventSelected(Guid eventId)
+        {
+            var selectedEvent = this.Events.Where(e => e.Id == eventId).FirstOrDefault();
+            if (selectedEvent != null)
+            {
+                this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
+                {
+                    Parameter = selectedEvent
+                }), action => { Task.Factory.StartNew(action); });
+            }
         }
 
 

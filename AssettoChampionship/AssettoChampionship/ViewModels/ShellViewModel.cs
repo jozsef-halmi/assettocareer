@@ -102,7 +102,9 @@ namespace AssettoChampionship.ViewModels
 
         public void ShowSessionsPage(ChangePageParameters parameters)
         {
-            ActivateItem(Container.Resolve<SessionsViewModel>());
+            var sessionsVM = Container.Resolve<SessionsViewModel>();
+            ActivateItem(sessionsVM);
+            sessionsVM.SetEvent(parameters.Parameter as EventData);
         }
 
         //public void ShowPageTwo()

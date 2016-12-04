@@ -9,6 +9,8 @@ namespace Assetto.Common.Data
 {
     public class EventData
     {
+        public Guid Id { get; set; }
+
         public string FriendlyName { get; set; }
 
         public TrackData Track { get; set; }

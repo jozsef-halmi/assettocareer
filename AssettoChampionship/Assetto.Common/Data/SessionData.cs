@@ -9,6 +9,8 @@ namespace Assetto.Common.Data
 {
     public class SessionData
     {
+        public Guid Id { get; set; }
+
         public EventType EventType { get; set; }
 
         // For practice, and qual
