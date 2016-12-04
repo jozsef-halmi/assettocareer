@@ -68,6 +68,7 @@ namespace Assetto.Manager
 
 
         private void ConfigureEvent(EventData eventData, SessionData session) {
+            // TODO: Config, for example, race: starting positions!
             eventData.GameSessions = new List<SessionData>() { session };
             var eventConfig = new EventConfig(eventData);
             var raceIni = eventConfig.ToString();

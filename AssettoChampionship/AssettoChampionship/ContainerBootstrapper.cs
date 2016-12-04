@@ -21,7 +21,7 @@ namespace AssettoChampionship
             // Registering types
             // Managers
             container.RegisterType<ISeriesManager, SeriesManager>();
-            container.RegisterType<IEventManager, EventManager>();
+            container.RegisterType<IEventManager, EventManager>(new ContainerControlledLifetimeManager());
 
             //Services
             container.RegisterType<ISeriesService, SeriesService>();
@@ -50,7 +50,6 @@ namespace AssettoChampionship
             }
 
             //Viewmodels
-            container.RegisterType<IEventManager>(new ContainerControlledLifetimeManager());
 
 
             // View models
