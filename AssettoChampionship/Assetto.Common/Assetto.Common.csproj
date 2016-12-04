@@ -62,12 +62,14 @@
     <Compile Include="Framework\OpenDialogMessage.cs" />
     <Compile Include="Framework\ChangePageMessage.cs" />
     <Compile Include="Framework\ChangePageParameters.cs" />
+    <Compile Include="Output\ResultLap.cs" />
+    <Compile Include="Output\EventResult.cs" />
+    <Compile Include="Output\ResultPlayer.cs" />
+    <Compile Include="Output\SessionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ProcessInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Output\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

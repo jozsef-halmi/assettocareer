@@ -29,6 +29,7 @@ namespace AssettoChampionship
             // Utils
             container.RegisterType<IFileService, FileService>();
             container.RegisterType<IProcessService, ProcessService>();
+            container.RegisterType<IResultService, ResultService>();
 
             //container.RegisterType<ILogService, LogService>();
 

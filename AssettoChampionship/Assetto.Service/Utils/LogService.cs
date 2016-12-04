@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assetto.Service
 {
-    class LogService
+    public class LogService
     {
     }
 }

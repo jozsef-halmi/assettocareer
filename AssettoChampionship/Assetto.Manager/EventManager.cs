@@ -9,6 +9,7 @@ using Assetto.Common.Interfaces.Manager;
 using Assetto.Configurator;
 using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
+using Assetto.Common.Output;
 
 namespace Assetto.Manager
 {
@@ -19,11 +20,13 @@ namespace Assetto.Manager
         private const string ASSETTO_CORSA_EXE_PATH = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\AssettoCorsa.exe";
         private const string ACS_EXE_X64 = "acs.exe";
         private const string ACS_EXE_X86 = "acs_x86.exe";
+        private const string OUTPUT_LOG_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\out\\race_out.json";
 
 
         public IFileService FileService { get; set; }
         public ISeriesService SeriesService { get; set; }
         public IProcessService ProcessService { get; set; }
+        public IResultService ResultService { get; set; }
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -33,11 +36,13 @@ namespace Assetto.Manager
 
         public EventManager(IFileService fileService
             , ISeriesService seriesService
-            , IProcessService processService)
+            , IProcessService processService
+            , IResultService resultService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.ProcessService = processService;
+            this.ResultService = resultService;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -77,6 +82,11 @@ namespace Assetto.Manager
             }
         }
 
+        private void ProcessResults(EventResult result)
+        {
+
+        }
+
         private void StartAssettoCorsa()
         {
             this.ProcessService.StartProcess(ASSETTO_CORSA_EXE_PATH);
@@ -91,7 +101,21 @@ namespace Assetto.Manager
 
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
-            this.ACProcessEnded(new object());
+            // Process Log
+            EventResult result;
+            try
+            {
+                var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
+                result = this.ResultService.GetResult(logFile);
+
+            }
+            catch (Exception)
+            {
+                //TODO
+                throw;
+            }
+            this.ProcessResults(result);
+            this.ACProcessEnded(result);
 
         }
 
