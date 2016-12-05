@@ -93,8 +93,57 @@ namespace Assetto.Service.Tests.ResultService
 
             var isSuccess = finishBefore.Evaluate(result);
             Assert.IsFalse(isSuccess);
-            Assert.IsTrue(false); // TODO: Implement
 
         }
+
+
+        [TestMethod]
+        public void ProcessResultTest_Race1_FinishTop()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);
+
+            // Evaluate TOP Finish
+            var finishFirst15 = new FinishTopNSessionObjective() { N = 15 };
+            var finishFirst10 = new FinishTopNSessionObjective() { N = 10 };
+            var finishFirst5 = new FinishTopNSessionObjective() { N = 5 };
+            var finishFirst4 = new FinishTopNSessionObjective() { N = 4 };
+            var finishFirst3 = new FinishTopNSessionObjective() { N = 3 };
+            var finishFirst2 = new FinishTopNSessionObjective() { N = 2 };
+            var finishFirst1 = new FinishTopNSessionObjective() { N = 1 };
+
+
+            Assert.IsTrue(finishFirst15.Evaluate(result));
+            Assert.IsTrue(finishFirst10.Evaluate(result));
+            Assert.IsTrue(finishFirst5.Evaluate(result));
+            Assert.IsTrue(finishFirst4.Evaluate(result));
+            Assert.IsTrue(finishFirst3.Evaluate(result));
+            Assert.IsTrue(finishFirst2.Evaluate(result));
+
+            // Should be false
+            Assert.IsFalse(finishFirst1.Evaluate(result));
+
+        }
+
+        [TestMethod]
+        public void ProcessResultTest_Race1_FinishBefore()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);
+
+            // Evaluate TOP Finish
+            var finishBeforeJazmineShouldBeFalse = new FinishBeforeObjective() { Name = "Jazmine Hermanson" };
+            var finishBeforeKendalShouldBeTrue = new FinishBeforeObjective() { Name = "Kendal Buckley" };
+            var finishBeforeErlendShouldBeTrue = new FinishBeforeObjective() { Name = "Erlend Braband" };
+            var finishBeforeKurtisShouldBeTrue = new FinishBeforeObjective() { Name = "Kurtis Nadeau" };
+            var finishBeforeDarellShouldBeTrue = new FinishBeforeObjective() { Name = "Darell Hoyt" };
+
+            Assert.IsFalse(finishBeforeJazmineShouldBeFalse.Evaluate(result));
+            Assert.IsTrue(finishBeforeKendalShouldBeTrue.Evaluate(result));
+            Assert.IsTrue(finishBeforeErlendShouldBeTrue.Evaluate(result));
+            Assert.IsTrue(finishBeforeKurtisShouldBeTrue.Evaluate(result));
+            Assert.IsTrue(finishBeforeDarellShouldBeTrue.Evaluate(result));
+        }
+
     }
 }

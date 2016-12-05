@@ -25,6 +25,8 @@ namespace Assetto.Common.Output
 
         public List<OutputLap> BestLaps { get; set; }
 
+        public List<int> RaceResult { get; set; }
+
         // TODO: Extras
     }
 }

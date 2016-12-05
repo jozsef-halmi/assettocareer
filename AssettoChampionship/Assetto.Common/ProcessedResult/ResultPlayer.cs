@@ -29,6 +29,10 @@ namespace Assetto.Common.ProcessedResult
 
         public List<ResultLap> Laps { get; set; }
 
+        public int Position { get; set; }
+
+        public int TotalTime { get; set; }
+
 
     }
 }

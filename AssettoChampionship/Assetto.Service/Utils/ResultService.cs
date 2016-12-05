@@ -61,39 +61,8 @@ namespace Assetto.Service.Utils
             result.EventType = lastSession.Type;
             //result.pr
 
-            var qualyResults = new List<ResultPlayer>();
-
-            // Fill the players
-            for (int i = 0; i < outputLog.Players.Count(); i++)
-            {
-                // Get laps for the given car
-                var lapsForCar = lastSession.Laps.Where(l => l.Car == i);
-                var resultPlayer = new ResultPlayer()
-                {
-                    Name = outputLog.Players[i].Name
-                    , LapCount = lapsForCar.Count()
-                    , Id = i
-                };
-
-                if (lapsForCar != null)
-                {
-
-                    resultPlayer.Laps = lapsForCar.Select(l => new ResultLap()
-                    {
-                        Time = l.Time
-                        , LapId = l.Lap
-                        , Sectors = l.Sectors
-                    }).ToList();
-                }
-                else
-                {
-                    // Had no time
-                }
-                qualyResults.Add(resultPlayer);
-            }
-
-            result.QualificationResult = qualyResults.OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
-
+            result.QualificationResult = GetPlayers(result, outputLog).OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
+            result = FillPositions(result, outputLog);
             //result.Track = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
             //result.Layout = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
 
@@ -103,8 +72,91 @@ namespace Assetto.Service.Utils
 
         private Result ProcessRace(OutputLog outputLog)
         {
-            // TODO: Implement
-            return null;
+            var lastSession = outputLog.Sessions.Last();
+
+            var result = new Result();
+
+            // Set the friendly name of the track
+            
+            result.Track = outputLog.Track;
+            result.Duration = lastSession.Duration;
+            result.LapCount = lastSession.LapsCount;
+            result.EventType = lastSession.Type;
+
+
+            result.RaceResult = GetPlayers(result, outputLog);
+            result = FillPositions(result, outputLog);
+
+            return result;
+        }
+
+        private List<ResultPlayer> GetPlayers(Result result, OutputLog outputLog)
+        {
+            var lastSession = outputLog.Sessions.Last();
+            var results = new List<ResultPlayer>();
+
+            // Fill the players
+            for (int i = 0; i < outputLog.Players.Count(); i++)
+            {
+                // Get laps for the given car
+                var lapsForCar = lastSession.Laps.Where(l => l.Car == i);
+                var resultPlayer = new ResultPlayer()
+                {
+                    Name = outputLog.Players[i].Name
+                    ,
+                    LapCount = lapsForCar.Count()
+                    ,
+                    Id = i
+                };
+
+                if (lapsForCar != null)
+                {
+
+                    resultPlayer.Laps = lapsForCar.Select(l => new ResultLap()
+                    {
+                        Time = l.Time
+                        ,
+                        LapId = l.Lap
+                        ,
+                        Sectors = l.Sectors
+                    }).ToList();
+                }
+                else
+                {
+                    // Had no time
+                }
+                results.Add(resultPlayer);
+            }
+            return results;
+        }
+
+        private Result FillPositions(Result result, OutputLog outputLog = null)
+        {
+            switch (result.EventType)
+            {
+                case EventType.Practice: // Should go to qualy
+                case EventType.Qualifying:
+                    for (int i = 0; i < result.QualificationResult.Count; i++)
+                    {
+                        result.QualificationResult[i].Position = i+1;
+                    }
+                    break;
+                case EventType.Race:
+                    var raceResults =  new List<ResultPlayer>();
+                    var lastSession = outputLog.Sessions.Last();
+                    for (int i = 0; i < result.RaceResult.Count; i++)
+                    {
+                        var carId = lastSession.RaceResult[i];
+                        var playerResult = result.RaceResult.FirstOrDefault(c => c.Id == carId);
+                        playerResult.Position = i+1;
+                        playerResult.TotalTime = playerResult.Laps.Sum(pr => pr.Time);
+                        raceResults.Add(playerResult);
+
+                    }
+                    result.RaceResult = raceResults.ToList();
+                    break;
+            }
+            return result;
         }
 
         public void EvaluateSessionResult(Result result)
@@ -113,6 +165,8 @@ namespace Assetto.Service.Utils
             //result.
 
         }
+
+
 
 
      

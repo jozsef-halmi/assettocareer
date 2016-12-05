@@ -67,10 +67,10 @@
     <Compile Include="Objectives\LapTimeUnderObjective.cs" />
     <Compile Include="Objectives\FinishTopNSessionObjective.cs" />
     <Compile Include="Objectives\SessionObjective.cs" />
-    <Compile Include="Output\ResultLap.cs" />
-    <Compile Include="Output\EventResult.cs" />
-    <Compile Include="Output\ResultPlayer.cs" />
-    <Compile Include="Output\SessionResult.cs" />
+    <Compile Include="Output\OutputLap.cs" />
+    <Compile Include="Output\OutputLog.cs" />
+    <Compile Include="Output\OutputPlayer.cs" />
+    <Compile Include="Output\OutputSession.cs" />
     <Compile Include="ProcessedResult\Result.cs" />
     <Compile Include="ProcessedResult\ResultLap.cs" />
     <Compile Include="ProcessedResult\ResultPlayer.cs" />
