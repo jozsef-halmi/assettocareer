@@ -48,6 +48,7 @@
     <Compile Include="SupportedSeries.cs" />
     <Compile Include="SupportedCars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupportedSessionObjectives.cs" />
     <Compile Include="SupportedSessions.cs" />
     <Compile Include="SupportedSkins.cs" />
     <Compile Include="SupportedTracks.cs" />

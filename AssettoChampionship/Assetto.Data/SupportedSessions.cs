@@ -21,9 +21,9 @@ namespace Assetto.Data
             Id = Guid.NewGuid()
            , EventType = Common.Enum.EventType.Race
            , Laps = 5
-            , SessionObjectives = new List<Objective>()
+            , SessionObjectives = new List<SessionObjective>()
             {
-                FinishTopNObjective.WinObjective
+               SupportedSessionObjectives.Win
             }
          
         };

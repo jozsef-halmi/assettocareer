@@ -28,7 +28,7 @@ namespace Assetto.Common.Data
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
 
-        public IEnumerable<Objective> EventObjectives { get; set; }
+        public IEnumerable<SessionObjective> EventObjectives { get; set; }
 
 
     }

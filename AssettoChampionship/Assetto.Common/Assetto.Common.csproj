@@ -62,8 +62,8 @@
     <Compile Include="Framework\OpenDialogMessage.cs" />
     <Compile Include="Framework\ChangePageMessage.cs" />
     <Compile Include="Framework\ChangePageParameters.cs" />
-    <Compile Include="Objectives\FinishTopNObjective.cs" />
-    <Compile Include="Objectives\Objective.cs" />
+    <Compile Include="Objectives\FinishTopNSessionObjective.cs" />
+    <Compile Include="Objectives\SessionObjective.cs" />
     <Compile Include="Output\ResultLap.cs" />
     <Compile Include="Output\EventResult.cs" />
     <Compile Include="Output\ResultPlayer.cs" />
