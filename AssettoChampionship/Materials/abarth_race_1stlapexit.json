@@ -1,0 +1,53 @@
+
+{
+	"track": "magione",
+	"number_of_sessions": 1,
+	"players": [
+		{
+			"name": "",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "0_official"
+		}, 
+		{
+			"name": "Jazmine Hermanson",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "orange_grey"
+		}, 
+		{
+			"name": "Kendal Buckley",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "racing_500"
+		}, 
+		{
+			"name": "Erlend Braband",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "light_blue_orange"
+		}, 
+		{
+			"name": "Kurtis Nadeau",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "black_neon"
+		}, 
+		{
+			"name": "Darell Hoyt",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "silver_red"
+		}],
+	"sessions": [
+		{
+			"event": 0,
+			"name": "Quick Race",
+			"type": 3,
+			"lapsCount": 3,
+			"duration": 30,
+			"laps": [],
+			"lapstotal": [0, 0, 0, 0, 0, 0],
+			"bestLaps": [],
+			"raceResult": [1, 3, 2, 5, 4, 0]
+		}],
+	"extras": [
+		{
+			"name": "bestlap",
+			"time": 0
+		}]
+}

@@ -1,0 +1,168 @@
+
+{
+	"track": "magione",
+	"number_of_sessions": 1,
+	"players": [
+		{
+			"name": "",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "0_official"
+		}, 
+		{
+			"name": "Jazmine Hermanson",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "orange_grey"
+		}, 
+		{
+			"name": "Kendal Buckley",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "racing_500"
+		}, 
+		{
+			"name": "Erlend Braband",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "light_blue_orange"
+		}, 
+		{
+			"name": "Kurtis Nadeau",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "black_neon"
+		}, 
+		{
+			"name": "Darell Hoyt",
+			"car": "ks_abarth500_assetto_corse",
+			"skin": "silver_red"
+		}],
+	"sessions": [
+		{
+			"event": 0,
+			"name": "Quick Race",
+			"type": 3,
+			"lapsCount": 3,
+			"duration": 30,
+			"laps": [
+				{
+					"lap": 0,
+					"car": 1,
+					"sectors": [54642, 39150],
+					"time": 93792
+				}, 
+				{
+					"lap": 1,
+					"car": 1,
+					"sectors": [49535, 39078],
+					"time": 88613
+				}, 
+				{
+					"lap": 2,
+					"car": 1,
+					"sectors": [49637, 39133],
+					"time": 88770
+				}, 
+				{
+					"lap": 0,
+					"car": 2,
+					"sectors": [61364, 38880],
+					"time": 100244
+				}, 
+				{
+					"lap": 1,
+					"car": 2,
+					"sectors": [49894, 38867],
+					"time": 88761
+				}, 
+				{
+					"lap": 2,
+					"car": 2,
+					"sectors": [50039, 38876],
+					"time": 88915
+				}, 
+				{
+					"lap": 0,
+					"car": 3,
+					"sectors": [56540, 38872],
+					"time": 95412
+				}, 
+				{
+					"lap": 1,
+					"car": 3,
+					"sectors": [50507, 39051],
+					"time": 89558
+				}, 
+				{
+					"lap": 2,
+					"car": 3,
+					"sectors": [50069, 39335],
+					"time": 89404
+				}, 
+				{
+					"lap": 0,
+					"car": 4,
+					"sectors": [60604, 38889],
+					"time": 99493
+				}, 
+				{
+					"lap": 1,
+					"car": 4,
+					"sectors": [49569, 39073],
+					"time": 88642
+				}, 
+				{
+					"lap": 2,
+					"car": 4,
+					"sectors": [49659, 38947],
+					"time": 88606
+				}, 
+				{
+					"lap": 0,
+					"car": 5,
+					"sectors": [58399, 38835],
+					"time": 97234
+				}, 
+				{
+					"lap": 1,
+					"car": 5,
+					"sectors": [49550, 39070],
+					"time": 88620
+				}, 
+				{
+					"lap": 2,
+					"car": 5,
+					"sectors": [49702, 39384],
+					"time": 89086
+				}],
+			"lapstotal": [0, 3, 3, 3, 3, 3],
+			"bestLaps": [
+				{
+					"car": 1,
+					"time": 88613,
+					"lap": 1
+				}, 
+				{
+					"car": 2,
+					"time": 88761,
+					"lap": 1
+				}, 
+				{
+					"car": 3,
+					"time": 89404,
+					"lap": 2
+				}, 
+				{
+					"car": 4,
+					"time": 88606,
+					"lap": 2
+				}, 
+				{
+					"car": 5,
+					"time": 88620,
+					"lap": 1
+				}],
+			"raceResult": [1, 3, 5, 4, 2, 0]
+		}],
+	"extras": [
+		{
+			"name": "bestlap",
+			"time": 0
+		}]
+}

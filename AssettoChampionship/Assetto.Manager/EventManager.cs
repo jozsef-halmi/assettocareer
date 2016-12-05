@@ -71,7 +71,7 @@ namespace Assetto.Manager
             ConfigureEvent(eventData, session);
             this.ConfigurationEnded(new object());
 
-            //StartAssettoCorsa();
+            StartAssettoCorsa();
         }
 
 

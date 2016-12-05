@@ -20,7 +20,7 @@ namespace Assetto.Data
         {
             Id = new Guid("87e44ef2-59ed-47e1-8f9a-a4bfbab6bbcc")
            , EventType = Common.Enum.EventType.Race
-           , Laps = 5
+           , Laps = 3
             , PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Win
