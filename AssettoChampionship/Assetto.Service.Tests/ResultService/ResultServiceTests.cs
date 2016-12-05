@@ -13,18 +13,36 @@ namespace Assetto.Service.Tests.ResultService
     public class ResultServiceTests
     {
         [TestMethod]
-        public void ProcessResultTest()
+        public void ProcessResultTest_1()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
-            var finishNObjective = new FinishTopNSessionObjective()
+            var finishPodiumObjective = new FinishTopNSessionObjective()
             {
                 N = 3
             };
 
-            finishNObjective.Evaluate(result);
+            var finishPodium = finishPodiumObjective.Evaluate(result);
+            Assert.IsFalse(finishPodium);
+        }
+
+        [TestMethod]
+        public void ProcessResultTest_2()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+
+            // Evaluate TOP Finish
+            var finishFirst15 = new FinishTopNSessionObjective()
+            {
+                N = 15
+            };
+
+            var finishedFirst15 = finishFirst15.Evaluate(result);
+            Assert.IsTrue(finishedFirst15);
+
         }
     }
 }
