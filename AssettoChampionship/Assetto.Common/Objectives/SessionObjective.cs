@@ -17,13 +17,13 @@ namespace Assetto.Common.Objectives
 
         public bool Evaluate(Result result)
         {
-            switch (result.EventType)
+            switch (result.SessionType)
             {
-                case EventType.Practice:
+                case SessionType.Practice:
                     return this.EvaluatePractice(result);
-                case EventType.Qualifying:
+                case SessionType.Qualifying:
                     return this.EvaluateQualify(result);
-                case EventType.Race:
+                case SessionType.Race:
                     return this.EvaluateRace(result);
                 default:
                     throw new Exception("Invalid eventtype");

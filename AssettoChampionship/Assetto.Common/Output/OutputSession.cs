@@ -13,7 +13,7 @@ namespace Assetto.Common.Output
 
         public string Name { get; set; }
 
-        public EventType Type { get; set; }
+        public SessionType Type { get; set; }
 
         public int LapsCount { get; set; }
 

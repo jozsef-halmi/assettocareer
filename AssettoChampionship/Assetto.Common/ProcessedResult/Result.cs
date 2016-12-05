@@ -24,7 +24,7 @@ namespace Assetto.Common.ProcessedResult
 
         public string FriendlyName { get; set; }
 
-        public EventType EventType { get; set; }
+        public SessionType SessionType { get; set; }
 
         // EventType chooses these
         public List<ResultPlayer> QualificationResult { get; set; }

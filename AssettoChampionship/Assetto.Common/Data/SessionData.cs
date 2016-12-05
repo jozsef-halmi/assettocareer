@@ -12,7 +12,7 @@ namespace Assetto.Common.Data
     {
         public Guid Id { get; set; }
 
-        public EventType EventType { get; set; }
+        public SessionType SessionType { get; set; }
 
         // For practice, and qual
         public int? Duration { get; set; }

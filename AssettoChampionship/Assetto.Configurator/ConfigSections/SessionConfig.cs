@@ -22,16 +22,16 @@ namespace Assetto.Configurator.ConfigSections
         {
             var sb = new StringBuilder();
             sb.AppendLine(base.ToString());
-            sb.AppendLine("NAME=" + this.SessionData.EventType.GetStringValue());
-            sb.AppendLine("TYPE=" + (int)this.SessionData.EventType);
+            sb.AppendLine("NAME=" + this.SessionData.SessionType.GetStringValue());
+            sb.AppendLine("TYPE=" + (int)this.SessionData.SessionType);
 
-            if (this.SessionData.EventType == Common.Enum.EventType.Practice 
-                || this.SessionData.EventType == Common.Enum.EventType.Qualifying)
+            if (this.SessionData.SessionType == Common.Enum.SessionType.Practice 
+                || this.SessionData.SessionType == Common.Enum.SessionType.Qualifying)
             {
                 sb.AppendLine("DURATION_MINUTES="+this.SessionData.Duration);
                 sb.AppendLine("SPAWN_SET=PIT");
             }
-            else if (this.SessionData.EventType == Common.Enum.EventType.Race)
+            else if (this.SessionData.SessionType == Common.Enum.SessionType.Race)
             {
                 sb.AppendLine("LAPS="+this.SessionData.Laps);
                 sb.AppendLine("SPAWN_SET=START");

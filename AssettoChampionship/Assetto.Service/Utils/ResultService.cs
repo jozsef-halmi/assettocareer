@@ -30,11 +30,11 @@ namespace Assetto.Service.Utils
             {
                 switch (lastSession.Type)
                 {
-                    case EventType.Practice:
+                    case SessionType.Practice:
                         return ProcessPractice(outputLog);
-                    case EventType.Qualifying:
+                    case SessionType.Qualifying:
                         return ProcessQualify(outputLog);
-                    case EventType.Race:
+                    case SessionType.Race:
                         return ProcessRace(outputLog);
                 }
             }
@@ -58,7 +58,7 @@ namespace Assetto.Service.Utils
             result.Track = outputLog.Track;
             result.Duration = lastSession.Duration;
             result.LapCount = lastSession.LapsCount;
-            result.EventType = lastSession.Type;
+            result.SessionType = lastSession.Type;
             //result.pr
 
             result.QualificationResult = GetPlayers(result, outputLog).OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
@@ -81,7 +81,7 @@ namespace Assetto.Service.Utils
             result.Track = outputLog.Track;
             result.Duration = lastSession.Duration;
             result.LapCount = lastSession.LapsCount;
-            result.EventType = lastSession.Type;
+            result.SessionType = lastSession.Type;
 
 
             result.RaceResult = GetPlayers(result, outputLog);
@@ -132,16 +132,16 @@ namespace Assetto.Service.Utils
 
         private Result FillPositions(Result result, OutputLog outputLog = null)
         {
-            switch (result.EventType)
+            switch (result.SessionType)
             {
-                case EventType.Practice: // Should go to qualy
-                case EventType.Qualifying:
+                case SessionType.Practice: // Should go to qualy
+                case SessionType.Qualifying:
                     for (int i = 0; i < result.QualificationResult.Count; i++)
                     {
                         result.QualificationResult[i].Position = i+1;
                     }
                     break;
-                case EventType.Race:
+                case SessionType.Race:
                     var raceResults =  new List<ResultPlayer>();
                     var lastSession = outputLog.Sessions.Last();
                     for (int i = 0; i < result.RaceResult.Count; i++)

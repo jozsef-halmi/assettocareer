@@ -14,6 +14,8 @@ namespace Assetto.Common.Data
 
         public string FriendlyName { get; set; }
 
+        public EventType EventType { get; set; }
+
         public TrackData Track { get; set; }
 
         public LayoutData Layout { get; set; }
@@ -28,7 +30,7 @@ namespace Assetto.Common.Data
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
 
-        public IEnumerable<SessionObjective> EventObjectives { get; set; }
+        public List<SessionObjective> EventObjectives { get; set; }
 
 
     }
