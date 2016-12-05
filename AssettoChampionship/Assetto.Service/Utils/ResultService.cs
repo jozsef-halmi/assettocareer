@@ -59,6 +59,7 @@ namespace Assetto.Service.Utils
             result.Duration = lastSession.Duration;
             result.LapCount = lastSession.LapsCount;
             result.EventType = lastSession.Type;
+            //result.pr
 
             var qualyResults = new List<ResultPlayer>();
 
@@ -106,15 +107,10 @@ namespace Assetto.Service.Utils
             return null;
         }
 
-        public IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, OutputLog result)
+        public void EvaluateSessionResult(Result result)
         {
             // Session objectives
-            foreach (var objective in sessionData.SessionObjectives)
-            {
-                //var objectiveResult = objective.Evaluate(sessionData, result);
-            }
-            return null;
-            // Event objectives
+            //result.
 
         }
 

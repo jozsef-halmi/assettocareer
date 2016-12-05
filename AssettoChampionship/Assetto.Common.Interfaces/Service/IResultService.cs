@@ -16,6 +16,6 @@ namespace Assetto.Common.Interfaces.Service
 
         Result ProcessResult(OutputLog outputLog);
 
-        IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, OutputLog result);
+        void EvaluateSessionResult(Result result);
     }
 }

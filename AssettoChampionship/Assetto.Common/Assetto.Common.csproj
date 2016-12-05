@@ -64,6 +64,7 @@
     <Compile Include="Framework\ChangePageMessage.cs" />
     <Compile Include="Framework\ChangePageParameters.cs" />
     <Compile Include="Objectives\FinishBeforeObjective.cs" />
+    <Compile Include="Objectives\LapTimeUnderObjective.cs" />
     <Compile Include="Objectives\FinishTopNSessionObjective.cs" />
     <Compile Include="Objectives\SessionObjective.cs" />
     <Compile Include="Output\ResultLap.cs" />

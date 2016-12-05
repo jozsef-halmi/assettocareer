@@ -21,7 +21,10 @@ namespace Assetto.Common.Data
         public int? Laps { get; set; }
         public int? StartingPosition { get; set; }
 
-        public IEnumerable<SessionObjective> SessionObjectives { get; set; }
+        public IEnumerable<SessionObjective> PrimarySessionObjectives { get; set; }
+
+        public IEnumerable<SessionObjective> SecondarySessionObjectives { get; set; }
+
 
 
     }

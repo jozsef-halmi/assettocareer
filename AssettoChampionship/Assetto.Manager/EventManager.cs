@@ -34,6 +34,10 @@ namespace Assetto.Manager
         public Action<object> ACProcessStarted { get; set; }
         public Action<object> ACProcessEnded { get; set; }
 
+        // TODO: Refine this
+        public EventData SelectedEvent { get; set; }
+        public SessionData SelectedSession { get; set; }
+
 
         public EventManager(IFileService fileService
             , ISeriesService seriesService
@@ -60,6 +64,9 @@ namespace Assetto.Manager
 
         public void StartEvent(EventData eventData, SessionData session)
         {
+            this.SelectedEvent = eventData;
+            this.SelectedSession = session;
+
             this.ConfigurationStarted(new object());
             ConfigureEvent(eventData, session);
             this.ConfigurationEnded(new object());
