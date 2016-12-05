@@ -13,7 +13,7 @@ namespace Assetto.Service.Tests.ResultService
     public class ResultServiceTests
     {
         [TestMethod]
-        public void ProcessResultTest_1()
+        public void ProcessResultTest__FinishTopNEvaluatorTest1()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -29,7 +29,7 @@ namespace Assetto.Service.Tests.ResultService
         }
 
         [TestMethod]
-        public void ProcessResultTest_2()
+        public void ProcessResultTest_FinishTopNEvaluatorTest2()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -42,6 +42,58 @@ namespace Assetto.Service.Tests.ResultService
 
             var finishedFirst15 = finishFirst15.Evaluate(result);
             Assert.IsTrue(finishedFirst15);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ProcessResultTest_FinishBeforeEvaluatorTest_NameNotPresent()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+
+            // Evaluate TOP Finish
+            var finishBefore = new FinishBeforeObjective()
+            {
+                Name = "SomeName"
+            };
+
+            finishBefore.Evaluate(result);
+
+        }
+
+        [TestMethod]
+        public void ProcessResultTest_FinishBeforeEvaluatorTest_ObjectiveFalse()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+
+            // Evaluate TOP Finish
+            var finishBefore = new FinishBeforeObjective()
+            {
+                Name = "Kendal Buckley"
+            };
+
+            var isSuccess =  finishBefore.Evaluate(result);
+            Assert.IsFalse(isSuccess);
+
+        }
+
+        [TestMethod]
+        public void ProcessResultTest_FinishBeforeEvaluatorTest_ObjectiveTrue()
+        {
+            var resultService = new Utils.ResultService();
+            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+
+            // Evaluate TOP Finish
+            var finishBefore = new FinishBeforeObjective()
+            {
+                Name = "Kendal Buckley"
+            };
+
+            var isSuccess = finishBefore.Evaluate(result);
+            Assert.IsFalse(isSuccess);
+            Assert.IsTrue(false); // TODO: Implement
 
         }
     }

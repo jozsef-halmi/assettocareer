@@ -16,17 +16,40 @@ namespace Assetto.Common.Objectives
 
         protected override bool EvaluatePractice(Result result)
         {
-            throw new NotImplementedException();
+            // should be the same as qualy
+            return this.EvaluateQualify(result);
         }
 
         protected override bool EvaluateQualify(Result result)
         {
-            throw new NotImplementedException();
+            return FinishedBefore(this.Name, result.QualificationResult);
         }
 
         protected override bool EvaluateRace(Result result)
         {
-            throw new NotImplementedException();
+            return FinishedBefore(this.Name, result.RaceResult);
+
+        }
+
+        private bool FinishedBefore(string opponentName, List<ResultPlayer> resultPlayers)
+        {
+            // Car with ID 0 is controlled by the Player
+            var playerFinished = resultPlayers.IndexOf(
+                resultPlayers.FirstOrDefault(c => c.Id == 0)
+            ) + 1; // Because, you can't finish 0th
+
+            if (resultPlayers.IndexOf(
+                    resultPlayers.FirstOrDefault(c => c.Name == opponentName)
+                ) < 0)
+            {
+                throw new ArgumentException("No opponent named "+opponentName);
+            }
+
+            var opponentFinished = resultPlayers.IndexOf(
+                resultPlayers.FirstOrDefault(c => c.Name == opponentName)
+            ) + 1; // Because, you can't finish 0th
+
+            return playerFinished < opponentFinished;
         }
     }
 }
