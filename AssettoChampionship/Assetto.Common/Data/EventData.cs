@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Objectives;
 
 namespace Assetto.Common.Data
 {
@@ -26,6 +27,8 @@ namespace Assetto.Common.Data
         public List<SessionData> CareerSessions { get; set; }
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
+
+        public IEnumerable<Objective> EventObjectives { get; set; }
 
 
     }

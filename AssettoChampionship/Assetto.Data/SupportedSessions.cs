@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Objectives;
 
 namespace Assetto.Data
 {
@@ -20,6 +21,11 @@ namespace Assetto.Data
             Id = Guid.NewGuid()
            , EventType = Common.Enum.EventType.Race
            , Laps = 5
+            , SessionObjectives = new List<Objective>()
+            {
+                FinishTopNObjective.WinObjective
+            }
+         
         };
     }
 }
