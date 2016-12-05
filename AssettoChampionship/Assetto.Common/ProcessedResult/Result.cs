@@ -23,9 +23,9 @@ namespace Assetto.Common.ProcessedResult
 
         public EventType EventType { get; set; }
 
-        public IEnumerable<ResultPlayer> QualificationResult { get; set; }
+        public List<ResultPlayer> QualificationResult { get; set; }
 
-        public IEnumerable<ResultPlayer> RaceResult { get; set; }
+        public List<ResultPlayer> RaceResult { get; set; }
 
 
 

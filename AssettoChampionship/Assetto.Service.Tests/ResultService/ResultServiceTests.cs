@@ -15,7 +15,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResultTest()
         {
             var resultService = new Utils.ResultService();
-             var outputLog = resultService.GetResult(TestData.QualifyOutputLog);
+             var outputLog = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
         }
     }
 }

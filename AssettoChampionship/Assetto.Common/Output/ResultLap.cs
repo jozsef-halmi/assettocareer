@@ -10,7 +10,7 @@ namespace Assetto.Common.Output
     {
         public int Lap { get; set; }
         public int Car { get; set; }
-        public IEnumerable<int> Sectors { get; set; }
+        public List<int> Sectors { get; set; }
         public int Time { get; set; }
     }
 }

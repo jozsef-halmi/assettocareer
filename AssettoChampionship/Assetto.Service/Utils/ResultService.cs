@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Comparers;
 using Assetto.Common.Data;
 using Assetto.Common.Enum;
 using Assetto.Common.Objectives;
@@ -65,30 +66,33 @@ namespace Assetto.Service.Utils
             {
                 // Get laps for the given car
                 var lapsForCar = lastSession.Laps.Where(l => l.Car == i);
+                var resultPlayer = new ResultPlayer()
+                {
+                    Name = outputLog.Players[i].Name
+                    , LapCount = lapsForCar.Count()
+                    , Id = i
+                };
+
                 if (lapsForCar != null)
                 {
-                    var resultPlayer = new ResultPlayer()
+
+                    resultPlayer.Laps = lapsForCar.Select(l => new ResultLap()
                     {
-                               Name = outputLog.Players[i].Name
-                               , LapCount = lapsForCar.Count()
-                               , Laps = lapsForCar.Select(l => new ResultLap()
-                        {
-                            Time =  l.Time
-                            , LapId = l.Lap
-                            , Sectors = l.Sectors
-                        })
-                    };
-                    qualyResults.Add(resultPlayer);
+                        Time = l.Time
+                        , LapId = l.Lap
+                        ,Sectors = l.Sectors
+                    }).ToList();
                 }
                 else
                 {
                     // Had no time
                 }
-            }
+                qualyResults.Add(resultPlayer);
 
+        }
 
-            result.QualificationResult = qualyResults;
-
+        result.QualificationResult = qualyResults.OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
+            var a = 5;
 
             //result.Track = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
             //result.Layout = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;

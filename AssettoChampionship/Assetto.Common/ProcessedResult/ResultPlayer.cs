@@ -21,13 +21,13 @@ namespace Assetto.Common.ProcessedResult
                 }
                 else
                 {
-                    return this.Laps.OrderByDescending(l => l.Time).First().Time;
+                    return this.Laps.OrderBy(l => l.Time).First().Time;
                 }
             }
         }
         public int LapCount { get; set; }
 
-        public IEnumerable<ResultLap> Laps { get; set; }
+        public List<ResultLap> Laps { get; set; }
 
 
     }

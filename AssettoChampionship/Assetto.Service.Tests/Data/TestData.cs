@@ -8,11 +8,11 @@ namespace Assetto.Service.Tests.Data
 {
     public static class TestData
     {
-        public static string QualifyOutputLog = @"{
+        public static string QualifyOutputLog_PlayerWithoutTime = @"{
 	""track"": ""magione"",
 	""number_of_sessions"": 1,
 	""players"": [{
-		""name"": """",
+		""name"": ""PlayerWithoutTime"",
 		""car"": ""ks_abarth500_assetto_corse"",
 		""skin"": ""0_official""
 	}, {

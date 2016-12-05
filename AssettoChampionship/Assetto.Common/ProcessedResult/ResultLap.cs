@@ -8,7 +8,7 @@ namespace Assetto.Common.ProcessedResult
 {
     public class ResultLap
     {
-        public IEnumerable<int> Sectors { get; set; }
+        public List<int> Sectors { get; set; }
 
         public int Time { get; set; }
 

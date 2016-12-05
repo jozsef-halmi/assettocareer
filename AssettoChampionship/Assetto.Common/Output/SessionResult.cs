@@ -19,11 +19,11 @@ namespace Assetto.Common.Output
 
         public int Duration { get; set; }
 
-        public IEnumerable<OutputLap> Laps { get; set; }
+        public List<OutputLap> Laps { get; set; }
 
-        public IEnumerable<int> LapsTotal { get; set; }
+        public List<int> LapsTotal { get; set; }
 
-        public IEnumerable<OutputLap> BestLaps { get; set; }
+        public List<OutputLap> BestLaps { get; set; }
 
         // TODO: Extras
     }
