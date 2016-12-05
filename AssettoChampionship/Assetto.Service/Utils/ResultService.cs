@@ -58,6 +58,7 @@ namespace Assetto.Service.Utils
             result.Track = outputLog.Track;
             result.Duration = lastSession.Duration;
             result.LapCount = lastSession.LapsCount;
+            result.EventType = lastSession.Type;
 
             var qualyResults = new List<ResultPlayer>();
 
@@ -80,7 +81,7 @@ namespace Assetto.Service.Utils
                     {
                         Time = l.Time
                         , LapId = l.Lap
-                        ,Sectors = l.Sectors
+                        , Sectors = l.Sectors
                     }).ToList();
                 }
                 else
@@ -88,11 +89,9 @@ namespace Assetto.Service.Utils
                     // Had no time
                 }
                 qualyResults.Add(resultPlayer);
+            }
 
-        }
-
-        result.QualificationResult = qualyResults.OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
-            var a = 5;
+            result.QualificationResult = qualyResults.OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
 
             //result.Track = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
             //result.Layout = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
@@ -112,7 +111,7 @@ namespace Assetto.Service.Utils
             // Session objectives
             foreach (var objective in sessionData.SessionObjectives)
             {
-                var objectiveResult = objective.Evaluate(sessionData, result);
+                //var objectiveResult = objective.Evaluate(sessionData, result);
             }
             return null;
             // Event objectives

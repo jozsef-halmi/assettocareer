@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Assetto.Common.Data;
 using Assetto.Common.Enum;
 using Assetto.Common.Output;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Common.Objectives
 {
@@ -14,6 +15,24 @@ namespace Assetto.Common.Objectives
     {
         public bool IsSuccess  { get; set; }
 
-        public abstract bool Evaluate(SessionData sessionData, OutputLog result);
+        public bool Evaluate(Result result)
+        {
+            switch (result.EventType)
+            {
+                case EventType.Practice:
+                    return this.EvaluatePractice(result);
+                case EventType.Qualifying:
+                    return this.EvaluateQualify(result);
+                case EventType.Race:
+                    return this.EvaluateRace(result);
+                default:
+                    throw new Exception("Invalid eventtype");
+            }
+        }
+
+        protected abstract bool EvaluatePractice(Result result);
+        protected abstract bool EvaluateQualify(Result result);
+        protected abstract bool EvaluateRace(Result result);
+
     }
 }

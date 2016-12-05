@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Assetto.Common.Data;
 using Assetto.Common.Enum;
 using Assetto.Common.Output;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Common.Objectives
 {
@@ -13,16 +14,30 @@ namespace Assetto.Common.Objectives
     {
         public int N { get; set; }
 
-        public override bool Evaluate(SessionData sessionData, OutputLog result)
-        {
-            var lastSession = result.Sessions.LastOrDefault();
-            if (lastSession != null)
-            {
 
-            }
-            // TODO: Support multiple session events
-            // TODO
-            return false;
+        protected override bool EvaluatePractice(Result result)
+        {
+            // Should be the same as qualify
+            return this.EvaluateQualify(result);
+        }
+
+        protected override bool EvaluateQualify(Result result)
+        {
+            return FinishedTopN(this.N, result.QualificationResult);
+        }
+
+        protected override bool EvaluateRace(Result result)
+        {
+            return FinishedTopN(this.N, result.RaceResult);
+        }
+
+        private bool FinishedTopN(int N, List<ResultPlayer> resultPlayers)
+        {
+            // Car with ID 0 is controlled by the Player
+            var finished = resultPlayers.IndexOf(
+                resultPlayers.FirstOrDefault(c => c.Id == 0)
+            ) + 1; // Because, you can't finish 0th
+            return finished <= N;
         }
     }
 }
