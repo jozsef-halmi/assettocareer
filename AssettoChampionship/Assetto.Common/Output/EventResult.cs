@@ -12,9 +12,9 @@ namespace Assetto.Common.Output
 
         public int Number_of_sessions { get; set; }
 
-        public IEnumerable<OutputPlayer> Players { get; set; }
+        public List<OutputPlayer> Players { get; set; }
 
-        public IEnumerable<OutputSession> Sessions { get; set; }
+        public List<OutputSession> Sessions { get; set; }
 
     }
 }

@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service", "Assetto.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship.Web", "AssettoChampionship.Web\AssettoChampionship.Web.csproj", "{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9B675ECE-AF62-4274-8211-E2C9A537E9EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service.Tests", "Assetto.Service.Tests\Assetto.Service.Tests.csproj", "{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}.Release|x86.ActiveCfg = Release|x86
 		{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}.Release|x86.Build.0 = Release|x86
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Debug|x86.Build.0 = Debug|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Release|x86.ActiveCfg = Release|Any CPU
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,5 +137,6 @@ Global
 		{67B1B0C4-8E91-4BB8-85BE-BC84841A94DC} = {FD6224D5-CE48-4F65-81D2-BBCD4B87A869}
 		{1CC94B2D-D293-4A3C-84D6-3A638433D661} = {21A2D9A7-66C6-4CB9-AEB3-4D660B000CC9}
 		{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A} = {085045DB-B32B-4746-9247-BF09F7EF0FA0}
+		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF} = {9B675ECE-AF62-4274-8211-E2C9A537E9EB}
 	EndGlobalSection
 EndGlobal

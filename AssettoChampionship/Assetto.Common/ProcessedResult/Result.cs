@@ -11,6 +11,12 @@ namespace Assetto.Common.ProcessedResult
     {
         public string Track { get; set; }
 
+        public int Duration { get; set; }
+
+        public int LapCount { get; set; }
+
+        //public string Layout { get; set; }
+
         public string Name { get; set; }
 
         public string FriendlyName { get; set; }

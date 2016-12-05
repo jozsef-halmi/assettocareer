@@ -6,12 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Data;
 using Assetto.Common.Objectives;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Common.Interfaces.Service
 {
     public interface IResultService
     {
-        OutputLog GetResult(string contents);
+        Result GetResult(string contents);
+
+        Result ProcessResult(OutputLog outputLog);
 
         IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, OutputLog result);
     }

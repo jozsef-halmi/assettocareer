@@ -10,6 +10,7 @@ using Assetto.Configurator;
 using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.Output;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Manager
 {
@@ -104,7 +105,7 @@ namespace Assetto.Manager
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
             // Process Log
-            OutputLog result;
+            Result result;
             try
             {
                 var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
@@ -116,7 +117,6 @@ namespace Assetto.Manager
                 //TODO
                 throw;
             }
-            this.ProcessResults(result);
             this.ACProcessEnded(result);
 
         }
