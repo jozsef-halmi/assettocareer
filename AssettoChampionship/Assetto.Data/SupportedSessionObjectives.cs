@@ -15,5 +15,11 @@ namespace Assetto.Data
             N = 1
             , IsSuccess = false
         };
+
+        public static SessionObjective Podium = new FinishTopNSessionObjective()
+        {
+            N = 3
+          , IsSuccess = false
+        };
     }
 }

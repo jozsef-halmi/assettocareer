@@ -14,12 +14,12 @@ namespace Assetto.Service.Utils
 {
     public class ResultService : IResultService
     {
-        public EventResult GetResult(string contents)
+        public OutputLog GetResult(string contents)
         {
-            return JsonConvert.DeserializeObject<EventResult>(contents);
+            return JsonConvert.DeserializeObject<OutputLog>(contents);
         }
 
-        public IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, EventResult result)
+        public IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, OutputLog result)
         {
             // Session objectives
             foreach (var objective in sessionData.SessionObjectives)

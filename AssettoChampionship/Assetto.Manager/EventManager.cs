@@ -84,7 +84,7 @@ namespace Assetto.Manager
             }
         }
 
-        private void ProcessResults(EventResult result)
+        private void ProcessResults(OutputLog result)
         {
 
         }
@@ -104,7 +104,7 @@ namespace Assetto.Manager
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
             // Process Log
-            EventResult result;
+            OutputLog result;
             try
             {
                 var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);

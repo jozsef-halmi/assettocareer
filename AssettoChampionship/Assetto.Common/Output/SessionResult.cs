@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assetto.Common.Output
 {
-    public class SessionResult
+    public class OutputSession
     {
         public int Event { get; set; }
 
@@ -19,11 +19,11 @@ namespace Assetto.Common.Output
 
         public int Duration { get; set; }
 
-        public IEnumerable<ResultLap> Laps { get; set; }
+        public IEnumerable<OutputLap> Laps { get; set; }
 
         public IEnumerable<int> LapsTotal { get; set; }
 
-        public IEnumerable<ResultLap> BestLaps { get; set; }
+        public IEnumerable<OutputLap> BestLaps { get; set; }
 
         // TODO: Extras
     }

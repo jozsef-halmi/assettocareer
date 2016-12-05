@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assetto.Common.Output
 {
-    public class ResultPlayer
+    public class OutputPlayer
     {
         public string Name { get; set; }
         public string Car { get; set; }

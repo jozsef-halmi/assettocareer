@@ -14,6 +14,6 @@ namespace Assetto.Common.Objectives
     {
         public bool IsSuccess  { get; set; }
 
-        public abstract bool Evaluate(SessionData sessionData, EventResult result);
+        public abstract bool Evaluate(SessionData sessionData, OutputLog result);
     }
 }

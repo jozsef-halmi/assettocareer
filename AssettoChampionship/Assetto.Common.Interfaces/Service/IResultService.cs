@@ -11,8 +11,8 @@ namespace Assetto.Common.Interfaces.Service
 {
     public interface IResultService
     {
-        EventResult GetResult(string contents);
+        OutputLog GetResult(string contents);
 
-        IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, EventResult result);
+        IEnumerable<SessionObjective> EvaluateSessionResult(SessionData sessionData, OutputLog result);
     }
 }
