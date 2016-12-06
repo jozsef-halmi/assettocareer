@@ -57,6 +57,9 @@ namespace AssettoChampionship.ViewModels
                 case "SessionsViewModel":
                     ShowSessionsPage(message.Data);
                     break;
+                case "ResultsViewModel":
+                    ShowResultsPage(message.Data);
+                    break;
                 default:
                     break;
             }
@@ -105,6 +108,13 @@ namespace AssettoChampionship.ViewModels
             var sessionsVM = Container.Resolve<SessionsViewModel>();
             ActivateItem(sessionsVM);
             sessionsVM.SetEvent(parameters.SeriesData, parameters.EventData);
+        }
+
+        public void ShowResultsPage(ChangePageParameters parameters)
+        {
+            var resultsVM = Container.Resolve<ResultsViewModel>();
+            ActivateItem(resultsVM);
+            resultsVM.SetResults(parameters.ACExeTerminatedDto);
         }
 
         //public void ShowPageTwo()

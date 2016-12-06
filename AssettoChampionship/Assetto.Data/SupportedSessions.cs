@@ -21,6 +21,7 @@ namespace Assetto.Data
             Id = new Guid("87e44ef2-59ed-47e1-8f9a-a4bfbab6bbcc")
            , SessionType = Common.Enum.SessionType.Race
            , Laps = 3
+            , StartingPosition = 2
             , PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Win

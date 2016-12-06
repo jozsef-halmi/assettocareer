@@ -1,4 +1,5 @@
 ﻿using Assetto.Common.Data;
+using Assetto.Common.DTO;
 using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
 using Caliburn.Micro;
@@ -93,9 +94,10 @@ namespace AssettoChampionship.ViewModels
 
         private void ACProcessEnded(object o)
         {
-            this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(ResultsViewModel),new ChangePageParameters()
             {
-                Text = "AC ended"
+                ACExeTerminatedDto = o as ACExeTerminatedDTO
+                //Parameter = o // TODO
             })
            , action =>
            {
