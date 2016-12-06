@@ -120,6 +120,11 @@ namespace Assetto.Service
             };
         }
 
+        public SavedSeason GetSavedSeason(Guid seasonId)
+        {
+            return LoadResultFile(seasonId);
+            
+        }
 
         public Result LoadResult(Guid seasonId, Guid eventId, Guid sessionId)
         {

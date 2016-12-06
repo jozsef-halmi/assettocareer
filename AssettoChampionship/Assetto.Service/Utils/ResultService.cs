@@ -10,6 +10,7 @@ using Assetto.Common.Enum;
 using Assetto.Common.Objectives;
 using Assetto.Common.Output;
 using Assetto.Common.ProcessedResult;
+using Assetto.Common.SaveGames;
 using Assetto.Data;
 using Newtonsoft.Json;
 
@@ -17,7 +18,7 @@ namespace Assetto.Service.Utils
 {
     public class ResultService : IResultService
     {
-        public Result GetResult(string contents)
+        public Result GetResultForLog(string contents)
         {
             var outputLog =  JsonConvert.DeserializeObject<OutputLog>(contents);
             return this.ProcessResult(outputLog);

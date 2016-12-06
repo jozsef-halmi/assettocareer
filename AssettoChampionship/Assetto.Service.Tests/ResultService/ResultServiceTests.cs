@@ -16,7 +16,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult__FinishTopNEvaluatorTest1()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
             var finishPodiumObjective = new FinishTopNSessionObjective()
@@ -32,7 +32,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_FinishTopNEvaluatorTest2()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
             var finishFirst15 = new FinishTopNSessionObjective()
@@ -50,7 +50,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_FinishBeforeEvaluatorTest_NameNotPresent()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
             var finishBefore = new FinishBeforeObjective()
@@ -66,7 +66,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveFalse()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
             var finishBefore = new FinishBeforeObjective()
@@ -83,7 +83,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveTrue()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
             var finishBefore = new FinishBeforeObjective()
@@ -101,7 +101,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_Race1_FinishTop()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);
+            var result = resultService.GetResultForLog(TestData.RaceOutputLog_Player2nd);
 
             // Evaluate TOP Finish
             var finishFirst15 = new FinishTopNSessionObjective() { N = 15 };
@@ -129,7 +129,7 @@ namespace Assetto.Service.Tests.ResultService
         public void ProcessResult_Race1_FinishBefore()
         {
             var resultService = new Utils.ResultService();
-            var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);
+            var result = resultService.GetResultForLog(TestData.RaceOutputLog_Player2nd);
 
             // Evaluate TOP Finish
             var finishBeforeJazmineShouldBeFalse = new FinishBeforeObjective() { Name = "Jazmine Hermanson" };

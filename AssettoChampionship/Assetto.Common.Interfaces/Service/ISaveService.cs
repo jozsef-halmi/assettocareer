@@ -14,5 +14,7 @@ namespace Assetto.Common.Interfaces.Service
         SavedSeason SaveResult(Guid seasonId, Guid eventId, Guid sessionId, Result result);
 
         Result LoadResult(Guid seasonId, Guid eventId, Guid sessionId);
+
+        SavedSeason GetSavedSeason(Guid seasonId);
     }
 }

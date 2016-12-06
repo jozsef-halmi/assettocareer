@@ -122,17 +122,17 @@ namespace Assetto.Manager
             try
             {
                 var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
-                retVar.CurrentResult = this.ResultService.GetResult(logFile);
+                retVar.CurrentResult = this.ResultService.GetResultForLog(logFile);
                 retVar.SavedSeason = this.SaveService.SaveResult(this.SelectedSeries.Id
                     , this.SelectedEvent.Id
                     , this.SelectedSession.Id,
                     retVar.CurrentResult);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO
-                throw;
+                // TODO: should not do this in the final version!!
+                retVar.Error = ex.ToString();
             }
             this.ACProcessEnded(retVar);
 

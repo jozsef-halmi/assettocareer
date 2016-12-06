@@ -12,7 +12,7 @@ namespace Assetto.Common.Interfaces.Service
 {
     public interface IResultService
     {
-        Result GetResult(string contents);
+        Result GetResultForLog(string contents);
 
         Result ProcessResult(OutputLog outputLog);
 
