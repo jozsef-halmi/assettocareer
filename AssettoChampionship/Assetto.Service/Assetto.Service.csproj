@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="SaveService.cs" />
     <Compile Include="SeriesService.cs" />
+    <Compile Include="Utils\ConfigService.cs" />
     <Compile Include="Utils\FileService.cs" />
     <Compile Include="Utils\LogService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -43,6 +43,7 @@
     <Compile Include="Manager\IEventManager.cs" />
     <Compile Include="Manager\ISeriesManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IConfigService.cs" />
     <Compile Include="Service\IFileService.cs" />
     <Compile Include="Service\ILogService.cs" />
     <Compile Include="Service\IProcessService.cs" />

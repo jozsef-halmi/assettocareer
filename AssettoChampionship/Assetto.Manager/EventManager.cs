@@ -12,17 +12,16 @@ using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.Output;
 using Assetto.Common.ProcessedResult;
+using Assetto.Service.Utils;
 
 namespace Assetto.Manager
 {
     public class EventManager : IEventManager
     {
         //TODO: BE USER INPUT
-        private const string RACE_INI_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\cfg\\race.ini";
-        private const string ASSETTO_CORSA_EXE_PATH = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\AssettoCorsa.exe";
-        private const string ACS_EXE_X64 = "acs.exe";
-        private const string ACS_EXE_X86 = "acs_x86.exe";
-        private const string OUTPUT_LOG_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\out\\race_out.json";
+        //private const string RACE_INI_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\cfg\\race.ini";
+        //private const string ASSETTO_CORSA_EXE_PATH = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\AssettoCorsa.exe";
+        //private const string OUTPUT_LOG_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\out\\race_out.json";
 
 
         public IFileService FileService { get; set; }
@@ -30,6 +29,7 @@ namespace Assetto.Manager
         public IProcessService ProcessService { get; set; }
         public IResultService ResultService { get; set; }
         public ISaveService SaveService { get; set; }
+        public IConfigService ConfigService { get; set; }
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -46,13 +46,15 @@ namespace Assetto.Manager
             , ISeriesService seriesService
             , IProcessService processService
             , IResultService resultService
-            , ISaveService saveService)
+            , ISaveService saveService
+            , IConfigService configService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.ProcessService = processService;
             this.ResultService = resultService;
             this.SaveService = saveService;
+            this.ConfigService = configService;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -89,7 +91,7 @@ namespace Assetto.Manager
 
             try
             {
-                FileService.WriteFile(RACE_INI_PATH, raceIni);
+                FileService.WriteFile(ConfigService.GetRaceIniPath(), raceIni);
             }
             catch (Exception)
             {
@@ -105,9 +107,9 @@ namespace Assetto.Manager
 
         private void StartAssettoCorsa()
         {
-            this.ProcessService.StartProcess(ASSETTO_CORSA_EXE_PATH);
-            this.ProcessService.MonitorProcess(ACS_EXE_X64, AcsExeStartHandler, AcsExeTerminateHandler);
-            this.ProcessService.MonitorProcess(ACS_EXE_X86, AcsExeStartHandler, AcsExeTerminateHandler);
+            this.ProcessService.StartProcess(ConfigService.GetAssettoCorsaExeLoc());
+            this.ProcessService.MonitorProcess(ConfigService.GetAcX64ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
+            this.ProcessService.MonitorProcess(ConfigService.GetAcX86ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
         }
 
         private void AcsExeStartHandler(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace Assetto.Manager
             ACExeTerminatedDTO retVar = new ACExeTerminatedDTO();
             try
             {
-                var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
+                var logFile = this.FileService.ReadFile(ConfigService.GetOutputLogPath());
                 retVar.CurrentResult = this.ResultService.GetResultForLog(logFile);
                 retVar.SavedSeason = this.SaveService.SaveResult(
                     this.SelectedSeries.Id
