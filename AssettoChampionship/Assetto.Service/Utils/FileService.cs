@@ -20,5 +20,21 @@ namespace Assetto.Service
             // It overwrites the file.
             File.WriteAllText(path, contents);
         }
+
+        public void CreateDirIfNotExist(string dirPath)
+        {
+            System.IO.Directory.CreateDirectory(dirPath);
+
+        }
+
+        public bool CreateResultFileIfNotExist(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath);
+                return true;
+            }
+            return false;
+        }
     }
 }

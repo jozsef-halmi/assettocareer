@@ -47,6 +47,7 @@
     <Compile Include="Service\ILogService.cs" />
     <Compile Include="Service\IProcessService.cs" />
     <Compile Include="Service\IResultService.cs" />
+    <Compile Include="Service\ISaveService.cs" />
     <Compile Include="Service\ISeriesService.cs" />
   </ItemGroup>
   <ItemGroup>
