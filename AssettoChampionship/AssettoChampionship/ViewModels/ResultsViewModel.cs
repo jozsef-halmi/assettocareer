@@ -11,12 +11,12 @@ namespace AssettoChampionship.ViewModels
 {
     public class ResultsViewModel
     {
-        public Result CurrentResult { get; set; }
+        public Result Result { get; set; }
         public SavedSeason SavedSeason { get; set; }
 
         public void SetResults(ACExeTerminatedDTO resultsDto)
         {
-            CurrentResult = resultsDto.CurrentResult;
+            Result = resultsDto.CurrentResult;
             SavedSeason = resultsDto.SavedSeason;
         }
     }

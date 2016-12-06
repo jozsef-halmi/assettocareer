@@ -79,7 +79,8 @@ namespace Assetto.Manager
             ConfigureEvent(eventData, session);
             this.ConfigurationEnded(new object());
 
-            StartAssettoCorsa();
+            //StartAssettoCorsa();
+            ReturnResult();
         }
 
 
@@ -119,6 +120,11 @@ namespace Assetto.Manager
 
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
+            this.ReturnResult();
+
+        }
+
+        public void ReturnResult() {
             // Process Log
             ACExeTerminatedDTO retVar = new ACExeTerminatedDTO();
             try
@@ -138,7 +144,6 @@ namespace Assetto.Manager
                 retVar.Error = ex.ToString();
             }
             this.ACProcessEnded(retVar);
-
         }
 
     }

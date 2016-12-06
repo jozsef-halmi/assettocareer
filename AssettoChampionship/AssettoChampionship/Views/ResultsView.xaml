@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-            <TextBox Text="Results view" />
+            <TextBox Text="{Binding Result.Track}" />
+        <TextBox Text="{Binding Result.SessionType}" />
+        <TextBox Text="{Binding Result.Track}" />
+        <TextBox Text="{Binding Result.Track}" />
     </StackPanel>
 </UserControl>
