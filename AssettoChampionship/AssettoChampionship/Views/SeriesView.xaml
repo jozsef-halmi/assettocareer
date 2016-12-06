@@ -21,11 +21,11 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="SeriesSelected" >
-                                    <cal:Parameter Value="{Binding Id}" />
+                                    <cal:Parameter Value="{Binding SeriesData.Id}" />
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <TextBlock Text="{Binding FriendlyName}">
+                        <TextBlock Text="{Binding SeriesData.FriendlyName}">
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>

@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.DTO;
 
 namespace AssettoChampionship.ViewModels
 {
     public class SeriesViewModel : PropertyChangedBase
     {
         // Databinded objects
-        public BindableCollection<SeriesData> AvailableSeries { get; set; }
+        public BindableCollection<SeriesDTO> AvailableSeries { get; set; }
 
         // Managers
         public ISeriesManager SeriesManager { get; set; }
@@ -28,18 +29,18 @@ namespace AssettoChampionship.ViewModels
             this.EventManager = eventManager;
             this.SeriesManager = seriesManager;
             this.EventAggregator = eventAggregator;
-            this.AvailableSeries = new BindableCollection<SeriesData>(SeriesManager.GetAvailableSeries());
+            this.AvailableSeries = new BindableCollection<SeriesDTO>(SeriesManager.GetAvailableSeries());
 
         }
 
         public void SeriesSelected(Guid seriesId)
         {
-            var series = this.AvailableSeries.Where(s => s.Id == seriesId).FirstOrDefault();
+            var series = this.AvailableSeries.Select(s => s.SeriesData).Where(s => s.Id == seriesId).FirstOrDefault();
             if (series != null)
             {
                 this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
                 {
-                    Parameter = series
+                    SeriesData = series
                 }), action => { Task.Factory.StartNew(action); });
             }
             //var seriesData = AvailableSeries.First();

@@ -31,9 +31,9 @@ namespace Assetto.Manager
 
         public List<SeriesDTO> GetAvailableSeries()
         {
+            var retVar = new List<SeriesDTO>();
             try
             {
-                var retVar = new List<SeriesDTO>();
                 var availableSeasons = SeriesService.GetAvailableSeries();
                 foreach (var availableSeason in availableSeasons)
                 {
@@ -49,7 +49,7 @@ namespace Assetto.Manager
                 // TODO: Log here
                 throw;
             }
-
+            return retVar;
         }
 
         public SeriesDTO GetSeries(Guid id)

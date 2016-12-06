@@ -44,7 +44,8 @@ namespace AssettoChampionship.ViewModels
             {
                 this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
                 {
-                    Parameter = selectedEvent
+                    SeriesData = this.Series,
+                    EventData = selectedEvent
                 }), action => { Task.Factory.StartNew(action); });
             }
         }

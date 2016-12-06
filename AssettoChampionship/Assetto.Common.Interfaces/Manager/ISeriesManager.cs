@@ -10,7 +10,7 @@ namespace Assetto.Common.Interfaces.Manager
 {
     public interface ISeriesManager
     {
-        IEnumerable<SeriesData> GetAvailableSeries();
+        List<SeriesDTO> GetAvailableSeries();
 
         SeriesDTO GetSeries(Guid id);
 

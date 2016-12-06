@@ -97,14 +97,14 @@ namespace AssettoChampionship.ViewModels
         {
             var eventsVM = Container.Resolve<EventsViewModel>();
             ActivateItem(eventsVM);
-            eventsVM.SetSeries(parameters.Parameter as SeriesData);
+            eventsVM.SetSeries(parameters.SeriesData);
         }
 
         public void ShowSessionsPage(ChangePageParameters parameters)
         {
             var sessionsVM = Container.Resolve<SessionsViewModel>();
             ActivateItem(sessionsVM);
-            sessionsVM.SetEvent(parameters.Parameter as EventData);
+            sessionsVM.SetEvent(parameters.SeriesData, parameters.EventData);
         }
 
         //public void ShowPageTwo()

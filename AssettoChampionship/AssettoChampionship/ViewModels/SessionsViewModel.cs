@@ -12,6 +12,7 @@ namespace AssettoChampionship.ViewModels
     public class SessionsViewModel : PropertyChangedBase
     {
         public EventData Event { get; set; }
+        public SeriesData Series { get; set; }
 
         private BindableCollection<SessionData> _sessions { get; set; }
         public BindableCollection<SessionData> Sessions
@@ -35,8 +36,9 @@ namespace AssettoChampionship.ViewModels
 
         }
 
-        public void SetEvent(EventData selectedEvent)
+        public void SetEvent(SeriesData seriesData, EventData selectedEvent)
         {
+            this.Series = seriesData;
             this.Event = selectedEvent;
             this.Sessions = new BindableCollection<SessionData>(selectedEvent.CareerSessions);
         }
@@ -46,7 +48,7 @@ namespace AssettoChampionship.ViewModels
             var selectedSession = this.Sessions.Where(e => e.Id == eventId).FirstOrDefault();
             if (selectedSession != null)
             {
-                EventManager.StartEvent(this.Event, selectedSession);
+                EventManager.StartEvent(this.Series, this.Event, selectedSession);
             }
         }
 

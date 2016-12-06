@@ -123,7 +123,8 @@ namespace Assetto.Manager
             {
                 var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
                 retVar.CurrentResult = this.ResultService.GetResultForLog(logFile);
-                retVar.SavedSeason = this.SaveService.SaveResult(this.SelectedSeries.Id
+                retVar.SavedSeason = this.SaveService.SaveResult(
+                    this.SelectedSeries.Id
                     , this.SelectedEvent.Id
                     , this.SelectedSession.Id,
                     retVar.CurrentResult);
