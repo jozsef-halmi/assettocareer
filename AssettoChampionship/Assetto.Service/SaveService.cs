@@ -55,7 +55,8 @@ namespace Assetto.Service
 
         public SavedSeason InsertResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
-            if (savedSeason.SavedEventResults[eventId].SessionResult[sessionId] != null)
+            if (savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
+                && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] != null)
                 throw new Exception("The result is already exist in the season.");
 
             StoreResult(savedSeason, eventId, sessionId, result);
@@ -64,7 +65,8 @@ namespace Assetto.Service
 
         public SavedSeason UpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
-            if (savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null)
+            if (!savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId) 
+                || savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null)
                 throw new Exception("The result does not exist in the season.");
 
             StoreResult(savedSeason, eventId, sessionId, result);
