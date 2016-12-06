@@ -56,7 +56,8 @@ namespace Assetto.Service
         public SavedSeason InsertResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
             if (savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
-                && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] != null)
+                && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] != null
+                )
                 throw new Exception("The result is already exist in the season.");
 
             StoreResult(savedSeason, eventId, sessionId, result);
@@ -66,7 +67,8 @@ namespace Assetto.Service
         public SavedSeason UpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
             if (!savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId) 
-                || savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null)
+                //|| savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null
+                )
                 throw new Exception("The result does not exist in the season.");
 
             StoreResult(savedSeason, eventId, sessionId, result);
@@ -81,11 +83,15 @@ namespace Assetto.Service
             return savedSeason;
         }
 
-        private bool SavedSeasonContainsSession(SavedSeason savedSeason, Guid eventId, Guid sessionId)
+        public bool SavedSeasonContainsSession(SavedSeason savedSeason, Guid eventId, Guid sessionId)
         {
-            if (savedSeason.SavedEventResults[eventId] == null) return false;
+            if (!savedSeason.SavedEventResults.ContainsKey(eventId)
+                || (savedSeason.SavedEventResults.ContainsKey(eventId)
+                    && savedSeason.SavedEventResults[eventId] == null)) return false;
 
-            if (savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null) return false;
+            if (!savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
+                || (savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
+                    && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null)) return false;
 
             return true;
         }
