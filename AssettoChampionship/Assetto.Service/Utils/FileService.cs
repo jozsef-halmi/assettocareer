@@ -27,11 +27,12 @@ namespace Assetto.Service
 
         }
 
-        public bool CreateResultFileIfNotExist(string filePath)
+        public bool CreateResultFileIfNotExist(string filePath, string contents)
         {
             if (!File.Exists(filePath))
             {
-                File.Create(filePath);
+                //File.Create(filePath,);
+                this.WriteFile(filePath, contents);
                 return true;
             }
             return false;

@@ -34,11 +34,13 @@ namespace Assetto.Service
             }
             else
             {
-                seasonResults = CreateSavedSeason(sessionId, eventId, sessionId, result);
+                seasonResults = CreateSavedSeason(seasonId, eventId, sessionId, result);
             }
-            InsertOrUpdateResult(seasonResults, eventId, sessionId, result);
+            seasonResults = InsertOrUpdateResult(seasonResults, eventId, sessionId, result);
+            SaveResult(seasonResults);
             return seasonResults;
         }
+
 
         public SavedSeason InsertOrUpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
@@ -85,11 +87,14 @@ namespace Assetto.Service
 
         public bool SavedSeasonContainsSession(SavedSeason savedSeason, Guid eventId, Guid sessionId)
         {
-            if (!savedSeason.SavedEventResults.ContainsKey(eventId)
+            if (savedSeason == null 
+                || savedSeason.SavedEventResults == null
+                || !savedSeason.SavedEventResults.ContainsKey(eventId)
                 || (savedSeason.SavedEventResults.ContainsKey(eventId)
                     && savedSeason.SavedEventResults[eventId] == null)) return false;
 
-            if (!savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
+            if (savedSeason.SavedEventResults[eventId].SessionResult == null
+                || !savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
                 || (savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
                     && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null)) return false;
 
@@ -176,7 +181,17 @@ namespace Assetto.Service
                            + Path.DirectorySeparatorChar + RESULT_FILE_NAME;
 
             // Create season result file if not exists
-            return this.FileService.CreateResultFileIfNotExist(filePath);
+            return this.FileService.CreateResultFileIfNotExist(filePath, "{}");
+        }
+
+        private bool SaveResult(SavedSeason savegame)
+        {
+            var filePath =
+                RESULT_DIR
+                + Path.DirectorySeparatorChar + savegame.SeasonId
+                + Path.DirectorySeparatorChar + RESULT_FILE_NAME;
+            this.FileService.WriteFile(filePath, JsonConvert.SerializeObject(savegame, Formatting.Indented));
+            return true;
         }
     }
 }

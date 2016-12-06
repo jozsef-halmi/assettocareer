@@ -13,6 +13,6 @@ namespace Assetto.Common.Interfaces.Service
         void WriteFile(string path, string contents);
 
         void CreateDirIfNotExist(string dirPath);
-        bool CreateResultFileIfNotExist(string filePath);
+        bool CreateResultFileIfNotExist(string filePath, string contents);
     }
 }
