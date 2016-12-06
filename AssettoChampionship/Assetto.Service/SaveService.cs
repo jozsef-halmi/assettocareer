@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Interfaces.Service;
+using Assetto.Common.Output;
 using Assetto.Common.ProcessedResult;
+using Assetto.Common.SaveGames;
+using Newtonsoft.Json;
 
 namespace Assetto.Service
 {
@@ -23,12 +26,90 @@ namespace Assetto.Service
 
         public bool SaveResult(Guid seasonId, Guid eventId, Guid sessionId, Result result)
         {
-            Result previousResults = null;
+            SavedSeason seasonResults = null;
             if (!CreateResultFileIfNotExist(seasonId))
             {
                 // File already existed   
+                seasonResults = LoadResultFile(seasonId);
             }
+            else
+            {
+                seasonResults = CreateSavedSeason(sessionId, eventId, sessionId, result);
+            }
+            InsertOrUpdateResult(seasonResults, eventId, sessionId, result);
+            return true;
         }
+
+        private SavedSeason InsertOrUpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        {
+            if (SavedSeasonContainsSession(savedSeason, eventId, sessionId))
+            {
+                savedSeason = UpdateResult(savedSeason, eventId, sessionId, result);
+            }
+            else
+            {
+                savedSeason = InsertResult(savedSeason, eventId, sessionId, result);
+            }
+            return savedSeason;
+        }
+
+        private SavedSeason InsertResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        {
+            if (savedSeason.SavedEventResults[eventId].EventResults[sessionId] != null)
+                throw new Exception("The result is already exist in the season.");
+
+            StoreResult(savedSeason, eventId, sessionId, result);
+            return savedSeason;
+        }
+
+        private SavedSeason UpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        {
+            if (savedSeason.SavedEventResults[eventId].EventResults[sessionId] == null)
+                throw new Exception("The result does not exist in the season.");
+
+            StoreResult(savedSeason, eventId, sessionId, result);
+            return savedSeason;
+
+        }
+
+        private SavedSeason StoreResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        {
+            savedSeason.SavedEventResults[eventId].EventResults[sessionId] = result;
+            return savedSeason;
+        }
+
+        private bool SavedSeasonContainsSession(SavedSeason savedSeason,  Guid eventId, Guid sessionId)
+        {
+            if (savedSeason.SavedEventResults[eventId] == null) return false;
+
+            if (savedSeason.SavedEventResults[eventId].EventResults[sessionId] == null) return false;
+
+            return true;
+        }
+
+        private SavedSeason CreateSavedSeason(Guid seasonId, Guid eventId, Guid sessionId, Result result)
+        {
+            var savedEventResult = new SavedEventResult()
+            {
+                EventId = eventId,
+                EventResults = new Dictionary<Guid, Result>()
+                {
+                    { sessionId, result }
+                }
+            };
+
+
+            return new SavedSeason()
+            {
+                SeasonId = seasonId
+                , SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                {
+                    { eventId, savedEventResult}
+                   
+                }
+            };
+        }
+
 
         public Result LoadResult(Guid seasonId, Guid eventId, Guid sessionId)
         {
@@ -36,9 +117,15 @@ namespace Assetto.Service
         }
 
 
-        private Result LoadResultFile(Guid seasonId)
+        private SavedSeason LoadResultFile(Guid seasonId)
         {
-            
+            var text = this.FileService.ReadFile(
+                RESULT_DIR
+                + Path.DirectorySeparatorChar + seasonId
+                + Path.DirectorySeparatorChar + RESULT_FILE_NAME);
+
+            return JsonConvert.DeserializeObject<SavedSeason>(text);
+
         }
 
 
@@ -47,12 +134,16 @@ namespace Assetto.Service
             // Create result dir if not exists
             this.FileService.CreateDirIfNotExist(RESULT_DIR);
 
-            var filePath = RESULT_DIR
+            var dirPath = RESULT_DIR
                  + Path.DirectorySeparatorChar + seasonId;
 
             // Create season result dir if not exists
-            this.FileService.CreateDirIfNotExist(filePath);
+            this.FileService.CreateDirIfNotExist(dirPath);
 
+            var filePath = dirPath
+                           + Path.DirectorySeparatorChar + RESULT_FILE_NAME;
+
+            // Create season result file if not exists
             return this.FileService.CreateResultFileIfNotExist(filePath);
         }
     }
