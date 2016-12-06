@@ -13,7 +13,7 @@ namespace Assetto.Service.Tests.ResultService
     public class ResultServiceTests
     {
         [TestMethod]
-        public void ProcessResultTest__FinishTopNEvaluatorTest1()
+        public void ProcessResult__FinishTopNEvaluatorTest1()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -29,7 +29,7 @@ namespace Assetto.Service.Tests.ResultService
         }
 
         [TestMethod]
-        public void ProcessResultTest_FinishTopNEvaluatorTest2()
+        public void ProcessResult_FinishTopNEvaluatorTest2()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -47,7 +47,7 @@ namespace Assetto.Service.Tests.ResultService
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ProcessResultTest_FinishBeforeEvaluatorTest_NameNotPresent()
+        public void ProcessResult_FinishBeforeEvaluatorTest_NameNotPresent()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -63,7 +63,7 @@ namespace Assetto.Service.Tests.ResultService
         }
 
         [TestMethod]
-        public void ProcessResultTest_FinishBeforeEvaluatorTest_ObjectiveFalse()
+        public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveFalse()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -80,7 +80,7 @@ namespace Assetto.Service.Tests.ResultService
         }
 
         [TestMethod]
-        public void ProcessResultTest_FinishBeforeEvaluatorTest_ObjectiveTrue()
+        public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveTrue()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.QualifyOutputLog_PlayerWithoutTime);
@@ -98,7 +98,7 @@ namespace Assetto.Service.Tests.ResultService
 
 
         [TestMethod]
-        public void ProcessResultTest_Race1_FinishTop()
+        public void ProcessResult_Race1_FinishTop()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);
@@ -126,7 +126,7 @@ namespace Assetto.Service.Tests.ResultService
         }
 
         [TestMethod]
-        public void ProcessResultTest_Race1_FinishBefore()
+        public void ProcessResult_Race1_FinishBefore()
         {
             var resultService = new Utils.ResultService();
             var result = resultService.GetResult(TestData.RaceOutputLog_Player2nd);

@@ -47,18 +47,26 @@ namespace Assetto.Service.Utils
             return this.ProcessQualify(outputLog);
         }
 
+        private Result ProcessShared(Result result, OutputLog outputLog)
+        {
+            var lastSession = outputLog.Sessions.Last();
+
+            result.Track = outputLog.Track;
+            result.Duration = lastSession.Duration;
+            result.LapCount = lastSession.LapsCount;
+            result.SessionType = lastSession.Type;
+            return result;
+        }
+
         private Result ProcessQualify(OutputLog outputLog)
         {
             var lastSession = outputLog.Sessions.Last();
 
             var result = new Result();
-
+            result = ProcessShared(result, outputLog);
             // Set the friendly name of the track
             // TODO: Check this
-            result.Track = outputLog.Track;
-            result.Duration = lastSession.Duration;
-            result.LapCount = lastSession.LapsCount;
-            result.SessionType = lastSession.Type;
+
             //result.pr
 
             result.QualificationResult = GetPlayers(result, outputLog).OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
@@ -78,10 +86,8 @@ namespace Assetto.Service.Utils
 
             // Set the friendly name of the track
             
-            result.Track = outputLog.Track;
-            result.Duration = lastSession.Duration;
-            result.LapCount = lastSession.LapsCount;
-            result.SessionType = lastSession.Type;
+    
+            result = ProcessShared(result, outputLog);
 
 
             result.RaceResult = GetPlayers(result, outputLog);

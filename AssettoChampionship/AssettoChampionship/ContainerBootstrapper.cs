@@ -25,6 +25,7 @@ namespace AssettoChampionship
 
             //Services
             container.RegisterType<ISeriesService, SeriesService>();
+            container.RegisterType<ISaveService, SaveService>();
 
             // Utils
             container.RegisterType<IFileService, FileService>();
