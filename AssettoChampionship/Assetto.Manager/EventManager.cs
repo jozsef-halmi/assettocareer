@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Manager;
 using Assetto.Configurator;
 using Assetto.Service;
@@ -28,6 +29,7 @@ namespace Assetto.Manager
         public ISeriesService SeriesService { get; set; }
         public IProcessService ProcessService { get; set; }
         public IResultService ResultService { get; set; }
+        public ISaveService SaveService { get; set; }
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -35,6 +37,7 @@ namespace Assetto.Manager
         public Action<object> ACProcessEnded { get; set; }
 
         // TODO: Refine this
+        public SeriesData SelectedSeries { get; set; }
         public EventData SelectedEvent { get; set; }
         public SessionData SelectedSession { get; set; }
 
@@ -42,12 +45,14 @@ namespace Assetto.Manager
         public EventManager(IFileService fileService
             , ISeriesService seriesService
             , IProcessService processService
-            , IResultService resultService)
+            , IResultService resultService
+            , ISaveService saveService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.ProcessService = processService;
             this.ResultService = resultService;
+            this.SaveService = saveService;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -62,8 +67,9 @@ namespace Assetto.Manager
         }
 
 
-        public void StartEvent(EventData eventData, SessionData session)
+        public void StartEvent(SeriesData seriesData, EventData eventData, SessionData session)
         {
+            this.SelectedSeries = seriesData;
             this.SelectedEvent = eventData;
             this.SelectedSession = session;
 
@@ -112,11 +118,15 @@ namespace Assetto.Manager
         private void AcsExeTerminateHandler(object sender, EventArgs e)
         {
             // Process Log
-            Result result;
+            ACExeTerminatedDTO retVar = new ACExeTerminatedDTO();
             try
             {
                 var logFile = this.FileService.ReadFile(OUTPUT_LOG_PATH);
-                result = this.ResultService.GetResult(logFile);
+                retVar.CurrentResult = this.ResultService.GetResult(logFile);
+                retVar.SavedSeason = this.SaveService.SaveResult(this.SelectedSeries.Id
+                    , this.SelectedEvent.Id
+                    , this.SelectedSession.Id,
+                    retVar.CurrentResult);
 
             }
             catch (Exception)
@@ -124,7 +134,7 @@ namespace Assetto.Manager
                 //TODO
                 throw;
             }
-            this.ACProcessEnded(result);
+            this.ACProcessEnded(retVar);
 
         }
 

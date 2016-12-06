@@ -54,6 +54,7 @@
     <Compile Include="Data\SessionData.cs" />
     <Compile Include="Data\SkinData.cs" />
     <Compile Include="Data\TrackData.cs" />
+    <Compile Include="DTO\ACExeTerminatedDTO.cs" />
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\SessionType.cs" />
