@@ -19,6 +19,8 @@ namespace Assetto.Service.Utils
         string AssettoCorsaInstallLoc { get; set; }
         string AssettoCorsaExeRelativePathToACFolder { get; set; }
 
+        public string PlayerName { get; set; }
+
 
         public ConfigService()
         {
@@ -27,6 +29,7 @@ namespace Assetto.Service.Utils
             this.OutputLogRelativePathToDocFolder = "Assetto Corsa\\out\\race_out.json";
             this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
             this.AssettoCorsaExeRelativePathToACFolder = "AssettoCorsa.exe";
+            this.PlayerName = "Player";
 
 
             //            private const string RACE_INI_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\cfg\\race.ini";
@@ -65,6 +68,11 @@ namespace Assetto.Service.Utils
         {
             return ConfigService.ACS_EXE_X64;
 
+        }
+
+        public string GetPlayerName()
+        {
+            return this.PlayerName;
         }
     }
 }

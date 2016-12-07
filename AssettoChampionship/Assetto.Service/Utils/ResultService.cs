@@ -18,6 +18,13 @@ namespace Assetto.Service.Utils
 {
     public class ResultService : IResultService
     {
+        public IConfigService ConfigService { get; set; }
+
+        public ResultService(IConfigService configService)
+        {
+            this.ConfigService = configService;
+        }
+
         public Result GetResultForLog(string contents)
         {
             var outputLog =  JsonConvert.DeserializeObject<OutputLog>(contents);
@@ -146,6 +153,8 @@ namespace Assetto.Service.Utils
                     for (int i = 0; i < result.QualificationResult.Count; i++)
                     {
                         result.QualificationResult[i].Position = i+1;
+                        if (result.QualificationResult[i].Name == this.ConfigService.GetPlayerName())
+                            result.QualificationResult[i].IsPlayer = true;
                     }
                     break;
                 case SessionType.Race:
@@ -157,6 +166,8 @@ namespace Assetto.Service.Utils
                         var playerResult = result.RaceResult.FirstOrDefault(c => c.Id == carId);
                         playerResult.Position = i+1;
                         playerResult.TotalTime = playerResult.Laps.Sum(pr => pr.Time);
+                        if (playerResult.Name == this.ConfigService.GetPlayerName())
+                            playerResult.IsPlayer = true;
                         raceResults.Add(playerResult);
 
                     }

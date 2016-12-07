@@ -87,13 +87,26 @@ namespace Assetto.Manager
         }
 
 
-        private void ConfigureEvent(EventData eventData, SessionData session) {
+        private ConfiguredSessionDTO ConfigureEvent(EventData eventData, SessionData session) {
+            var retVar = new ConfiguredSessionDTO();
+            SessionData previousSession = eventData.CareerSessions.IndexOf(session) > 0 
+                ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(session)-1]
+                : null;
+
+            retVar.PreviousSessionResult = previousSession != null
+                ? SaveService.LoadResult(this.SelectedSeries.Id
+                    , this.SelectedEvent.Id
+                    , previousSession.Id)
+                : null;
+            retVar.EventData = eventData;
+            this.EventService.OrderGrid(eventData, session, retVar.PreviousSessionResult); // TODO!
+
             // TODO: Config, for example, race: starting positions!
-            var savedSeason = this.SaveService.LoadResult(
-                this.SelectedSeries.Id
-                , this.SelectedEvent.Id
-                , this.SelectedSession.Id);
-            eventData = this.EventService.OrderGrid(eventData, session);
+            //var savedSeason = this.SaveService.LoadResult(
+            //    this.SelectedSeries.Id
+            //    , this.SelectedEvent.Id
+            //    , this.SelectedSession.Id);
+            //eventData = this.EventService.OrderGrid(eventData, session);
 
 
 

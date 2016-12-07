@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Data;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Common.Interfaces.Service
 {
     public interface IEventService
     {
-        EventData OrderGrid(EventData eventData, SessionData sessionData);
+        void OrderGrid(EventData eventData, SessionData sessionData, Result previousResult);
     }
 }

@@ -15,5 +15,6 @@ namespace Assetto.Common.Interfaces.Service
         void SetAcFolder(string acFolderPath);
         string GetAcX86ProcessName();
         string GetAcX64ProcessName();
+        string GetPlayerName();
     }
 }

@@ -33,6 +33,7 @@ namespace Assetto.Common.ProcessedResult
 
         public int TotalTime { get; set; }
 
+        public bool IsPlayer { get; set; }
 
     }
 }
