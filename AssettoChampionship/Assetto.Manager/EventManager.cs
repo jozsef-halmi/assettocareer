@@ -30,6 +30,7 @@ namespace Assetto.Manager
         public IResultService ResultService { get; set; }
         public ISaveService SaveService { get; set; }
         public IConfigService ConfigService { get; set; }
+        public IEventService EventService { get; set; }
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -47,7 +48,8 @@ namespace Assetto.Manager
             , IProcessService processService
             , IResultService resultService
             , ISaveService saveService
-            , IConfigService configService)
+            , IConfigService configService
+            , IEventService eventService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
@@ -55,6 +57,7 @@ namespace Assetto.Manager
             this.ResultService = resultService;
             this.SaveService = saveService;
             this.ConfigService = configService;
+            this.EventService = eventService;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -86,6 +89,10 @@ namespace Assetto.Manager
 
         private void ConfigureEvent(EventData eventData, SessionData session) {
             // TODO: Config, for example, race: starting positions!
+            eventData = this.EventService.OrderGrid(eventData, session);
+
+
+
             eventData.GameSessions = new List<SessionData>() { session };
             var eventConfig = new EventConfig(eventData);
             var raceIni = eventConfig.ToString();

@@ -21,6 +21,8 @@ namespace Assetto.Common.Data
         public int? Laps { get; set; }
         public int? StartingPosition { get; set; }
 
+        public List<OpponentData> OrderedGrid { get; set; }
+
         public IEnumerable<SessionObjective> PrimarySessionObjectives { get; set; }
 
         public IEnumerable<SessionObjective> SecondarySessionObjectives { get; set; }

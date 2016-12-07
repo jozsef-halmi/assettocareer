@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Enum;
 
 namespace Assetto.Data
 {
@@ -18,9 +19,11 @@ namespace Assetto.Data
             , Layout = null
             , Player = SupportedPlayers.Abarth500RaceOfficial
             , Opponents = SupportedOpponents.OpponentsDictionary[Cars.Abarth500RaceCar]
+            , EventType = EventType.QualiTwoRacesSecondReversed
             , CareerSessions = new List<SessionData>() {
-                SupportedSessions.Abarth500RaceEvent1Qualy
-                , SupportedSessions.Abarth500RaceEvent1Race1
+                SupportedSessions.Abarth500RaceEvent1Qualy,
+                SupportedSessions.Abarth500RaceEvent1Race1,
+                SupportedSessions.Abarth500RaceEvent1Race2
             }
         };
     }

@@ -21,12 +21,25 @@ namespace Assetto.Data
             Id = new Guid("87e44ef2-59ed-47e1-8f9a-a4bfbab6bbcc")
            , SessionType = Common.Enum.SessionType.Race
            , Laps = 3
-            , StartingPosition = 2
+            , StartingPosition = 2 // Should be generated
             , PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Win
             }
          
+        };
+
+        public static SessionData Abarth500RaceEvent1Race2 = new SessionData()
+        {
+            Id = new Guid("52519df7-3f92-4caf-9ba4-97f159826bd5"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 2,
+            StartingPosition = 2, // Should be generated
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Win
+            }
+
         };
     }
 }

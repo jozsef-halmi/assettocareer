@@ -8,6 +8,6 @@ namespace Assetto.Common.Data
 {
     public class PlayerData : DriverData
     {
-
+        //public int StartingPosition { get; set; }
     }
 }

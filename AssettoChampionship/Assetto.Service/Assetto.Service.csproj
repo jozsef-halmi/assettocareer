@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventService.cs" />
     <Compile Include="SaveService.cs" />
     <Compile Include="SeriesService.cs" />
     <Compile Include="Utils\ConfigService.cs" />

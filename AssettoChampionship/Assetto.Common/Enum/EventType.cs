@@ -14,8 +14,10 @@ namespace Assetto.Common.Enum
         , Race
         , PracticeQualifyRace
         , TwoRaces
+        , TwoRacesSecondReversed
         , QualiRace
         , QualiTwoRaces
+        , QualiTwoRacesSecondReversed
         , QualiThreeRaces
     }
 }

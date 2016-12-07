@@ -24,8 +24,10 @@ namespace Assetto.Common.Data
 
         public List<OpponentData> Opponents { get; set; }
 
+        // used for configuring the session (generating the race ini)
         public List<SessionData> GameSessions { get; set; }
 
+        // used for anything but generating the race ini
         public List<SessionData> CareerSessions { get; set; }
 
         public JumpStartPenaltyType JumpStartPenalty { get; set; }
