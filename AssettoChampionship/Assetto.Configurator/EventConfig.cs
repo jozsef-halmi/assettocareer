@@ -50,11 +50,27 @@ namespace Assetto.Configurator
             sb.AppendLine(new PlayerConfig(EventData.Player).ToString());
             sb.AppendLine();
 
-            for(int i = 0; i < EventData.Opponents.Count; i++)
+
+            // At the moment, only one session is supported
+            var lastSessionOrderedGrid = EventData.GameSessions.Last().OrderedGrid;
+            if (lastSessionOrderedGrid == null ||
+                lastSessionOrderedGrid.Count == 0)
             {
-                sb.AppendLine(new OpponentConfig(EventData.Opponents[i], i+1).ToString());
-                sb.AppendLine();
+                for (int i = 0; i < EventData.Opponents.Count; i++)
+                {
+                    sb.AppendLine(new OpponentConfig(EventData.Opponents[i], i + 1).ToString());
+                    sb.AppendLine();
+                }
             }
+            else
+            {
+                for (int i = 0; i < lastSessionOrderedGrid.Count; i++)
+                {
+                    sb.AppendLine(new OpponentConfig(lastSessionOrderedGrid[i], i + 1).ToString());
+                    sb.AppendLine();
+                }
+            }
+          
 
             sb.AppendLine("[AUTOSPAWN]");
             sb.AppendLine("ACTIVE=1");
