@@ -25,9 +25,15 @@ namespace Assetto.Service
             {
                 var playerFinished = previousResult.QualificationResult.FirstOrDefault(p => p.IsPlayer == true).Position;
                 sessionData.StartingPosition = playerFinished;
-
+                sessionData.OrderedGrid = new List<OpponentData>();
                 // TODO
-                previousResult
+                previousResult.QualificationResult.OrderBy(p => p.Position);
+
+                foreach (var prevCar in previousResult.QualificationResult)
+                {
+                    if (!prevCar.IsPlayer)
+                        sessionData.OrderedGrid.Add(eventData.Opponents.FirstOrDefault(o => o.Name == prevCar.Name));
+                }
 
             }
             // TODO!
