@@ -23,6 +23,8 @@ namespace Assetto.Common.Data
 
         public List<OpponentData> OrderedGrid { get; set; }
 
+        public List<OpponentData> Opponents { get; set; }
+
         public IEnumerable<SessionObjective> PrimarySessionObjectives { get; set; }
 
         public IEnumerable<SessionObjective> SecondarySessionObjectives { get; set; }

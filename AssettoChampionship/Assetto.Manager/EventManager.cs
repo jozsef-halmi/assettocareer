@@ -89,6 +89,10 @@ namespace Assetto.Manager
 
         private void ConfigureEvent(EventData eventData, SessionData session) {
             // TODO: Config, for example, race: starting positions!
+            var savedSeason = this.SaveService.LoadResult(
+                this.SelectedSeries.Id
+                , this.SelectedEvent.Id
+                , this.SelectedSession.Id);
             eventData = this.EventService.OrderGrid(eventData, session);
 
 

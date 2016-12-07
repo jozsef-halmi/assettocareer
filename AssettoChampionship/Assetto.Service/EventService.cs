@@ -17,8 +17,8 @@ namespace Assetto.Service
             {
                 //TODO: Do every possibilities
                 case EventType.QualiTwoRacesSecondReversed:
-                    var opponentsToReverse = eventData.Opponents.Take(10).ToList();
-                    var opponentsInTheBack = eventData.Opponents
+                    var opponentsToReverse = sessionData.Opponents.Take(10).ToList();
+                    var opponentsInTheBack = sessionData.Opponents
                         .Where(o => opponentsToReverse.FirstOrDefault(otr => otr.Name == o.Name) == null).ToList();
                     opponentsToReverse.Reverse();
 
