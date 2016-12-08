@@ -26,8 +26,7 @@ namespace Assetto.Data
            , SessionType = Common.Enum.SessionType.Race
            , Laps = 3
            , FriendlyName = SessionNames.RACE
-
-            ,
+           ,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Win

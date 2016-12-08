@@ -82,8 +82,8 @@ namespace Assetto.Manager
             ConfigureEvent(eventData, session);
             this.ConfigurationEnded?.Invoke(new object());
 
-            StartAssettoCorsa();
-            //ReturnResult();
+            //StartAssettoCorsa();
+            ReturnResult();
         }
 
 
@@ -166,6 +166,13 @@ namespace Assetto.Manager
                     , this.SelectedEvent.Id
                     , this.SelectedSession.Id,
                     retVar.CurrentResult);
+
+                // TODO: Where to do this?
+                foreach (var item in this.SelectedSession.PrimarySessionObjectives)
+                {
+                    var result = item.Evaluate(retVar.CurrentResult);
+                }
+                
 
             }
             catch (Exception ex)
