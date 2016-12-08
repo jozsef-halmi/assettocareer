@@ -78,9 +78,9 @@ namespace Assetto.Manager
             this.SelectedEvent = eventData;
             this.SelectedSession = session;
 
-            this.ConfigurationStarted(new object());
+            this.ConfigurationStarted?.Invoke(new object());
             ConfigureEvent(eventData, session);
-            this.ConfigurationEnded(new object());
+            this.ACProcessEnded?.Invoke(new object());
 
             //StartAssettoCorsa();
             ReturnResult();
@@ -169,7 +169,7 @@ namespace Assetto.Manager
                 // TODO: should not do this in the final version!!
                 retVar.Error = ex.ToString();
             }
-            this.ACProcessEnded(retVar);
+            this.ACProcessEnded?.Invoke(retVar);
         }
 
     }

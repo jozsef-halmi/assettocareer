@@ -36,6 +36,8 @@ namespace Assetto.Service.Tests
             FileServiceMock
                 .Setup(m => m.WriteFile(It.IsAny<string>(), It.IsAny<string>()))
                 .Verifiable();
+         
+
         }
     }
 }
