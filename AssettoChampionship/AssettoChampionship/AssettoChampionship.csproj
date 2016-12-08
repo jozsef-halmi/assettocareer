@@ -150,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Dialog\LoadingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DesignData\" />
+    <Folder Include="Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Common-dog-behaviors-explained.jpg" />

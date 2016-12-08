@@ -15,7 +15,8 @@
     <StackPanel>
         <TextBlock Text="SeriesPage"></TextBlock>
         <ListBox x:Name="AvailableSeries"  
-                 Background="LightBlue">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -26,9 +27,16 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Height="80px" Source="{Binding SeriesData.ImageUrl}"></Image>
-                            <TextBlock Text="{Binding SeriesData.FriendlyName}"></TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
+                            <Image Height="180px" Width="320px" Source="{Binding SeriesData.ImageUrl}" Margin="5"></Image>
+                            <StackPanel Orientation="Vertical" Width="600px" Margin="5" >
+                                <TextBlock 
+                                    Text="{Binding SeriesData.FriendlyName}" 
+                                    TextAlignment="Center"></TextBlock>
+                                <TextBlock TextAlignment="Left"
+                                           Text="{Binding SeriesData.Description}" 
+                                           TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

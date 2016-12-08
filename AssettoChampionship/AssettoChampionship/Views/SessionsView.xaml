@@ -28,7 +28,9 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
                                 <Image  Height="80px" Source="{Binding ImageUrl}"></Image>
-                                <TextBlock Text="{Binding FriendlyName}"></TextBlock>
+                                <TextBlock Text="{Binding FriendlyName}" 
+                                           Style="{StaticResource ListBoxTitle}"
+                                           ></TextBlock>
                                 <TextBlock Text="{Binding Duration}">
                                 </TextBlock>
                             </StackPanel>
