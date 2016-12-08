@@ -15,16 +15,25 @@ namespace Assetto.Common.ProcessedResult
         {
             get
             {
-                if (this.Laps == null || this.Laps.Count() < 1)
+                if (this.Laps == null || this.Laps.Where(l => l.Time > 0).Count() < 1)
                 {
                     return 0;
                 }
                 else
                 {
-                    return this.Laps.OrderBy(l => l.Time).First().Time;
+                    return this.Laps.Where(l => l.Time > 0).OrderBy(l => l.Time).First().Time;
                 }
             }
         }
+
+        public string BestLapTimeSpan
+        {
+            get
+            {
+                return TimeSpan.FromMilliseconds(BestLap).ToString("mm\\:ss\\:fff");
+            }
+        }
+
         public int LapCount { get; set; }
 
         public List<ResultLap> Laps { get; set; }

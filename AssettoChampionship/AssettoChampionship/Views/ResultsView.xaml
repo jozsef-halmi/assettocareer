@@ -22,6 +22,7 @@
 
                         <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
                         <TextBlock Grid.Column="1" Text="{Binding Position}"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding BestLapTimeSpan}"></TextBlock>
 
                     </Grid>
                 </DataTemplate>

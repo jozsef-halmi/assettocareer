@@ -76,7 +76,6 @@ namespace Assetto.Service.Utils
             // TODO: Check this
 
             //result.pr
-
             result.Players = GetPlayers(result, outputLog).OrderBy(p => p.BestLap, new LapTimeComparer()).ToList();
             result = FillPositions(result, outputLog);
             //result.Track = SupportedTracks.TracksDictionary[outputLog.Track].FriendlyName;
@@ -116,11 +115,10 @@ namespace Assetto.Service.Utils
                 var lapsForCar = lastSession.Laps.Where(l => l.Car == i);
                 var resultPlayer = new ResultPlayer()
                 {
-                    Name = outputLog.Players[i].Name
-                    ,
-                    LapCount = lapsForCar.Count()
-                    ,
+                    Name = outputLog.Players[i].Name,
+                    LapCount = lapsForCar.Count(),
                     Id = i
+                    
                 };
 
                 if (lapsForCar != null)
@@ -128,10 +126,8 @@ namespace Assetto.Service.Utils
 
                     resultPlayer.Laps = lapsForCar.Select(l => new ResultLap()
                     {
-                        Time = l.Time
-                        ,
-                        LapId = l.Lap
-                        ,
+                        Time = l.Time,
+                        LapId = l.Lap,
                         Sectors = l.Sectors
                     }).ToList();
                 }
