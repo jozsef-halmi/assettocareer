@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Objectives;
+using Assetto.Common.Extensions;
 
 namespace Assetto.Common.Data
 {
@@ -13,6 +14,11 @@ namespace Assetto.Common.Data
         public Guid Id { get; set; }
 
         public string FriendlyName { get; set; }
+
+        public string ImageUrl
+        {
+            get { return "/Images/" + SessionType.GetStringValue() + ".jpg"; }
+        }
 
         public SessionType SessionType { get; set; }
 

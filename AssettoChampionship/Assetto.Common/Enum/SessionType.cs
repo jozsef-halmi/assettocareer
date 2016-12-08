@@ -12,10 +12,10 @@ namespace Assetto.Common.Enum
         [StringValue("Practice")]
         Practice = 1,
 
-        [StringValue("Qualifying")] // Needs to be practice too
+        [StringValue("Qualification")] // Needs to be practice too
         Qualifying = 2,
 
-        [StringValue("Quick Race")]
+        [StringValue("Race")]
         Race = 3
     }
 }
