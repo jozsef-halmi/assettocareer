@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Data;
+using Assetto.Common.DTO;
 using Assetto.Common.Enum;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.ProcessedResult;
@@ -19,20 +20,22 @@ namespace Assetto.Service
             this.ConfigService = configService;
         }
 
-        public void OrderGrid(EventData eventData, SessionData sessionData, Result previousResult)
+        public void OrderGrid(ConfiguredSessionDTO configuredSession)
         {
-            if (previousResult.SessionType == SessionType.Qualifying)
-            {
-                var playerFinished = previousResult.QualificationResult.FirstOrDefault(p => p.IsPlayer == true).Position;
-                sessionData.StartingPosition = playerFinished;
-                sessionData.OrderedGrid = new List<OpponentData>();
-                // TODO
-                previousResult.QualificationResult.OrderBy(p => p.Position);
+            if (configuredSession.PreviousSessionResult == null) return;
 
-                foreach (var prevCar in previousResult.QualificationResult)
+            if (configuredSession.PreviousSessionResult.SessionType == SessionType.Qualifying)
+            {
+                var playerFinished = configuredSession.PreviousSessionResult.QualificationResult.FirstOrDefault(p => p.IsPlayer == true).Position;
+                configuredSession.SessionData.OrderedGrid = new List<OpponentData>();
+                // TODO
+                var orderedPreviousGrid = configuredSession.PreviousSessionResult.QualificationResult.OrderBy(p => p.Position);
+
+                foreach (var prevCar in orderedPreviousGrid)
                 {
-                    if (!prevCar.IsPlayer)
-                        sessionData.OrderedGrid.Add(eventData.Opponents.FirstOrDefault(o => o.Name == prevCar.Name));
+                    var opponent = configuredSession.EventData.Opponents.FirstOrDefault(o => o.Name == prevCar.Name);
+                    if (opponent != null)
+                        configuredSession.SessionData.OrderedGrid.Add(opponent);
                 }
 
             }

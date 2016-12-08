@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 namespace Assetto.Service.Tests.SaveService
 {
     [TestClass]
-    public class SaveServiceTests
+    public class SaveServiceTests : UnitTestBase
     {
         [TestMethod]
         public void SaveService_LoadResult()
@@ -28,7 +28,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
           
 
@@ -78,7 +78,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
 
@@ -135,7 +135,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
 
@@ -175,7 +175,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
 
@@ -217,7 +217,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
             // This should be inserted:
@@ -268,7 +268,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
 
@@ -312,7 +312,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
             sessionResult.Id = sessionId;
 
 
@@ -361,7 +361,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             var savedSeason = new SavedSeason()
             {
@@ -401,7 +401,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             var savedSeason = new SavedSeason()
             {
@@ -441,7 +441,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             var savedSeason = new SavedSeason()
             {
@@ -481,7 +481,7 @@ namespace Assetto.Service.Tests.SaveService
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
             var selectedEvent = selectedSeries.Events.First();
             var selectedSession = selectedEvent.CareerSessions.Last();
-            var sessionResult = new Utils.ResultService().GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
+            var sessionResult = new Utils.ResultService(this.ConfigServiceMock.Object).GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             var savedSeason = new SavedSeason()
             {

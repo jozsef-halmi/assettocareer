@@ -88,18 +88,19 @@ namespace Assetto.Manager
 
 
         private ConfiguredSessionDTO ConfigureEvent(EventData eventData, SessionData session) {
-            var retVar = new ConfiguredSessionDTO();
+            var sessionDto = new ConfiguredSessionDTO();
             SessionData previousSession = eventData.CareerSessions.IndexOf(session) > 0 
                 ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(session)-1]
                 : null;
 
-            retVar.PreviousSessionResult = previousSession != null
+            sessionDto.PreviousSessionResult = previousSession != null
                 ? SaveService.LoadResult(this.SelectedSeries.Id
                     , this.SelectedEvent.Id
                     , previousSession.Id)
                 : null;
-            retVar.EventData = eventData;
-            this.EventService.OrderGrid(eventData, session, retVar.PreviousSessionResult); // TODO!
+            this.EventService.OrderGrid(sessionDto); // TODO!
+            sessionDto.EventData = eventData;
+            sessionDto.SessionData = session;
 
             // TODO: Config, for example, race: starting positions!
             //var savedSeason = this.SaveService.LoadResult(
@@ -111,7 +112,7 @@ namespace Assetto.Manager
 
 
             eventData.GameSessions = new List<SessionData>() { session };
-            var eventConfig = new EventConfig(eventData);
+            var eventConfig = new EventConfig(sessionDto); 
             var raceIni = eventConfig.ToString();
 
             try
@@ -123,6 +124,7 @@ namespace Assetto.Manager
                 //TODO: LOG
                 throw;
             }
+            return sessionDto;
         }
 
         private void ProcessResults(OutputLog result)

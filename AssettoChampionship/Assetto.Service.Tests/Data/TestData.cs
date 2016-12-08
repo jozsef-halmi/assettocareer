@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Data;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Service.Tests.Data
 {
@@ -385,5 +387,58 @@ namespace Assetto.Service.Tests.Data
 			""time"": 90495
 		}]
 }";
+
+        public static List<OpponentData> OpponentDataTest1 = new List<OpponentData>()
+        {
+            new OpponentData()
+            {
+                Name = "Test1"
+            },
+            new OpponentData()
+            {
+                Name = "Test2"
+            },
+            new OpponentData()
+            {
+                Name = "Test3"
+            }
+        };
+
+        public static List<ResultPlayer> ResultOpponentsTest1 = new List<ResultPlayer>()
+        {
+            new ResultPlayer()
+            {
+                Id = 1,
+                IsPlayer = false,
+                Name = "Test1",
+                LapCount = 3,
+                Position = 1,
+                
+            },
+            new ResultPlayer()
+            {
+                Id = 3,
+                IsPlayer = false,
+                Name = "Test3",
+                LapCount = 3,
+                Position = 2,
+
+            },
+            new ResultPlayer()
+                {
+                    Position = 3,
+                    IsPlayer = true,
+                    Name = "TestPlayer"
+                },
+            new ResultPlayer()
+            {
+                Id = 2,
+                IsPlayer = false,
+                Name = "Test2",
+                LapCount = 3,
+                Position = 4,
+
+            },
+        };
     }
 }

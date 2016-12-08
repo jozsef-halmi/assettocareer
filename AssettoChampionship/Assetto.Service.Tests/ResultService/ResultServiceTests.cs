@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Interfaces.Service;
 using Assetto.Common.Objectives;
 using Assetto.Service.Tests.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace Assetto.Service.Tests.ResultService
 {
     [TestClass]
-    public class ResultServiceTests
+    public class ResultServiceTests : UnitTestBase
     {
+
         [TestMethod]
         public void ProcessResult__FinishTopNEvaluatorTest1()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
             var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
@@ -31,7 +34,7 @@ namespace Assetto.Service.Tests.ResultService
         [TestMethod]
         public void ProcessResult_FinishTopNEvaluatorTest2()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
             var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
@@ -49,7 +52,8 @@ namespace Assetto.Service.Tests.ResultService
         [ExpectedException(typeof(ArgumentException))]
         public void ProcessResult_FinishBeforeEvaluatorTest_NameNotPresent()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
+
             var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
@@ -65,7 +69,8 @@ namespace Assetto.Service.Tests.ResultService
         [TestMethod]
         public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveFalse()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
+
             var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
@@ -82,7 +87,8 @@ namespace Assetto.Service.Tests.ResultService
         [TestMethod]
         public void ProcessResult_FinishBeforeEvaluatorTest_ObjectiveTrue()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
+
             var result = resultService.GetResultForLog(TestData.QualifyOutputLog_PlayerWithoutTime);
 
             // Evaluate TOP Finish
@@ -100,7 +106,8 @@ namespace Assetto.Service.Tests.ResultService
         [TestMethod]
         public void ProcessResult_Race1_FinishTop()
         {
-            var resultService = new Utils.ResultService();
+            var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
+
             var result = resultService.GetResultForLog(TestData.RaceOutputLog_Player2nd);
 
             // Evaluate TOP Finish
@@ -128,7 +135,8 @@ namespace Assetto.Service.Tests.ResultService
         [TestMethod]
         public void ProcessResult_Race1_FinishBefore()
         {
-            var resultService = new Utils.ResultService();
+                        var resultService = new Utils.ResultService(this.ConfigServiceMock.Object);
+
             var result = resultService.GetResultForLog(TestData.RaceOutputLog_Player2nd);
 
             // Evaluate TOP Finish

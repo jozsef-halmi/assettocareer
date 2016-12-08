@@ -14,6 +14,6 @@ namespace Assetto.Common.DTO
         public SessionData SessionData { get; set; }
         public Result PreviousSessionResult { get; set; }
 
-        public List<OpponentData> OrderedGrid { get; set; }
+        //public List<OpponentData> OrderedGrid { get; set; }
     }
 }
