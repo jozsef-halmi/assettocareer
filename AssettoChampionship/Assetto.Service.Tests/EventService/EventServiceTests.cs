@@ -23,7 +23,7 @@ namespace Assetto.Service.Tests.EventService
             dto.PreviousSessionResult = new Result()
             {
                 SessionType = SessionType.Qualifying,
-                QualificationResult = TestData.ResultOpponentsTest1,
+                Players = TestData.ResultOpponentsTest1,
             };
             dto.SessionData = new SessionData()
             {

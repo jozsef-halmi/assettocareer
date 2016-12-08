@@ -27,9 +27,11 @@ namespace Assetto.Common.ProcessedResult
         public SessionType SessionType { get; set; }
 
         // EventType chooses these
-        public List<ResultPlayer> QualificationResult { get; set; }
+        //public List<ResultPlayer> QualificationResult { get; set; }
 
-        public List<ResultPlayer> RaceResult { get; set; }
+        //public List<ResultPlayer> RaceResult { get; set; }
+
+        public List<ResultPlayer> Players { get; set; }
 
         public List<SessionObjective> PrimaryObjectives { get; set; }
 

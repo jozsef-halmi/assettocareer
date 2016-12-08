@@ -57,7 +57,7 @@ namespace Assetto.Service.Tests.EventManager
                 .Returns(new Result()
                 {
                     SessionType = SessionType.Qualifying,
-                    QualificationResult = TestData.ResultOpponentsTest1
+                    Players = TestData.ResultOpponentsTest1
                 });
 
             saveService

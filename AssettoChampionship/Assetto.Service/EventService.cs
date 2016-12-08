@@ -26,14 +26,14 @@ namespace Assetto.Service
 
             if (configuredSession.PreviousSessionResult.SessionType == SessionType.Qualifying)
             {
-                var playerFinished = configuredSession.PreviousSessionResult.QualificationResult.FirstOrDefault(p => p.IsPlayer == true).Position;
+                var playerFinished = configuredSession.PreviousSessionResult.Players.FirstOrDefault(p => p.IsPlayer == true).Position;
                 configuredSession.SessionData.OrderedGrid = new List<OpponentData>();
 
                 configuredSession.SessionData.StartingPosition =
-                    configuredSession.PreviousSessionResult.QualificationResult.FirstOrDefault(p => p.IsPlayer == true)
+                    configuredSession.PreviousSessionResult.Players.FirstOrDefault(p => p.IsPlayer == true)
                         .Position;
 
-                var orderedPreviousGrid = configuredSession.PreviousSessionResult.QualificationResult.OrderBy(p => p.Position);
+                var orderedPreviousGrid = configuredSession.PreviousSessionResult.Players.OrderBy(p => p.Position);
 
                 foreach (var prevCar in orderedPreviousGrid)
                 {

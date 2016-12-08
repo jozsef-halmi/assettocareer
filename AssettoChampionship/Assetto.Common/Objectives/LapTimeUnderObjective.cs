@@ -23,12 +23,12 @@ namespace Assetto.Common.Objectives
 
         protected override bool EvaluateQualify(Result result)
         {
-            return HasALapTimeUnder(this.ChallengeTime, result.QualificationResult);
+            return HasALapTimeUnder(this.ChallengeTime, result.Players);
         }
 
         protected override bool EvaluateRace(Result result)
         {
-            return HasALapTimeUnder(this.ChallengeTime, result.RaceResult);
+            return HasALapTimeUnder(this.ChallengeTime, result.Players);
         }
 
         private bool HasALapTimeUnder(int challengeTime, List<ResultPlayer> resultPlayers)

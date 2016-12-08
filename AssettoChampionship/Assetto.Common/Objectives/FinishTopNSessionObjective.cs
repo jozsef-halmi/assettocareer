@@ -23,12 +23,12 @@ namespace Assetto.Common.Objectives
 
         protected override bool EvaluateQualify(Result result)
         {
-            return FinishedTopN(this.N, result.QualificationResult);
+            return FinishedTopN(this.N, result.Players);
         }
 
         protected override bool EvaluateRace(Result result)
         {
-            return FinishedTopN(this.N, result.RaceResult);
+            return FinishedTopN(this.N, result.Players);
         }
 
         private bool FinishedTopN(int N, List<ResultPlayer> resultPlayers)

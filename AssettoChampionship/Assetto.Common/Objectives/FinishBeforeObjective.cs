@@ -22,12 +22,12 @@ namespace Assetto.Common.Objectives
 
         protected override bool EvaluateQualify(Result result)
         {
-            return FinishedBefore(this.Name, result.QualificationResult);
+            return FinishedBefore(this.Name, result.Players);
         }
 
         protected override bool EvaluateRace(Result result)
         {
-            return FinishedBefore(this.Name, result.RaceResult);
+            return FinishedBefore(this.Name, result.Players);
 
         }
 

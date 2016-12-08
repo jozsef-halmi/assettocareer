@@ -80,10 +80,10 @@ namespace Assetto.Manager
 
             this.ConfigurationStarted?.Invoke(new object());
             ConfigureEvent(eventData, session);
-            this.ACProcessEnded?.Invoke(new object());
+            this.ConfigurationEnded?.Invoke(new object());
 
-            //StartAssettoCorsa();
-            ReturnResult();
+            StartAssettoCorsa();
+            //ReturnResult();
         }
 
 
@@ -98,9 +98,13 @@ namespace Assetto.Manager
                     , this.SelectedEvent.Id
                     , previousSession.Id)
                 : null;
-            this.EventService.OrderGrid(sessionDto); // TODO!
+
+
+            eventData.Player.Name = this.ConfigService.GetPlayerName();
             sessionDto.EventData = eventData;
             sessionDto.SessionData = session;
+            this.EventService.OrderGrid(sessionDto); // TODO!
+          
 
             // TODO: Config, for example, race: starting positions!
             //var savedSeason = this.SaveService.LoadResult(

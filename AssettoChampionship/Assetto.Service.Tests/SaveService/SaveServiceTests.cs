@@ -109,18 +109,18 @@ namespace Assetto.Service.Tests.SaveService
             var fileServiceMock = new Mock<IFileService>();
 
             var saveService = new Service.SaveService(fileServiceMock.Object);
-            var originalPlayerCount = sessionResult.QualificationResult.Count;
+            var originalPlayerCount = sessionResult.Players.Count;
             var newPlayerCount = originalPlayerCount - 1;
-            Assert.AreEqual(savedSeason.SavedEventResults[eventId].SessionResult[sessionId].QualificationResult.Count, originalPlayerCount);
+            Assert.AreEqual(savedSeason.SavedEventResults[eventId].SessionResult[sessionId].Players.Count, originalPlayerCount);
 
-            sessionResult.QualificationResult.RemoveAt(0);
+            sessionResult.Players.RemoveAt(0);
 
             var result = saveService.UpdateResult(savedSeason, eventId, sessionId, sessionResult);
 
             Assert.AreEqual(result.SeasonId, seasonId);
             Assert.AreEqual(result.SavedEventResults[eventId].EventId, eventId);
             Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Id, sessionId);
-            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].QualificationResult.Count, newPlayerCount);
+            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Players.Count, newPlayerCount);
         }
 
         [TestMethod]
@@ -251,7 +251,7 @@ namespace Assetto.Service.Tests.SaveService
             var result = saveService.InsertResult(savedSeason, eventId, sessionId, sessionResult);
 
             Assert.AreEqual(result.SeasonId, seasonId);
-            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].QualificationResult.Count, sessionResult.QualificationResult.Count);
+            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Players.Count, sessionResult.Players.Count);
             Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Id, sessionId);
 
         }
@@ -345,7 +345,7 @@ namespace Assetto.Service.Tests.SaveService
 
 
             Assert.AreEqual(result.SeasonId, seasonId);
-            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].QualificationResult.Count, sessionResult.QualificationResult.Count);
+            Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Players.Count, sessionResult.Players.Count);
             Assert.AreEqual(result.SavedEventResults[eventId].SessionResult[sessionId].Id, sessionId);
 
         }
