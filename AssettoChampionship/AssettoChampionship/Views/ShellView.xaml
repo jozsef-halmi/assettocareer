@@ -9,12 +9,17 @@
              mc:Ignorable="d" 
                               GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
-
-            WindowTransitionsEnabled="False"
+BorderThickness="0" 
+            WindowTransitionsEnabled="True"
             WindowStartupLocation="CenterScreen"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <ContentControl x:Name="ActiveItem" />
+        <Controls:TransitioningContentControl 
+            Transition="LeftReplace"
+            x:Name="ActiveItem"
+            >
+        </Controls:TransitioningContentControl> 
+
     </StackPanel>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
