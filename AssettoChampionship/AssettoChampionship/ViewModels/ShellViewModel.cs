@@ -29,6 +29,19 @@ namespace AssettoChampionship.ViewModels
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
 
+        private Stack<object> _backStack;
+
+        public Stack<object> BackStack {
+            get { return _backStack; }
+            set
+            {
+                _backStack = value;
+                NotifyOfPropertyChange(() => BackStack);
+                NotifyOfPropertyChange(() => CanGoBack);
+            }
+        }
+
+
         public ShellViewModel(
             IWindowManager windowManager
             , IEventAggregator eventAggregator
@@ -39,7 +52,7 @@ namespace AssettoChampionship.ViewModels
             this.EventAggregator = eventAggregator;
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
-
+            this.BackStack = new Stack<object>();
             ShowMainPage();
         }
 
@@ -87,27 +100,51 @@ namespace AssettoChampionship.ViewModels
             //}
         }
 
+        private void OpenPage(object screen)
+        {
+            this._backStack.Push(this.ActiveItem);
+            this.BackStack = _backStack;
+            ActivateItem(screen);
+          
+        }
+
+        public void GoBack()
+        {
+            ActivateItem(this._backStack.Pop());
+            this.BackStack = _backStack;
+        }
+
+        public bool CanGoBack
+        {
+            get { return this.BackStack != null && this.BackStack.Count > 1; }
+        }
+
         public void ShowMainPage()
         {
-            ActivateItem(Container.Resolve<MainViewModel>());
+            OpenPage(Container.Resolve<MainViewModel>());
+            //ActivateItem(Container.Resolve<MainViewModel>());
         }
 
         public void ShowSeriesPage(ChangePageParameters parameters) {
-            ActivateItem(Container.Resolve<SeriesViewModel>());
+            //ActivateItem(Container.Resolve<SeriesViewModel>());
+            OpenPage(Container.Resolve<SeriesViewModel>());
+
         }
 
         public void ShowEventsPage(ChangePageParameters parameters)
         {
             var eventsVM = Container.Resolve<EventsViewModel>();
-            ActivateItem(eventsVM);
             eventsVM.SetSeries(parameters.SeriesData);
+            OpenPage(eventsVM);
+
         }
 
         public void ShowSessionsPage(ChangePageParameters parameters)
         {
             var sessionsVM = Container.Resolve<SessionsViewModel>();
-            ActivateItem(sessionsVM);
             sessionsVM.SetEvent(parameters.SeriesData, parameters.EventData);
+            OpenPage(sessionsVM);
+
         }
 
         public void ShowResultsPage(ChangePageParameters parameters)

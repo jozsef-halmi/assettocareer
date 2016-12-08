@@ -5,7 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AssettoChampionship.Views"
             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                       Title="ShellWindow" 
+            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            xmlns:cal="http://www.caliburnproject.org"
+                        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+            Title="ShellWindow" 
              mc:Ignorable="d" 
                               GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
@@ -14,8 +17,26 @@ BorderThickness="0"
             WindowStartupLocation="CenterScreen"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="48"
+                        Height="48"
+                        Margin="4"
+                        IsEnabled="False"
+                        Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="GoBack" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <iconPacks:PackIconModern Width="20"
+                                              Height="20"
+                                              Kind="ArrowLeft" />
+            </Button>
+        </StackPanel>
+     
+
         <Controls:TransitioningContentControl 
-            Transition="LeftReplace"
+            Transition="Down"
             x:Name="ActiveItem"
             >
         </Controls:TransitioningContentControl> 

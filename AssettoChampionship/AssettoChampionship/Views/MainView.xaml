@@ -6,6 +6,7 @@
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:local="clr-namespace:AssettoChampionship.Views"
              xmlns:cal="http://www.caliburnproject.org"
+
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
             BorderThickness="0" 
