@@ -12,6 +12,8 @@ namespace Assetto.Common.Data
     {
         public Guid Id { get; set; }
 
+        public string FriendlyName { get; set; }
+
         public SessionType SessionType { get; set; }
 
         // For practice, and qual

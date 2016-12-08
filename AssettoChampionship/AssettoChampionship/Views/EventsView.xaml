@@ -25,8 +25,10 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <TextBlock Text="{Binding FriendlyName}">
-                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Height="80px" Source="{Binding ImageUrl}"></Image>
+                            <TextBlock Text="{Binding FriendlyName}"></TextBlock>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

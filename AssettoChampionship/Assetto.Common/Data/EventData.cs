@@ -13,7 +13,11 @@ namespace Assetto.Common.Data
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-  
+        public string ImageUrl
+        {
+            get { return "/Images/Events/" + Name + ".jpg"; }
+        }
+
 
         public string FriendlyName { get; set; }
 

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Attributes\StringValue.cs" />
     <Compile Include="Comparers\LapTimeComparer.cs" />
+    <Compile Include="Constants\SessionNames.cs" />
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
     <Compile Include="Data\DriverData.cs" />
