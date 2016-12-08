@@ -41,8 +41,34 @@ namespace Assetto.Service
                     if (opponent != null)
                         configuredSession.SessionData.OrderedGrid.Add(opponent);
                 }
+            }
+
+            // TODO: Temporary solution
+            if (configuredSession.PreviousSessionResult.SessionType == SessionType.Race)
+            {
+                var reverseCount = configuredSession.PreviousSessionResult.Players.Count > 10 ? 10 : configuredSession.PreviousSessionResult.Players.Count;
+                var playerFinished = configuredSession.PreviousSessionResult.Players.FirstOrDefault(p => p.IsPlayer == true).Position;
+                configuredSession.SessionData.OrderedGrid = new List<OpponentData>();
+                configuredSession.SessionData.StartingPosition = (reverseCount - playerFinished + 1);
+
+
+                var opponentsToReverse = configuredSession.PreviousSessionResult.Players.Take(reverseCount).ToList();
+                var opponentsInTheBack = configuredSession.PreviousSessionResult.Players
+                    .Where(o => opponentsToReverse.FirstOrDefault(otr => otr.Name == o.Name) == null).ToList();
+                opponentsToReverse.Reverse();
+
+                var orderedOpponents = new List<ResultPlayer>(opponentsToReverse);
+                orderedOpponents.AddRange(opponentsInTheBack);
+
+                foreach (var prevCar in orderedOpponents)
+                {
+                    var opponent = configuredSession.EventData.Opponents.FirstOrDefault(o => o.Name == prevCar.Name);
+                    if (opponent != null)
+                        configuredSession.SessionData.OrderedGrid.Add(opponent);
+                }
 
             }
+
             // TODO!
             //switch (eventData.EventType)
             //{

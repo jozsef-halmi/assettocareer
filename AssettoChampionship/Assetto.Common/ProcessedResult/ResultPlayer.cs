@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Assetto.Common.ProcessedResult
         public int Id { get; set; }
         public string Name { get; set; }
 
+        [JsonIgnore]
         public int BestLap
         {
             get
@@ -26,6 +28,7 @@ namespace Assetto.Common.ProcessedResult
             }
         }
 
+        [JsonIgnore]
         public string BestLapTimeSpan
         {
             get
