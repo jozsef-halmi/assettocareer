@@ -14,10 +14,16 @@
     <StackPanel>
         <TextBlock Text="EventsPage"></TextBlock>
         <ListBox x:Name="Events"  
-                 Background="LightBlue">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 HorizontalContentAlignment="Stretch"
+                 >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="EventSelected" >
@@ -25,11 +31,53 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Height="80px" Source="{Binding ImageUrl}"></Image>
-                            <TextBlock Text="{Binding FriendlyName}"></TextBlock>
+                        <Image Grid.Column="0"  Source="{Binding ImageUrl}" Margin="5"></Image>
+                        <StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                            <TextBlock 
+                                    Text="{Binding FriendlyName}" 
+                                    Style="{StaticResource ListBoxTitle}"
+                                    TextAlignment="Center"></TextBlock>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="1" TextAlignment="Left"
+                                        Style="{StaticResource ListBoxDescription}">
+                                        <Run Text="Location:" />
+                                        <Run Text=" " /> <!-- space -->
+                                        <Run Text="{Binding Track.FriendlyName}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Column="2" TextAlignment="Left"
+                                        Style="{StaticResource ListBoxDescription}">
+                                        <Run Text="Layout:" />
+                                        <Run Text=" " /> <!-- space -->
+                                        <Run Text="{Binding Layout.FriendlyName}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Column="3" TextAlignment="Left"
+                                        Style="{StaticResource ListBoxDescription}">
+                                        <Run Text="Sessions:" />
+                                        <Run Text=" " /> <!-- space -->
+                                        <Run Text="{Binding CareerSessions.Count, Mode=OneWay}" />
+                                        <Run Text="sessions" /> <!-- space -->
+                                </TextBlock>
+
+                                <!--<TextBlock Grid.Column="1" TextAlignment="Left"
+                                       Style="{StaticResource ListBoxDescription}"
+                                        Text="{Binding Description}" 
+                                        TextWrapping="Wrap"></TextBlock>-->
+
+                            </Grid>
+                           
+                          
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

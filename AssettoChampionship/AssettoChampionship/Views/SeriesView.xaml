@@ -16,10 +16,15 @@
         <TextBlock Text="SeriesPage"></TextBlock>
         <ListBox x:Name="AvailableSeries"  
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 HorizontalContentAlignment="Stretch"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="SeriesSelected" >
@@ -27,18 +32,18 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
-                            <Image Height="180px" Width="320px" Source="{Binding SeriesData.ImageUrl}" Margin="5"></Image>
-                            <StackPanel Orientation="Vertical" Width="600px" Margin="5" >
-                                <TextBlock 
+                        <Image Grid.Column="0"  Source="{Binding SeriesData.ImageUrl}" Margin="5"></Image>
+                        <StackPanel Grid.Column="1" Margin="5">
+                            <TextBlock 
                                     Text="{Binding SeriesData.FriendlyName}" 
+                                    Style="{StaticResource ListBoxTitle}"
                                     TextAlignment="Center"></TextBlock>
-                                <TextBlock TextAlignment="Left"
-                                           Text="{Binding SeriesData.Description}" 
-                                           TextWrapping="Wrap"></TextBlock>
-                            </StackPanel>
+                            <TextBlock TextAlignment="Left"
+                                       Style="{StaticResource ListBoxDescription}"
+                                        Text="{Binding SeriesData.Description}" 
+                                        TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
