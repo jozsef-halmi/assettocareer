@@ -12,8 +12,12 @@ namespace Assetto.Common.Data
         public string Name { get; set; }
         public string FriendlyName { get; set; }
 
+        public string ImageUrl
+        {
+            get { return "/Images/Series/" + Name + ".jpg"; }
+        }
+
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
         public string VideoUrl { get; set; }
         public List<EventData> Events { get; set; }
         public Guid Id { get; set; }

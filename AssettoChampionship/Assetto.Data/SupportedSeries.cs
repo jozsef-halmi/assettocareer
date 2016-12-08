@@ -16,7 +16,6 @@ namespace Assetto.Data
             , Name = "Abarth500"
             , FriendlyName = "Trofeo Abarth 500"
             , Description = "TO DO"
-            , ImageUrl = ""
             , VideoUrl = ""
             , Events = new List<EventData>() {
                 SupportedEvents.Abarth500RaceEvent1
