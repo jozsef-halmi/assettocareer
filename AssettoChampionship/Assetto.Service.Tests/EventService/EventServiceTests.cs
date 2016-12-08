@@ -49,18 +49,12 @@ namespace Assetto.Service.Tests.EventService
             var indexOfFourth =
                 dto.SessionData.OrderedGrid.IndexOf(dto.SessionData.OrderedGrid.FirstOrDefault(o => o.Name == resultOpponentFinishedFourth.Name));
 
-            //var indexOfPlayer =
-            //    dto.SessionData.OrderedGrid.IndexOf(dto.SessionData.OrderedGrid.FirstOrDefault(o => o.IsPlayer == true));
-
-
             Assert.IsTrue(indexOfFirst < indexOfSecond); //1,2
-            //Assert.IsTrue(indexOfFirst < indexOfPlayer); //1,3
             Assert.IsTrue(indexOfFirst < indexOfFourth); //1,4
 
-            //Assert.IsTrue(indexOfSecond < indexOfPlayer); //2,3
             Assert.IsTrue(indexOfSecond < indexOfFourth); //2,4
+            Assert.AreEqual(dto.SessionData.StartingPosition, 3);
 
-            //Assert.IsTrue(indexOfPlayer < indexOfFourth); // 3,4
 
         }
     }
