@@ -13,6 +13,18 @@
 
     <StackPanel>
         <TextBlock Text="EventsPage"></TextBlock>
+        <TextBlock x:Name="Title" Margin="5"
+                   Style="{StaticResource PageTitle}"
+                   VerticalAlignment="Stretch"
+                   TextAlignment="Center"
+                   ></TextBlock>
+        <TextBlock x:Name="Description"  Margin="5"
+                   Style="{StaticResource PageDescription}"
+                   VerticalAlignment="Stretch"
+                   TextAlignment="Left"
+                   TextWrapping="Wrap"
+                   ></TextBlock>
+        
         <ListBox x:Name="Events"  
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  HorizontalContentAlignment="Stretch"

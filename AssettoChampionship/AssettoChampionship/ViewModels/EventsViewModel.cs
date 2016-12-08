@@ -13,6 +13,31 @@ namespace AssettoChampionship.ViewModels
     public class EventsViewModel : PropertyChangedBase
     {
         public SeriesData Series { get; set; }
+
+        private string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                NotifyOfPropertyChange(() => Title);
+            }
+        }
+
+        private string _description;
+
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                NotifyOfPropertyChange(() => Description);
+            }
+        }
+
         private BindableCollection<EventData> _events { get; set; }
         public BindableCollection<EventData> Events
         {
@@ -35,6 +60,8 @@ namespace AssettoChampionship.ViewModels
         public void SetSeries(SeriesData series) {
             this.Series = series;
             this.Events = new BindableCollection<EventData>(series.Events);
+            this.Title = series.FriendlyName;
+            this.Description = series.Description;
         }
 
         public void EventSelected(Guid eventId)
