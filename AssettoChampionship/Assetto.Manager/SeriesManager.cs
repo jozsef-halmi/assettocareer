@@ -63,28 +63,20 @@ namespace Assetto.Manager
         public SeriesDTO GetSeries(Guid seriesId)
         {
             var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
-            return new SeriesDTO()
+            var retVar = new SeriesDTO()
             {
                 SeriesId = selectedSeries.Id,
                 Description = selectedSeries.Description,
                 Title = selectedSeries.FriendlyName,
                 ImageUrl = selectedSeries.ImageUrl,
                 IsAvailable = true,
-                IsDone = false,
-                Events = selectedSeries.Events.Select(e => new EventDTO()
-                    {
-                        EventId = e.Id,
-                        Description = e.FriendlyName, // TODO
-                        ImageUrl = e.ImageUrl,
-                        IsAvailable = true, //todo,
-                        IsDone = false,
-                        Title = e.FriendlyName,
-                        Track = e.Track.FriendlyName,
-                        Layout = e.Layout?.FriendlyName,
-                        SessionsCount = e.CareerSessions.Count
-                    }
+                Events = selectedSeries.Events.Select(e => 
+                            GetEvent(seriesId, e.Id)
                 ).ToList()
             };
+
+            retVar.IsDone = retVar.Events.All(s => s.IsDone);
+            return retVar;
         }
 
         public EventDTO GetEvent(Guid seriesId, Guid eventId)
@@ -93,19 +85,22 @@ namespace Assetto.Manager
                 .FirstOrDefault(s => s.Id == seriesId)
                 .Events.FirstOrDefault(e => e.Id == eventId);
 
-            return new EventDTO()
+            var retVar = new EventDTO()
             {
                 Title =  selectedEvent.FriendlyName,
                 Description = selectedEvent.FriendlyName, // TODO
                 ImageUrl = selectedEvent.ImageUrl,
                 EventId = selectedEvent.Id,
                 IsAvailable = true,
-                IsDone = false, // todo
                 Track = selectedEvent.Track.FriendlyName,
                 Layout = selectedEvent.Layout?.FriendlyName,
                 SessionsCount = selectedEvent.CareerSessions.Count,
                 Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
             };
+
+            retVar.IsDone = retVar.Sessions.All(s => s.IsDone);
+
+            return retVar;
         }
 
 
@@ -133,7 +128,11 @@ namespace Assetto.Manager
                 IsDone = data.PrimarySessionObjectives.Count() == this.GoalService.GetAchievedGoalsCount(seriesId, eventId, data.Id),
                 IsAvailable = true,
                 SessionId = data.Id,
-                Objectives = data.PrimarySessionObjectives
+                Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
+                {
+                    IsDone = pso.Evaluate(SaveService.LoadResult(seriesId, eventId, sessionId)),
+                    Text = pso.ToString()
+                }).ToList()
             };
         }
     }

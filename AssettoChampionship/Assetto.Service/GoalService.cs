@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 using Assetto.Common.Interfaces.Manager;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.Objectives;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Service
 {
     public class GoalService : IGoalService
     {
         public ISaveService SaveService { get; set; }
-        public ISeriesManager SeriesManager { get; set; }
 
+        public ISeriesService SeriesService { get; set; }
         public GoalService(ISaveService saveService
-            , ISeriesManager seriesManager)
+            , ISeriesService seriesService)
         {
             this.SaveService = saveService;
-            this.SeriesManager = seriesManager;
+            this.SeriesService = seriesService;
         }
 
-        public int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId)
+        public int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId, Result result)
         {
             var goalCount = 0;
-            var result = this.SaveService.LoadResult(seriesId, eventId, sessionId);
             if (result != null)
             {
                 foreach (var objective in GetSessionGoals(seriesId, eventId, sessionId))
@@ -38,7 +38,7 @@ namespace Assetto.Service
 
         public List<SessionObjective> GetSessionGoals(Guid seriesId, Guid eventId, Guid sessionId)
         {
-            return SeriesManager.GetSession(seriesId, eventId, sessionId).Objectives;
+            return SeriesService.GetSession(seriesId, eventId, sessionId).PrimarySessionObjectives;
         }
     }
 }

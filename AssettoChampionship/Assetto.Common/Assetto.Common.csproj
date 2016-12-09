@@ -62,6 +62,7 @@
     <Compile Include="DTO\ACExeTerminatedDTO.cs" />
     <Compile Include="DTO\ConfiguredSessionDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
+    <Compile Include="DTO\ObjectiveDTO.cs" />
     <Compile Include="DTO\SeriesDTO.cs" />
     <Compile Include="DTO\SessionDTO.cs" />
     <Compile Include="Enum\EventType.cs" />

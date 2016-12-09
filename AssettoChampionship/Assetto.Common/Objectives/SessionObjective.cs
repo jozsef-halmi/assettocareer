@@ -15,6 +15,7 @@ namespace Assetto.Common.Objectives
     {
         public bool Evaluate(Result result)
         {
+            if (result == null) return false;
             switch (result.SessionType)
             {
                 case SessionType.Practice:

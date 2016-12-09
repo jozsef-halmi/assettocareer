@@ -17,5 +17,12 @@ namespace Assetto.Service
                 SupportedSeries.AbarthRaceSeries
             };
         }
+
+        public SessionData GetSession(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+            return this.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId)
+                .Events.FirstOrDefault(e => e.Id == eventId)
+                .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
+        }
     }
 }

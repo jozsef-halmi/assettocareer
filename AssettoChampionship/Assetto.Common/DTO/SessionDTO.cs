@@ -15,7 +15,7 @@ namespace Assetto.Common.DTO
         public bool IsDone { get; set; }
         public bool IsAvailable { get; set; }
 
-        public List<Objectives.SessionObjective> Objectives { get; set; }
+        public List<ObjectiveDTO> Objectives { get; set; }
 
 
     }

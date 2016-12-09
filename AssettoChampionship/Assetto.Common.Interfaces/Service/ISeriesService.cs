@@ -11,5 +11,7 @@ namespace Assetto.Common.Interfaces.Service
     {
         IEnumerable<SeriesData> GetAvailableSeries();
 
+        SessionData GetSession(Guid seriesId, Guid eventId, Guid sessionId);
+
     }
 }
