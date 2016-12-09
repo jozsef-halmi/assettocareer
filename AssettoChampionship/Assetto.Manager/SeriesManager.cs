@@ -61,6 +61,7 @@ namespace Assetto.Manager
         public SeriesDTO GetSeries(Guid seriesId)
         {
             var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
+
             return new SeriesDTO()
             {
                 SeriesId = selectedSeries.Id,

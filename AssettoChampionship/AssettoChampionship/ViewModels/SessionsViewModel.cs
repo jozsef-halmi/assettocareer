@@ -10,7 +10,7 @@ using Assetto.Common.DTO;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class SessionsViewModel : PropertyChangedBase
+    public class SessionsViewModel : Screen
     {
         public EventDTO Event { get; set; }
 

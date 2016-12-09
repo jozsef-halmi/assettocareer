@@ -12,7 +12,7 @@ using Assetto.Common.Interfaces.Manager;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class EventsViewModel : PropertyChangedBase
+    public class EventsViewModel : Screen
     {
         #region Properties
 

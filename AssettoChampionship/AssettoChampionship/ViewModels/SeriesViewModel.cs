@@ -11,7 +11,7 @@ using Assetto.Common.DTO;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class SeriesViewModel : PropertyChangedBase
+    public class SeriesViewModel : Screen
     {
         // Databinded objects
         public BindableCollection<SeriesDTO> AvailableSeries { get; set; }
@@ -39,17 +39,12 @@ namespace AssettoChampionship.ViewModels
             {
                 SelectedSeriesId = seriesId
             }), action => { Task.Factory.StartNew(action); });
+        }
 
-
-
-            //var series = this.AvailableSeries.Select(s => s.SeriesData).Where(s => s.Id == seriesId).FirstOrDefault();
-            //if (series != null)
-            //{
-            //    this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
-            //    {
-            //        SeriesData = series
-            //    }), action => { Task.Factory.StartNew(action); });
-            //}
+        protected override void OnActivate()
+        {
+            // TODO: refresh elements
+            base.OnActivate();
         }
     }
 
