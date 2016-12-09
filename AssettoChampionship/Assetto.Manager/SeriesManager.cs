@@ -125,7 +125,7 @@ namespace Assetto.Manager
                 Title = data.FriendlyName,
                 Description = data.FriendlyName, // todo
                 ImageUrl = data.ImageUrl,
-                IsDone = data.PrimarySessionObjectives.Count() == this.GoalService.GetAchievedGoalsCount(seriesId, eventId, data.Id),
+                IsDone = data.PrimarySessionObjectives.Count() == GetAchievedGoalsCount(seriesId, eventId, data.Id),
                 IsAvailable = true,
                 SessionId = data.Id,
                 Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
@@ -134,6 +134,12 @@ namespace Assetto.Manager
                     Text = pso.ToString()
                 }).ToList()
             };
+        }
+
+        private int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+           return this.GoalService.GetAchievedGoalsCount(seriesId, eventId, sessionId,
+                SaveService.LoadResult(seriesId, eventId, sessionId));
         }
     }
 }
