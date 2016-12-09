@@ -104,16 +104,9 @@ namespace AssettoChampionship.ViewModels
             this.SeriesManager = seriesManager;
         }
 
-        public void SetSeries(
-            //SeriesData series
-            Guid seriesId
-            )
+        public void SetSeries(Guid seriesId)
         {
             this.Series = SeriesManager.GetSeries(seriesId);
-            //this.Series = series;
-            //this.Events = new BindableCollection<EventData>(series.Events);
-            //this.Title = series.FriendlyName;
-            //this.Description = series.Description;
         }
 
         public void EventSelected(Guid eventId)
@@ -123,15 +116,6 @@ namespace AssettoChampionship.ViewModels
                 SelectedSeriesId = this.Series.SeriesId,
                 SelectedEventId = eventId
             }), action => { Task.Factory.StartNew(action); });
-            //var selectedEvent = this.Events.Where(e => e.Id == eventId).FirstOrDefault();
-            //if (selectedEvent != null)
-            //{
-            //    this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
-            //    {
-            //        SeriesData = this.Series,
-            //        EventData = selectedEvent
-            //    }), action => { Task.Factory.StartNew(action); });
-            //}
         }
 
 

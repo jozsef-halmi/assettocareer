@@ -101,7 +101,16 @@ namespace Assetto.Manager
                 IsDone = false, // todo
                 Track = selectedEvent.Track.FriendlyName,
                 Layout = selectedEvent.Layout?.FriendlyName,
-                SessionsCount = selectedEvent.CareerSessions.Count
+                SessionsCount = selectedEvent.CareerSessions.Count,
+                Sessions = selectedEvent.CareerSessions.Select(s => new SessionDTO()
+                {
+                   Title = s.FriendlyName,
+                   Description = s.FriendlyName, // todo
+                   ImageUrl = s.ImageUrl,
+                   IsDone = false,
+                   IsAvailable = true,
+                   SessionId = s.Id
+                }).ToList()
             };
         }
     }

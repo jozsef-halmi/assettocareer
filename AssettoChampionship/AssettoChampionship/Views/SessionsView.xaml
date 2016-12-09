@@ -13,7 +13,7 @@
 
     <StackPanel>
         <TextBlock Text="SessionsPage"></TextBlock>
-        <ListBox x:Name="Sessions"  HorizontalAlignment="Stretch">
+        <ListBox ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
