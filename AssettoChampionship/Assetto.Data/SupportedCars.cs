@@ -11,8 +11,8 @@ namespace Assetto.Data
     {
         public static Dictionary<string, CarData> CarsDictionary = new Dictionary<string, CarData>()
         {
-            { Cars.Abarth500RaceCar,  new CarData() {
-                Name = Cars.Abarth500RaceCar
+            { CarNames.Abarth500RaceCar,  new CarData() {
+                Name = CarNames.Abarth500RaceCar
                 , FriendlyName = "Abarth 500 Assetto Corse"
                 , Description = "Description for Abarth 500 Assetto Corse"
             } }

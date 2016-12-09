@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assetto.Data
 {
-    public class Tracks
+    public class TrackNames
     {
         public static string Magione = "Magione";
     }

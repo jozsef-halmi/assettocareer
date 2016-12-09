@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cars.cs" />
+    <Compile Include="CarNames.cs" />
     <Compile Include="Skins.cs" />
     <Compile Include="SupportedEvents.cs" />
     <Compile Include="SupportedOpponents.cs" />
@@ -56,7 +56,7 @@
     <Compile Include="SupportedSessions.cs" />
     <Compile Include="SupportedSkins.cs" />
     <Compile Include="SupportedTracks.cs" />
-    <Compile Include="Tracks.cs" />
+    <Compile Include="TrackNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">

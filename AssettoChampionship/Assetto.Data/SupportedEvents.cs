@@ -16,10 +16,10 @@ namespace Assetto.Data
             , Name = "Abarth500_Magione"
             , FriendlyName = "Abarth 500 at Magione"
             , JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough
-            , Track =  SupportedTracks.TracksDictionary[Assetto.Data.Tracks.Magione]
+            , Track =  SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Magione]
             , Layout = null
             , Player = SupportedPlayers.Abarth500RaceOfficial
-            , Opponents = SupportedOpponents.OpponentsDictionary[Cars.Abarth500RaceCar]
+            , Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar]
             , EventType = EventType.QualiTwoRacesSecondReversed
             , CareerSessions = new List<SessionData>() {
                 SupportedSessions.Abarth500RaceEvent1Qualy,

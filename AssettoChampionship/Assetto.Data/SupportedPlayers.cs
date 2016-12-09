@@ -11,7 +11,7 @@ namespace Assetto.Data
     {
         public static PlayerData Abarth500RaceOfficial= new PlayerData()
         {
-            Car = SupportedCars.CarsDictionary[Assetto.Data.Cars.Abarth500RaceCar]
+            Car = SupportedCars.CarsDictionary[Assetto.Data.CarNames.Abarth500RaceCar]
             , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOfficialSkin1]
         };
     }
