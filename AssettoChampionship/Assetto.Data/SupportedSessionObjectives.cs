@@ -19,5 +19,10 @@ namespace Assetto.Data
         {
             N = 3
         };
+
+        public static SessionObjective Top10 = new FinishTopNSessionObjective()
+        {
+            N = 10
+        };
     }
 }

@@ -68,6 +68,7 @@
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\SessionType.cs" />
+    <Compile Include="Extensions\Ordinal.cs" />
     <Compile Include="Extensions\StringEnum.cs" />
     <Compile Include="Framework\UpdateDialogMessageParameters.cs" />
     <Compile Include="Framework\UpdateDialogMessage.cs" />

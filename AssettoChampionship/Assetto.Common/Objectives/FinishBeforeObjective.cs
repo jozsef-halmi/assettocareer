@@ -51,5 +51,10 @@ namespace Assetto.Common.Objectives
 
             return playerFinished < opponentFinished;
         }
+
+        public override string ToString()
+        {
+            return "Finish before " + Name;
+        }
     }
 }

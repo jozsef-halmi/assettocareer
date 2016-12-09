@@ -29,7 +29,7 @@ namespace Assetto.Data
            ,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Win
+               SupportedSessionObjectives.Podium
             }
          
         };
@@ -42,7 +42,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Win
+               SupportedSessionObjectives.Podium
             }
 
         };

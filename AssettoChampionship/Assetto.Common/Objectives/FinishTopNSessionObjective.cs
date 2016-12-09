@@ -7,6 +7,7 @@ using Assetto.Common.Data;
 using Assetto.Common.Enum;
 using Assetto.Common.Output;
 using Assetto.Common.ProcessedResult;
+using Assetto.Common.Extensions;
 
 namespace Assetto.Common.Objectives
 {
@@ -38,6 +39,11 @@ namespace Assetto.Common.Objectives
                 resultPlayers.FirstOrDefault(c => c.Id == 0)
             ) + 1; // Because, you can't finish 0th
             return finished <= N;
+        }
+
+        public override string ToString()
+        {
+            return "Finish " + Ordinal.AddOrdinal(this.N) + " or lower";
         }
     }
 }
