@@ -84,5 +84,25 @@ namespace Assetto.Manager
                 ).ToList()
             };
         }
+
+        public EventDTO GetEvent(Guid seriesId, Guid eventId)
+        {
+            var selectedEvent = SeriesService.GetAvailableSeries()
+                .FirstOrDefault(s => s.Id == seriesId)
+                .Events.FirstOrDefault(e => e.Id == eventId);
+
+            return new EventDTO()
+            {
+                Title =  selectedEvent.FriendlyName,
+                Description = selectedEvent.FriendlyName, // TODO
+                ImageUrl = selectedEvent.ImageUrl,
+                EventId = selectedEvent.Id,
+                IsAvailable = true,
+                IsDone = false, // todo
+                Track = selectedEvent.Track.FriendlyName,
+                Layout = selectedEvent.Layout?.FriendlyName,
+                SessionsCount = selectedEvent.CareerSessions.Count
+            };
+        }
     }
 }

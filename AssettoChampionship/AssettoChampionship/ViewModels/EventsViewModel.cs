@@ -34,7 +34,7 @@ namespace AssettoChampionship.ViewModels
         #endregion
 
 
-        public Guid SelectedSeriesId { get; set; }
+        //public Guid SelectedSeriesId { get; set; }
 
         //private Guid _selectedSeriesId;
 
@@ -118,6 +118,11 @@ namespace AssettoChampionship.ViewModels
 
         public void EventSelected(Guid eventId)
         {
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
+            {
+                SelectedSeriesId = this.Series.SeriesId,
+                SelectedEventId = eventId
+            }), action => { Task.Factory.StartNew(action); });
             //var selectedEvent = this.Events.Where(e => e.Id == eventId).FirstOrDefault();
             //if (selectedEvent != null)
             //{

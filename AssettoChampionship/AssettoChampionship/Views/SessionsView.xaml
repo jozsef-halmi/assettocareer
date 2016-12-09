@@ -13,8 +13,7 @@
 
     <StackPanel>
         <TextBlock Text="SessionsPage"></TextBlock>
-        <ListBox x:Name="Sessions"  HorizontalAlignment="Stretch"
-                 Background="LightBlue">
+        <ListBox x:Name="Sessions"  HorizontalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -28,11 +27,11 @@
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
                                 <Image  Height="80px" Source="{Binding ImageUrl}"></Image>
-                                <TextBlock Text="{Binding FriendlyName}" 
+                                <TextBlock Text="{Binding Title}" 
                                            HorizontalAlignment="Stretch"
                                            ></TextBlock>
-                                <TextBlock Text="{Binding Duration}">
-                                </TextBlock>
+                                <!--<TextBlock Text="{Binding Duration}">
+                                </TextBlock>-->
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

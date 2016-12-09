@@ -41,7 +41,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="EventSelected" >
-                                    <cal:Parameter Value="{Binding Id}" />
+                                    <cal:Parameter Value="{Binding EventId}" />
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

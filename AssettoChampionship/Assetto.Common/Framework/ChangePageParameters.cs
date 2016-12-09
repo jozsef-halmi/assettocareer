@@ -12,9 +12,12 @@ namespace Assetto.Common.Framework
     {
         //public SeriesData SeriesData { get; set; }
 
-        public Guid SelectedSeriesId { get; set; }
+        //public EventData EventData { get; set; }
 
-        public EventData EventData { get; set; }
+        public Guid SelectedSeriesId { get; set; }
+        public Guid SelectedEventId { get; set; }
+
+
         public SessionData SessionData { get; set; }
 
         public ACExeTerminatedDTO ACExeTerminatedDto { get; set; }
