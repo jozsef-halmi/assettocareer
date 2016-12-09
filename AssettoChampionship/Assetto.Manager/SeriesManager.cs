@@ -39,8 +39,14 @@ namespace Assetto.Manager
                 {
                     retVar.Add(new SeriesDTO()
                     {
-                        SeriesData = availableSeason,
-                        SavedSeason = this.SaveService.GetSavedSeason(availableSeason.Id)
+                        SeriesId = availableSeason.Id,
+                        Description = availableSeason.Description,
+                        Title = availableSeason.FriendlyName,
+                        ImageUrl = availableSeason.ImageUrl,
+                        IsAvailable = true,
+                        IsDone = false
+                        //SeriesData = availableSeason,
+                        //SavedSeason = this.SaveService.GetSavedSeason(availableSeason.Id)
                     });
                 }
             }
@@ -52,9 +58,31 @@ namespace Assetto.Manager
             return retVar;
         }
 
-        public SeriesDTO GetSeries(Guid id)
+        public SeriesDTO GetSeries(Guid seriesId)
         {
-            throw new NotImplementedException();
+            var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
+            return new SeriesDTO()
+            {
+                SeriesId = selectedSeries.Id,
+                Description = selectedSeries.Description,
+                Title = selectedSeries.FriendlyName,
+                ImageUrl = selectedSeries.ImageUrl,
+                IsAvailable = true,
+                IsDone = false,
+                Events = selectedSeries.Events.Select(e => new EventDTO()
+                    {
+                        EventId = e.Id,
+                        Description = e.FriendlyName, // TODO
+                        ImageUrl = e.ImageUrl,
+                        IsAvailable = true, //todo,
+                        IsDone = false,
+                        Title = e.FriendlyName,
+                        Track = e.Track.FriendlyName,
+                        Layout = e.Layout?.FriendlyName,
+                        SessionsCount = e.CareerSessions.Count
+                    }
+                ).ToList()
+            };
         }
     }
 }

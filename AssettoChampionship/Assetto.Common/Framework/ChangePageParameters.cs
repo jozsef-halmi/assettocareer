@@ -10,7 +10,10 @@ namespace Assetto.Common.Framework
 {
     public class ChangePageParameters
     {
-        public SeriesData SeriesData { get; set; }
+        //public SeriesData SeriesData { get; set; }
+
+        public Guid SelectedSeriesId { get; set; }
+
         public EventData EventData { get; set; }
         public SessionData SessionData { get; set; }
 

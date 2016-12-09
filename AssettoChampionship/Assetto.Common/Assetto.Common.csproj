@@ -61,6 +61,7 @@
     <Compile Include="Data\TrackData.cs" />
     <Compile Include="DTO\ACExeTerminatedDTO.cs" />
     <Compile Include="DTO\ConfiguredSessionDTO.cs" />
+    <Compile Include="DTO\EventDTO.cs" />
     <Compile Include="DTO\SeriesDTO.cs" />
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Enum\PenaltyType.cs" />

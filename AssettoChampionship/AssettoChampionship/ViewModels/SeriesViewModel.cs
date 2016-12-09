@@ -35,27 +35,22 @@ namespace AssettoChampionship.ViewModels
 
         public void SeriesSelected(Guid seriesId)
         {
-            var series = this.AvailableSeries.Select(s => s.SeriesData).Where(s => s.Id == seriesId).FirstOrDefault();
-            if (series != null)
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
             {
-                this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
-                {
-                    SeriesData = series
-                }), action => { Task.Factory.StartNew(action); });
-            }
-            //var seriesData = AvailableSeries.First();
-            //var eventData = seriesData.Events.First();
+                SelectedSeriesId = seriesId
+            }), action => { Task.Factory.StartNew(action); });
 
 
-          
-            //this.EventManager.StartEvent(eventData);
 
-            //EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
-            //    , action =>
+            //var series = this.AvailableSeries.Select(s => s.SeriesData).Where(s => s.Id == seriesId).FirstOrDefault();
+            //if (series != null)
+            //{
+            //    this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
             //    {
-            //        Task.Factory.StartNew(action);
-            //    });
-        }   
+            //        SeriesData = series
+            //    }), action => { Task.Factory.StartNew(action); });
+            //}
+        }
     }
 
 }

@@ -13,19 +13,21 @@
 
     <StackPanel>
         <TextBlock Text="EventsPage"></TextBlock>
-        <TextBlock x:Name="Title" Margin="5"
+        <TextBlock Margin="5"
                    Style="{StaticResource PageTitle}"
+                   Text="{Binding Series.Title}"
                    VerticalAlignment="Stretch"
                    TextAlignment="Center"
                    ></TextBlock>
-        <TextBlock x:Name="Description"  Margin="5"
+        <TextBlock Margin="5"
                    Style="{StaticResource PageDescription}"
+                   Text="{Binding Series.Description}"
                    VerticalAlignment="Stretch"
                    TextAlignment="Left"
                    TextWrapping="Wrap"
                    ></TextBlock>
-        
-        <ListBox x:Name="Events"  
+        <!--x:Name="Events"-->
+        <ListBox ItemsSource="{Binding Series.Events}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  HorizontalContentAlignment="Stretch"
                  >
@@ -46,7 +48,7 @@
                         <Image Grid.Column="0"  Source="{Binding ImageUrl}" Margin="5"></Image>
                         <StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Center">
                             <TextBlock 
-                                    Text="{Binding FriendlyName}" 
+                                    Text="{Binding Title}" 
                                     Style="{StaticResource ListBoxTitle}"
                                     TextAlignment="Center"></TextBlock>
                             <Grid HorizontalAlignment="Stretch">
@@ -62,21 +64,21 @@
                                         Style="{StaticResource ListBoxDescription}">
                                         <Run Text="Location:" />
                                         <Run Text=" " /> <!-- space -->
-                                        <Run Text="{Binding Track.FriendlyName}" />
+                                        <Run Text="{Binding Track}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="2" TextAlignment="Left"
                                         Style="{StaticResource ListBoxDescription}">
                                         <Run Text="Layout:" />
                                         <Run Text=" " /> <!-- space -->
-                                        <Run Text="{Binding Layout.FriendlyName}" />
+                                        <Run Text="{Binding Layout}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="3" TextAlignment="Left"
                                         Style="{StaticResource ListBoxDescription}">
                                         <Run Text="Sessions:" />
                                         <Run Text=" " /> <!-- space -->
-                                        <Run Text="{Binding CareerSessions.Count, Mode=OneWay}" />
+                                        <Run Text="{Binding SessionsCount}" />
                                         <Run Text="sessions" /> <!-- space -->
                                 </TextBlock>
 
@@ -86,8 +88,15 @@
                                         TextWrapping="Wrap"></TextBlock>-->
 
                             </Grid>
-                           
-                          
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Available:</TextBlock>
+                                <TextBlock Text="{Binding IsAvailable}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Done:</TextBlock>
+                                <TextBlock Text="{Binding IsDone}"></TextBlock>
+                            </StackPanel>
+
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
