@@ -50,6 +50,7 @@
     <Compile Include="Service\IConfigService.cs" />
     <Compile Include="Service\IEventService.cs" />
     <Compile Include="Service\IFileService.cs" />
+    <Compile Include="Service\IGoalService.cs" />
     <Compile Include="Service\ILogService.cs" />
     <Compile Include="Service\IProcessService.cs" />
     <Compile Include="Service\IResultService.cs" />

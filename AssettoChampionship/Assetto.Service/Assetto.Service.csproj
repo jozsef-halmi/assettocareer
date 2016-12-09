@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventService.cs" />
+    <Compile Include="GoalService.cs" />
     <Compile Include="SaveService.cs" />
     <Compile Include="SeriesService.cs" />
     <Compile Include="Utils\ConfigService.cs" />

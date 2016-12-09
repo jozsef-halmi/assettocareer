@@ -33,9 +33,9 @@ namespace Assetto.Common.ProcessedResult
 
         public List<ResultPlayer> Players { get; set; }
 
-        public List<SessionObjective> PrimaryObjectives { get; set; }
+        //public List<SessionObjective> PrimaryObjectives { get; set; }
 
-        public List<SessionObjective> SecondaryObjectives { get; set; }
+        //public List<SessionObjective> SecondaryObjectives { get; set; }
 
 
 

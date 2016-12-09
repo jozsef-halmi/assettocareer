@@ -18,15 +18,17 @@ namespace Assetto.Manager
         public IFileService FileService { get; set; }
         public ISeriesService SeriesService { get; set; }
         public ISaveService SaveService { get; set; }
-
+        public IGoalService GoalService { get; set; }
 
         public SeriesManager(IFileService fileService
             , ISeriesService seriesService
-            , ISaveService saveService)
+            , ISaveService saveService
+            , IGoalService goalService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.SaveService = saveService;
+            this.GoalService = goalService;
         }
 
         public List<SeriesDTO> GetAvailableSeries()
@@ -61,7 +63,6 @@ namespace Assetto.Manager
         public SeriesDTO GetSeries(Guid seriesId)
         {
             var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
-
             return new SeriesDTO()
             {
                 SeriesId = selectedSeries.Id,
@@ -103,15 +104,36 @@ namespace Assetto.Manager
                 Track = selectedEvent.Track.FriendlyName,
                 Layout = selectedEvent.Layout?.FriendlyName,
                 SessionsCount = selectedEvent.CareerSessions.Count,
-                Sessions = selectedEvent.CareerSessions.Select(s => new SessionDTO()
-                {
-                   Title = s.FriendlyName,
-                   Description = s.FriendlyName, // todo
-                   ImageUrl = s.ImageUrl,
-                   IsDone = false,
-                   IsAvailable = true,
-                   SessionId = s.Id
-                }).ToList()
+                Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
+            };
+        }
+
+
+
+        public SessionDTO GetSession(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+            return GetSessionDTO(seriesId, eventId, sessionId);
+        }
+
+        private SessionData GetSessionData(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+            return SeriesService.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId)
+                   .Events.FirstOrDefault(e => e.Id == eventId)
+                   .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
+        }
+
+        private SessionDTO GetSessionDTO(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+            var data = GetSessionData(seriesId, eventId, sessionId);
+            return new SessionDTO()
+            {
+                Title = data.FriendlyName,
+                Description = data.FriendlyName, // todo
+                ImageUrl = data.ImageUrl,
+                IsDone = data.PrimarySessionObjectives.Count() == this.GoalService.GetAchievedGoalsCount(seriesId, eventId, data.Id),
+                IsAvailable = true,
+                SessionId = data.Id,
+                Objectives = data.PrimarySessionObjectives
             };
         }
     }

@@ -13,8 +13,6 @@ namespace Assetto.Common.Objectives
 {
     public abstract class SessionObjective
     {
-        public bool IsSuccess  { get; set; }
-
         public bool Evaluate(Result result)
         {
             switch (result.SessionType)

@@ -13,13 +13,11 @@ namespace Assetto.Data
         public static SessionObjective Win = new FinishTopNSessionObjective()
         {
             N = 1
-            , IsSuccess = false
         };
 
         public static SessionObjective Podium = new FinishTopNSessionObjective()
         {
             N = 3
-          , IsSuccess = false
         };
     }
 }

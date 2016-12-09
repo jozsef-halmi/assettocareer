@@ -33,9 +33,9 @@ namespace Assetto.Common.Data
 
         //public List<OpponentData> Opponents { get; set; }
 
-        public IEnumerable<SessionObjective> PrimarySessionObjectives { get; set; }
+        public List<SessionObjective> PrimarySessionObjectives { get; set; }
 
-        public IEnumerable<SessionObjective> SecondarySessionObjectives { get; set; }
+        public List<SessionObjective> SecondarySessionObjectives { get; set; }
 
 
 
