@@ -149,7 +149,8 @@ namespace Assetto.Service
             catch (Exception)
             {
                 //TODO
-                throw;
+                return null;
+                //throw;
             }
         }
 

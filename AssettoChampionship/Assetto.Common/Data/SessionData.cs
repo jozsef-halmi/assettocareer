@@ -11,6 +11,12 @@ namespace Assetto.Common.Data
 {
     public class SessionData
     {
+        public SessionData()
+        {
+            if (this.PrimarySessionObjectives == null)
+                this.PrimarySessionObjectives = new List<SessionObjective>();
+        }
+
         public Guid Id { get; set; }
 
         public string FriendlyName { get; set; }
