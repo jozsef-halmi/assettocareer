@@ -16,19 +16,19 @@ namespace Assetto.Data
                     Name = "Jazmine Hermanson"
                     , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOrangeGrey]
                     , Car = SupportedCars.CarsDictionary[CarNames.Abarth500RaceCar]
-                    , Level = 100
+                    , Level = 85
                     },
                  new OpponentData() {
                     Name = "Kendal Buckley"
                     , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing500]
                     , Car = SupportedCars.CarsDictionary[CarNames.Abarth500RaceCar]
-                    , Level = 100
+                    , Level = 91
                     },
                  new OpponentData() {
                     Name = "Erlend Braband"
                     , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarLightBlueOrange]
                     , Car = SupportedCars.CarsDictionary[CarNames.Abarth500RaceCar]
-                    , Level = 100
+                    , Level = 80
                     },
                  new OpponentData() {
                     Name = "Kurtis Nadeau"
@@ -40,7 +40,7 @@ namespace Assetto.Data
                     Name = "Darell Hoyt"
                     , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarSilverRed]
                     , Car = SupportedCars.CarsDictionary[CarNames.Abarth500RaceCar]
-                    , Level = 100
+                    , Level = 92
                     }
                 }
             }

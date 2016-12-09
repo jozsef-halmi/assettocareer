@@ -72,25 +72,32 @@ namespace Assetto.Manager
         }
 
 
-        public void StartEvent(SeriesData seriesData, EventData eventData, SessionData session)
+        public void StartEvent(
+            //SeriesData seriesData, EventData eventData, SessionData session
+            Guid seriesId, Guid eventId, Guid sessionId
+            )
         {
-            this.SelectedSeries = seriesData;
-            this.SelectedEvent = eventData;
-            this.SelectedSession = session;
+            this.SelectedSeries = SeriesService.GetSeries(seriesId);
+            this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
+            this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
 
             this.ConfigurationStarted?.Invoke(new object());
-            ConfigureEvent(eventData, session);
+            ConfigureEvent(seriesId, eventId, sessionId);
             this.ConfigurationEnded?.Invoke(new object());
 
-            //StartAssettoCorsa();
-            ReturnResult();
+            StartAssettoCorsa();
+            //ReturnResult();
         }
 
 
-        private ConfiguredSessionDTO ConfigureEvent(EventData eventData, SessionData session) {
+        private ConfiguredSessionDTO ConfigureEvent(Guid seriesId, Guid eventId, Guid sessionId) {
+
+            var eventData = SeriesService.GetEvent(seriesId, eventId);
+            var sessionData = SeriesService.GetSession(seriesId, eventId, sessionId);
+
             var sessionDto = new ConfiguredSessionDTO();
-            SessionData previousSession = eventData.CareerSessions.IndexOf(session) > 0 
-                ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(session)-1]
+            SessionData previousSession = eventData.CareerSessions.IndexOf(sessionData) > 0 
+                ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(sessionData) -1]
                 : null;
 
             sessionDto.PreviousSessionResult = previousSession != null
@@ -102,7 +109,7 @@ namespace Assetto.Manager
 
             eventData.Player.Name = this.ConfigService.GetPlayerName();
             sessionDto.EventData = eventData;
-            sessionDto.SessionData = session;
+            sessionDto.SessionData = sessionData;
             this.EventService.OrderGrid(sessionDto); // TODO!
           
 
@@ -115,7 +122,7 @@ namespace Assetto.Manager
 
 
 
-            eventData.GameSessions = new List<SessionData>() { session };
+            eventData.GameSessions = new List<SessionData>() { sessionData };
             var eventConfig = new EventConfig(sessionDto); 
             var raceIni = eventConfig.ToString();
 

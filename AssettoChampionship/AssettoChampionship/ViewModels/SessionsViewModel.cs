@@ -14,16 +14,16 @@ namespace AssettoChampionship.ViewModels
     {
         public EventDTO Event { get; set; }
 
-        private BindableCollection<SessionData> _sessions { get; set; }
-        public BindableCollection<SessionData> Sessions
-        {
-            get { return _sessions; }
-            set
-            {
-                _sessions = value;
-                NotifyOfPropertyChange(() => Sessions);
-            }
-        }
+        //private BindableCollection<SessionData> _sessions { get; set; }
+        //public BindableCollection<SessionData> Sessions
+        //{
+        //    get { return _sessions; }
+        //    set
+        //    {
+        //        _sessions = value;
+        //        NotifyOfPropertyChange(() => Sessions);
+        //    }
+        //}
 
         public IEventAggregator EventAggregator { get; set; }
         public IEventManager EventManager { get; set; }
@@ -45,13 +45,9 @@ namespace AssettoChampionship.ViewModels
             this.Event = SeriesManager.GetEvent(seriesId, eventId);
         }
 
-        public void SessionSelected(Guid eventId)
+        public void SessionSelected(Guid sessionId)
         {
-            //var selectedSession = this.Sessions.Where(e => e.Id == eventId).FirstOrDefault();
-            //if (selectedSession != null)
-            //{
-            //    EventManager.StartEvent(this.Series, this.Event, selectedSession);
-            //}
+           EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
         }
     }
 }

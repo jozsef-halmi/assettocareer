@@ -91,6 +91,7 @@ namespace Assetto.Manager
                 Description = selectedEvent.FriendlyName, // TODO
                 ImageUrl = selectedEvent.ImageUrl,
                 EventId = selectedEvent.Id,
+                SeriesId = seriesId,
                 IsAvailable = true,
                 Track = selectedEvent.Track.FriendlyName,
                 Layout = selectedEvent.Layout?.FriendlyName,

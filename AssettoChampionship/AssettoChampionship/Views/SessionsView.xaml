@@ -20,7 +20,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="SessionSelected" >
-                                    <cal:Parameter Value="{Binding Id}" />
+                                    <cal:Parameter Value="{Binding SessionId}" />
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
