@@ -13,19 +13,55 @@
 
     <StackPanel>
         <TextBlock Text="EventsPage"></TextBlock>
-        <TextBlock Margin="5"
+       
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*" MaxWidth="600px"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Margin="5"
                    Style="{StaticResource PageTitle}"
                    Text="{Binding Series.Title}"
                    VerticalAlignment="Stretch"
                    TextAlignment="Center"
                    ></TextBlock>
-        <TextBlock Margin="5"
+                <TextBlock Margin="15" 
                    Style="{StaticResource PageDescription}"
                    Text="{Binding Series.Description}"
                    VerticalAlignment="Stretch"
                    TextAlignment="Left"
                    TextWrapping="Wrap"
                    ></TextBlock>
+            </StackPanel>
+           
+            <StackPanel Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Name"></TextBlock>
+                    <TextBlock Grid.Column="1" Text="Points"></TextBlock>
+                </Grid>
+                <ListBox ItemsSource="{Binding Series.Standings}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
+                                <TextBlock Grid.Column="1" Text="{Binding Points}"></TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            
+        </Grid>
+    
         <!--x:Name="Events"-->
         <ListBox ItemsSource="{Binding Series.Events}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 

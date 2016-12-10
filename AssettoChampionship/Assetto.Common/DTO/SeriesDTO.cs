@@ -24,5 +24,7 @@ namespace Assetto.Common.DTO
 
         public List<EventDTO> Events { get; set; }
 
+        public List<ChampionshipPlayerDTO> Standings { get; set; }
+
     }
 }

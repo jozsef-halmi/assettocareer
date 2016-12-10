@@ -19,16 +19,19 @@ namespace Assetto.Manager
         public ISeriesService SeriesService { get; set; }
         public ISaveService SaveService { get; set; }
         public IGoalService GoalService { get; set; }
+        public IChampionshipService ChampionshipService { get; set; }
 
         public SeriesManager(IFileService fileService
             , ISeriesService seriesService
             , ISaveService saveService
-            , IGoalService goalService)
+            , IGoalService goalService
+            , IChampionshipService championshipService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.SaveService = saveService;
             this.GoalService = goalService;
+            this.ChampionshipService = championshipService;
         }
 
         public List<SeriesDTO> GetAvailableSeries()
@@ -72,7 +75,8 @@ namespace Assetto.Manager
                 IsAvailable = true,
                 Events = selectedSeries.Events.Select(e => 
                             GetEvent(seriesId, e.Id)
-                ).ToList()
+                ).ToList(),
+                Standings = ChampionshipService.GetCurrentStandings(selectedSeries.Id).OrderByDescending(p => p.Points).ToList()
             };
 
             retVar.IsDone = retVar.Events.All(s => s.IsDone);
