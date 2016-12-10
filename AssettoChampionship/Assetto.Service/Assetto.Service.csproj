@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChampionshipService.cs" />
     <Compile Include="EventService.cs" />
     <Compile Include="GoalService.cs" />
     <Compile Include="SaveService.cs" />

@@ -22,5 +22,7 @@ namespace Assetto.Common.Data
         public List<EventData> Events { get; set; }
         public Guid Id { get; set; }
 
+        public ChampionshipPointType ChampionshipPointType { get; set; }
+
     }
 }

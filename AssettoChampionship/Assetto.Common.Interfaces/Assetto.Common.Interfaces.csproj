@@ -47,6 +47,7 @@
     <Compile Include="Manager\IEventManager.cs" />
     <Compile Include="Manager\ISeriesManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IChampionshipService.cs" />
     <Compile Include="Service\IConfigService.cs" />
     <Compile Include="Service\IEventService.cs" />
     <Compile Include="Service\IFileService.cs" />
