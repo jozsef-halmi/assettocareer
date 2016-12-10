@@ -23,7 +23,7 @@ namespace Assetto.Common.Data
 
         public string ImageUrl
         {
-            get { return "/Images/" + SessionType.GetStringValue() + ".jpg"; }
+            get { return "/Images/" + SessionType.GetStringValue() + ".png"; }
         }
 
         public SessionType SessionType { get; set; }

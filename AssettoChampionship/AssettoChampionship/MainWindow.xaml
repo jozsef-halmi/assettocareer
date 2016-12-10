@@ -7,6 +7,13 @@
         xmlns:local="clr-namespace:AssettoChampionship"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="Images/pointcloud_bg02.png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
     <Grid>
         <TextBox x:Name="Name" Text="wrong"  />
     </Grid>

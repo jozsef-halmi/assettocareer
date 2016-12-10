@@ -16,6 +16,13 @@ BorderThickness="0"
             WindowTransitionsEnabled="True"
             WindowStartupLocation="CenterScreen"
              d:DesignHeight="300" d:DesignWidth="300">
+    <!--<Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="/Images/pointcloud_bg02.png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>-->
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Width="48"

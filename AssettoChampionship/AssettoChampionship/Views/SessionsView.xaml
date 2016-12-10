@@ -24,26 +24,36 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <Image  Height="80px" Source="{Binding ImageUrl}"></Image>
-                                <TextBlock Text="{Binding Title}" 
-                                           HorizontalAlignment="Stretch"
-                                           ></TextBlock>
-                                <ListBox ItemsSource="{Binding Objectives}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <TextBlock Text="{Binding Text}"></TextBlock>
-                                                <TextBlock Text="{Binding IsDone}"></TextBlock>
+                        <StackPanel>
+                            <!--<Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>-->
+                                <!--<Image Grid.Column="0" Margin="5" Height="160px" Source="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></Image>-->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                    <Image Source="{Binding ImageUrl}"></Image>
+                                    <TextBlock Text="{Binding Title}" VerticalAlignment="Center"
+                                           Style="{StaticResource ListBoxTitle}"
+                                        Margin="10"
+                                           >
+                                    </TextBlock>
+                                    <ListBox ItemsSource="{Binding Objectives}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Text}"></TextBlock>
+                                                    <TextBlock Text="{Binding IsDone}"></TextBlock>
 
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                                <!--<TextBlock Text="{Binding Duration}">
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <!--<TextBlock Text="{Binding Duration}">
                                 </TextBlock>-->
-                            </StackPanel>
+                                </StackPanel>
+                            <!--</Grid>-->
+                         
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
