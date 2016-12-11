@@ -51,7 +51,7 @@
                         </i:Interaction.Triggers>
                         <Grid Grid.Row="0">
                             <Grid.Background>
-                                <ImageBrush Opacity="0.5" ImageSource="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></ImageBrush>
+                                <ImageBrush Opacity="0.5" Stretch="UniformToFill" ImageSource="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></ImageBrush>
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"></RowDefinition>

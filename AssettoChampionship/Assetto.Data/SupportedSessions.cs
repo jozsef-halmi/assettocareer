@@ -25,7 +25,7 @@ namespace Assetto.Data
         {
             Id = new Guid("87e44ef2-59ed-47e1-8f9a-a4bfbab6bbcc")
            , SessionType = Common.Enum.SessionType.Race
-           , Laps = 1
+           , Laps = 10
            , FriendlyName = SessionNames.RACE
            ,
             PrimarySessionObjectives = new List<SessionObjective>()
@@ -39,7 +39,7 @@ namespace Assetto.Data
         {
             Id = new Guid("52519df7-3f92-4caf-9ba4-97f159826bd5"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 7,
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {

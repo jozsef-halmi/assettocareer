@@ -29,6 +29,18 @@ namespace AssettoChampionship.ViewModels
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
 
+        private string _windowTitle;
+        public string WindowTitle
+        {
+            get { return _windowTitle; }
+            set
+            {
+                _windowTitle = value;
+                NotifyOfPropertyChange(() => WindowTitle);
+                //Insert your property change code here (not sure of the caliburn micro version)
+            }
+        }
+
         private Stack<object> _backStack;
 
         public Stack<object> BackStack {
@@ -65,7 +77,7 @@ namespace AssettoChampionship.ViewModels
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
             ShowMainPage();
-            this.PageTitle = "Assetto Corsa 3rd party career mode";
+            this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
         }
 
 

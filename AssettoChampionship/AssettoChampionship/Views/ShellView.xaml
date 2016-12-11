@@ -7,8 +7,8 @@
             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
             xmlns:cal="http://www.caliburnproject.org"
-                        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-            Title="ShellWindow" 
+            xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+            Title="{Binding WindowTitle}" 
              mc:Ignorable="d" 
                               GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
@@ -55,7 +55,7 @@ BorderThickness="0"
         </Controls:TransitioningContentControl> 
 
     </Grid>
-    <Controls:MetroWindow.RightWindowCommands>
+    <!--<Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="settings" />
             <Button>
@@ -73,5 +73,5 @@ BorderThickness="0"
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>-->
 </Controls:MetroWindow>

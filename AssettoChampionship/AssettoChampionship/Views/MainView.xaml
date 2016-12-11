@@ -10,7 +10,7 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
             BorderThickness="0" 
-    
+   
                       
              d:DesignHeight="300" d:DesignWidth="300">
         <StackPanel>

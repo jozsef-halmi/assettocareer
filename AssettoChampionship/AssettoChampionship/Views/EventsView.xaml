@@ -135,15 +135,6 @@
                                 <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
                                                 ></Image>
-                                <StackPanel Orientation="Horizontal">
-                                <TextBlock>Available:</TextBlock>
-                                <TextBlock Text="{Binding IsAvailable}"></TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>Done:</TextBlock>
-                                <TextBlock Text="{Binding IsDone}"></TextBlock>
-                            </StackPanel>
-
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
