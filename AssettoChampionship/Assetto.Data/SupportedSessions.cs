@@ -42,7 +42,11 @@ namespace Assetto.Data
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium
+               SupportedSessionObjectives.Podium,
+               new FinishBeforeObjective() {
+                   Name = "Erlend Braband"
+               }
+
             }
 
         };

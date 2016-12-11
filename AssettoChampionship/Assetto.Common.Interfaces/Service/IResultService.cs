@@ -17,5 +17,8 @@ namespace Assetto.Common.Interfaces.Service
         Result ProcessResult(OutputLog outputLog);
 
         void EvaluateSessionResult(Result result);
+
+        int GetPlayerPosition(Result result);
+
     }
 }

@@ -17,4 +17,8 @@
         <Setter Property="Foreground" Value="LightGray" />
         <Setter Property="FontSize" Value="12" />
     </Style>
+    <Style x:Key="ObjectiveTitle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
 </ResourceDictionary>

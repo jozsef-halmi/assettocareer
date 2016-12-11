@@ -16,6 +16,7 @@ namespace Assetto.Common.DTO
         public bool IsAvailable { get; set; }
 
         public List<ObjectiveDTO> Objectives { get; set; }
+        public int FinishedPosition { get; set; }
 
 
     }

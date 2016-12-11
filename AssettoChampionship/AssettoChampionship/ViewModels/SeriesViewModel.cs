@@ -29,7 +29,6 @@ namespace AssettoChampionship.ViewModels
             this.EventManager = eventManager;
             this.SeriesManager = seriesManager;
             this.EventAggregator = eventAggregator;
-            this.AvailableSeries = new BindableCollection<SeriesDTO>(SeriesManager.GetAvailableSeries());
 
         }
 
@@ -41,8 +40,13 @@ namespace AssettoChampionship.ViewModels
             }), action => { Task.Factory.StartNew(action); });
         }
 
+        private void RefreshData() {
+            this.AvailableSeries = new BindableCollection<SeriesDTO>(SeriesManager.GetAvailableSeries());
+        }
+
         protected override void OnActivate()
         {
+            RefreshData();
             // TODO: refresh elements
             base.OnActivate();
         }

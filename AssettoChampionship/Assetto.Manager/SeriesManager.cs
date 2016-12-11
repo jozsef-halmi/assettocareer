@@ -20,18 +20,21 @@ namespace Assetto.Manager
         public ISaveService SaveService { get; set; }
         public IGoalService GoalService { get; set; }
         public IChampionshipService ChampionshipService { get; set; }
+        public IResultService ResultService { get; set; }
 
         public SeriesManager(IFileService fileService
             , ISeriesService seriesService
             , ISaveService saveService
             , IGoalService goalService
-            , IChampionshipService championshipService)
+            , IChampionshipService championshipService
+            , IResultService resultService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
             this.SaveService = saveService;
             this.GoalService = goalService;
             this.ChampionshipService = championshipService;
+            this.ResultService = resultService;
         }
 
         public List<SeriesDTO> GetAvailableSeries()
@@ -42,17 +45,7 @@ namespace Assetto.Manager
                 var availableSeasons = SeriesService.GetAvailableSeries();
                 foreach (var availableSeason in availableSeasons)
                 {
-                    retVar.Add(new SeriesDTO()
-                    {
-                        SeriesId = availableSeason.Id,
-                        Description = availableSeason.Description,
-                        Title = availableSeason.FriendlyName,
-                        ImageUrl = availableSeason.ImageUrl,
-                        IsAvailable = true,
-                        IsDone = false
-                        //SeriesData = availableSeason,
-                        //SavedSeason = this.SaveService.GetSavedSeason(availableSeason.Id)
-                    });
+                    retVar.Add(GetSeries(availableSeason.Id));
                 }
             }
             catch (Exception)
@@ -125,6 +118,7 @@ namespace Assetto.Manager
         private SessionDTO GetSessionDTO(Guid seriesId, Guid eventId, Guid sessionId)
         {
             var data = GetSessionData(seriesId, eventId, sessionId);
+            var result = SaveService.LoadResult(seriesId, eventId, sessionId);
             return new SessionDTO()
             {
                 Title = data.FriendlyName,
@@ -135,9 +129,10 @@ namespace Assetto.Manager
                 SessionId = data.Id,
                 Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
                 {
-                    IsDone = pso.Evaluate(SaveService.LoadResult(seriesId, eventId, sessionId)),
+                    IsDone = pso.Evaluate(result),
                     Text = pso.ToString()
-                }).ToList()
+                }).ToList(),
+                FinishedPosition = ResultService.GetPlayerPosition(result)
             };
         }
 

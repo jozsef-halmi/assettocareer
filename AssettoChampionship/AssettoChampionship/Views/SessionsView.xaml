@@ -10,13 +10,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       >
-
     <StackPanel>
         <TextBlock Text="SessionsPage"></TextBlock>
-        <ListBox ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Stretch">
+        <ListBox ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Center">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="3*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <cal:ActionMessage MethodName="SessionSelected" >
@@ -24,38 +33,60 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel>
-                            <!--<Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="7*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>-->
-                                <!--<Image Grid.Column="0" Margin="5" Height="160px" Source="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></Image>-->
-                                <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                    <Image Source="{Binding ImageUrl}"></Image>
-                                    <TextBlock Text="{Binding Title}" VerticalAlignment="Center"
-                                           Style="{StaticResource ListBoxTitle}"
-                                        Margin="10"
-                                           >
-                                    </TextBlock>
-                                    <ListBox ItemsSource="{Binding Objectives}">
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel>
-                                                    <TextBlock Text="{Binding Text}"></TextBlock>
-                                                    <TextBlock Text="{Binding IsDone}"></TextBlock>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel.Background>
+                                <ImageBrush Opacity="0.5" ImageSource="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></ImageBrush>
+                            </StackPanel.Background>
+                            <!--<Image Grid.Column="0" Margin="5" Height="160px" Source="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></Image>-->
 
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
-                                    <!--<TextBlock Text="{Binding Duration}">
-                                </TextBlock>-->
-                                </StackPanel>
-                            <!--</Grid>-->
-                         
+                            <Image Source="{Binding ImageUrl}" HorizontalAlignment="Center" Height="80px" ></Image>
+                            <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"  
+                                Style="{StaticResource ListBoxTitle}"
+                                >
+                            </TextBlock>
                         </StackPanel>
-                    </StackPanel>
+                      
+                        <ListView Grid.Row="1" ItemsSource="{Binding Objectives}" >
+                            <ListView.Background>
+                                <SolidColorBrush  Color="Transparent"></SolidColorBrush>
+                            </ListView.Background>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="6*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Text}" 
+                                                     Style="{StaticResource ObjectiveTitle}"
+                                                   ></TextBlock>
+                                        <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_off.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource InvertAndVisibilitate}}"
+                                                ></Image>
+                                        <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_on.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
+                                                ></Image>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                            <TextBlock HorizontalAlignment="Center" Style="{StaticResource ObjectiveTitle}">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="Finished {0}">
+                                        <Binding Path="FinishedPosition" Converter="{StaticResource NumberToOrdinalConverter}" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                            <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
+                                                ></Image>
+                            <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/red_cross.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource InvertAndVisibilitate}}"
+                                                ></Image>
+                        </StackPanel>
+                       
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

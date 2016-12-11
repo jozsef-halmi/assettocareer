@@ -105,6 +105,10 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ContainerBootstrapper.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\NumberToOrdinalConverter.cs" />
+    <Compile Include="Converters\ValueConverterGroup.cs" />
     <Compile Include="Model\PageDto.cs" />
     <Compile Include="Servies\DialogService.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
@@ -262,6 +266,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bgr_arrowbuttonright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkbox_off.png" />
+    <Resource Include="Images\checkbox_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\green_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red_cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

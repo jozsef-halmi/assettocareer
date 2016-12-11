@@ -23,8 +23,13 @@ BorderThickness="0"
             </ImageBrush.ImageSource>
         </ImageBrush>
     </Window.Background>-->
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Button Width="48"
                         Height="48"
                         Margin="4"
@@ -42,13 +47,13 @@ BorderThickness="0"
         </StackPanel>
      
 
-        <Controls:TransitioningContentControl 
+        <Controls:TransitioningContentControl  Grid.Row="1"
             Transition="Down"
             x:Name="ActiveItem"
             >
         </Controls:TransitioningContentControl> 
 
-    </StackPanel>
+    </Grid>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="settings" />

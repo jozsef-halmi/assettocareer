@@ -25,5 +25,11 @@ namespace AssettoChampionship.Views
         {
             InitializeComponent();
         }
+        //protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        //{
+
+        //    if (sizeInfo.WidthChanged) this.Width = sizeInfo.NewSize.Height * 1.7;
+        //    else this.Height = sizeInfo.NewSize.Width / 1.7;
+        //}
     }
 }
