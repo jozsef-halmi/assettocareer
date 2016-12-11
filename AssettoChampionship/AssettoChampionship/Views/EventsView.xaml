@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       >
-
+    <ScrollViewer>
     <StackPanel>
         <TextBlock Text="EventsPage"></TextBlock>
        
@@ -66,6 +66,7 @@
         <ListBox ItemsSource="{Binding Series.Events}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  HorizontalContentAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -124,14 +125,19 @@
                                         TextWrapping="Wrap"></TextBlock>-->
 
                             </Grid>
+                            
                             <StackPanel Grid.Row="2" VerticalAlignment="Bottom"
                                     Visibility="{Binding Path=IsAvailable, Converter={StaticResource InvertAndVisibilitate}}">
                                 <TextBlock Text="Not available yet" Margin="0,12,0,0"
                                        HorizontalAlignment="Center"
                                         Foreground="{StaticResource WarningColor}"
                                        Style="{StaticResource ObjectiveTitle}"></TextBlock>
+                                   
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
+                                                ></Image>
+                                <StackPanel Orientation="Horizontal">
                                 <TextBlock>Available:</TextBlock>
                                 <TextBlock Text="{Binding IsAvailable}"></TextBlock>
                             </StackPanel>
@@ -146,4 +152,5 @@
             </ListBox.ItemTemplate>
         </ListBox>
     </StackPanel>
+    </ScrollViewer>
 </UserControl>

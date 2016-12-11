@@ -16,6 +16,8 @@ namespace AssettoChampionship.ViewModels
     {
         #region Properties
 
+        private Guid _selectedSeriesId;
+
         private SeriesDTO _series;
         public SeriesDTO Series {
             get
@@ -29,52 +31,9 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
-
-
         #endregion
 
-
-        //public Guid SelectedSeriesId { get; set; }
-
-        //private Guid _selectedSeriesId;
-
-            //public Guid SelectedSeriesId {
-            //    get
-            //    {
-            //        return _selectedSeriesId;
-            //    }
-            //    set
-            //    {
-            //        _selectedSeriesId = value;
-            //        NotifyOfPropertyChange(() => SelectedSeriesId);
-            //    }
-            //}
-
-            #region BindedProperties
-
-        //private string _title;
-
-        //public string Title
-        //{
-        //    get { return _title; }
-        //    set
-        //    {
-        //        _title = value;
-        //        NotifyOfPropertyChange(() => Title);
-        //    }
-        //}
-
-        //private string _description;
-
-        //public string Description
-        //{
-        //    get { return _description; }
-        //    set
-        //    {
-        //        _description = value;
-        //        NotifyOfPropertyChange(() => Description);
-        //    }
-        //}
+        #region BindedProperties
 
         private BindableCollection<EventData> _events { get; set; }
         public BindableCollection<EventData> Events
@@ -107,6 +66,7 @@ namespace AssettoChampionship.ViewModels
         public void SetSeries(Guid seriesId)
         {
             this.Series = SeriesManager.GetSeries(seriesId);
+            this._selectedSeriesId = seriesId;
         }
 
         public void EventSelected(Guid eventId)
@@ -121,6 +81,16 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        protected override void OnActivate()
+        {
+            RefreshData();
+            base.OnActivate();
+        }
+
+        private void RefreshData()
+        {
+            this.Series = SeriesManager.GetSeries(this._selectedSeriesId);
+        }
 
     }
 }

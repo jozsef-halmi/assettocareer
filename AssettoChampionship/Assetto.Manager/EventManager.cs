@@ -81,7 +81,7 @@ namespace Assetto.Manager
             this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
             this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
 
-            this.ConfigurationStarted?.Invoke(SelectedSeries.ImageUrl);
+            this.ConfigurationStarted?.Invoke(SelectedEvent.ImageUrl);
             ConfigureEvent(seriesId, eventId, sessionId);
             this.ConfigurationEnded?.Invoke(new object());
 

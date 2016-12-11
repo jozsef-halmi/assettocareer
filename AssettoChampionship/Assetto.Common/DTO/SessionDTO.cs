@@ -12,6 +12,8 @@ namespace Assetto.Common.DTO
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }
+        public int Duration { get; set; }
+        public int LapCount { get; set; }
         public bool IsDone { get; set; }
         public bool IsAvailable { get; set; }
 
@@ -20,6 +22,14 @@ namespace Assetto.Common.DTO
         public bool HasResults { get
             {
                 return this.FinishedPosition > 0;
+            }
+        }
+
+        public bool IsRace
+        {
+            get
+            {
+                return  LapCount == 0;
             }
         }
 

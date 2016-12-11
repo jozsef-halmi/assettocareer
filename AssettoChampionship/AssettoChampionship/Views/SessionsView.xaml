@@ -56,16 +56,23 @@
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="2*"></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <!--<Image Grid.Column="0" Margin="5" Height="160px" Source="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></Image>-->
                             <StackPanel VerticalAlignment="Center" Grid.Row="1">
                                 <Image Source="{Binding ImageUrl}" HorizontalAlignment="Center" Height="60px" ></Image>
-                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"  
-                                Style="{StaticResource ListBoxTitle}"
-                                >
+
+                                <TextBlock  HorizontalAlignment="Center"  
+                                Style="{StaticResource ListBoxTitle}" Text="{Binding Title}">
                                 </TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Style="{StaticResource ListBoxSubTitle}"
+                                           Visibility="{Binding Path=IsRace, Converter={StaticResource BoolToVis}}"
+                                           Text="{Binding Duration, StringFormat={}{0} mins}"></TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Style="{StaticResource ListBoxSubTitle}"
+                                           Visibility="{Binding Path=IsRace, Converter={StaticResource InvertAndVisibilitate}}"
+                                           Text="{Binding LapCount, StringFormat={}{0} laps}"></TextBlock>
+                           
                             </StackPanel>
                         </Grid>
                       

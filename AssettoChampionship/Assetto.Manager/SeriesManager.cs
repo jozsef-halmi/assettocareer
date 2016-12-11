@@ -133,7 +133,9 @@ namespace Assetto.Manager
                     IsDone = pso.Evaluate(result),
                     Text = pso.ToString()
                 }).ToList(),
-                FinishedPosition = ResultService.GetPlayerPosition(result)
+                FinishedPosition = ResultService.GetPlayerPosition(result),
+                Duration = data.Duration ?? 0,
+                LapCount = data.Laps ?? 0
             };
         }
 

@@ -57,6 +57,15 @@ namespace Assetto.Service
 
         public SavedSeason InsertResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
         {
+            if (!savedSeason.SavedEventResults.ContainsKey(eventId))
+            {
+                savedSeason.SavedEventResults[eventId] = new SavedEventResult()
+                {
+                    EventId = eventId,
+                    SessionResult = new Dictionary<Guid, Result>()
+                };
+            }
+
             if (savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
                 && savedSeason.SavedEventResults[eventId].SessionResult[sessionId] != null
             )
