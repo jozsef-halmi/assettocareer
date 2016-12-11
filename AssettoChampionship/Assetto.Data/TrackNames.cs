@@ -9,5 +9,7 @@ namespace Assetto.Data
     public class TrackNames
     {
         public static string Magione = "Magione";
+        public static string Brands = "Brands Hatch";
+
     }
 }

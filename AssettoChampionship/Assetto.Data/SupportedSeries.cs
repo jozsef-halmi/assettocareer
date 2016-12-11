@@ -18,8 +18,11 @@ namespace Assetto.Data
             , Description = "The Trofeo Abarth 500 Cup is an entry-level series. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. "
             , VideoUrl = ""
             , Events = new List<EventData>() {
-                SupportedEvents.Abarth500RaceEvent1
+                SupportedEvents.Abarth500RaceEvent1,
+                SupportedEvents.Abarth500RaceEvent2
             }
         };
+
+
     }
 }
