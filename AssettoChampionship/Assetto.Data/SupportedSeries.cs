@@ -14,7 +14,7 @@ namespace Assetto.Data
         {
             Id = new Guid("8fe421d8-3ed1-4b3a-8bd2-a32c336880dc")
             , Name = "Abarth500"
-            , FriendlyName = "Trofeo Abarth 500"
+            , FriendlyName = "Trofeo Abarth 500 Series"
             , Description = "The Trofeo Abarth 500 Cup is an entry-level series. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. "
             , VideoUrl = ""
             , Events = new List<EventData>() {
