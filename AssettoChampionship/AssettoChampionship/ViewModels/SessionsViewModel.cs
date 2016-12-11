@@ -47,7 +47,8 @@ namespace AssettoChampionship.ViewModels
 
         public void SessionSelected(Guid sessionId)
         {
-           EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
+           if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable)
+                EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
         }
     }
 }

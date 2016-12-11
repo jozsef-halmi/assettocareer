@@ -182,7 +182,9 @@ namespace Assetto.Service.Utils
 
         public int GetPlayerPosition(Result result)
         {
-            return result.Players.FirstOrDefault(p => p.IsPlayer).Position;
+            if (result != null)
+                return result.Players.FirstOrDefault(p => p.IsPlayer).Position;
+            return 0;
         }
 
 

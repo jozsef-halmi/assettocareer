@@ -41,6 +41,17 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        private string _pageTitle;
+        public string PageTitle { get
+            {
+                return _pageTitle;
+            }
+            set
+            {
+                _pageTitle = value;
+                NotifyOfPropertyChange(() => PageTitle);
+            }
+        }
 
         public ShellViewModel(
             IWindowManager windowManager
@@ -54,6 +65,7 @@ namespace AssettoChampionship.ViewModels
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
             ShowMainPage();
+            this.PageTitle = "Assetto Corsa 3rd party career mode";
         }
 
 
@@ -105,7 +117,6 @@ namespace AssettoChampionship.ViewModels
             this._backStack.Push(this.ActiveItem);
             this.BackStack = _backStack;
             ActivateItem(screen);
-          
         }
 
         public void GoBack()
@@ -122,11 +133,9 @@ namespace AssettoChampionship.ViewModels
         public void ShowMainPage()
         {
             OpenPage(Container.Resolve<MainViewModel>());
-            //ActivateItem(Container.Resolve<MainViewModel>());
         }
 
         public void ShowSeriesPage(ChangePageParameters parameters) {
-            //ActivateItem(Container.Resolve<SeriesViewModel>());
             OpenPage(Container.Resolve<SeriesViewModel>());
 
         }

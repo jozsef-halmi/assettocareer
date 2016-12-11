@@ -18,6 +18,22 @@
                     <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
+            <!--<ListBox.Resources>
+                <Style TargetType="ListBoxItem">
+                    <Style.Resources>
+                        --><!-- SelectedItem with focus --><!--
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                       Color="Transparent" />
+                        --><!-- SelectedItem without focus --><!--
+                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+                       Color="Transparent" />
+                        --><!-- SelectedItem text foreground --><!--
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}"
+                       Color="Black" />
+                    </Style.Resources>
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                </Style>
+            </ListBox.Resources>-->
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10">
@@ -33,18 +49,24 @@
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <StackPanel Grid.Row="0">
-                            <StackPanel.Background>
+                        <Grid Grid.Row="0">
+                            <Grid.Background>
                                 <ImageBrush Opacity="0.5" ImageSource="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></ImageBrush>
-                            </StackPanel.Background>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="2*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
                             <!--<Image Grid.Column="0" Margin="5" Height="160px" Source="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></Image>-->
-
-                            <Image Source="{Binding ImageUrl}" HorizontalAlignment="Center" Height="80px" ></Image>
-                            <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"  
+                            <StackPanel VerticalAlignment="Center" Grid.Row="1">
+                                <Image Source="{Binding ImageUrl}" HorizontalAlignment="Center" Height="60px" ></Image>
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"  
                                 Style="{StaticResource ListBoxTitle}"
                                 >
-                            </TextBlock>
-                        </StackPanel>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
                       
                         <ListView Grid.Row="1" ItemsSource="{Binding Objectives}" >
                             <ListView.Background>
@@ -70,7 +92,9 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom"
+                                    Visibility="{Binding Path=HasResults, Converter={StaticResource BoolToVis}}"
+                                    >
                             <TextBlock HorizontalAlignment="Center" Style="{StaticResource ObjectiveTitle}">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat="Finished {0}">
@@ -85,7 +109,12 @@
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource InvertAndVisibilitate}}"
                                                 ></Image>
                         </StackPanel>
-                       
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom"
+                                    Visibility="{Binding Path=IsAvailable, Converter={StaticResource InvertAndVisibilitate}}">
+                            <TextBlock Text="Not available yet" 
+                                       HorizontalAlignment="Center"
+                                       Style="{StaticResource ObjectiveTitle}"></TextBlock>
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

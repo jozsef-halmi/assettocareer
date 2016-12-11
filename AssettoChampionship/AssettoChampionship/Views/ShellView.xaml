@@ -44,6 +44,7 @@ BorderThickness="0"
                                               Height="20"
                                               Kind="ArrowLeft" />
             </Button>
+            <TextBlock Style="{StaticResource PageTitle}" Text="{Binding PageTitle}" VerticalAlignment="Center" Margin="10"></TextBlock>
         </StackPanel>
      
 

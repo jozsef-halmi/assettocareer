@@ -119,13 +119,14 @@ namespace Assetto.Manager
         {
             var data = GetSessionData(seriesId, eventId, sessionId);
             var result = SaveService.LoadResult(seriesId, eventId, sessionId);
+            //var previousResult
             return new SessionDTO()
             {
                 Title = data.FriendlyName,
                 Description = data.FriendlyName, // todo
                 ImageUrl = data.ImageUrl,
                 IsDone = data.PrimarySessionObjectives.Count() == GetAchievedGoalsCount(seriesId, eventId, data.Id),
-                IsAvailable = true,
+                IsAvailable = IsSessionAvailable(seriesId, eventId, sessionId),
                 SessionId = data.Id,
                 Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
                 {
@@ -140,6 +141,28 @@ namespace Assetto.Manager
         {
            return this.GoalService.GetAchievedGoalsCount(seriesId, eventId, sessionId,
                 SaveService.LoadResult(seriesId, eventId, sessionId));
+        }
+
+        private bool IsSessionAvailable(Guid seriesId, Guid eventId, Guid sessionId)
+        {
+            var selectedEvent = this.SeriesService.GetEvent(seriesId, eventId);
+            var indexOfSelectedSession = selectedEvent.CareerSessions.IndexOf(
+                    selectedEvent.CareerSessions.FirstOrDefault(s => s.Id == sessionId));
+
+            // First session of the event
+            if (indexOfSelectedSession == 0)
+                return true;
+
+            var prevSession = selectedEvent.CareerSessions.ElementAt(indexOfSelectedSession - 1);
+            var prevResult = SaveService.LoadResult(seriesId, eventId, prevSession.Id);
+            var goalCount = GoalService.GetAchievedGoalsCount(seriesId, eventId, prevSession.Id, prevResult);
+
+            // Previous session has not been done
+            if (prevResult == null || prevResult != null && prevSession.PrimarySessionObjectives.Count < goalCount)
+                return false;
+
+            return true;
+
         }
     }
 }

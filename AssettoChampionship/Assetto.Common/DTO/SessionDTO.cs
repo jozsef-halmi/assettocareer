@@ -17,7 +17,11 @@ namespace Assetto.Common.DTO
 
         public List<ObjectiveDTO> Objectives { get; set; }
         public int FinishedPosition { get; set; }
-
+        public bool HasResults { get
+            {
+                return this.FinishedPosition > 0;
+            }
+        }
 
     }
 }

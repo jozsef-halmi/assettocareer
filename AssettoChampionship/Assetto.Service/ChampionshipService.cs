@@ -36,17 +36,20 @@ namespace Assetto.Service
                 foreach (var session in seriesEvent.CareerSessions)
                 {
                     var sessionResult = SaveService.LoadResult(series.Id, seriesEvent.Id, session.Id);
-                    var sessionPoints = GetPointsForResult(sessionResult, session.SessionType, series.ChampionshipPointType);
-                    foreach (var sessionPoint in sessionPoints)
+                    if (sessionResult != null)
                     {
-                        var player = standings.FirstOrDefault(s => s.Name == sessionPoint.Name);
-                        if (player == null)
+                        var sessionPoints = GetPointsForResult(sessionResult, session.SessionType, series.ChampionshipPointType);
+                        foreach (var sessionPoint in sessionPoints)
                         {
-                            standings.Add(sessionPoint);
-                        }
-                        else
-                        {
-                            player.Points += sessionPoint.Points;
+                            var player = standings.FirstOrDefault(s => s.Name == sessionPoint.Name);
+                            if (player == null)
+                            {
+                                standings.Add(sessionPoint);
+                            }
+                            else
+                            {
+                                player.Points += sessionPoint.Points;
+                            }
                         }
                     }
                 }
