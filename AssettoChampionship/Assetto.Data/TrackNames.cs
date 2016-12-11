@@ -10,6 +10,7 @@ namespace Assetto.Data
     {
         public static string Magione = "Magione";
         public static string Brands = "Brands Hatch";
-
+        public static string RedBullRing = "Red Bull Ring";
+        public static string Vallelunga = "Vallelunga";
     }
 }

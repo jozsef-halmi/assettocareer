@@ -281,6 +281,10 @@
   <ItemGroup>
     <Resource Include="Images\Events\Abarth500_Brands.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Events\Abarth500_RedBull.jpg" />
+    <Resource Include="Images\Events\Abarth500_Vallelunga.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

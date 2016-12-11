@@ -45,5 +45,41 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent2Race2
             }
         };
+
+        public static EventData Abarth500RaceEvent3 = new EventData()
+        {
+            Id = new Guid("a8c2d073-032c-477b-a304-378d33a2710b"),
+            Name = "Abarth500_RedBull",
+            FriendlyName = "Abarth 500 at Red Bull Ring",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.RedBullRing],
+            Layout = SupportedLayouts.RedBullNational,
+            Player = SupportedPlayers.Abarth500RaceOfficial,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Abarth500RaceEvent3Qualy,
+                SupportedSessions.Abarth500RaceEvent3Race1,
+                SupportedSessions.Abarth500RaceEvent3Race2
+            }
+        };
+
+        public static EventData Abarth500RaceEvent4 = new EventData()
+        {
+            Id = new Guid("c1cf54dd-bec3-4aa1-94c3-b837867d8eec"),
+            Name = "Abarth500_Vallelunga",
+            FriendlyName = "Abarth 500 at Vallelunga",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Vallelunga],
+            Layout = SupportedLayouts.VallelungaClub,
+            Player = SupportedPlayers.Abarth500RaceOfficial,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Abarth500RaceEvent4Qualy,
+                SupportedSessions.Abarth500RaceEvent4Race1,
+                SupportedSessions.Abarth500RaceEvent4Race2
+            }
+        };
     }
 }

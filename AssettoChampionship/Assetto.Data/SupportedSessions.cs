@@ -90,5 +90,82 @@ namespace Assetto.Data
         };
 
         #endregion
+
+        #region Abarth500_RedBull
+        public static SessionData Abarth500RaceEvent3Qualy = new SessionData()
+        {
+            Id = new Guid("63d66479-ce03-4a8d-bc9b-eaf2f5165d78"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            FriendlyName = SessionNames.QUALIFICATION
+
+        };
+        public static SessionData Abarth500RaceEvent3Race1 = new SessionData()
+        {
+            Id = new Guid("440997be-d3df-4301-8eb8-3e4cddfceba8"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium
+            }
+
+        };
+
+        public static SessionData Abarth500RaceEvent3Race2 = new SessionData()
+        {
+            Id = new Guid("50e06c1f-49f4-4704-a9eb-553f7d09e975"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+               new FinishBeforeObjective() {
+                   Name = "Erlend Braband"
+               }
+            }
+        };
+        #endregion
+
+        #region Abarth500_Vallelunga
+        public static SessionData Abarth500RaceEvent4Qualy = new SessionData()
+        {
+            Id = new Guid("59206910-66ce-47f5-b8de-3a78b2fb9a98"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            FriendlyName = SessionNames.QUALIFICATION
+
+        };
+        public static SessionData Abarth500RaceEvent4Race1 = new SessionData()
+        {
+            Id = new Guid("2b805cc5-3479-46ca-bca8-8ef9867bad6e"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium
+            }
+
+        };
+
+        public static SessionData Abarth500RaceEvent4Race2 = new SessionData()
+        {
+            Id = new Guid("739f18ee-de4f-4d06-9eba-7c3e95ba4259"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+               new FinishBeforeObjective() {
+                   Name = "Erlend Braband"
+               }
+            }
+        };
+        #endregion
+
     }
 }

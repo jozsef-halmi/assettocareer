@@ -12,8 +12,6 @@
       >
     <ScrollViewer>
     <StackPanel>
-        <TextBlock Text="EventsPage"></TextBlock>
-       
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>

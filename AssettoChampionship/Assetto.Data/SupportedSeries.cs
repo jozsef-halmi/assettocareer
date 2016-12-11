@@ -19,7 +19,9 @@ namespace Assetto.Data
             , VideoUrl = ""
             , Events = new List<EventData>() {
                 SupportedEvents.Abarth500RaceEvent1,
-                SupportedEvents.Abarth500RaceEvent2
+                SupportedEvents.Abarth500RaceEvent2,
+                SupportedEvents.Abarth500RaceEvent3,
+                SupportedEvents.Abarth500RaceEvent4
             }
         };
 
