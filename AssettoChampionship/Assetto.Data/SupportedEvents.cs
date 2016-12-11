@@ -27,5 +27,23 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent1Race2
             }
         };
+
+        public static EventData Abarth500RaceEvent2 = new EventData()
+        {
+            Id = new Guid("02895201-89cf-45e7-9018-3850a2ceba30"),
+            Name = "Abarth500_Brands",
+            FriendlyName = "Abarth 500 at Brands Hatch",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Brands],
+            Layout = null,
+            Player = SupportedPlayers.Abarth500RaceOfficial,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Abarth500RaceEvent2Qualy,
+                SupportedSessions.Abarth500RaceEvent2Race1,
+                SupportedSessions.Abarth500RaceEvent2Race2
+            }
+        };
     }
 }
