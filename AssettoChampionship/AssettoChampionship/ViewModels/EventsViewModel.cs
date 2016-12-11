@@ -111,11 +111,14 @@ namespace AssettoChampionship.ViewModels
 
         public void EventSelected(Guid eventId)
         {
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
+            if (this.Series.Events.FirstOrDefault(e => e.EventId == eventId).IsAvailable)
             {
-                SelectedSeriesId = this.Series.SeriesId,
-                SelectedEventId = eventId
-            }), action => { Task.Factory.StartNew(action); });
+                this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
+                {
+                    SelectedSeriesId = this.Series.SeriesId,
+                    SelectedEventId = eventId
+                }), action => { Task.Factory.StartNew(action); });
+            }
         }
 
 

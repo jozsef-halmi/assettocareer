@@ -11,8 +11,9 @@ namespace Assetto.Data
     {
         public static Dictionary<string, TrackData> TracksDictionary = new Dictionary<string, TrackData>()
         {
-            { Assetto.Data.TrackNames.Magione, new TrackData() { Name = "magione", FriendlyName = "Magione" }
-            }
+            { Assetto.Data.TrackNames.Magione, new TrackData() { Name = "magione", FriendlyName = "Magione" }},
+            { Assetto.Data.TrackNames.Brands, new TrackData() { Name = "ks_brands_hatch", FriendlyName = "Brands Hatch" }}
+
         };
     }
 }

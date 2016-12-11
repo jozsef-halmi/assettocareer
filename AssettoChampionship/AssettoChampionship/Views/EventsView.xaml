@@ -124,6 +124,13 @@
                                         TextWrapping="Wrap"></TextBlock>-->
 
                             </Grid>
+                            <StackPanel Grid.Row="2" VerticalAlignment="Bottom"
+                                    Visibility="{Binding Path=IsAvailable, Converter={StaticResource InvertAndVisibilitate}}">
+                                <TextBlock Text="Not available yet" 
+                                       HorizontalAlignment="Center"
+                                        Foreground="{StaticResource WarningColor}"
+                                       Style="{StaticResource ObjectiveTitle}"></TextBlock>
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Available:</TextBlock>
                                 <TextBlock Text="{Binding IsAvailable}"></TextBlock>

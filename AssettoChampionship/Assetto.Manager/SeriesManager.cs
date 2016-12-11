@@ -10,6 +10,7 @@ using Assetto.Common.Interfaces.Manager;
 using Assetto.Configurator;
 using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
+using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Manager
 {
@@ -89,7 +90,7 @@ namespace Assetto.Manager
                 ImageUrl = selectedEvent.ImageUrl,
                 EventId = selectedEvent.Id,
                 SeriesId = seriesId,
-                IsAvailable = true,
+                IsAvailable = IsEventAvailable(seriesId, eventId),
                 Track = selectedEvent.Track.FriendlyName,
                 Layout = selectedEvent.Layout?.FriendlyName,
                 SessionsCount = selectedEvent.CareerSessions.Count,
@@ -119,7 +120,6 @@ namespace Assetto.Manager
         {
             var data = GetSessionData(seriesId, eventId, sessionId);
             var result = SaveService.LoadResult(seriesId, eventId, sessionId);
-            //var previousResult
             return new SessionDTO()
             {
                 Title = data.FriendlyName,
@@ -162,7 +162,45 @@ namespace Assetto.Manager
                 return false;
 
             return true;
+        }
 
+        private bool IsEventAvailable(Guid seriesId, Guid eventId)
+        {
+            var selectedSeries = this.SeriesService.GetSeries(seriesId);
+            var indexOfSelectedEvent = selectedSeries.Events.IndexOf(
+                    selectedSeries.Events.FirstOrDefault(s => s.Id == eventId));
+
+            // First session of the event
+            if (indexOfSelectedEvent == 0)
+                return true;
+
+            var prevEvent = selectedSeries.Events.ElementAt(indexOfSelectedEvent - 1);
+            var isPrevEventDone = true;
+            foreach (var prevEventSession in prevEvent.CareerSessions)
+            {
+                var result = SaveService.LoadResult(seriesId, prevEvent.Id, prevEventSession.Id);
+                var goalCount = GoalService.GetAchievedGoalsCount(seriesId, prevEvent.Id, prevEventSession.Id, result);
+                if (goalCount != prevEventSession.PrimarySessionObjectives.Count)
+                    isPrevEventDone = false;
+            }
+
+            return isPrevEventDone;
+                
+            //   selectedSeries.Events.ElementAt(indexOfSelectedEvent - 1);
+
+            //var 
+
+            //var prevEventIsDone = prevEvent.CareerSessions.All(s => s.IsDone);
+
+
+            //var prevResult = SaveService.LoadResult(seriesId, eventId, prevSession.Id);
+            //var goalCount = GoalService.GetAchievedGoalsCount(seriesId, eventId, prevSession.Id, prevResult);
+
+            //// Previous session has not been done
+            //if (prevResult == null || prevResult != null && prevSession.PrimarySessionObjectives.Count < goalCount)
+            //    return false;
+
+            //return true;
         }
     }
 }

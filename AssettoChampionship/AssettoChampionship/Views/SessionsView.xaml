@@ -113,6 +113,7 @@
                                     Visibility="{Binding Path=IsAvailable, Converter={StaticResource InvertAndVisibilitate}}">
                             <TextBlock Text="Not available yet" 
                                        HorizontalAlignment="Center"
+                                       Foreground="{StaticResource WarningColor}"
                                        Style="{StaticResource ObjectiveTitle}"></TextBlock>
                         </StackPanel>
                     </Grid>
