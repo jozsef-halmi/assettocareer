@@ -46,8 +46,58 @@ namespace Assetto.Data
             },
             { Skins.Abarth500RaceCarSilverRed, new SkinData() {
                 Name = Skins.Abarth500RaceCarSilverRed, FriendlyName = "Silver Red" }
+            },
+               { Skins.Abarth500RaceCarWhiteGrey, new SkinData() {
+                Name = Skins.Abarth500RaceCarWhiteGrey, FriendlyName = "White grey" }
+            },
+                  { Skins.Abarth500RaceCarYellowOrange, new SkinData() {
+                Name = Skins.Abarth500RaceCarYellowOrange, FriendlyName = "Yellow orange" }
+            },
+             { Skins.Abarth500RaceCarZe507, new SkinData() {
+                Name = Skins.Abarth500RaceCarZe507, FriendlyName = "Ze 507" }
+            },
+             { Skins.Abarth500RaceCarZe508, new SkinData() {
+                Name = Skins.Abarth500RaceCarZe508, FriendlyName = "Ze 508" }
+            },
+             { Skins.Abarth500RaceCarZe509, new SkinData() {
+                Name = Skins.Abarth500RaceCarZe509, FriendlyName = "Ze 509" }
             }
         };
-        
+
+
+        public static Dictionary<string, SkinData> Formula3Skins = new Dictionary<string, SkinData>()
+        {
+            { Skins.Formula3Cliffe, new SkinData() {
+                Name = Skins.Formula3Cliffe, FriendlyName = "Cliffe" }
+            },
+             { Skins.Formula3Fuoco, new SkinData() {
+                Name = Skins.Formula3Fuoco, FriendlyName = "Fuoco" }
+            },
+              { Skins.Formula3Giovinazzi, new SkinData() {
+                Name = Skins.Formula3Giovinazzi, FriendlyName = "Giovinazzi" }
+            },
+               { Skins.Formula3Marciello, new SkinData() {
+                Name = Skins.Formula3Marciello, FriendlyName = "Marciello" }
+            },
+                { Skins.Formula3MarioGilles, new SkinData() {
+                Name = Skins.Formula3MarioGilles, FriendlyName = "Mario Gilles" }
+            },
+                 { Skins.Formula3MRT65, new SkinData() {
+                Name = Skins.Formula3MRT65, FriendlyName = "MRT65" }
+            },
+                  { Skins.Formula3RSR, new SkinData() {
+                Name = Skins.Formula3RSR, FriendlyName = "RSR" }
+            },
+                   { Skins.Formula3ToroRoss33, new SkinData() {
+                Name = Skins.Formula3ToroRoss33, FriendlyName = "Toro Rosso 33" }
+            },
+                    { Skins.Formula3ToroRosso55, new SkinData() {
+                Name = Skins.Formula3ToroRosso55, FriendlyName = "Toro Rosso 55" }
+            },
+                    { Skins.Formula3Verstappen, new SkinData(){
+                 Name = Skins.Formula3Verstappen, FriendlyName = "Verstappen" }
+            },
+        };
+
     }
 }

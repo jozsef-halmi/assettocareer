@@ -10,6 +10,7 @@ namespace Assetto.Data
 {
     public class SupportedEvents
     {
+        #region Abarth500
         public static EventData Abarth500RaceEvent1 = new EventData()
         {
             Id = new Guid("a0c30bbb-936d-44c3-bcfd-6b28f18c7d65")
@@ -81,5 +82,27 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent4Race2
             }
         };
+        #endregion Abarth500
+
+
+        #region Formula3
+
+        public static EventData Formula3Spa = new EventData()
+        {
+            Id = new Guid("5bcdf77f-30ea-446b-906a-e24f45c75c8d"),
+            Name = "Formula3_Spa",
+            FriendlyName = "Formula3 at Spa Francorchamps",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Spa],
+            Layout = null,
+            Player = SupportedPlayers.Formula3,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Formula3SpaPractice,
+                SupportedSessions.Formula3SpaQualy
+            }
+        };
+        #endregion
     }
 }

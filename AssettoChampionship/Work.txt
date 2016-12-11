@@ -3,3 +3,5 @@ Log!!!
 Listview selections
 Qual: minimum time
 listboxes vertical scrolling
+objective: best lap in race
+q1 q2 q3

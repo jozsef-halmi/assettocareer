@@ -33,7 +33,7 @@ namespace Assetto.Common.ProcessedResult
         {
             get
             {
-                return TimeSpan.FromMilliseconds(BestLap).ToString("mm\\:ss\\:fff");
+                return LapTimeHelper.LaptimeFromInt(this.BestLap);
             }
         }
 

@@ -14,7 +14,8 @@ namespace Assetto.Service
         public IEnumerable<SeriesData> GetAvailableSeries()
         {
             return new List<SeriesData>() {
-                SupportedSeries.AbarthRaceSeries
+                SupportedSeries.AbarthRaceSeries,
+                SupportedSeries.Formula3Series
             };
         }
 

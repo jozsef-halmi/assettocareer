@@ -9,5 +9,7 @@ namespace Assetto.Data
     public class CarNames
     {
         public static string Abarth500RaceCar = "ks_abarth500_assetto_corse";
+        public static string Formula3 = "dallara_f312";
+
     }
 }

@@ -25,6 +25,17 @@ namespace Assetto.Data
             }
         };
 
+        public static SeriesData Formula3Series = new SeriesData()
+        {
+            Id = new Guid("54a0417b-a320-48eb-8ce6-876a4558bb6e"),
+            Name = "Formula3",
+            FriendlyName = "Formula 3 Dallara F312 Series",
+            Description = "Dallara F312 Series. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. ",
+            VideoUrl = "",
+            Events = new List<EventData>() {
+                SupportedEvents.Formula3Spa,
+            }
+        };
 
     }
 }

@@ -43,9 +43,9 @@ namespace Assetto.Data
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium,
+               SupportedSessionObjectives.Top5,
                new FinishBeforeObjective() {
-                   Name = "Erlend Braband"
+                   Name = "Vasco Orsino"
                }
 
             }
@@ -58,8 +58,14 @@ namespace Assetto.Data
             Id = new Guid("28edf6ee-920e-43b6-a753-9c9c17a85def"),
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 10,
-            FriendlyName = SessionNames.QUALIFICATION
-            
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5,
+               new FinishBeforeObjective() {
+                   Name = "Alex Pomt"
+               }
+            }
         };
         public static SessionData Abarth500RaceEvent2Race1 = new SessionData()
         {
@@ -82,9 +88,9 @@ namespace Assetto.Data
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium,
+               SupportedSessionObjectives.Top8,
                new FinishBeforeObjective() {
-                   Name = "Erlend Braband"
+                   Name = "Tristin Garrick"
                }
             }
         };
@@ -108,9 +114,14 @@ namespace Assetto.Data
             FriendlyName = SessionNames.RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium
+               SupportedSessionObjectives.Top5,
+               new FinishBeforeObjective() {
+                   Name = "Karoly Vid"
+               },
+                new FinishBeforeObjective() {
+                   Name = "Trenton Lorn"
+               },
             }
-
         };
 
         public static SessionData Abarth500RaceEvent3Race2 = new SessionData()
@@ -121,7 +132,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.REVERSED_RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium,
+               SupportedSessionObjectives.Top10,
                new FinishBeforeObjective() {
                    Name = "Erlend Braband"
                }
@@ -163,6 +174,33 @@ namespace Assetto.Data
                new FinishBeforeObjective() {
                    Name = "Erlend Braband"
                }
+            }
+        };
+        #endregion
+
+        #region Formula3_Spa
+        public static SessionData Formula3SpaPractice = new SessionData()
+        {
+            Id = new Guid("e7dab8a8-848d-4a98-a716-623dc3166edb"),
+            SessionType = Common.Enum.SessionType.Practice,
+            Duration = 25,
+            FriendlyName = SessionNames.PRACTICE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 133500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3SpaQualy = new SessionData()
+        {
+            Id = new Guid("7d719c9d-dc48-4d3f-b0af-a42e2ad47c94"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 12,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 138500 //TODO???
+                }
             }
         };
         #endregion

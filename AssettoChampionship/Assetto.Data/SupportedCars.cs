@@ -14,9 +14,14 @@ namespace Assetto.Data
             { CarNames.Abarth500RaceCar,  new CarData() {
                 Name = CarNames.Abarth500RaceCar
                 , FriendlyName = "Abarth 500 Assetto Corse"
-                , Description = "Description for Abarth 500 Assetto Corse"
-            } }
-           
+                , Description = "Description for Abarth 500 Assetto Corse" }
+            },
+             { CarNames.Formula3,  new CarData() {
+                Name = CarNames.Formula3
+                , FriendlyName = "Formula3"
+                , Description = "Description for Formula3" }
+            }
+
         };
     }
 }

@@ -37,5 +37,10 @@ namespace Assetto.Common.Objectives
             var player = resultPlayers.FirstOrDefault(c => c.Id == 0);
             return player.BestLap < ChallengeTime;
         }
+
+        public override string ToString()
+        {
+            return "Achieve " + LapTimeHelper.LaptimeFromInt(this.ChallengeTime);
+        }
     }
 }
