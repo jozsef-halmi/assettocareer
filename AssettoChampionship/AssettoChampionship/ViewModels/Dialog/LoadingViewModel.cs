@@ -26,35 +26,41 @@ namespace AssettoChampionship.ViewModels.Dialog
             }
         }
 
-        string _test;
+        string _text;
 
         public string Text
         {
-            get { return _test; }
+            get { return _text; }
             set
             {
-                _test = value;
+                _text = value;
                 NotifyOfPropertyChange(() => Text);
             }
         }
 
 
-        //public IWindowManager WindowManager;
-        public IDialogCoordinator DialogCoordinator { get; set; }
+        string _imageUrl;
 
-
-        public LoadingViewModel(
-         
-            //IWindowManager windowManager
-            )
+        public string ImageUrl
         {
-   
-            //this.WindowManager = windowManager;
+            get { return _imageUrl; }
+            set
+            {
+                _imageUrl = value;
+                NotifyOfPropertyChange(() => ImageUrl);
+            }
         }
 
-        public void UpdateData(UpdateDialogMessageParameters data) {
-            this.Title = data.Title;
-            this.Text = data.Text;
+        public LoadingViewModel()
+        {
+        }
+
+        public void UpdateData(string text, string imageUrl) {
+            //this.Title = data.Title;
+            this.Text = text;
+
+            if (!string.IsNullOrEmpty(imageUrl))
+                this.ImageUrl = imageUrl;
         }
 
         //public void Show() {

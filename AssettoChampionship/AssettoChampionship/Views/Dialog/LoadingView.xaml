@@ -7,22 +7,78 @@
         xmlns:local="clr-namespace:AssettoChampionship.Views.Dialog"
         mc:Ignorable="d"
         >
-    <StackPanel>
-        <TextBlock x:Name="Text" />
-
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
             </Grid.RowDefinitions>
-            <loadin:LoadingIndicator Grid.Column="0" Grid.Row="0" SpeedRatio="{Binding SpeedRatio}" IsActive="{Binding IsArcsActive}" Style="{DynamicResource LoadingIndicatorArcsStyle}"/>
+            <Border Grid.Row="1"  Canvas.Left="55"
+            Canvas.Top="30"
+            Width="700"
+            Height="Auto"
+            Margin="12,12,8,0"
+            VerticalAlignment="Top"
+            BorderBrush="#FF3B5998"
+            BorderThickness=".5"
+            CornerRadius="18">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5"
+                              Opacity=".5"
+                              ShadowDepth="3" />
+                </Border.Effect>
+                <Border Name="ReceiverColor"
+                BorderBrush="#1585B5"
+                BorderThickness="6"
+                CornerRadius="15">
+                    <Grid>
+                        <Border Name="Mask"
+                        Background="White"
+                        BorderBrush="#1585B5"
+                        BorderThickness=".5"
+                        CornerRadius="13">
+                        </Border>
+                        <StackPanel>
+                            <!--Source="/Images/Series/abarth500.jpg"-->
+                            <Image Name="Receiver"
+                           Source="{Binding ImageUrl}" />
+                            <StackPanel.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=Mask}" />
+                            </StackPanel.OpacityMask>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Border>
+            <!--<Border  BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+                <StackPanel Width="900px" Height="600px">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="/Images/Series/abarth500.jpg"></ImageBrush>
+                    </StackPanel.Background>
+                    --><!--<Image 
+                   Source="/Images/Series/abarth500.jpg" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   MaxWidth="500"></Image>--><!--
+                </StackPanel>
+            </Border>-->
+    
+            <StackPanel Grid.Row="2">
+                <loadin:LoadingIndicator Grid.Row="0" 
+                                         Margin="35" 
+                                         HorizontalAlignment="Center" 
+                                         VerticalAlignment="Center"
+                                         SpeedRatio="{Binding SpeedRatio}" 
+                                         IsActive="{Binding IsArcsActive}" 
+                                         Style="{DynamicResource LoadingIndicatorArcsStyle}"/>
+                <TextBlock Text="{Binding Text}" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource PageTitle}" />
+
+            </StackPanel>
         </Grid>
     </StackPanel>
 </UserControl>

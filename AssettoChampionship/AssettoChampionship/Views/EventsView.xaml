@@ -69,7 +69,7 @@
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="5">
+                    <Grid Margin="5"  Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -90,9 +90,9 @@
                             <Grid HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
@@ -126,7 +126,7 @@
                             </Grid>
                             <StackPanel Grid.Row="2" VerticalAlignment="Bottom"
                                     Visibility="{Binding Path=IsAvailable, Converter={StaticResource InvertAndVisibilitate}}">
-                                <TextBlock Text="Not available yet" 
+                                <TextBlock Text="Not available yet" Margin="0,12,0,0"
                                        HorizontalAlignment="Center"
                                         Foreground="{StaticResource WarningColor}"
                                        Style="{StaticResource ObjectiveTitle}"></TextBlock>

@@ -37,6 +37,9 @@
                
                 <ResourceDictionary Source="Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            
+            <!--Converters-->
             <BooleanToVisibilityConverter  x:Key="BoolToVis" />
             <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
             <converters:ValueConverterGroup  x:Key="InvertAndVisibilitate">
@@ -44,6 +47,7 @@
                 <BooleanToVisibilityConverter/>
             </converters:ValueConverterGroup>
             <converters:NumberToOrdinalConverter x:Key="NumberToOrdinalConverter"></converters:NumberToOrdinalConverter>
+            <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter"></converters:BoolToOpacityConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

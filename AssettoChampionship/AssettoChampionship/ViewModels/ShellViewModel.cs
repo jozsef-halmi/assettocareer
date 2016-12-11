@@ -95,7 +95,8 @@ namespace AssettoChampionship.ViewModels
             //WindowManager.ShowDialog(Container.Resolve<LoadingViewModel>(), null,null);
             var loadingVM = Container.Resolve<LoadingViewModel>();
             ActivateItem(loadingVM);
-            loadingVM.Text = message.Data.Text;
+            loadingVM.UpdateData(message.Data.Text, message.Data.ImageUrl);
+            //loadingVM.Text = message.Data.Text;
 
 
         }
@@ -103,7 +104,9 @@ namespace AssettoChampionship.ViewModels
         public void Handle(UpdateDialogMessage message)
         {
             var loadingVM = Container.Resolve<LoadingViewModel>();
-            loadingVM.Text = message.Data.Text;
+            //loadingVM.Text = message.Data.Text;
+            loadingVM.UpdateData(message.Data.Text, message.Data.ImageUrl);
+
             //var loadingVM = Container.Resolve<LoadingViewModel>();
             //if (loadingVM.IsOpen)
             //{

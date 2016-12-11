@@ -47,6 +47,7 @@
     <Compile Include="CarNames.cs" />
     <Compile Include="Skins.cs" />
     <Compile Include="SupportedEvents.cs" />
+    <Compile Include="SupportedLayouts.cs" />
     <Compile Include="SupportedOpponents.cs" />
     <Compile Include="SupportedPlayers.cs" />
     <Compile Include="SupportedSeries.cs" />

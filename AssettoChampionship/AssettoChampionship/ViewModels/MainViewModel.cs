@@ -59,7 +59,8 @@ namespace AssettoChampionship.ViewModels
         private void ConfigurationStarted(object o)
         {
             this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters() {
-                Text = "Config started"
+                Text = "Configuring session..",
+                ImageUrl = (string)o
             })
              , action =>
              {
@@ -72,7 +73,7 @@ namespace AssettoChampionship.ViewModels
         {
             this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
             {
-                Text = "Config ended"
+                Text = "Waiting for Assetto Corsa to start.."
             })
            , action =>
            {
@@ -84,7 +85,7 @@ namespace AssettoChampionship.ViewModels
         {
             this.EventAggregator.Publish(new OpenDialogMessage(new OpenDialogMessageParameters()
             {
-                Text = "AC start"
+                Text = "Waiting for results.."
             })
            , action =>
            {

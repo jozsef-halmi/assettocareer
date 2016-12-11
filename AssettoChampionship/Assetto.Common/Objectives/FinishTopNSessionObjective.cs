@@ -43,7 +43,7 @@ namespace Assetto.Common.Objectives
 
         public override string ToString()
         {
-            return "Finish " + Ordinal.AddOrdinal(this.N) + " or lower";
+            return "Finish " + Ordinal.AddOrdinal(this.N) + " or better";
         }
     }
 }

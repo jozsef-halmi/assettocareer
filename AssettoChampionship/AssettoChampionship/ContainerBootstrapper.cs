@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MahApps.Metro.Controls.Dialogs;
+using AssettoChampionship.ViewModels.Dialog;
 
 namespace AssettoChampionship
 {
@@ -38,6 +39,9 @@ namespace AssettoChampionship
             container.RegisterType<IResultService, ResultService>();
 
             //container.RegisterType<ILogService, LogService>();
+
+            // VM
+            container.RegisterInstance<LoadingViewModel>(new LoadingViewModel(), new ContainerControlledLifetimeManager());
 
 
             // Registering instances

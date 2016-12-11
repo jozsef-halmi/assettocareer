@@ -28,7 +28,7 @@ namespace Assetto.Service.Utils
             this.RaceIniRelativePathToDocFolder = "Assetto Corsa\\cfg\\race.ini";
             this.OutputLogRelativePathToDocFolder = "Assetto Corsa\\out\\race_out.json";
             this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
-            this.AssettoCorsaExeRelativePathToACFolder = "AssettoCorsa.exe";
+            this.AssettoCorsaExeRelativePathToACFolder = "notepad.exe";
             this.PlayerName = "Player";
 
 

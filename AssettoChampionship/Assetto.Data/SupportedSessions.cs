@@ -59,6 +59,7 @@ namespace Assetto.Data
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 10,
             FriendlyName = SessionNames.QUALIFICATION
+            
         };
         public static SessionData Abarth500RaceEvent2Race1 = new SessionData()
         {

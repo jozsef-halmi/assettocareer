@@ -35,7 +35,7 @@ namespace Assetto.Data
             FriendlyName = "Abarth 500 at Brands Hatch",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Brands],
-            Layout = null,
+            Layout = SupportedLayouts.BrandsIndy,
             Player = SupportedPlayers.Abarth500RaceOfficial,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
             EventType = EventType.QualiTwoRacesSecondReversed,

@@ -36,7 +36,8 @@
             </ListBox.Resources>-->
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10">
+                    <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10" 
+                          Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"></RowDefinition>
                             <RowDefinition Height="3*"></RowDefinition>
