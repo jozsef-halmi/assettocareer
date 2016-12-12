@@ -92,6 +92,7 @@
     <Compile Include="ProcessedResult\ResultLap.cs" />
     <Compile Include="ProcessedResult\ResultPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveGames\SaveCache.cs" />
     <Compile Include="SaveGames\SavedSeason.cs" />
     <Compile Include="SaveGames\SavedEventResult.cs" />
     <Compile Include="Utils\ProcessInfo.cs" />

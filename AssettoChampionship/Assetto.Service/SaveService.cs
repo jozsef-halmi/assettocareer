@@ -17,11 +17,35 @@ namespace Assetto.Service
         public const string RESULT_DIR = "Data";
         public const string RESULT_FILE_NAME = "Data.dat";
 
+        public List<SaveCache> CachedSave { get; set; }
+
         public IFileService FileService { get; set; }
 
         public SaveService(IFileService fileService)
         {
             this.FileService = fileService;
+        }
+
+        private void SaveCache(SavedSeason save)
+        {
+            var cacheForSeries = this.CachedSave.FirstOrDefault(cs => cs.SeasonId == save.SeasonId);
+            if (cacheForSeries == null)
+            {
+                this.CachedSave.Add(new SaveCache()
+                {
+                    SeasonId = save.SeasonId,
+                    Save = save
+                });
+            }
+            else
+            {
+                cacheForSeries.Save = save;
+            }
+        }
+
+        private SaveCache LoadCache(Guid seriesId)
+        {
+            return CachedSave.FirstOrDefault(cs => cs.SeasonId == seriesId);
         }
 
         public SavedSeason SaveResult(Guid seasonId, Guid eventId, Guid sessionId, Result result)
@@ -38,6 +62,7 @@ namespace Assetto.Service
             }
             seasonResults = InsertOrUpdateResult(seasonResults, eventId, sessionId, result);
             SaveResult(seasonResults);
+            this.SaveCache(seasonResults);
             return seasonResults;
         }
 
@@ -152,8 +177,18 @@ namespace Assetto.Service
         {
             try
             {
-                var savedSeason = LoadResultFile(seasonId);
-                return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
+                var saveCache = LoadCache(seasonId);
+                if (saveCache != null && saveCache.Save == null)
+                {
+                    var savedSeason = LoadResultFile(seasonId);
+                    saveCache.Save = savedSeason;
+                    return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
+                }
+                else
+                {
+                    return null;
+                }
+
             }
             catch (Exception)
             {
