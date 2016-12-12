@@ -38,5 +38,10 @@ namespace Assetto.Data
         public static SessionObjective BestLap = new BestLapObjective()
         {
         };
+
+        public static SessionObjective Under107Percentage = new PercentageObjective()
+        {
+            ChallengedPercentage = 107
+        };
     }
 }

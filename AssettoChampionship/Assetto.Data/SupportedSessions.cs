@@ -204,10 +204,9 @@ namespace Assetto.Data
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 12,
             FriendlyName = SessionNames.QUALIFICATION,
-            PrimarySessionObjectives = new List<SessionObjective>() {
-                new LapTimeUnderObjective() {
-                    ChallengeTime = 138500 //TODO???
-                }
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Under107Percentage
             }
         };
         public static SessionData Formula3PaulRicardRace1 = new SessionData()
