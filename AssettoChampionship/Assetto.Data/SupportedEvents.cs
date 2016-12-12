@@ -82,6 +82,24 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent4Race2
             }
         };
+
+        public static EventData Abarth500RaceEvent5TorPoznan = new EventData()
+        {
+            Id = new Guid("c0e6414a-48d1-4306-a3b9-496480633261"),
+            Name = "Abarth500_TorPoznan",
+            FriendlyName = "Abarth 500 at Tor Poznań",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.TorPoznan],
+            Layout = SupportedLayouts.TorPoznanLaser,
+            Player = SupportedPlayers.Abarth500RaceOfficial,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Abarth500RaceEvent5Qualy,
+                SupportedSessions.Abarth500RaceEvent5Race1,
+                SupportedSessions.Abarth500RaceEvent5Race2
+            }
+        };
         #endregion Abarth500
 
 

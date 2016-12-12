@@ -179,6 +179,44 @@ namespace Assetto.Data
         #endregion
 
 
+        #region Abarth500_TorPoznan
+        public static SessionData Abarth500RaceEvent5Qualy = new SessionData()
+        {
+            Id = new Guid("82add6cd-0389-4cb9-b6eb-6813ee518a7d"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            FriendlyName = SessionNames.QUALIFICATION
+
+        };
+        public static SessionData Abarth500RaceEvent5Race1 = new SessionData()
+        {
+            Id = new Guid("f3fdf448-48ba-4f66-ae63-7bc2bba77f3d"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium
+            }
+
+        };
+
+        public static SessionData Abarth500RaceEvent5Race2 = new SessionData()
+        {
+            Id = new Guid("93b73df3-b4cc-4d55-badd-ffb3b6778640"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 1,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+               new FinishBeforeObjective() {
+                   Name = "Erlend Braband"
+               }
+            }
+        };
+        #endregion
+
         // Formula3: Paul Ricard, Hring?, Red bull Ring GP, Zandvoort, Spa, Nurburgring short, Imola
 
 

@@ -15,7 +15,9 @@ namespace Assetto.Data
         public static string Spa = "Circuit de Spa-Francorchamps";
         public static string Hungaroring = "Hungaroring";
         public static string PaulRicard = "Paul Ricard";
+        public static string TorPoznan = "Tor Poznań";
 
+        
 
     }
 }

@@ -21,7 +21,8 @@ namespace Assetto.Data
                 SupportedEvents.Abarth500RaceEvent1,
                 SupportedEvents.Abarth500RaceEvent2,
                 SupportedEvents.Abarth500RaceEvent3,
-                SupportedEvents.Abarth500RaceEvent4
+                SupportedEvents.Abarth500RaceEvent4,
+                SupportedEvents.Abarth500RaceEvent5TorPoznan
             }
         };
 
