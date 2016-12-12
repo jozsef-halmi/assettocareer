@@ -11,12 +11,19 @@
       d:DesignHeight="300" d:DesignWidth="300"
       >
     <StackPanel>
-        <ListBox ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Center">
-            <ListBox.ItemsPanel>
+        <ListView ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Center">
+            <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
+                    <!--<WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+            RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+            ItemWidth="{Binding (ListView.View).ItemWidth, 
+            RelativeSource={RelativeSource AncestorType=ListView}}"
+            MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+            ItemHeight="{Binding (ListView.View).ItemHeight, 
+            RelativeSource={RelativeSource AncestorType=ListView}}" />-->
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
+            </ListView.ItemsPanel>
             <!--<ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Style.Resources>
@@ -33,7 +40,7 @@
                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                 </Style>
             </ListBox.Resources>-->
-            <ListBox.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10" 
                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
@@ -125,7 +132,7 @@
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackPanel>
 </UserControl>

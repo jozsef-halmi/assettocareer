@@ -12,7 +12,6 @@
       >
 
     <StackPanel>
-        <TextBlock Text="SeriesPage"></TextBlock>
         <ListBox x:Name="AvailableSeries"  
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  HorizontalContentAlignment="Stretch"

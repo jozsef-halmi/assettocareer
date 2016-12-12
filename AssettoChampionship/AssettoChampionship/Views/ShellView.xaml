@@ -9,6 +9,7 @@
             xmlns:cal="http://www.caliburnproject.org"
             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
             Title="{Binding WindowTitle}" 
+                      MinHeight="700px"
              mc:Ignorable="d" 
                               GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
