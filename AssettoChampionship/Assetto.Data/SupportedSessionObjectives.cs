@@ -34,5 +34,9 @@ namespace Assetto.Data
         {
             N = 10
         };
+
+        public static SessionObjective BestLap = new BestLapObjective()
+        {
+        };
     }
 }

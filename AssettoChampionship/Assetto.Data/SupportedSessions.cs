@@ -75,7 +75,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.RACE,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-               SupportedSessionObjectives.Podium
+               SupportedSessionObjectives.Podium,
             }
 
         };
@@ -203,6 +203,19 @@ namespace Assetto.Data
                 }
             }
         };
+        public static SessionData Formula3SpaRace1 = new SessionData()
+        {
+            Id = new Guid("03f0c853-4ee1-47fd-9547-6da3eca96f5c"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.BestLap
+            }
+        };
+
+        //
+
         #endregion
 
     }

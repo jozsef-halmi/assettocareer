@@ -100,7 +100,8 @@ namespace Assetto.Data
             EventType = EventType.QualiTwoRacesSecondReversed,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3SpaPractice,
-                SupportedSessions.Formula3SpaQualy
+                SupportedSessions.Formula3SpaQualy,
+                SupportedSessions.Formula3SpaRace1
             }
         };
         #endregion
