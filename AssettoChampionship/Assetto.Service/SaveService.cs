@@ -23,6 +23,7 @@ namespace Assetto.Service
 
         public SaveService(IFileService fileService)
         {
+            this.CachedSave = new List<SaveCache>();
             this.FileService = fileService;
         }
 
