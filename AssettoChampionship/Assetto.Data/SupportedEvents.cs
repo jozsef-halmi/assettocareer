@@ -143,6 +143,47 @@ namespace Assetto.Data
             }
         };
 
+
+        public static EventData Formula3RedBull = new EventData()
+        {
+            Id = new Guid("5fe29330-eafa-427b-9135-35cde55c42be"),
+            Name = "Formula3_RedBull",
+            FriendlyName = "Formula3 at Red Bull Ring",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.RedBullRing],
+            Layout = SupportedLayouts.RedBullGp,
+            Player = SupportedPlayers.Formula3,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Formula3RedBullPractice,
+                SupportedSessions.Formula3RedBullQualy,
+                SupportedSessions.Formula3RedBullRace1,
+                SupportedSessions.Formula3RedBullRace2
+            }
+        };
+
+
+        public static EventData Formula3Zandvoort = new EventData()
+        {
+            Id = new Guid("99acc2d6-1561-4d40-a760-47a02ec12ad3"),
+            Name = "Formula3_Zandvoort",
+            FriendlyName = "Formula3 at Zandvoort",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Zandvoort],
+            Layout = null,
+            Player = SupportedPlayers.Formula3,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Formula3ZandvoortPractice,
+                SupportedSessions.Formula3ZandvoortQualy,
+                SupportedSessions.Formula3ZandvoortRace1,
+                SupportedSessions.Formula3ZandvoortRace2
+            }
+        };
+
+
         public static EventData Formula3Spa = new EventData()
         {
             Id = new Guid("5bcdf77f-30ea-446b-906a-e24f45c75c8d"),

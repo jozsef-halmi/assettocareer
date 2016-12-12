@@ -36,6 +36,8 @@ namespace Assetto.Data
             Events = new List<EventData>() {
                 SupportedEvents.Formula3PaulRicard,
                 SupportedEvents.Formula3Hring,
+                SupportedEvents.Formula3RedBull,
+                SupportedEvents.Formula3Zandvoort,
                 SupportedEvents.Formula3Spa,
             }
         };

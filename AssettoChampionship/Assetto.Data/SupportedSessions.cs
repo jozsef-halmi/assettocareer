@@ -219,10 +219,6 @@ namespace Assetto.Data
 
         // Formula3: Paul Ricard, Hring?, Red bull Ring GP, Zandvoort, Spa, Nurburgring short, Imola
 
-
-
-
-
         #region Formula3_PaulRicard
         public static SessionData Formula3PaulRicardPractice = new SessionData()
         {
@@ -320,6 +316,102 @@ namespace Assetto.Data
             }
         };
 
+
+        #endregion
+
+        #region Formula3_RedBullRing
+        public static SessionData Formula3RedBullPractice = new SessionData()
+        {
+            Id = new Guid("a0f7358b-6f12-45a2-b9b8-cf6177bd0ef6"),
+            SessionType = Common.Enum.SessionType.Practice,
+            Duration = 25,
+            FriendlyName = SessionNames.PRACTICE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 133500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3RedBullQualy = new SessionData()
+        {
+            Id = new Guid("a73363ab-5cfd-47dd-ba21-ac3ebd10a4b7"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 12,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Under107Percentage
+            }
+        };
+        public static SessionData Formula3RedBullRace1 = new SessionData()
+        {
+            Id = new Guid("b337c09e-e5bf-43e3-a994-7d193675e784"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.BestLap
+            }
+        };
+
+        public static SessionData Formula3RedBullRace2 = new SessionData()
+        {
+            Id = new Guid("2b2754d5-c067-4ac2-9262-1a990e07316b"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.Top5
+            }
+        };
+
+        #endregion
+
+        #region Formula3_Zandvoort
+        public static SessionData Formula3ZandvoortPractice = new SessionData()
+        {
+            Id = new Guid("6cb1e1d8-be91-4dc4-94ac-953e05b7128f"),
+            SessionType = Common.Enum.SessionType.Practice,
+            Duration = 25,
+            FriendlyName = SessionNames.PRACTICE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 133500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3ZandvoortQualy = new SessionData()
+        {
+            Id = new Guid("f9d60c27-c758-438e-89fe-a5a5a7af07d3"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 12,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Under107Percentage
+            }
+        };
+        public static SessionData Formula3ZandvoortRace1 = new SessionData()
+        {
+            Id = new Guid("ecf9997a-5f68-4fd7-aa17-0c9236b9e0ad"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.BestLap
+            }
+        };
+
+        public static SessionData Formula3ZandvoortRace2 = new SessionData()
+        {
+            Id = new Guid("a1217643-35db-4ef7-8f64-292aa29f5272"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.Top5
+            }
+        };
 
         #endregion
 
