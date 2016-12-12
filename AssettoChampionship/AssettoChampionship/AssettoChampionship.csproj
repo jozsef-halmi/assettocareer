@@ -294,6 +294,15 @@
   <ItemGroup>
     <Resource Include="Images\Events\Formula3_Spa.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Events\Abarth500_TorPoznan.jpg" />
+    <Resource Include="Images\Events\Formula3_Hungaroring.jpg" />
+    <Resource Include="Images\Events\Formula3_Imola.jpg" />
+    <Resource Include="Images\Events\Formula3_Nurburgring.jpg" />
+    <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
+    <Resource Include="Images\Events\Formula3_RedBull.jpg" />
+    <Resource Include="Images\Events\Formula3_Zandvoort.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
