@@ -178,6 +178,9 @@ namespace Assetto.Data
         };
         #endregion
 
+
+        // Formula3: Paul Ricard, Hring?, Red bull Ring GP, Zandvoort, Spa, Nurburgring short, Imola
+
         #region Formula3_Spa
         public static SessionData Formula3SpaPractice = new SessionData()
         {
