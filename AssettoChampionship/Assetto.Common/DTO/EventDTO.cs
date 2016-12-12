@@ -20,6 +20,13 @@ namespace Assetto.Common.DTO
 
         public string Track { get; set; }
         public string Layout { get; set; }
+
+        public bool IsLayoutAvailable {
+            get
+            {
+                return !string.IsNullOrEmpty(Layout); 
+            }
+        }
         public int SessionsCount { get; set; }
 
         public List<SessionDTO> Sessions { get; set; }

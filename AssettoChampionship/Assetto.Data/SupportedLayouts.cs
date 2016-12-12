@@ -11,43 +11,43 @@ namespace Assetto.Data
     {
         public static LayoutData BrandsIndy = new LayoutData()
         {
-            FriendlyName= "Brands Hatch Indy",
+            FriendlyName= "Indy",
             Name = "indy"
         };
 
         public static LayoutData BrandsGp = new LayoutData()
         {
-            FriendlyName = "Brands Hatch GP",
+            FriendlyName = "GP",
             Name = "gp"
         };
 
         public static LayoutData RedBullNational = new LayoutData()
         {
-            FriendlyName = "Red Bull Ring National",
+            FriendlyName = "National",
             Name = "layout_national"
         };
 
         public static LayoutData RedBullGp = new LayoutData()
         {
-            FriendlyName = "Red Bull Ring GP",
+            FriendlyName = "GP",
             Name = "layout_gp"
         };
 
         public static LayoutData VallelungaClub = new LayoutData()
         {
-            FriendlyName = "Vallelunga Club",
+            FriendlyName = "Club",
             Name = "club_circuit"
         };
 
         public static LayoutData VallelungaExtended = new LayoutData()
         {
-            FriendlyName = "Vallelunga Extended",
+            FriendlyName = "Extended",
             Name = "extended_circuit"
         };
 
         public static LayoutData VallelungaClassic = new LayoutData()
         {
-            FriendlyName = "Vallelunga Classic",
+            FriendlyName = "Classic",
             Name = "classic_circuit"
         };
 

@@ -96,21 +96,22 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="1" TextAlignment="Left"
-                                        Style="{StaticResource ListBoxSubTitle}">
+                                        Style="{StaticResource EventSubTitle}">
                                         <Run Text="Location:" />
                                         <Run Text=" " /> <!-- space -->
                                         <Run Text="{Binding Track}" />
                                 </TextBlock>
 
-                                <TextBlock Grid.Column="2" TextAlignment="Left"
-                                        Style="{StaticResource ListBoxSubTitle}">
+                                <TextBlock Grid.Column="2" TextAlignment="Left" 
+                                           Visibility="{Binding IsLayoutAvailable, Converter={StaticResource BoolToVis}}"
+                                        Style="{StaticResource EventSubTitle}">
                                         <Run Text="Layout:" />
                                         <Run Text=" " /> <!-- space -->
                                         <Run Text="{Binding Layout}" />
                                 </TextBlock>
 
                                 <TextBlock Grid.Column="3" TextAlignment="Left"
-                                        Style="{StaticResource ListBoxSubTitle}">
+                                        Style="{StaticResource EventSubTitle}">
                                         <Run Text="Sessions:" />
                                         <Run Text=" " /> <!-- space -->
                                         <Run Text="{Binding SessionsCount}" />
