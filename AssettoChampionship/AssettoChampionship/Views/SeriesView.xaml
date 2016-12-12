@@ -18,7 +18,7 @@
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="5">
+                    <Grid Margin="5" Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
