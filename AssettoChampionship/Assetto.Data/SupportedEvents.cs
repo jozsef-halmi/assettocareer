@@ -87,6 +87,44 @@ namespace Assetto.Data
 
         #region Formula3
 
+        public static EventData Formula3PaulRicard = new EventData()
+        {
+            Id = new Guid("a3267660-836f-498e-b46d-16bd1d960de2"),
+            Name = "Formula3_PaulRicard",
+            FriendlyName = "Formula3 at Circuit Paul Ricard",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.PaulRicard],
+            Layout = SupportedLayouts.PaulRicardWtcc,
+            Player = SupportedPlayers.Formula3,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Formula3PaulRicardPractice,
+                SupportedSessions.Formula3PaulRicardQualy,
+                SupportedSessions.Formula3PaulRicardRace1,
+                SupportedSessions.Formula3PaulRicardRace2
+            }
+        };
+
+        public static EventData Formula3Hring = new EventData()
+        {
+            Id = new Guid("b30c06f1-fcbf-448d-81ae-ff6e005d1282"),
+            Name = "Formula3_Hungaroring",
+            FriendlyName = "Formula3 at Hungaroring",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Hungaroring],
+            Layout = null,
+            Player = SupportedPlayers.Formula3,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.Formula3HringPractice,
+                SupportedSessions.Formula3HringQualy,
+                SupportedSessions.Formula3HringRace1,
+                SupportedSessions.Formula3HringRace2
+            }
+        };
+
         public static EventData Formula3Spa = new EventData()
         {
             Id = new Guid("5bcdf77f-30ea-446b-906a-e24f45c75c8d"),
@@ -101,7 +139,8 @@ namespace Assetto.Data
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3SpaPractice,
                 SupportedSessions.Formula3SpaQualy,
-                SupportedSessions.Formula3SpaRace1
+                SupportedSessions.Formula3SpaRace1,
+                SupportedSessions.Formula3SpaRace2
             }
         };
         #endregion

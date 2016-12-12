@@ -181,6 +181,111 @@ namespace Assetto.Data
 
         // Formula3: Paul Ricard, Hring?, Red bull Ring GP, Zandvoort, Spa, Nurburgring short, Imola
 
+
+
+
+
+        #region Formula3_PaulRicard
+        public static SessionData Formula3PaulRicardPractice = new SessionData()
+        {
+            Id = new Guid("a3ac3788-60ad-4a9d-be20-5d25a827d7ad"),
+            SessionType = Common.Enum.SessionType.Practice,
+            Duration = 25,
+            FriendlyName = SessionNames.PRACTICE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 133500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3PaulRicardQualy = new SessionData()
+        {
+            Id = new Guid("11ad4d4f-ee0c-4ab5-b1f0-8d9d996f44e5"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 12,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 138500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3PaulRicardRace1 = new SessionData()
+        {
+            Id = new Guid("2c753529-7fd0-48bd-846e-c5913ba58d75"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.BestLap
+            }
+        };
+
+        public static SessionData Formula3PaulRicardRace2 = new SessionData()
+        {
+            Id = new Guid("cebf9b43-1610-4b41-b121-29dda353e14b"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
+
+
+        #region Formula3_Hungaroring
+        public static SessionData Formula3HringPractice = new SessionData()
+        {
+            Id = new Guid("0dbc1e38-cf0e-47a2-a447-0f3beb719e05"),
+            SessionType = Common.Enum.SessionType.Practice,
+            Duration = 25,
+            FriendlyName = SessionNames.PRACTICE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 133500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3HringQualy = new SessionData()
+        {
+            Id = new Guid("e7c379bf-f33c-4847-bc21-d6d7a197be64"),
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 12,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                new LapTimeUnderObjective() {
+                    ChallengeTime = 138500 //TODO???
+                }
+            }
+        };
+        public static SessionData Formula3HringRace1 = new SessionData()
+        {
+            Id = new Guid("6cfa4c81-39af-4a2f-a7e2-8bd49277c06d"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.BestLap
+            }
+        };
+
+        public static SessionData Formula3HringRace2 = new SessionData()
+        {
+            Id = new Guid("0ef4c1f5-8ba6-49a1-a50f-ff351dccf99c"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
+
         #region Formula3_Spa
         public static SessionData Formula3SpaPractice = new SessionData()
         {
@@ -214,6 +319,17 @@ namespace Assetto.Data
             FriendlyName = SessionNames.RACE,
             PrimarySessionObjectives = new List<SessionObjective>() {
                 SupportedSessionObjectives.BestLap
+            }
+        };
+
+        public static SessionData Formula3SpaRace2 = new SessionData()
+        {
+            Id = new Guid("0df16f21-0ef2-4b03-8f43-b4aef81b1d27"),
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>() {
+                SupportedSessionObjectives.Top5
             }
         };
 

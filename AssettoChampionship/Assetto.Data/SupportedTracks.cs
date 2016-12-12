@@ -15,7 +15,10 @@ namespace Assetto.Data
             { Assetto.Data.TrackNames.Brands, new TrackData() { Name = "ks_brands_hatch", FriendlyName = "Brands Hatch" }},
             { Assetto.Data.TrackNames.RedBullRing, new TrackData() { Name = "ks_red_bull_ring", FriendlyName = "Red Bull Ring" }},
             { Assetto.Data.TrackNames.Vallelunga, new TrackData() { Name = "ks_vallelunga", FriendlyName = "Vallelunga" }},
-            { Assetto.Data.TrackNames.Spa, new TrackData() { Name = "spa", FriendlyName = "Circuit de Spa-Francorchamps" }}
+            { Assetto.Data.TrackNames.Spa, new TrackData() { Name = "spa", FriendlyName = "Circuit de Spa-Francorchamps" }},
+            { Assetto.Data.TrackNames.Hungaroring, new TrackData() { Name = "hungaroring", FriendlyName = "Hungaroring" }},
+            { Assetto.Data.TrackNames.PaulRicard, new TrackData() { Name = "paul_ricard", FriendlyName = "Paul Ricard" }}
+
 
 
         };

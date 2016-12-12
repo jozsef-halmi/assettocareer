@@ -50,6 +50,12 @@ namespace Assetto.Data
             FriendlyName = "Vallelunga Classic",
             Name = "classic_circuit"
         };
+
+        public static LayoutData PaulRicardWtcc = new LayoutData()
+        {
+            FriendlyName = "WTCC",
+            Name = "wtcc"
+        };
     }
 
 }
