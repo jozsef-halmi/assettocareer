@@ -12,9 +12,9 @@
             <TextBlock Text="{Binding Result.Track, FallbackValue=Track}" Style="{StaticResource PageTitle}" />
             <TextBlock Text="{Binding Result.SessionType, FallbackValue=SessionType}"  Style="{StaticResource ObjectiveTitle}" />
             <DataGrid ItemsSource="{Binding Players}" Margin="10,20,10,0"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Driver name"
+                    <DataGridTextColumn Header="Driver name" 
                                     Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Position"
                                     Binding="{Binding Position}" />

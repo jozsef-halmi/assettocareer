@@ -12,7 +12,15 @@ namespace AssettoChampionship.ViewModels
 {
     public class ResultsViewModel : PropertyChangedBase
     {
-        public ResultDTO Result { get; set; }
+        private ResultDTO _result;
+        public ResultDTO Result { get {
+                return _result;
+            }
+            set {
+                _result = value;
+                NotifyOfPropertyChange(() => Result);
+            }
+        }
         //public SavedSeason SavedSeason { get; set; }
 
         private BindableCollection<ResultPlayer> _players;

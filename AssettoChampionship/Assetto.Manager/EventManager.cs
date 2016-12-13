@@ -85,8 +85,8 @@ namespace Assetto.Manager
             ConfigureEvent(seriesId, eventId, sessionId);
             this.ConfigurationEnded?.Invoke(new object());
 
-            //StartAssettoCorsa();
-            ReturnResult();
+            StartAssettoCorsa();
+            //ReturnResult();
         }
 
 
