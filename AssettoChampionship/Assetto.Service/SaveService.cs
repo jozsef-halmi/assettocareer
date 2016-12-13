@@ -179,15 +179,20 @@ namespace Assetto.Service
             try
             {
                 var saveCache = LoadCache(seasonId);
-                if (saveCache != null && saveCache.Save == null)
+                if (saveCache != null)
                 {
-                    var savedSeason = LoadResultFile(seasonId);
-                    saveCache.Save = savedSeason;
-                    return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
+                    // Already cached, returns saved game or null
+                    if (saveCache.Save == null
+                        || !saveCache.Save.SavedEventResults.Keys.Contains(eventId)
+                        || !saveCache.Save.SavedEventResults[eventId].SessionResult.Keys.Contains(sessionId)) return null;
+                    return saveCache.Save.SavedEventResults[eventId].SessionResult[sessionId];
                 }
                 else
                 {
-                    return null;
+                    // Not cached yet, reads it.
+                    var savedSeason = LoadResultFile(seasonId);
+                    this.SaveCache(savedSeason);
+                    return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
                 }
 
             }
