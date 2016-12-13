@@ -12,8 +12,8 @@ namespace AssettoChampionship.ViewModels
 {
     public class ResultsViewModel : PropertyChangedBase
     {
-        public Result Result { get; set; }
-        public SavedSeason SavedSeason { get; set; }
+        public ResultDTO Result { get; set; }
+        //public SavedSeason SavedSeason { get; set; }
 
         private BindableCollection<ResultPlayer> _players;
         public BindableCollection<ResultPlayer> Players { get
@@ -27,11 +27,10 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
-        public void SetResults(ACExeTerminatedDTO resultsDto)
+        public void SetResults(ACExeTerminatedDTO acTerminatedDto)
         {
-            Result = resultsDto.CurrentResult;
-            SavedSeason = resultsDto.SavedSeason;
-            this.Players = new BindableCollection<ResultPlayer>(resultsDto.CurrentResult.Players);
+            Result = acTerminatedDto.Result;
+            this.Players = new BindableCollection<ResultPlayer>(Result.Players);
         }
     }
 }

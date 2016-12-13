@@ -85,8 +85,8 @@ namespace Assetto.Manager
             ConfigureEvent(seriesId, eventId, sessionId);
             this.ConfigurationEnded?.Invoke(new object());
 
-            StartAssettoCorsa();
-            //ReturnResult();
+            //StartAssettoCorsa();
+            ReturnResult();
         }
 
 
@@ -162,25 +162,27 @@ namespace Assetto.Manager
         }
 
         public void ReturnResult() {
-            // Process Log
             ACExeTerminatedDTO retVar = new ACExeTerminatedDTO();
             try
             {
                 var logFile = this.FileService.ReadFile(ConfigService.GetOutputLogPath());
-                retVar.CurrentResult = this.ResultService.GetResultForLog(logFile);
-                retVar.SavedSeason = this.SaveService.SaveResult(
+                var currentResult = this.ResultService.GetResultForLog(logFile);
+                var savedSeason = this.SaveService.SaveResult(
                     this.SelectedSeries.Id
                     , this.SelectedEvent.Id
                     , this.SelectedSession.Id,
-                    retVar.CurrentResult);
+                    currentResult);
 
                 // TODO: Where to do this?
-                foreach (var item in this.SelectedSession.PrimarySessionObjectives)
-                {
-                    var result = item.Evaluate(retVar.CurrentResult);
-                }
-                
+                //foreach (var item in this.SelectedSession.PrimarySessionObjectives)
+                //{
+                //    var result = item.Evaluate(retVar.CurrentResult);
+                //}
 
+                retVar =  GetResultDTO(this.SelectedSeries.Id
+                    , this.SelectedEvent.Id
+                    , this.SelectedSession.Id
+                    , currentResult);
             }
             catch (Exception ex)
             {
@@ -190,5 +192,37 @@ namespace Assetto.Manager
             this.ACProcessEnded?.Invoke(retVar);
         }
 
+        private ACExeTerminatedDTO GetResultDTO(Guid seriesId, Guid eventId, Guid sessionId, Result result)
+        {
+            return new ACExeTerminatedDTO()
+            {
+                Result = new ResultDTO()
+                {
+                    Duration = result.Duration,
+                    LapCount = result.LapCount,
+                    Name = result.FriendlyName,
+                    PlayerPosition = result.Players.FirstOrDefault(p => p.Name == ConfigService.GetPlayerName()).Position,
+                    Players = result.Players.Select(p => new PlayerDTO()
+                    {
+                        Position = p.Position,
+                        IsPlayer = p.IsPlayer,
+                        LapCount = p.LapCount,
+                        Id = p.Id,
+                        Laps = p.Laps,
+                        Name = p.Name,
+                        TotalTime = p.TotalTime,
+                        Car = p.IsPlayer == false
+                        ? SeriesService.GetFriendlyCarNameForOpponent(seriesId, eventId, p.Name)
+                        : SeriesService.GetFriendlyCarNameForPlayer(seriesId, eventId),
+                        Skin = p.IsPlayer == false
+                        ? SeriesService.GetFriendlySkinNameForOpponent(seriesId, eventId, p.Name)
+                        : SeriesService.GetFriendlySkinNameForPlayer(seriesId, eventId),
+                        Gap = p.Position == 1 ? 0 : result.Players.FirstOrDefault(rp => rp.Position == 1).TotalTime - p.TotalTime 
+                    }).ToList(),
+                    SessionType = result.SessionType,
+                    Track = result.Track
+                }
+            };
+        }
     }
 }

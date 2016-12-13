@@ -45,6 +45,15 @@ namespace Assetto.Common.ProcessedResult
 
         public int TotalTime { get; set; }
 
+        [JsonIgnore]
+        public string TotalTimeTimeSpan
+        {
+            get
+            {
+                return LapTimeHelper.LaptimeFromInt(this.TotalTime);
+            }
+        }
+
         public bool IsPlayer { get; set; }
 
     }

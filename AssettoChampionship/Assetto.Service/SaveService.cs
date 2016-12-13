@@ -190,9 +190,20 @@ namespace Assetto.Service
                 else
                 {
                     // Not cached yet, reads it.
-                    var savedSeason = LoadResultFile(seasonId);
-                    this.SaveCache(savedSeason);
-                    return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
+                    SavedSeason savedSeason = null;
+                    try
+                    {
+                        savedSeason = LoadResultFile(seasonId);
+                        this.SaveCache(savedSeason);
+                        return savedSeason.SavedEventResults[eventId].SessionResult[sessionId];
+                    }
+                    catch (Exception)
+                    {
+                        savedSeason = new SavedSeason() { SeasonId = seasonId, SavedEventResults = new Dictionary<Guid, SavedEventResult>() };
+                        this.SaveCache(savedSeason);
+                        return null;
+                    }
+
                 }
 
             }

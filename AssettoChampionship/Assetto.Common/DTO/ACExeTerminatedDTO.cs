@@ -10,9 +10,7 @@ namespace Assetto.Common.DTO
 {
     public class ACExeTerminatedDTO
     {
-        public SavedSeason SavedSeason { get; set; }
-        public Result CurrentResult { get; set; }
-
+        public ResultDTO Result { get; set; }
         public string Error { get; set; }
 
     }

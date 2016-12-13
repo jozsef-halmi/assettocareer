@@ -36,5 +36,26 @@ namespace Assetto.Service
             //    .Events.FirstOrDefault(e => e.Id == eventId)
             //    .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
         }
+
+
+        public string GetFriendlySkinNameForOpponent(Guid sessionId, Guid eventId, string playerName)
+        {
+            return this.GetEvent(sessionId, eventId).Opponents.FirstOrDefault(p => p.Name == playerName).Skin.FriendlyName;
+        }
+
+        public string GetFriendlySkinNameForPlayer(Guid sessionId, Guid eventId)
+        {
+            return this.GetEvent(sessionId, eventId).Player.Car.FriendlyName;
+        }
+
+        public string GetFriendlyCarNameForOpponent(Guid sessionId, Guid eventId, string playerName)
+        {
+            return this.GetEvent(sessionId, eventId).Opponents.FirstOrDefault(p => p.Name == playerName).Car.FriendlyName;
+        }
+
+        public string GetFriendlyCarNameForPlayer(Guid sessionId, Guid eventId)
+        {
+            return this.GetEvent(sessionId, eventId).Player.Skin.FriendlyName;
+        }
     }
 }

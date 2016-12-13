@@ -14,6 +14,9 @@ namespace Assetto.Common.Interfaces.Service
         SeriesData GetSeries(Guid seriesId);
         EventData GetEvent(Guid seriesId, Guid eventId);
         SessionData GetSession(Guid seriesId, Guid eventId, Guid sessionId);
-
+        string GetFriendlySkinNameForOpponent(Guid sessionId, Guid eventId, string playerName);
+        string GetFriendlySkinNameForPlayer(Guid sessionId, Guid eventId);
+        string GetFriendlyCarNameForOpponent(Guid sessionId, Guid eventId, string playerName);
+        string GetFriendlyCarNameForPlayer(Guid sessionId, Guid eventId);
     }
 }

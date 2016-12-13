@@ -64,6 +64,8 @@
     <Compile Include="DTO\ConfiguredSessionDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
     <Compile Include="DTO\ObjectiveDTO.cs" />
+    <Compile Include="DTO\PlayerDTO.cs" />
+    <Compile Include="DTO\ResultDTO.cs" />
     <Compile Include="DTO\SeriesDTO.cs" />
     <Compile Include="DTO\SessionDTO.cs" />
     <Compile Include="Enum\ChampionshipPointType.cs" />
