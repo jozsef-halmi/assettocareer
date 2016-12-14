@@ -5,6 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.SaveGames;
+using Assetto.Common.Settings;
+using Newtonsoft.Json;
 
 namespace Assetto.Service.Utils
 {
@@ -12,6 +15,8 @@ namespace Assetto.Service.Utils
     {
         public const string ACS_EXE_X64 = "acs.exe";
         public const string ACS_EXE_X86 = "acs_x86.exe";
+        public const string SETTINGS_FILE = "settings.acc";
+
 
         string DocumentsFolder { get; set; }
         string RaceIniRelativePathToDocFolder { get; set; }
@@ -21,20 +26,46 @@ namespace Assetto.Service.Utils
 
         public string PlayerName { get; set; }
 
+        public IFileService FileService { get; set; }
 
-        public ConfigService()
+
+        public ConfigService(IFileService fileService)
         {
-            this.DocumentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            this.FileService = fileService;
             this.RaceIniRelativePathToDocFolder = "Assetto Corsa\\cfg\\race.ini";
             this.OutputLogRelativePathToDocFolder = "Assetto Corsa\\out\\race_out.json";
             this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
             this.AssettoCorsaExeRelativePathToACFolder = "AssettoCorsa.exe";
-            this.PlayerName = "Player";
 
 
-            //            private const string RACE_INI_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\cfg\\race.ini";
-            //private const string ASSETTO_CORSA_EXE_PATH = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\AssettoCorsa.exe";
-            //private const string OUTPUT_LOG_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\out\\race_out.json";
+            var savedSettings = GetSavedSettings();
+            this.AssettoCorsaInstallLoc = savedSettings.AssettoCorsaInstallLoc
+                        ?? "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\assettocorsa";
+            this.DocumentsFolder = savedSettings.DocumentsFolder 
+                        ?? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            this.PlayerName = savedSettings.PlayerName ?? "Player";
+
+        }
+
+        private AppSettings GetSavedSettings()
+        {
+            AppSettings appsettings = null;
+            try
+            {
+                var file = FileService.ReadFile(ConfigService.SETTINGS_FILE);
+                appsettings = JsonConvert.DeserializeObject<AppSettings>(file);
+            }
+            catch (Exception)
+            {
+                appsettings = new AppSettings();
+            }
+            return appsettings;
+
+        }
+
+        private void SaveSettings(AppSettings settings)
+        {
+            FileService.WriteFile(ConfigService.SETTINGS_FILE, JsonConvert.SerializeObject(settings));
         }
 
         public string GetRaceIniPath() {

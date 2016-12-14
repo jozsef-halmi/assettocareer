@@ -8,10 +8,10 @@ namespace Assetto.Common.Settings
 {
     public class AppSettings
     {
-        string DocumentsFolder { get; set; }
-        string RaceIniRelativePathToDocFolder { get; set; }
-        string OutputLogRelativePathToDocFolder { get; set; }
-        string AssettoCorsaInstallLoc { get; set; }
-        string AssettoCorsaExeRelativePathToACFolder { get; set; }
+        public string AssettoCorsaInstallLoc { get; set; }
+
+        public string PlayerName { get; set; }
+
+        public string DocumentsFolder { get; set; }
     }
 }
