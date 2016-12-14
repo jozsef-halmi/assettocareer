@@ -1,12 +1,21 @@
 TODO:
+MUST:
+Log!!! + backend
+ConfigService bejegyzeseihez egy form
+hibakezelés, AC.exe, log, outlog
+ListView scrolling
+ListView selection (goals)
+calendar! winter race tor poznan :)
+
+
+SHOULD:
 formula3 skinpack add
 green ok to trophy :)
-Log!!!
-Listview selections
-Qual: minimum time
-listboxes vertical scrolling
-objective: best lap in race
-q1 q2 q3
 weather, time of the day
-calendar! winter race tor poznan :)
+
+
+NICE TO HAVE:
+Qual: minimum time
+q1 q2 q3
 track locations, city, map
+
