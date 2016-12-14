@@ -22,6 +22,7 @@ namespace Assetto.Common.DTO
 
         public bool IsDone { get; set; }
         public bool IsAvailable { get; set; }
+        public bool IsStarted { get; set; }
 
         public List<EventDTO> Events { get; set; }
 

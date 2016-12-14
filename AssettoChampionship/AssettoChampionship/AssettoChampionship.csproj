@@ -331,6 +331,9 @@
     <Resource Include="Images\AC_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Videos\3sec.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Videos\RSR_Formula3.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

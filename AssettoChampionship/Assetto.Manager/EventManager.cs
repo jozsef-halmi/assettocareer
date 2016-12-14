@@ -31,6 +31,7 @@ namespace Assetto.Manager
         public ISaveService SaveService { get; set; }
         public IConfigService ConfigService { get; set; }
         public IEventService EventService { get; set; }
+        public IVideoService VideoService { get; set; }
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -49,7 +50,8 @@ namespace Assetto.Manager
             , IResultService resultService
             , ISaveService saveService
             , IConfigService configService
-            , IEventService eventService)
+            , IEventService eventService
+            , IVideoService videoService)
         {
             this.FileService = fileService;
             this.SeriesService = seriesService;
@@ -58,6 +60,7 @@ namespace Assetto.Manager
             this.SaveService = saveService;
             this.ConfigService = configService;
             this.EventService = eventService;
+            this.VideoService = videoService;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -223,6 +226,16 @@ namespace Assetto.Manager
                     Track = result.Track
                 }
             };
+        }
+
+        public void VideoWatched(string videoUrl)
+        {
+            VideoService.VideoWatched(videoUrl);
+        }
+
+        public bool IsVideoAlreadyWatched(string videoUrl)
+        {
+            return VideoService.IsVideoAlreadyWatched(videoUrl);
         }
     }
 }

@@ -12,5 +12,7 @@ namespace Assetto.Common.Interfaces.Manager
 
         void StartEvent(Guid seriesId, Guid eventId, Guid sessionId);
         void SubscribeEvents(Action<object> configurationStarted, Action<object> configurationEnded, Action<object> processStarted, Action<object> processEnded);
+        void VideoWatched(string videoUrl);
+        bool IsVideoAlreadyWatched(string videoUrl);
     }
 }

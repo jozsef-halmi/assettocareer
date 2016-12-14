@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using Assetto.Common.Framework;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace AssettoChampionship.ViewModels.Dialog
 {
     public class VideoViewModel : Screen
     {
+        public IEventAggregator EventAggregator { get; set; }
+
         private string _videoUrl;
         public string VideoUrl { get
             {
@@ -19,6 +22,12 @@ namespace AssettoChampionship.ViewModels.Dialog
                 NotifyOfPropertyChange(() => VideoUrl);
             }
         }
+
+        public VideoViewModel(IEventAggregator eventAggregator)
+        {
+            EventAggregator = eventAggregator;
+        }
+
         protected override void OnActivate()
         {
             RefreshData();
@@ -31,6 +40,15 @@ namespace AssettoChampionship.ViewModels.Dialog
 
         public void SetVideo(string videoUrl) {
             this.VideoUrl = videoUrl;
+        }
+
+        public void VideoEnd() {
+            this.EventAggregator.Publish(new GoBackMessage()
+         , action =>
+         {
+             Task.Factory.StartNew(action);
+         }
+        );
         }
     }
 }

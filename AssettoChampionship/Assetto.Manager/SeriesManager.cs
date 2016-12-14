@@ -76,6 +76,7 @@ namespace Assetto.Manager
             };
 
             retVar.IsDone = retVar.Events.All(s => s.IsDone);
+            retVar.IsStarted = ChampionshipService.GetCurrentStandings(selectedSeries.Id).Count > 0;
             return retVar;
         }
 

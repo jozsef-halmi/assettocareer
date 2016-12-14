@@ -5,13 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AssettoChampionship.Views.Dialog"
              mc:Ignorable="d" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="50">
+    <Grid>
         <MediaElement Source="{Binding VideoUrl}" 
                       HorizontalAlignment="Stretch" 
                       VerticalAlignment="Stretch"
                       Stretch="Uniform"
                       LoadedBehavior="Play"
-                      />
+                      Margin="50,0,50,50"
+                      >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MediaEnded">
+                    <cal:ActionMessage MethodName="VideoEnd" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </MediaElement>
     </Grid>
 </UserControl>

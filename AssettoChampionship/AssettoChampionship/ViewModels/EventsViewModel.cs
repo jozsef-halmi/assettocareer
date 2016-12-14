@@ -54,20 +54,24 @@ namespace AssettoChampionship.ViewModels
         // Managers
         public IEventAggregator EventAggregator { get; set; }
         public ISeriesManager SeriesManager { get; set; }
+        public IEventManager EventManager { get; set; }
 
         #endregion
 
         public EventsViewModel(IEventAggregator eventAggregator
-            , ISeriesManager seriesManager)
+            , ISeriesManager seriesManager
+            , IEventManager eventManager)
         {
             this.EventAggregator = eventAggregator;
             this.SeriesManager = seriesManager;
+            this.EventManager = eventManager;
         }
 
         public void SetSeries(Guid seriesId)
         {
             this.Series = SeriesManager.GetSeries(seriesId);
             this._selectedSeriesId = seriesId;
+           
         }
 
         public void EventSelected(Guid eventId)
@@ -86,6 +90,11 @@ namespace AssettoChampionship.ViewModels
         {
             RefreshData();
             base.OnActivate();
+            if (!Series.IsStarted && !EventManager.IsVideoAlreadyWatched(Series.VideoUrl))
+            {
+                EventManager.VideoWatched(Series.VideoUrl);
+                OpenVideo();
+            }
         }
 
         private void RefreshData()

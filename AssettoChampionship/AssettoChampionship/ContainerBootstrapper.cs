@@ -31,6 +31,7 @@ namespace AssettoChampionship
             container.RegisterType<INotificationService, NotificationService>();
             container.RegisterType<IGoalService, GoalService>();
             container.RegisterType<ISeriesService, SeriesService>();
+            container.RegisterType<IVideoService, VideoService>(new ContainerControlledLifetimeManager());
             container.RegisterType<ISaveService, SaveService>(new ContainerControlledLifetimeManager());
             container.RegisterType<IEventService, EventService>();
             container.RegisterType<IChampionshipService, ChampionshipService>();

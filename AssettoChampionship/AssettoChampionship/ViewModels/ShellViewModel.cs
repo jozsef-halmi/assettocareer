@@ -25,6 +25,8 @@ namespace AssettoChampionship.ViewModels
         , IHandle<OpenDialogMessage>
         , IHandle<UpdateDialogMessage>
         , IHandle<NotificationMessage>
+        , IHandle<GoBackMessage>
+
     {
         public IWindowManager WindowManager;
         public IUnityContainer Container { get; set; }
@@ -273,6 +275,11 @@ namespace AssettoChampionship.ViewModels
         public void Handle(NotificationMessage data)
         {
             ShowNotification(data.Message);
+        }
+
+        public void Handle(GoBackMessage message)
+        {
+            this.GoBack();
         }
     }
 }

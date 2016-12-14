@@ -58,6 +58,7 @@
     <Compile Include="Service\IResultService.cs" />
     <Compile Include="Service\ISaveService.cs" />
     <Compile Include="Service\ISeriesService.cs" />
+    <Compile Include="Service\IVideoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
