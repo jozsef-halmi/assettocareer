@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:AssettoChampionship.Views"
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:cal="http://www.caliburnproject.org"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
@@ -17,12 +18,35 @@
                 <ColumnDefinition Width="*" MaxWidth="600px"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBlock Margin="5"
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Margin="5"
                    Style="{StaticResource PageTitle}"
                    Text="{Binding Series.Title}"
                    VerticalAlignment="Stretch"
                    TextAlignment="Center"
                    ></TextBlock>
+                    <Button Width="35" Grid.Column="0" 
+                        VerticalAlignment="Stretch"
+                        Height="35"
+                        Margin="4"
+                        Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="OpenVideo" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <iconPacks:PackIconModern Width="15"
+                                              Height="15"
+                                              Kind="Film" />
+                        <Button.ToolTip>
+                            <ToolTip>
+                                <TextBlock>Show video</TextBlock>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                 
+                </StackPanel>
+               
                 <TextBlock Margin="15" 
                    Style="{StaticResource PageDescription}"
                    Text="{Binding Series.Description}"
@@ -30,6 +54,7 @@
                    TextAlignment="Left"
                    TextWrapping="Wrap"
                    ></TextBlock>
+               
             </StackPanel>
            
             <StackPanel Grid.Column="1">

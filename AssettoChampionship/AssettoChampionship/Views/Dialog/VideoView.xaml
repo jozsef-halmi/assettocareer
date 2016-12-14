@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:AssettoChampionship.Views.Dialog"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <MediaElement Source="Videos/RSR_Formula3.mp4" 
+    <Grid Margin="50">
+        <MediaElement Source="{Binding VideoUrl}" 
                       HorizontalAlignment="Stretch" 
                       VerticalAlignment="Stretch"
                       Stretch="Uniform"

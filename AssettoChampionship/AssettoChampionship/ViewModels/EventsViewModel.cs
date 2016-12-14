@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Manager;
+using AssettoChampionship.ViewModels.Dialog;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -90,6 +91,13 @@ namespace AssettoChampionship.ViewModels
         private void RefreshData()
         {
             this.Series = SeriesManager.GetSeries(this._selectedSeriesId);
+        }
+
+        public void OpenVideo() {
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(VideoViewModel), new ChangePageParameters()
+            {
+                Parameter = this.Series.VideoUrl
+            }), action => { Task.Factory.StartNew(action); });
         }
 
     }

@@ -9,6 +9,16 @@ namespace AssettoChampionship.ViewModels.Dialog
 {
     public class VideoViewModel : Screen
     {
+        private string _videoUrl;
+        public string VideoUrl { get
+            {
+                return _videoUrl;
+            }
+            set {
+                _videoUrl = value;
+                NotifyOfPropertyChange(() => VideoUrl);
+            }
+        }
         protected override void OnActivate()
         {
             RefreshData();
@@ -17,6 +27,10 @@ namespace AssettoChampionship.ViewModels.Dialog
 
         private void RefreshData()
         {
+        }
+
+        public void SetVideo(string videoUrl) {
+            this.VideoUrl = videoUrl;
         }
     }
 }

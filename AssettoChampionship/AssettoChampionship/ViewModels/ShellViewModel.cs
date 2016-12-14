@@ -244,9 +244,8 @@ namespace AssettoChampionship.ViewModels
         public void ShowVideoPage(ChangePageParameters parameters)
         {
             var videoVM = Container.Resolve<VideoViewModel>();
-            ActivateItem(videoVM);
-            // Set video
-            //resultsVM.SetResults(parameters.ACExeTerminatedDto);
+            OpenPage(videoVM);
+            videoVM.SetVideo(parameters.Parameter as string);
         }
 
         public void ShowSettings()
