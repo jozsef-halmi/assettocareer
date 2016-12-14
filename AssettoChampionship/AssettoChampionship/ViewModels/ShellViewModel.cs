@@ -76,7 +76,8 @@ namespace AssettoChampionship.ViewModels
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
-            ShowMainPage();
+            //ShowMainPage();
+            ShowSettings();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
         }
 
@@ -176,6 +177,12 @@ namespace AssettoChampionship.ViewModels
             var resultsVM = Container.Resolve<ResultsViewModel>();
             ActivateItem(resultsVM);
             resultsVM.SetResults(parameters.ACExeTerminatedDto);
+        }
+
+        public void ShowSettings()
+        {
+            var settingsVM = Container.Resolve<SettingsViewModel>();
+            ActivateItem(settingsVM);
         }
 
         //public void ShowPageTwo()

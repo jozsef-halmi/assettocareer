@@ -11,6 +11,25 @@
       d:DesignHeight="300" d:DesignWidth="300"
       >
 
-    <StackPanel>
+    <StackPanel Margin="50,15,50,15">
+        <TextBlock Text="Settings" Style="{StaticResource PageTitle}"
+                   Margin="0,0,0,25"></TextBlock>
+
+        <TextBlock Text="Assetto Corsa Install Location" Margin="0,0,0,5"></TextBlock>
+        <TextBox Text="{Binding Settings.AssettoCorsaInstallLoc}" Margin="0,0,0,15"></TextBox>
+
+        <TextBlock Text="Documents Folder" Margin="0,0,0,5"></TextBlock>
+        <TextBox Text="{Binding Settings.DocumentsFolder}" Margin="0,0,0,15"></TextBox>
+
+        <TextBlock Text="Player Name" ></TextBlock>
+        <TextBox Text="{Binding Settings.PlayerName}" Margin="0,0,0,15"></TextBox>
+
+        <Button HorizontalAlignment="Right" 
+                Margin="0,15,0,15"
+                Style="{StaticResource AccentedSquareButtonStyle}" 
+                MinWidth="100">
+            <TextBlock Text="Save"></TextBlock>
+        </Button>
+        
     </StackPanel>
 </UserControl>
