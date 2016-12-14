@@ -21,6 +21,11 @@ namespace Assetto.Service
             File.WriteAllText(path, contents);
         }
 
+        public bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
+
         public void CreateDirIfNotExist(string dirPath)
         {
             System.IO.Directory.CreateDirectory(dirPath);

@@ -18,9 +18,9 @@ namespace AssettoChampionship.Views
     /// <summary>
     /// Interaction logic for SeriesPage.xaml
     /// </summary>
-    public partial class SeriesView : UserControl
+    public partial class SettingsView : UserControl
     {
-        public SeriesView()
+        public SettingsView()
         {
             InitializeComponent();
         }

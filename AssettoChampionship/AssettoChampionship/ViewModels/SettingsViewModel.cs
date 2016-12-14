@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using Assetto.Common.Interfaces.Service;
 
 namespace AssettoChampionship.ViewModels
 {
     public class SettingsViewModel : Screen
     {
+        public IConfigService ConfigService { get; set; }
         public SettingsViewModel()
         {
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.Settings;
 
 namespace Assetto.Common.Interfaces.Service
 {
@@ -16,5 +17,12 @@ namespace Assetto.Common.Interfaces.Service
         string GetAcX86ProcessName();
         string GetAcX64ProcessName();
         string GetPlayerName();
+
+        string GetSettingsFilePath();
+
+        void SetSettings(AppSettings settings);
+        AppSettings GetSettings();
+
+        AppSettings CreateSettings();
     }
 }

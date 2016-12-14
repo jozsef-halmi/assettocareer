@@ -12,6 +12,8 @@ namespace Assetto.Common.Interfaces.Service
         string ReadFile(string path);
         void WriteFile(string path, string contents);
 
+        bool FileExists(string path);
+
         void CreateDirIfNotExist(string dirPath);
         bool CreateResultFileIfNotExist(string filePath, string contents);
     }

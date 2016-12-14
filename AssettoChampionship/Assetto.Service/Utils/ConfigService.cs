@@ -18,64 +18,67 @@ namespace Assetto.Service.Utils
         public const string SETTINGS_FILE = "settings.acc";
 
 
-        string DocumentsFolder { get; set; }
+        //string DocumentsFolder { get; set; }
         string RaceIniRelativePathToDocFolder { get; set; }
         string OutputLogRelativePathToDocFolder { get; set; }
-        string AssettoCorsaInstallLoc { get; set; }
+        //string AssettoCorsaInstallLoc { get; set; }
         string AssettoCorsaExeRelativePathToACFolder { get; set; }
 
-        public string PlayerName { get; set; }
+        public AppSettings Settings { get; set; }
 
-        public IFileService FileService { get; set; }
+        //public string PlayerName { get; set; }
 
 
-        public ConfigService(IFileService fileService)
+
+        public ConfigService()
         {
-            this.FileService = fileService;
             this.RaceIniRelativePathToDocFolder = "Assetto Corsa\\cfg\\race.ini";
             this.OutputLogRelativePathToDocFolder = "Assetto Corsa\\out\\race_out.json";
-            this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
+            //this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
             this.AssettoCorsaExeRelativePathToACFolder = "AssettoCorsa.exe";
 
-
-            var savedSettings = GetSavedSettings();
-            this.AssettoCorsaInstallLoc = savedSettings.AssettoCorsaInstallLoc
-                        ?? "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\assettocorsa";
-            this.DocumentsFolder = savedSettings.DocumentsFolder 
-                        ?? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            this.PlayerName = savedSettings.PlayerName ?? "Player";
+            
 
         }
 
-        private AppSettings GetSavedSettings()
+        public string GetSettingsFilePath()
         {
-            AppSettings appsettings = null;
-            try
-            {
-                var file = FileService.ReadFile(ConfigService.SETTINGS_FILE);
-                appsettings = JsonConvert.DeserializeObject<AppSettings>(file);
-            }
-            catch (Exception)
-            {
-                appsettings = new AppSettings();
-            }
-            return appsettings;
-
+            return ConfigService.SETTINGS_FILE;
         }
 
-        private void SaveSettings(AppSettings settings)
+        public void SetSettings(AppSettings settings)
         {
-            FileService.WriteFile(ConfigService.SETTINGS_FILE, JsonConvert.SerializeObject(settings));
+            // Default values
+            this.Settings = new AppSettings()
+            {
+                AssettoCorsaInstallLoc = settings.AssettoCorsaInstallLoc ??
+                                         "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\assettocorsa",
+                DocumentsFolder = settings.DocumentsFolder ??
+                                  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                PlayerName = settings.PlayerName ?? "Player"
+            };
         }
+
+        public AppSettings GetSettings()
+        {
+            return this.Settings;
+        }
+
+        public AppSettings CreateSettings()
+        {
+            SetSettings(new AppSettings());
+            return GetSettings();
+        }
+
 
         public string GetRaceIniPath() {
-                return GetFolderWithSeparatorAtEnd(DocumentsFolder) + RaceIniRelativePathToDocFolder;
+                return GetFolderWithSeparatorAtEnd(Settings.DocumentsFolder) + RaceIniRelativePathToDocFolder;
         }
         public string GetOutputLogPath() {
-                return GetFolderWithSeparatorAtEnd(DocumentsFolder) + OutputLogRelativePathToDocFolder;
+                return GetFolderWithSeparatorAtEnd(Settings.DocumentsFolder) + OutputLogRelativePathToDocFolder;
         }
         public string GetAssettoCorsaExeLoc() {
-                return GetFolderWithSeparatorAtEnd(AssettoCorsaInstallLoc) + AssettoCorsaExeRelativePathToACFolder;
+                return GetFolderWithSeparatorAtEnd(Settings.AssettoCorsaInstallLoc) + AssettoCorsaExeRelativePathToACFolder;
         }
 
         private string GetFolderWithSeparatorAtEnd(string basePath) {
@@ -87,7 +90,7 @@ namespace Assetto.Service.Utils
 
         public void SetAcFolder(string acFolderPath)
         {
-            this.AssettoCorsaInstallLoc = acFolderPath;
+            this.Settings.AssettoCorsaInstallLoc = acFolderPath;
         }
 
         public string GetAcX86ProcessName()
@@ -103,7 +106,8 @@ namespace Assetto.Service.Utils
 
         public string GetPlayerName()
         {
-            return this.PlayerName;
+            return this.Settings.PlayerName;
         }
+
     }
 }
