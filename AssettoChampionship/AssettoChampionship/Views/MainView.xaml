@@ -10,19 +10,56 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
             BorderThickness="0" 
-   
-                      
              d:DesignHeight="300" d:DesignWidth="300">
         <StackPanel>
-            <TextBox x:Name="Name" />
-        <Button Content="Click Me">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <cal:ActionMessage MethodName="SayHello" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Button>
-        <Button Content="Go to series">
+
+        <!--<MediaElement Source="/Videos/3.wmv" 
+                      Stretch="None"  
+                      Height="300" 
+                      Width="300"
+                      LoadedBehavior="Play"
+                      />-->
+
+        <Border Grid.Row="1"  Canvas.Left="55"
+            Canvas.Top="30"
+            Width="750"
+            Height="Auto"
+            Margin="12,12,8,0"
+            VerticalAlignment="Top"
+            BorderBrush="#FF3B5998"
+            BorderThickness=".5"
+            CornerRadius="18">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5"
+                              Opacity=".5"
+                              ShadowDepth="3" />
+            </Border.Effect>
+            <Border Name="ReceiverColor"
+                BorderBrush="#1585B5"
+                BorderThickness="6"
+                CornerRadius="15">
+                <Grid>
+                    <Border Name="Mask"
+                        Background="White"
+                        BorderBrush="#1585B5"
+                        BorderThickness=".5"
+                        CornerRadius="13">
+                    </Border>
+                    <StackPanel Background="Transparent">
+                        <Image Name="Receiver" 
+                           Source="/Images/background.jpg" />
+
+                        <StackPanel.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=Mask}" />
+                        </StackPanel.OpacityMask>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Border>
+
+        <Button Content="Go to series" Margin="0,25,0,0" MaxWidth="250"
+                 Style="{DynamicResource SquareButtonStyle}"
+                >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <cal:ActionMessage MethodName="OpenSeries" />

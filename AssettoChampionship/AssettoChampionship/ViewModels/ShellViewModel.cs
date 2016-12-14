@@ -37,7 +37,11 @@ namespace AssettoChampionship.ViewModels
             get { return _windowTitle; }
             set
             {
-                _windowTitle = value;
+                _windowTitle = value + " Version " + System.Reflection.Assembly.GetExecutingAssembly()
+                                           .GetName()
+                                           .Version
+                                           .ToString();
+
                 NotifyOfPropertyChange(() => WindowTitle);
                 //Insert your property change code here (not sure of the caliburn micro version)
             }
