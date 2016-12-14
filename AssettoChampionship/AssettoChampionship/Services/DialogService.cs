@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssettoChampionship.Servies
+namespace AssettoChampionship.Services
 {
     public static class DialogService
     {

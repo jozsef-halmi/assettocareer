@@ -26,8 +26,9 @@ BorderThickness="0"
     </Window.Background>-->
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="27*"></RowDefinition>
 
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="5,0,5,0">
@@ -73,9 +74,25 @@ BorderThickness="0"
             </Button>
 
         </Grid>
-     
 
-        <Controls:TransitioningContentControl  Grid.Row="1"
+        <TextBlock Grid.Row="1" 
+                   Text="{Binding Notification}" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <!--<TextBlock.Triggers>
+                <EventTrigger RoutedEvent="Binding.TargetUpdated">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:0"
+To="1.0" />
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="0:0:2"
+From="1.0" To="0.0" BeginTime="0:0:5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>-->
+        </TextBlock>
+        <Controls:TransitioningContentControl  Grid.Row="2"
             Transition="Down"
             x:Name="ActiveItem"
             >

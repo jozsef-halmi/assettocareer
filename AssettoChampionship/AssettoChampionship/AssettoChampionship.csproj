@@ -111,7 +111,9 @@
     <Compile Include="Converters\NumberToOrdinalConverter.cs" />
     <Compile Include="Converters\ValueConverterGroup.cs" />
     <Compile Include="Model\PageDto.cs" />
-    <Compile Include="Servies\DialogService.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\INotificationService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

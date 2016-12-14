@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MahApps.Metro.Controls.Dialogs;
 using AssettoChampionship.ViewModels.Dialog;
+using AssettoChampionship.Services;
 
 namespace AssettoChampionship
 {
@@ -27,6 +28,7 @@ namespace AssettoChampionship
             container.RegisterType<IConfigManager, ConfigManager>();
 
             //Services
+            container.RegisterType<INotificationService, NotificationService>();
             container.RegisterType<IGoalService, GoalService>();
             container.RegisterType<ISeriesService, SeriesService>();
             container.RegisterType<ISaveService, SaveService>(new ContainerControlledLifetimeManager());

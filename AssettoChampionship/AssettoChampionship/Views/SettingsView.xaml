@@ -43,7 +43,11 @@
                 Style="{StaticResource AccentedSquareButtonStyle}" 
                 MinWidth="100">
             <TextBlock Text="Save"></TextBlock>
-       
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <cal:ActionMessage MethodName="Save" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </Button>
         
     </StackPanel>

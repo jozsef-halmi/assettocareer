@@ -1,7 +1,7 @@
 ﻿using Assetto.Common.Data;
 using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
-using AssettoChampionship.Servies;
+using AssettoChampionship.Services;
 using AssettoChampionship.ViewModels.Dialog;
 using AssettoChampionship.Views;
 using Caliburn.Micro;
@@ -24,10 +24,12 @@ namespace AssettoChampionship.ViewModels
         , IHandle<ChangePageMessage>
         , IHandle<OpenDialogMessage>
         , IHandle<UpdateDialogMessage>
+        , IHandle<NotificationMessage>
     {
         public IWindowManager WindowManager;
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
+
 
         private string _windowTitle;
         public string WindowTitle
@@ -77,6 +79,21 @@ namespace AssettoChampionship.ViewModels
             {
                 _pageTitle = value;
                 NotifyOfPropertyChange(() => PageTitle);
+
+            }
+        }
+
+        private string _notification;
+        public string Notification
+        {
+            get
+            {
+                return _notification;
+            }
+            set
+            {
+                _notification = value;
+                NotifyOfPropertyChange(() => Notification);
 
             }
         }
@@ -223,5 +240,21 @@ namespace AssettoChampionship.ViewModels
         //{
         //    ActivateItem(new PageTwoViewModel());
         //}
+
+        public async Task ShowMessageAndHide(string message)
+        {
+            Notification = message;
+            await Task.Delay(5000);
+            Notification = string.Empty;
+        }
+
+        public async void ShowNotification(string msg) {
+            await ShowMessageAndHide(msg);
+        }
+
+        public void Handle(NotificationMessage data)
+        {
+            ShowNotification(data.Message);
+        }
     }
 }

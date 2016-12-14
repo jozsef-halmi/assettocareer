@@ -10,6 +10,7 @@ namespace Assetto.Common.Interfaces.Manager
     public interface IConfigManager
     {
         AppSettings GetSettings();
+        bool SaveSettings(AppSettings settings);
 
     }
 }

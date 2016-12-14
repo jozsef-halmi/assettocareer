@@ -42,14 +42,28 @@ namespace Assetto.Manager
             {
                 // Create new settings
                 settings = ConfigService.CreateSettings();
-                FileService.WriteFile(ConfigService.GetSettingsFilePath(), JsonConvert.SerializeObject(settings));
+                WriteSettingsToFile(settings);
             }
             return settings;
+        }
+
+        public bool SaveSettings(AppSettings settings)
+        {
+            WriteSettingsToFile(settings);
+            return true;
         }
 
         private bool HasSavedSettings()
         {
             return FileService.FileExists(ConfigService.GetSettingsFilePath());
         }
+
+        private bool WriteSettingsToFile(AppSettings settings) {
+            FileService.WriteFile(ConfigService.GetSettingsFilePath(), JsonConvert.SerializeObject(settings));
+            ConfigService.SetSettings(settings);
+            return true;
+        }
+
+
     }
 }
