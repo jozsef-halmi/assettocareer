@@ -98,6 +98,7 @@
     <Compile Include="SaveGames\SaveCache.cs" />
     <Compile Include="SaveGames\SavedSeason.cs" />
     <Compile Include="SaveGames\SavedEventResult.cs" />
+    <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Utils\ProcessInfo.cs" />
   </ItemGroup>
   <ItemGroup>
