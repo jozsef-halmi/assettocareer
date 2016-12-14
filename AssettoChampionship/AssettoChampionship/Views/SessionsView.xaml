@@ -12,6 +12,11 @@
       >
     <StackPanel>
         <ListView ItemsSource="{Binding Event.Sessions}"  HorizontalAlignment="Center">
+            <!--<ListView.Template>
+                <ControlTemplate>
+                    <ItemsPresenter></ItemsPresenter>
+                </ControlTemplate>
+            </ListView.Template>-->
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

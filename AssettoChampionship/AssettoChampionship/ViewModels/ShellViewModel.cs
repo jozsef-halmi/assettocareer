@@ -29,6 +29,7 @@ namespace AssettoChampionship.ViewModels
         public IWindowManager WindowManager;
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
+        public IConfigManager ConfigManager { get; set; }
 
 
         private string _windowTitle;
@@ -105,16 +106,19 @@ namespace AssettoChampionship.ViewModels
         public ShellViewModel(
             IWindowManager windowManager
             , IEventAggregator eventAggregator
-            , IUnityContainer container)
+            , IUnityContainer container
+            , IConfigManager configManager)
         {
             this.WindowManager = windowManager;
             this.Container = container;
             this.EventAggregator = eventAggregator;
+            this.ConfigManager = configManager;
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
             ShowMainPage();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
+            ConfigManager.GetSettings();
         }
 
 
@@ -133,6 +137,9 @@ namespace AssettoChampionship.ViewModels
                     break;
                 case "ResultsViewModel":
                     ShowResultsPage(message.Data);
+                    break;
+                case "VideoViewModel":
+                    ShowVideoPage(message.Data);
                     break;
                 default:
                     break;
@@ -232,6 +239,14 @@ namespace AssettoChampionship.ViewModels
             var resultsVM = Container.Resolve<ResultsViewModel>();
             ActivateItem(resultsVM);
             resultsVM.SetResults(parameters.ACExeTerminatedDto);
+        }
+
+        public void ShowVideoPage(ChangePageParameters parameters)
+        {
+            var videoVM = Container.Resolve<VideoViewModel>();
+            ActivateItem(videoVM);
+            // Set video
+            //resultsVM.SetResults(parameters.ACExeTerminatedDto);
         }
 
         public void ShowSettings()

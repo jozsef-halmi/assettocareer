@@ -28,7 +28,6 @@ namespace Assetto.Service
         public List<ChampionshipPlayerDTO> GetCurrentStandings(Guid seriesId)
         {
             var series = this.SeriesService.GetSeries(seriesId);
-
             var standings = new List<ChampionshipPlayerDTO>();
 
             foreach (var seriesEvent in series.Events)

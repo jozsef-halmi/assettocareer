@@ -115,6 +115,7 @@
     <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\VideoViewModel.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ResultsViewModel.cs" />
@@ -124,6 +125,9 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\Dialog\LoadingView.xaml.cs">
       <DependentUpon>LoadingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\VideoView.xaml.cs">
+      <DependentUpon>VideoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
@@ -174,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dialog\LoadingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\VideoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,7 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DesignData\" />
-    <Folder Include="Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Common-dog-behaviors-explained.jpg" />
@@ -322,6 +329,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AC_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Videos\RSR_Formula3.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

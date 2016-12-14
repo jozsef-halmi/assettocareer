@@ -1,12 +1,10 @@
 TODO:
 MUST:
 Log!!! + backend
-ConfigService bejegyzeseihez egy form
 hibakezelés, AC.exe, log, outlog
-ListView scrolling
 ListView selection (goals)
 calendar! winter race tor poznan :)
-
+Tooltip: Objective text, for example: under xx:xx, and display the player's time
 
 SHOULD:
 formula3 skinpack add

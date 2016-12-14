@@ -13,12 +13,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
         <StackPanel>
 
-        <!--<MediaElement Source="/Videos/3.wmv" 
-                      Stretch="None"  
-                      Height="300" 
-                      Width="300"
-                      LoadedBehavior="Play"
-                      />-->
+
+
+
 
         <Border Grid.Row="1"  Canvas.Left="55"
             Canvas.Top="30"

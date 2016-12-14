@@ -10,6 +10,7 @@
             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
             Title="{Binding WindowTitle}" 
                       MinHeight="700px"
+                      MinWidth="780px"
              mc:Ignorable="d" 
                               GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
@@ -92,11 +93,14 @@ From="1.0" To="0.0" BeginTime="0:0:5" />
                 </EventTrigger>
             </TextBlock.Triggers>-->
         </TextBlock>
-        <Controls:TransitioningContentControl  Grid.Row="2"
+        <ScrollViewer  Grid.Row="2">
+            <Controls:TransitioningContentControl 
             Transition="Down"
             x:Name="ActiveItem"
             >
-        </Controls:TransitioningContentControl> 
+            </Controls:TransitioningContentControl>
+        </ScrollViewer>
+     
 
     </Grid>
     <!--<Controls:MetroWindow.RightWindowCommands>
