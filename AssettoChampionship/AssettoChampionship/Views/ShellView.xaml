@@ -16,7 +16,7 @@
 BorderThickness="0" 
             WindowTransitionsEnabled="True"
             WindowStartupLocation="CenterScreen"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="600">
     <!--<Window.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
@@ -30,8 +30,14 @@ BorderThickness="0"
             <RowDefinition Height="9*"></RowDefinition>
 
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Width="48"
+        <Grid Grid.Row="0" Margin="5,0,5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="7*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Button Width="48" Grid.Column="0" HorizontalAlignment="Left"
                         Height="48"
                         Margin="4"
                         IsEnabled="False"
@@ -45,8 +51,28 @@ BorderThickness="0"
                                               Height="20"
                                               Kind="ArrowLeft" />
             </Button>
-            <TextBlock Style="{StaticResource PageTitle}" Text="{Binding PageTitle}" VerticalAlignment="Center" Margin="10"></TextBlock>
-        </StackPanel>
+            <TextBlock  Grid.Column="1" 
+                        Style="{StaticResource PageTitle}" 
+                        Text="{Binding PageTitle}" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" 
+                        Margin="10"></TextBlock>
+            <Button Width="48" Grid.Column="2"
+                    HorizontalAlignment="Right"
+                        Height="48"
+                        Margin="4"
+                        Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="OpenSettings" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <iconPacks:PackIconModern Width="20"
+                                              Height="20"
+                                              Kind="Settings" />
+            </Button>
+
+        </Grid>
      
 
         <Controls:TransitioningContentControl  Grid.Row="1"

@@ -41,6 +41,21 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        private string _activeViewModel;
+        public string ActiveViewModel
+        {
+            get
+            {
+                return _activeViewModel;
+            }
+            set
+            {
+                _activeViewModel = value;
+                NotifyOfPropertyChange(() => ActiveViewModel);
+                NotifyOfPropertyChange(() => CanOpenSettings);
+            }
+        }
+
         private Stack<object> _backStack;
 
         public Stack<object> BackStack {
@@ -62,6 +77,7 @@ namespace AssettoChampionship.ViewModels
             {
                 _pageTitle = value;
                 NotifyOfPropertyChange(() => PageTitle);
+
             }
         }
 
@@ -76,8 +92,7 @@ namespace AssettoChampionship.ViewModels
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
-            //ShowMainPage();
-            ShowSettings();
+            ShowMainPage();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
         }
 
@@ -133,18 +148,37 @@ namespace AssettoChampionship.ViewModels
             this._backStack.Push(this.ActiveItem);
             this.BackStack = _backStack;
             ActivateItem(screen);
+            ActiveViewModel = screen.GetType().ToString();
+
         }
 
         public void GoBack()
         {
-            ActivateItem(this._backStack.Pop());
+            var vm = this._backStack.Pop();
+            ActivateItem(vm);
             this.BackStack = _backStack;
+            ActiveViewModel = vm.GetType().ToString();
         }
+
 
         public bool CanGoBack
         {
             get { return this.BackStack != null && this.BackStack.Count > 1; }
         }
+
+        public void OpenSettings()
+        {
+            OpenPage(Container.Resolve<SettingsViewModel>());
+        }
+
+
+        public bool CanOpenSettings
+        {
+            get {
+                return ActiveViewModel != Container.Resolve<SettingsViewModel>().GetType().ToString();
+            }
+        }
+
 
         public void ShowMainPage()
         {

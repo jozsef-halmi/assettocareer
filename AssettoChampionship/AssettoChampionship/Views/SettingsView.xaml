@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AssettoChampionship.Views"
+      xmlns:usercontrols="clr-namespace:AssettoChampionship.Views.UserControls"
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:cal="http://www.caliburnproject.org"
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
@@ -21,14 +22,28 @@
         <TextBlock Text="Documents Folder" Margin="0,0,0,5"></TextBlock>
         <TextBox Text="{Binding Settings.DocumentsFolder}" Margin="0,0,0,15"></TextBox>
 
-        <TextBlock Text="Player Name" ></TextBlock>
-        <TextBox Text="{Binding Settings.PlayerName}" Margin="0,0,0,15"></TextBox>
+
+        <StackPanel>
+            <StackPanel.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <usercontrols:NotImplementedTooltip></usercontrols:NotImplementedTooltip>
+                    </StackPanel>
+                </ToolTip>
+            </StackPanel.ToolTip>
+            <TextBlock Text="Player Name" Margin="0,0,0,5"></TextBlock>
+            <TextBox Text="{Binding Settings.PlayerName}" 
+                 Margin="0,0,0,15" IsEnabled="False">
+            </TextBox>
+        </StackPanel>
+     
 
         <Button HorizontalAlignment="Right" 
                 Margin="0,15,0,15"
                 Style="{StaticResource AccentedSquareButtonStyle}" 
                 MinWidth="100">
             <TextBlock Text="Save"></TextBlock>
+       
         </Button>
         
     </StackPanel>
