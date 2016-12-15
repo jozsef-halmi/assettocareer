@@ -28,15 +28,7 @@ namespace Assetto.Common.DTO
 
         public List<ChampionshipPlayerDTO> Standings { get; set; }
 
-        public string ToolTip { get; set; }
-        public bool ToolTipAvailable {
-            get { return !string.IsNullOrEmpty(ToolTip); }
-        }
-
-        public string ExternalLink { get; set; }
-        public bool ExternalLinkAvailable
-        {
-            get { return !string.IsNullOrEmpty(ExternalLink); }
-        }
+        public CreditsDTO Credits { get; set; }
+       
     }
 }

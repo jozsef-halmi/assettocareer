@@ -7,6 +7,7 @@
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:cal="http://www.caliburnproject.org"
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      xmlns:usercontrols="clr-namespace:AssettoChampionship.Views.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       >
@@ -26,18 +27,9 @@
                     <Grid Margin="5" Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
                         <Grid.ToolTip>
                             <ToolTip>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Title}" 
-                                               Style="{StaticResource ListBoxSubTitle}"></TextBlock>
-                                    <TextBlock 
-                                        Visibility="{Binding ToolTipAvailable, Converter={StaticResource BoolToVis}}"
-                                        Style="{StaticResource ListBoxDescription}">
-                                        <Run Text="{Binding ToolTip}" />
-                                        <Run Text="Please visit" />
-                                        <Run Text="{Binding ExternalLink}" />
-                                        <Run Text="and support them!" />
-                                    </TextBlock>
-                                </StackPanel>
+                                <usercontrols:CreditsToolTip DataContext="{Binding Credits}">
+
+                                </usercontrols:CreditsToolTip>
                             </ToolTip>
                         </Grid.ToolTip>
                         <Grid.ColumnDefinitions>

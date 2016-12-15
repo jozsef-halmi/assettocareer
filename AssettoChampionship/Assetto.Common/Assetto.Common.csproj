@@ -63,6 +63,7 @@
     <Compile Include="DTO\ACExeTerminatedDTO.cs" />
     <Compile Include="DTO\ChampionshipPlayerDTO.cs" />
     <Compile Include="DTO\ConfiguredSessionDTO.cs" />
+    <Compile Include="DTO\CreditsDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
     <Compile Include="DTO\ObjectiveDTO.cs" />
     <Compile Include="DTO\PlayerDTO.cs" />

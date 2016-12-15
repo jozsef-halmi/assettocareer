@@ -10,5 +10,6 @@ namespace Assetto.Common.Data
     {
         public string ToolTip { get; set; }
         public string ExternalLink { get; set; }
+
     }
 }

@@ -73,8 +73,12 @@ namespace Assetto.Manager
                 ).ToList(),
                 Standings = ChampionshipService.GetCurrentStandings(selectedSeries.Id).OrderByDescending(p => p.Points).ToList(),
                 VideoUrl = selectedSeries.VideoUrl,
-                ToolTip =  selectedSeries.Credits?.ToolTip,
-                ExternalLink  = selectedSeries.Credits?.ExternalLink
+                Credits =  new CreditsDTO()
+                {
+                    ToolTip = selectedSeries.Credits?.ToolTip,
+                    ExternalLink =  selectedSeries.Credits?.ExternalLink,
+                    TooltipTitle = selectedSeries.FriendlyName
+                } 
             };
 
             retVar.IsDone = retVar.Events.All(s => s.IsDone);
