@@ -94,6 +94,11 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid HorizontalAlignment="Stretch">
+                                        <Grid.ToolTip>
+                                            <ToolTip>
+                                                <TextBlock Text="{Binding DoneText}"></TextBlock>
+                                            </ToolTip>
+                                        </Grid.ToolTip>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
                                             <ColumnDefinition Width="6*"></ColumnDefinition>

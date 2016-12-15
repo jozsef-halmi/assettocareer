@@ -140,7 +140,8 @@ namespace Assetto.Manager
                 Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
                 {
                     IsDone = pso.Evaluate(result),
-                    Text = pso.ToString()
+                    Text = pso.ToString(),
+                    DoneText = pso.GetDoneText(result)
                 }).ToList(),
                 FinishedPosition = ResultService.GetPlayerPosition(result),
                 Duration = data.Duration ?? 0,

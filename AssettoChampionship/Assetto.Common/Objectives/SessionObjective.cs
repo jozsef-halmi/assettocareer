@@ -13,6 +13,13 @@ namespace Assetto.Common.Objectives
 {
     public abstract class SessionObjective
     {
+        public string DoneText { get; set; }
+
+        public SessionObjective()
+        {
+            this.DoneText = "Objective completed";
+        }
+
         public bool Evaluate(Result result)
         {
             if (result == null) return false;
@@ -32,6 +39,19 @@ namespace Assetto.Common.Objectives
         protected abstract bool EvaluatePractice(Result result);
         protected abstract bool EvaluateQualify(Result result);
         protected abstract bool EvaluateRace(Result result);
+
+        public string GetDoneText(Result result)
+        {
+            if (Evaluate(result))
+            {
+                return DoneText;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
 
     }
 }

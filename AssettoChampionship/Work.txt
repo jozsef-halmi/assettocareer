@@ -1,10 +1,11 @@
 TODO:
 MUST:
-Log!!! + backend
+Log backend
 hibakezelés, AC.exe, log, outlog
 ListView selection (goals)
 calendar! winter race tor poznan :)
 Tooltip: Objective text, for example: under xx:xx, and display the player's time
+Championship points
 
 SHOULD:
 formula3 skinpack add

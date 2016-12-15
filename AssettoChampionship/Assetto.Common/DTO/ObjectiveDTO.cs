@@ -10,5 +10,6 @@ namespace Assetto.Common.DTO
     {
         public bool IsDone { get; set; }
         public string Text { get; set; }
+        public string DoneText { get; set; }
     }
 }
