@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using Assetto.Common.Interfaces.Service;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -32,6 +33,8 @@ namespace AssettoChampionship.ViewModels
         public IUnityContainer Container { get; set; }
         public IEventAggregator EventAggregator { get; private set; }
         public IConfigManager ConfigManager { get; set; }
+        public ILogService LogService { get; set; }
+
 
 
         private string _windowTitle;
@@ -109,18 +112,21 @@ namespace AssettoChampionship.ViewModels
             IWindowManager windowManager
             , IEventAggregator eventAggregator
             , IUnityContainer container
-            , IConfigManager configManager)
+            , IConfigManager configManager
+            , ILogService logService)
         {
             this.WindowManager = windowManager;
             this.Container = container;
             this.EventAggregator = eventAggregator;
             this.ConfigManager = configManager;
+            this.LogService = logService;
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
             ShowMainPage();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
             ConfigManager.GetSettings();
+            LogService.Log("Startup");
         }
 
 

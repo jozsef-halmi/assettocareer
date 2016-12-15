@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assetto.Common.Interfaces.Service
 {
-    public class ILogService
+    public interface ILogService
     {
-        public void Log(string text) {
-
-        }
+        void Log(string text);
     }
 }

@@ -42,7 +42,7 @@ namespace AssettoChampionship
             container.RegisterType<IProcessService, ProcessService>();
             container.RegisterType<IResultService, ResultService>();
 
-            //container.RegisterType<ILogService, LogService>();
+            container.RegisterType<ILogService, LogService>();
 
             // VM
             container.RegisterInstance<LoadingViewModel>(new LoadingViewModel(), new ContainerControlledLifetimeManager());

@@ -27,7 +27,7 @@ namespace AssettoChampionship
             // Unity config
             this.Container =  new UnityContainer();
             ContainerBootstrapper.RegisterTypes(this.Container);
-
+            log4net.Config.XmlConfigurator.Configure();
             base.Configure();
         }
 
