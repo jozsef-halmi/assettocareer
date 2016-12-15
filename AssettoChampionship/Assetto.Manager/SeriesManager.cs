@@ -72,8 +72,9 @@ namespace Assetto.Manager
                             GetEvent(seriesId, e.Id)
                 ).ToList(),
                 Standings = ChampionshipService.GetCurrentStandings(selectedSeries.Id).OrderByDescending(p => p.Points).ToList(),
-                VideoUrl = selectedSeries.VideoUrl
-
+                VideoUrl = selectedSeries.VideoUrl,
+                ToolTip =  selectedSeries.Credits?.ToolTip,
+                ExternalLink  = selectedSeries.Credits?.ExternalLink
             };
 
             retVar.IsDone = retVar.Events.All(s => s.IsDone);

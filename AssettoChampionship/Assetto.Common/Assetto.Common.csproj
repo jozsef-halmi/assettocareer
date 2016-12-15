@@ -50,6 +50,7 @@
     <Compile Include="Constants\SessionNames.cs" />
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
+    <Compile Include="Data\CreditsData.cs" />
     <Compile Include="Data\DriverData.cs" />
     <Compile Include="Data\SeriesData.cs" />
     <Compile Include="Data\EventData.cs" />

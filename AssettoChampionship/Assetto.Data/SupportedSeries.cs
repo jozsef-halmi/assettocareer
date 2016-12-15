@@ -39,6 +39,11 @@ namespace Assetto.Data
                 SupportedEvents.Formula3RedBull,
                 SupportedEvents.Formula3Zandvoort,
                 SupportedEvents.Formula3Spa,
+            },
+            Credits = new CreditsData()
+            {
+                ToolTip = "This car has been done by the RSR team."
+                , ExternalLink = "http://www.radiators-champ.com/rsrworld/cars/rsr-formula-3/"
             }
         };
 
