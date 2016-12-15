@@ -65,6 +65,7 @@ namespace AssettoChampionship.ViewModels
                 _activeViewModel = value;
                 NotifyOfPropertyChange(() => ActiveViewModel);
                 NotifyOfPropertyChange(() => CanOpenSettings);
+                NotifyOfPropertyChange(() => CanOpenAbout);
             }
         }
 
@@ -149,6 +150,9 @@ namespace AssettoChampionship.ViewModels
                 case "VideoViewModel":
                     ShowVideoPage(message.Data);
                     break;
+                case "AboutViewModel":
+                    ShowAboutPage();
+                    break;
                 default:
                     break;
             }
@@ -185,7 +189,6 @@ namespace AssettoChampionship.ViewModels
             this.BackStack = _backStack;
             ActivateItem(screen);
             ActiveViewModel = screen.GetType().ToString();
-
         }
 
         public void GoBack()
@@ -215,6 +218,18 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        public void OpenAbout()
+        {
+            ShowAboutPage();
+        }
+
+        public bool CanOpenAbout
+        {
+            get
+            {
+                return ActiveViewModel != Container.Resolve<AboutViewModel>().GetType().ToString();
+            }
+        }
 
         public void ShowMainPage()
         {
@@ -255,6 +270,13 @@ namespace AssettoChampionship.ViewModels
             OpenPage(videoVM);
             videoVM.SetVideo(parameters.Parameter as string);
         }
+
+        public void ShowAboutPage()
+        {
+            var aboutVM = Container.Resolve<AboutViewModel>();
+            OpenPage(aboutVM);
+        }
+
 
         public void ShowSettings()
         {

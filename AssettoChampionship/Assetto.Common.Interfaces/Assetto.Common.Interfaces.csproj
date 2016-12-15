@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manager\IUtilsManager.cs" />
     <Compile Include="Manager\IConfigManager.cs" />
     <Compile Include="Manager\IEventManager.cs" />
     <Compile Include="Manager\ISeriesManager.cs" />
