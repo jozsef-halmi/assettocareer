@@ -328,7 +328,7 @@
     <Resource Include="Images\Practice.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Series\Formula3.jpg" />
+    <None Include="Images\Series\Formula3.jpg.bak" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Events\Formula3_Spa.jpg" />
@@ -336,17 +336,20 @@
   <ItemGroup>
     <Resource Include="Images\Events\Abarth500_TorPoznan.jpg" />
     <Resource Include="Images\Events\Formula3_Hungaroring.jpg" />
-    <Resource Include="Images\Events\Formula3_Imola.jpg" />
+    <None Include="Images\Events\Formula3_Imola.jpg.bak" />
     <Resource Include="Images\Events\Formula3_Nurburgring.jpg" />
     <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
     <Resource Include="Images\Events\Formula3_RedBull.jpg" />
-    <Resource Include="Images\Events\Formula3_Zandvoort.jpg" />
+    <None Include="Images\Events\Formula3_Zandvoort.jpg.bak" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AC_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\trophy.png" />
+    <Resource Include="Images\Events\Formula3_Zandvoort.jpg" />
+    <Resource Include="Images\Events\Formula3_Imola.jpg" />
+    <Resource Include="Images\Series\Formula3.jpg" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
