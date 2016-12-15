@@ -9,5 +9,7 @@ namespace Assetto.Common.Interfaces.Service
     public interface ILogService
     {
         void Log(string text);
+        void Error(string text);
+        void Fatal(string text);
     }
 }

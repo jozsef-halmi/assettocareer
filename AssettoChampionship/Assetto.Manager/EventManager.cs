@@ -16,49 +16,40 @@ using Assetto.Service.Utils;
 
 namespace Assetto.Manager
 {
-    public class EventManager : IEventManager
+    public class EventManager : ManagerBase, IEventManager
     {
-        //TODO: BE USER INPUT
-        //private const string RACE_INI_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\cfg\\race.ini";
-        //private const string ASSETTO_CORSA_EXE_PATH = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\AssettoCorsa.exe";
-        //private const string OUTPUT_LOG_PATH = "C:\\Users\\halmi\\Documents\\Assetto Corsa\\out\\race_out.json";
-
-
-        public IFileService FileService { get; set; }
         public ISeriesService SeriesService { get; set; }
         public IProcessService ProcessService { get; set; }
         public IResultService ResultService { get; set; }
         public ISaveService SaveService { get; set; }
-        public IConfigService ConfigService { get; set; }
         public IEventService EventService { get; set; }
         public IVideoService VideoService { get; set; }
+
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
         public Action<object> ACProcessStarted { get; set; }
         public Action<object> ACProcessEnded { get; set; }
 
-        // TODO: Refine this
         public SeriesData SelectedSeries { get; set; }
         public EventData SelectedEvent { get; set; }
         public SessionData SelectedSession { get; set; }
 
 
-        public EventManager(IFileService fileService
+        public EventManager(ILogService logService
+            , IFileService fileService
             , ISeriesService seriesService
             , IProcessService processService
             , IResultService resultService
             , ISaveService saveService
             , IConfigService configService
             , IEventService eventService
-            , IVideoService videoService)
+            , IVideoService videoService) : base(logService, fileService, configService)
         {
-            this.FileService = fileService;
             this.SeriesService = seriesService;
             this.ProcessService = processService;
             this.ResultService = resultService;
             this.SaveService = saveService;
-            this.ConfigService = configService;
             this.EventService = eventService;
             this.VideoService = videoService;
         }
@@ -84,8 +75,17 @@ namespace Assetto.Manager
             this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
             this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
 
+            LogService.Log($"Starting event... {SelectedSeries.Name} ({SelectedSeries.Id})" +
+                           $", {SelectedEvent.Name} ({SelectedEvent.Id})" +
+                           $", {SelectedSession.FriendlyName} ({SelectedSession.Id}) ");
+
+
+            LogService.Log("Starting configuration..");
             this.ConfigurationStarted?.Invoke(SelectedEvent.ImageUrl);
+
             ConfigureEvent(seriesId, eventId, sessionId);
+
+            LogService.Log("Configuration end..");
             this.ConfigurationEnded?.Invoke(new object());
 
             StartAssettoCorsa();
@@ -116,15 +116,6 @@ namespace Assetto.Manager
             this.EventService.OrderGrid(sessionDto); // TODO!
           
 
-            // TODO: Config, for example, race: starting positions!
-            //var savedSeason = this.SaveService.LoadResult(
-            //    this.SelectedSeries.Id
-            //    , this.SelectedEvent.Id
-            //    , this.SelectedSession.Id);
-            //eventData = this.EventService.OrderGrid(eventData, session);
-
-
-
             eventData.GameSessions = new List<SessionData>() { sessionData };
             var eventConfig = new EventConfig(sessionDto); 
             var raceIni = eventConfig.ToString();
@@ -133,9 +124,9 @@ namespace Assetto.Manager
             {
                 FileService.WriteFile(ConfigService.GetRaceIniPath(), raceIni);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO: LOG
+                LogService.Fatal("Race ini could not be overwritten! Exception: " + ex.ToString());
                 throw;
             }
             return sessionDto;
@@ -189,7 +180,7 @@ namespace Assetto.Manager
             }
             catch (Exception ex)
             {
-                // TODO: should not do this in the final version!!
+                LogService.Error("Results could not be returned! Exception: " + ex.ToString());
                 retVar.Error = ex.ToString();
             }
             this.ACProcessEnded?.Invoke(retVar);

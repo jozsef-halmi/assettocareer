@@ -14,7 +14,7 @@ using Assetto.Common.ProcessedResult;
 
 namespace Assetto.Manager
 {
-    public class SeriesManager : ISeriesManager
+    public class SeriesManager : ManagerBase, ISeriesManager
     {
         public IFileService FileService { get; set; }
         public ISeriesService SeriesService { get; set; }
@@ -23,14 +23,15 @@ namespace Assetto.Manager
         public IChampionshipService ChampionshipService { get; set; }
         public IResultService ResultService { get; set; }
 
-        public SeriesManager(IFileService fileService
+        public SeriesManager(ILogService logService
+            , IFileService fileService
             , ISeriesService seriesService
             , ISaveService saveService
             , IGoalService goalService
             , IChampionshipService championshipService
-            , IResultService resultService)
+            , IConfigService configService
+            , IResultService resultService) : base(logService, fileService, configService)
         {
-            this.FileService = fileService;
             this.SeriesService = seriesService;
             this.SaveService = saveService;
             this.GoalService = goalService;
@@ -49,9 +50,9 @@ namespace Assetto.Manager
                     retVar.Add(GetSeries(availableSeason.Id));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // TODO: Log here
+                LogService.Fatal("Error getting available series! Exception: " + ex.ToString());
                 throw;
             }
             return retVar;

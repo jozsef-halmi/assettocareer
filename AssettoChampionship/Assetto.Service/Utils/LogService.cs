@@ -17,5 +17,15 @@ namespace Assetto.Service
         {
             Log4Net.Info(text);
         }
+
+        public void Error(string text)
+        {
+            Log4Net.Error(text);
+        }
+
+        public void Fatal(string text)
+        {
+            Log4Net.Fatal(text);
+        }
     }
 }

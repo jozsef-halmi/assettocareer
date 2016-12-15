@@ -168,7 +168,6 @@ namespace Assetto.Service
             }
             catch (Exception)
             {
-                // TODO: Log
                 return null;
             }
             
