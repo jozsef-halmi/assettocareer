@@ -16,7 +16,7 @@ namespace Assetto.Data
             , Name = "Abarth500"
             , FriendlyName = "Trofeo Abarth 500 Series"
             , Description = "The Trofeo Abarth 500 Cup is an entry-level series, which will be your first step in your career. The series take place in European countries, such as Italy, England, Austria and Poland. The tracks are short, the opponents are tough - You are going to have some serious challenges and wheel-to-wheel fights. Good luck and have fun, driver!"
-            , VideoUrl = "Videos/3sec.mp4"
+            , VideoUrl = "Videos/Abarth500.mp4"
             , Events = new List<EventData>() {
                 SupportedEvents.Abarth500RaceEvent1,
                 SupportedEvents.Abarth500RaceEvent2,
