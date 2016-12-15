@@ -13,5 +13,8 @@ namespace Assetto.Common.Interfaces.Service
     {
         List<ChampionshipPlayerDTO> GetCurrentStandings(Guid seriesId);
         List<ChampionshipPlayerDTO> GetPointsForResult(Result result, SessionType sessionType, ChampionshipPointType pointType);
+
+        int GetPlayerChampionshipPosition(Guid seriesId);
+        bool IsPlayerWinning(Guid seriesId);
     }
 }

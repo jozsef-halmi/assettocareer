@@ -5,7 +5,7 @@ hibakezelés, AC.exe, log, outlog
 ListView selection (goals)
 calendar! winter race tor poznan :)
 Tooltip: Objective text, for example: under xx:xx, and display the player's time
-Championship points
+Championship points - TEST IT!
 
 SHOULD:
 formula3 skinpack add

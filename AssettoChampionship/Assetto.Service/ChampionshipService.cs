@@ -15,14 +15,18 @@ namespace Assetto.Service
         public ISeriesService SeriesService { get; set; }
         public IResultService ResultService { get; set; }
         public ISaveService SaveService { get; set; }
+        public IConfigService ConfigService { get; set; }
+
 
         public ChampionshipService(ISeriesService seriesService
             , IResultService resultService
-            , ISaveService saveService)
+            , ISaveService saveService
+            , IConfigService configService)
         {
             this.SeriesService = seriesService;
             this.ResultService = resultService;
             this.SaveService = saveService;
+            this.ConfigService = configService;
         }
 
         public List<ChampionshipPlayerDTO> GetCurrentStandings(Guid seriesId)
@@ -68,6 +72,18 @@ namespace Assetto.Service
                     return GetRacePoints(result);
             }
             return new List<ChampionshipPlayerDTO>();
+        }
+
+        public int GetPlayerChampionshipPosition(Guid seriesId)
+        {
+            var currentStandings = GetCurrentStandings(seriesId);
+            var player = currentStandings.FirstOrDefault(p => p.Name == ConfigService.GetPlayerName());
+            return currentStandings.IndexOf(player)+1;
+        }
+
+        public bool IsPlayerWinning(Guid seriesId)
+        {
+            return this.GetPlayerChampionshipPosition(seriesId) == 1;
         }
 
         private List<ChampionshipPlayerDTO> GetQualPoints(Result result) {
