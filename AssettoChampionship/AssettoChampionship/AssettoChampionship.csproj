@@ -297,7 +297,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Events\Abarth500_Magione.jpg" />
-    <Resource Include="Images\Series\Abarth500.jpg" />
+    <None Include="Images\Series\Abarth500.jpg.bak" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Race.png" />
@@ -335,11 +335,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Events\Abarth500_TorPoznan.jpg" />
-    <Resource Include="Images\Events\Formula3_Hungaroring.jpg" />
+    <None Include="Images\Events\Formula3_Hungaroring.jpg.bak" />
     <None Include="Images\Events\Formula3_Imola.jpg.bak" />
     <Resource Include="Images\Events\Formula3_Nurburgring.jpg" />
-    <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
-    <Resource Include="Images\Events\Formula3_RedBull.jpg" />
+    <None Include="Images\Events\Formula3_PaulRicard.jpg.bak" />
+    <None Include="Images\Events\Formula3_RedBull.jpg.bak" />
     <None Include="Images\Events\Formula3_Zandvoort.jpg.bak" />
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +350,10 @@
     <Resource Include="Images\Events\Formula3_Zandvoort.jpg" />
     <Resource Include="Images\Events\Formula3_Imola.jpg" />
     <Resource Include="Images\Series\Formula3.jpg" />
+    <Resource Include="Images\Events\Formula3_Hungaroring.jpg" />
+    <Resource Include="Images\Events\Formula3_RedBull.jpg" />
+    <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
+    <Resource Include="Images\Series\Abarth500.jpg" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

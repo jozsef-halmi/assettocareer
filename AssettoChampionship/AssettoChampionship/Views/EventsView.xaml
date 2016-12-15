@@ -63,11 +63,11 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Name"></TextBlock>
-                    <TextBlock Grid.Column="1" Text="Points"></TextBlock>
+                    <TextBlock Grid.Column="0" Text="Name" FontWeight="Bold"></TextBlock>
+                    <TextBlock Grid.Column="1" Text="Points" FontWeight="Bold"></TextBlock>
                 </Grid>
-                <ListBox ItemsSource="{Binding Series.Standings}">
-                    <ListBox.ItemTemplate>
+                <ItemsControl ItemsSource="{Binding Series.Standings}">
+                    <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -78,8 +78,8 @@
                                 <TextBlock Grid.Column="1" Text="{Binding Points}"></TextBlock>
                             </Grid>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
             
         </Grid>
