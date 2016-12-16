@@ -23,7 +23,7 @@
         <TextBox Text="{Binding Settings.DocumentsFolder}" Margin="0,0,0,15"></TextBox>
 
 
-        <StackPanel>
+        <StackPanel Margin="0,0,0,15">
             <StackPanel.ToolTip>
                 <ToolTip>
                     <StackPanel>
@@ -36,7 +36,40 @@
                  Margin="0,0,0,15" IsEnabled="False">
             </TextBox>
         </StackPanel>
-     
+
+        <StackPanel Margin="0,0,0,15">
+            <StackPanel.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <usercontrols:NotImplementedTooltip></usercontrols:NotImplementedTooltip>
+                    </StackPanel>
+                </ToolTip>
+            </StackPanel.ToolTip>
+            <TextBlock Text="Session lengths" Margin="0,0,0,5"></TextBlock>
+            <Slider Maximum="100" 
+                    Minimum="25" 
+                    TickFrequency="25" 
+                    TickPlacement="BottomRight" IsSnapToTickEnabled="True">
+            </Slider>
+        </StackPanel>
+
+        <StackPanel Margin="0,0,0,15">
+            <StackPanel.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <usercontrols:NotImplementedTooltip></usercontrols:NotImplementedTooltip>
+                    </StackPanel>
+                </ToolTip>
+            </StackPanel.ToolTip>
+            <TextBlock Text="Difficulty" Margin="0,0,0,5"></TextBlock>
+            <Slider Maximum="100" 
+                    Minimum="50" 
+                    TickFrequency="5" 
+                    TickPlacement="BottomRight" IsSnapToTickEnabled="True">
+            </Slider>
+        </StackPanel>
+
+
 
         <Button HorizontalAlignment="Right" 
                 Margin="0,15,0,15"
