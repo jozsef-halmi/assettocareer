@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Manager;
+using AssettoChampionship.Utils;
 using AssettoChampionship.ViewModels.Dialog;
 
 namespace AssettoChampionship.ViewModels
@@ -76,7 +77,7 @@ namespace AssettoChampionship.ViewModels
 
         public void EventSelected(Guid eventId)
         {
-            if (this.Series.Events.FirstOrDefault(e => e.EventId == eventId).IsAvailable)
+            if (this.Series.Events.FirstOrDefault(e => e.EventId == eventId).IsAvailable || AppConfigService.IsDebugMode())
             {
                 this.EventAggregator.Publish(new ChangePageMessage(typeof(SessionsViewModel), new ChangePageParameters()
                 {

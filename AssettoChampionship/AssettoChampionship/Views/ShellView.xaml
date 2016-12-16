@@ -13,7 +13,7 @@
                       MinHeight="700px"
                       MinWidth="780px"
              mc:Ignorable="d" 
-                              GlowBrush="Black"
+            GlowBrush="Black"
             ResizeMode="CanResizeWithGrip"
 BorderThickness="0" 
             WindowTransitionsEnabled="True"

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using AssettoChampionship.Utils;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -34,10 +35,13 @@ namespace AssettoChampionship.ViewModels
 
         public void SeriesSelected(Guid seriesId)
         {
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
-            {
-                SelectedSeriesId = seriesId
-            }), action => { Task.Factory.StartNew(action); });
+            var series = this.AvailableSeries.FirstOrDefault(s => s.SeriesId == seriesId);
+            if (series.IsAvailable || AppConfigService.IsDebugMode()) { 
+                this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
+                {
+                    SelectedSeriesId = seriesId
+                }), action => { Task.Factory.StartNew(action); });
+            }
         }
 
         private void RefreshData() {

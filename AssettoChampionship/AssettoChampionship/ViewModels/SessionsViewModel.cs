@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using AssettoChampionship.Utils;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -47,7 +48,7 @@ namespace AssettoChampionship.ViewModels
 
         public void SessionSelected(Guid sessionId)
         {
-           if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable)
+           if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable || AppConfigService.IsDebugMode())
                 EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
         }
     }

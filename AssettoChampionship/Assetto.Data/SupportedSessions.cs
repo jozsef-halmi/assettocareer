@@ -20,6 +20,10 @@ namespace Assetto.Data
             , SessionType = Common.Enum.SessionType.Qualifying
             , Duration = 10
             , FriendlyName = SessionNames.QUALIFICATION
+            , PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
         };
         public static SessionData Abarth500RaceEvent1Race1 = new SessionData()
         {
@@ -64,7 +68,13 @@ namespace Assetto.Data
                SupportedSessionObjectives.Top5,
                new FinishBeforeObjective() {
                    Name = "Alex Pomt"
-               }
+               },
+                SupportedSessionObjectives.Under107Percentage,
+                new LapTimeUnderObjective()
+                {
+                    ChallengeTime = 57000
+                }
+
             }
         };
         public static SessionData Abarth500RaceEvent2Race1 = new SessionData()
@@ -103,7 +113,11 @@ namespace Assetto.Data
             Id = new Guid("63d66479-ce03-4a8d-bc9b-eaf2f5165d78"),
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 10,
-            FriendlyName = SessionNames.QUALIFICATION
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
 
         };
         public static SessionData Abarth500RaceEvent3Race1 = new SessionData()
@@ -146,7 +160,11 @@ namespace Assetto.Data
             Id = new Guid("59206910-66ce-47f5-b8de-3a78b2fb9a98"),
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 10,
-            FriendlyName = SessionNames.QUALIFICATION
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
 
         };
         public static SessionData Abarth500RaceEvent4Race1 = new SessionData()
@@ -185,7 +203,11 @@ namespace Assetto.Data
             Id = new Guid("82add6cd-0389-4cb9-b6eb-6813ee518a7d"),
             SessionType = Common.Enum.SessionType.Qualifying,
             Duration = 10,
-            FriendlyName = SessionNames.QUALIFICATION
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
 
         };
         public static SessionData Abarth500RaceEvent5Race1 = new SessionData()
