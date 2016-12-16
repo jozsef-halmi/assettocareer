@@ -53,6 +53,8 @@
     <Compile Include="Data\CarData.cs" />
     <Compile Include="Data\CreditsData.cs" />
     <Compile Include="Data\DriverData.cs" />
+    <Compile Include="Data\DynamicTrackData.cs" />
+    <Compile Include="Data\DynamicTracks.cs" />
     <Compile Include="Data\SeriesData.cs" />
     <Compile Include="Data\EventData.cs" />
     <Compile Include="Data\LayoutData.cs" />
@@ -75,6 +77,8 @@
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\SessionType.cs" />
+    <Compile Include="Enum\TimeOfDayEnum.cs" />
+    <Compile Include="Enum\WeatherEnum.cs" />
     <Compile Include="Extensions\Ordinal.cs" />
     <Compile Include="Extensions\StringEnum.cs" />
     <Compile Include="Framework\GoBackMessage.cs" />

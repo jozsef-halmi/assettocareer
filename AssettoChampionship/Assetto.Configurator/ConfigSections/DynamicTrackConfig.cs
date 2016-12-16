@@ -9,22 +9,23 @@ namespace Assetto.Configurator.ConfigSections
 {
     public class DynamicTrackConfig : ConfigBase
     {
-        public DynamicTrackConfig(EventData eventData) : base(eventData)
+        public SessionData SessionData { get; set; }
+        public DynamicTrackConfig(EventData eventData, SessionData sessionData) : base(eventData)
         {
             this.Header = "DYNAMIC_TRACK";
+            this.SessionData = sessionData;
         }
 
         public override string ToString()
         {
-            // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
 
-            sb.AppendLine("SESSION_START=100");
-            sb.AppendLine("SESSION_TRANSFER=100");
-            sb.AppendLine("RANDOMNESS=0");
-            sb.AppendLine("LAP_GAIN=1");
-            sb.AppendLine("PRESET=5");
+            sb.AppendLine("SESSION_START="+SessionData.DynamicTrack.SessionStart);
+            sb.AppendLine("SESSION_TRANSFER=" + SessionData.DynamicTrack.SessionTransfer);
+            sb.AppendLine("RANDOMNESS=" + SessionData.DynamicTrack.Randomness);
+            sb.AppendLine("LAP_GAIN=" + SessionData.DynamicTrack.LapGain);
+            sb.AppendLine("PRESET=" + SessionData.DynamicTrack.Preset);
             return sb.ToString();
         }
     }

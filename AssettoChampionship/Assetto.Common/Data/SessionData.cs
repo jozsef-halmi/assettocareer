@@ -15,6 +15,11 @@ namespace Assetto.Common.Data
         {
             if (this.PrimarySessionObjectives == null)
                 this.PrimarySessionObjectives = new List<SessionObjective>();
+
+            // Default value
+            TimeOfDay = TimeOfDayEnum.Time1300;
+            Weather = WeatherEnum.Clear;
+            DynamicTrack = DynamicTracks.Green;
         }
 
         public Guid Id { get; set; }
@@ -42,6 +47,36 @@ namespace Assetto.Common.Data
         public List<SessionObjective> PrimarySessionObjectives { get; set; }
 
         public List<SessionObjective> SecondarySessionObjectives { get; set; }
+
+
+        public TimeOfDayEnum TimeOfDay { get; set; }
+
+        public WeatherEnum Weather { get; set; }
+
+        private int _ambientTemperature;
+        public int AmbientTemperature {
+            get {
+                return _ambientTemperature;
+            }
+            set {
+                if (value > 36)
+                    _ambientTemperature = 36;
+                else if (value < 10)
+                    _ambientTemperature = 10;
+                else
+                    _ambientTemperature = value;
+            }
+        }
+
+        public int RoadTemperature
+        {
+            get
+            {
+                return Convert.ToInt32(Math.Round((double)AmbientTemperature * 0.9));
+            }
+        }
+
+        public DynamicTrackData DynamicTrack { get; set; }
 
 
 

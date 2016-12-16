@@ -9,18 +9,20 @@ namespace Assetto.Configurator.ConfigSections
 {
     public class TemperatureConfig : ConfigBase
     {
-        public TemperatureConfig(EventData eventData) : base(eventData)
+        public SessionData SessionData { get; set; }
+        public TemperatureConfig(EventData eventData
+            , SessionData sessionData) : base(eventData)
         {
             this.Header = "TEMPERATURE";
+            this.SessionData = sessionData;
         }
 
         public override string ToString()
         {
-            // TODO: ENABLE SETTING THESE VALUES
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
-            sb.AppendLine("AMBIENT=32");
-            sb.AppendLine("ROAD=45");
+            sb.AppendLine("AMBIENT="+this.SessionData.AmbientTemperature);
+            sb.AppendLine("ROAD="+this.SessionData.RoadTemperature);
             return sb.ToString();
         }
     }

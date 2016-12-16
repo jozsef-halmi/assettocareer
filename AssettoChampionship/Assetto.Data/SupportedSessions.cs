@@ -24,6 +24,7 @@ namespace Assetto.Data
             {
                 SupportedSessionObjectives.Under107Percentage
             }
+            , TimeOfDay = TimeOfDayEnum.Time800
         };
         public static SessionData Abarth500RaceEvent1Race1 = new SessionData()
         {
@@ -36,7 +37,7 @@ namespace Assetto.Data
             {
                SupportedSessionObjectives.Podium
             }
-
+            ,TimeOfDay = TimeOfDayEnum.Time1230
         };
 
         public static SessionData Abarth500RaceEvent1Race2 = new SessionData()
@@ -51,8 +52,8 @@ namespace Assetto.Data
                new FinishBeforeObjective() {
                    Name = "Vasco Orsino"
                }
-
             }
+            , TimeOfDay = TimeOfDayEnum.Time1600
         };
         #endregion
 

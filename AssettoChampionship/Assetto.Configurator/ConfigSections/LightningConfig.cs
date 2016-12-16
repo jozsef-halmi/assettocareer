@@ -9,9 +9,11 @@ namespace Assetto.Configurator.ConfigSections
 {
     public class LightningConfig : ConfigBase
     {
-        public LightningConfig(EventData eventData) : base(eventData)
+        public SessionData SessionData { get; set; }
+        public LightningConfig(EventData eventData, SessionData sessionData) : base(eventData)
         {
             this.Header = "LIGHTING";
+            this.SessionData = sessionData;
         }
 
         public override string ToString()
@@ -20,7 +22,7 @@ namespace Assetto.Configurator.ConfigSections
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.ToString());
 
-            sb.AppendLine("SUN_ANGLE=16");
+            sb.AppendLine("SUN_ANGLE="+(int)this.SessionData.TimeOfDay);
             sb.AppendLine("TIME_MULT=1");
             sb.AppendLine("CLOUD_SPEED=0.2");
             return sb.ToString();

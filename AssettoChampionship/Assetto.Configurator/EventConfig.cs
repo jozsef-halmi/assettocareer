@@ -28,7 +28,8 @@ namespace Assetto.Configurator
 
             sb.AppendLine(new ReplayConfig(ConfiguredSessionDto.EventData).ToString());
 
-            sb.AppendLine(new LightningConfig(ConfiguredSessionDto.EventData).ToString());
+            sb.AppendLine(new LightningConfig(ConfiguredSessionDto.EventData
+                , ConfiguredSessionDto.SessionData).ToString());
 
             sb.AppendLine(new GrooveConfig(ConfiguredSessionDto.EventData).ToString());
 
