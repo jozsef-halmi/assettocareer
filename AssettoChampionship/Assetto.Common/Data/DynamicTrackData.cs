@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assetto.Common.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Assetto.Common.Data
         public int SessionTransfer { get; set; }
         public int Randomness { get; set; }
         public int LapGain { get; set; }
-        public int Preset { get; set; }
+        public DynamicTrackPreset Preset { get; set; }
     }
 }

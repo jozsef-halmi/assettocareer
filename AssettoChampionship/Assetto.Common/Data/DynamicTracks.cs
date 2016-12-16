@@ -9,7 +9,7 @@ namespace Assetto.Common.Data
     public static class DynamicTracks
     {
         public static DynamicTrackData Dusty = new DynamicTrackData() {
-            Preset = 0,
+            Preset = Enum.DynamicTrackPreset.Dusty,
             LapGain = 30,
             Randomness = 1,
             SessionStart = 86,
@@ -18,7 +18,7 @@ namespace Assetto.Common.Data
 
         public static DynamicTrackData Old = new DynamicTrackData()
         {
-            Preset = 1,
+            Preset = Enum.DynamicTrackPreset.Old,
             LapGain = 50,
             Randomness = 3,
             SessionStart = 89,
@@ -27,7 +27,7 @@ namespace Assetto.Common.Data
 
         public static DynamicTrackData Slow = new DynamicTrackData()
         {
-            Preset = 2,
+            Preset = Enum.DynamicTrackPreset.Slow,
             LapGain = 300,
             Randomness = 1,
             SessionStart = 96,
@@ -36,7 +36,7 @@ namespace Assetto.Common.Data
 
         public static DynamicTrackData Green = new DynamicTrackData()
         {
-            Preset = 3,
+            Preset = Enum.DynamicTrackPreset.Green,
             LapGain = 132,
             Randomness = 2,
             SessionStart = 95,
@@ -45,7 +45,7 @@ namespace Assetto.Common.Data
 
         public static DynamicTrackData Fast = new DynamicTrackData()
         {
-            Preset = 4,
+            Preset = Enum.DynamicTrackPreset.Fast,
             LapGain = 700,
             Randomness = 2,
             SessionStart = 98,
@@ -54,7 +54,7 @@ namespace Assetto.Common.Data
 
         public static DynamicTrackData Optimum = new DynamicTrackData()
         {
-            Preset = 5,
+            Preset = Enum.DynamicTrackPreset.Optimum,
             LapGain = 1,
             Randomness = 0,
             SessionStart = 100,

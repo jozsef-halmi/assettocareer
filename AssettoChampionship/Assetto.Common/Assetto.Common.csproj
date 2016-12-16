@@ -74,6 +74,7 @@
     <Compile Include="DTO\SeriesDTO.cs" />
     <Compile Include="DTO\SessionDTO.cs" />
     <Compile Include="Enum\ChampionshipPointType.cs" />
+    <Compile Include="Enum\DynamicTrackPreset.cs" />
     <Compile Include="Enum\EventType.cs" />
     <Compile Include="Enum\PenaltyType.cs" />
     <Compile Include="Enum\SessionType.cs" />

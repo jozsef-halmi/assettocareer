@@ -20,6 +20,7 @@ namespace Assetto.Common.Data
             TimeOfDay = TimeOfDayEnum.Time1300;
             Weather = WeatherEnum.Clear;
             DynamicTrack = DynamicTracks.Green;
+            AmbientTemperature = 25;
         }
 
         public Guid Id { get; set; }

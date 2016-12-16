@@ -62,6 +62,37 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <Grid Grid.Row="0">
+                            <Grid.ToolTip>
+                                <ToolTip>
+                                    <StackPanel>
+                                        <TextBlock TextAlignment="Left" TextWrapping="Wrap"
+                                        Style="{StaticResource EventSubTitle}">
+                                            <Run Text="Weather: " />
+                                            <Run Text="{Binding Weather}" />
+                                        </TextBlock>
+                                        <TextBlock TextAlignment="Left" TextWrapping="Wrap"
+                                        Style="{StaticResource EventSubTitle}">
+                                            <Run Text="Start time: " />
+                                            <Run Text="{Binding TimeOfDay}" />
+                                        </TextBlock>
+                                        <TextBlock TextAlignment="Left" TextWrapping="Wrap"
+                                        Style="{StaticResource EventSubTitle}">
+                                            <Run Text="Track condition: " />
+                                            <Run Text="{Binding TrackCondition}" />
+                                        </TextBlock>
+                                        <TextBlock TextAlignment="Left" TextWrapping="Wrap"
+                                        Style="{StaticResource EventSubTitle}">
+                                            <Run Text="Air temperature: " />
+                                            <Run Text="{Binding AmbientTemperature}" />
+                                        </TextBlock>
+                                        <TextBlock TextAlignment="Left" TextWrapping="Wrap"
+                                        Style="{StaticResource EventSubTitle}">
+                                            <Run Text="Road temperature: " />
+                                            <Run Text="{Binding RoadTemperature}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </ToolTip>
+                            </Grid.ToolTip>
                             <Grid.Background>
                                 <ImageBrush Opacity="0.5" Stretch="UniformToFill" ImageSource="{Binding Path=DataContext.Event.ImageUrl, RelativeSource={RelativeSource AncestorType=UserControl}}"></ImageBrush>
                             </Grid.Background>

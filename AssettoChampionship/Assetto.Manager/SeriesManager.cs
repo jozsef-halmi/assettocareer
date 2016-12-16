@@ -11,6 +11,7 @@ using Assetto.Configurator;
 using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.ProcessedResult;
+using Assetto.Common.Extensions;
 
 namespace Assetto.Manager
 {
@@ -170,7 +171,12 @@ namespace Assetto.Manager
                     }).ToList(),
                     FinishedPosition = ResultService.GetPlayerPosition(result),
                     Duration = data.Duration ?? 0,
-                    LapCount = data.Laps ?? 0
+                    LapCount = data.Laps ?? 0,
+                    AmbientTemperature = data.AmbientTemperature.ToString() + "°C",
+                    RoadTemperature = data.RoadTemperature.ToString() + "°C",
+                    TimeOfDay = data.TimeOfDay.GetStringValue(),
+                    TrackCondition = data.DynamicTrack.Preset.GetStringValue() + " track",
+                    Weather = data.Weather.GetStringValue()
                 };
             }
             catch (Exception ex)

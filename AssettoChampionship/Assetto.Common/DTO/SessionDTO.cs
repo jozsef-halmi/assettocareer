@@ -33,5 +33,12 @@ namespace Assetto.Common.DTO
             }
         }
 
+        public string TimeOfDay { get; set; }
+        public string TrackCondition { get; set; }
+        public string Weather { get; set; }
+        public string AmbientTemperature { get; set; }
+        public string RoadTemperature { get; set; }
+
+
     }
 }

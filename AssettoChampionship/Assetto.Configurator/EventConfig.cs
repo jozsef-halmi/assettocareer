@@ -33,13 +33,16 @@ namespace Assetto.Configurator
 
             sb.AppendLine(new GrooveConfig(ConfiguredSessionDto.EventData).ToString());
 
-            sb.AppendLine(new DynamicTrackConfig(ConfiguredSessionDto.EventData).ToString());
+            sb.AppendLine(new DynamicTrackConfig(ConfiguredSessionDto.EventData
+                , ConfiguredSessionDto.SessionData).ToString());
 
             sb.AppendLine(new LapInvalidatorConfig(ConfiguredSessionDto.EventData).ToString());
 
-            sb.AppendLine(new TemperatureConfig(ConfiguredSessionDto.EventData).ToString());
+            sb.AppendLine(new TemperatureConfig(ConfiguredSessionDto.EventData
+                , ConfiguredSessionDto.SessionData).ToString());
 
-            sb.AppendLine(new WeatherConfig(ConfiguredSessionDto.EventData).ToString());
+            sb.AppendLine(new WeatherConfig(ConfiguredSessionDto.EventData
+                , ConfiguredSessionDto.SessionData).ToString());
 
 
             // TODO: SESSION AND OTHERS HERE
