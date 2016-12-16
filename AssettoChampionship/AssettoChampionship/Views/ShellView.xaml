@@ -8,6 +8,7 @@
             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
             xmlns:cal="http://www.caliburnproject.org"
             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+            Icon="/Images/trophy.png"
             Title="{Binding WindowTitle}" 
                       MinHeight="700px"
                       MinWidth="780px"
