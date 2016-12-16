@@ -189,9 +189,7 @@ namespace Assetto.Data
             PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Podium,
-               new FinishBeforeObjective() {
-                   Name = "Erlend Braband"
-               }
+               SupportedSessionObjectives.BestLap
             }
         };
         #endregion
