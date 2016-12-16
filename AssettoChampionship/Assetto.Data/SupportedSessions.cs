@@ -348,7 +348,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.PRACTICE,
             PrimarySessionObjectives = new List<SessionObjective>() {
                 new LapTimeUnderObjective() {
-                    ChallengeTime = 133500 //TODO???
+                    ChallengeTime = 90000
                 }
             }
         };
@@ -396,7 +396,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.PRACTICE,
             PrimarySessionObjectives = new List<SessionObjective>() {
                 new LapTimeUnderObjective() {
-                    ChallengeTime = 133500 //TODO???
+                    ChallengeTime = 96500
                 }
             }
         };
@@ -444,7 +444,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.PRACTICE,
             PrimarySessionObjectives = new List<SessionObjective>() {
                 new LapTimeUnderObjective() {
-                    ChallengeTime = 133500 //TODO???
+                    ChallengeTime = 139000 
                 }
             }
         };
@@ -456,7 +456,7 @@ namespace Assetto.Data
             FriendlyName = SessionNames.QUALIFICATION,
             PrimarySessionObjectives = new List<SessionObjective>() {
                 new LapTimeUnderObjective() {
-                    ChallengeTime = 138500 //TODO???
+                    ChallengeTime = 137900 
                 }
             }
         };
