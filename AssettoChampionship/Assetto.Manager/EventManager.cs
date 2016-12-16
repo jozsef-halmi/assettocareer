@@ -57,7 +57,8 @@ namespace Assetto.Manager
         public void SubscribeEvents(Action<object> configurationStarted
             , Action<object> configurationEnded
             , Action<object> processStarted
-            , Action<object> processEnded) {
+            , Action<object> processEnded)
+        {
             this.ConfigurationStarted = configurationStarted;
             this.ConfigurationEnded = configurationEnded;
             this.ACProcessStarted = processStarted;
@@ -69,38 +70,49 @@ namespace Assetto.Manager
         public void StartEvent(
             //SeriesData seriesData, EventData eventData, SessionData session
             Guid seriesId, Guid eventId, Guid sessionId
-            )
+        )
         {
-            this.SelectedSeries = SeriesService.GetSeries(seriesId);
-            this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
-            this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
+            try
+            {
+                this.SelectedSeries = SeriesService.GetSeries(seriesId);
+                this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
+                this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
 
-            LogService.Log($"Starting event... {SelectedSeries.Name} ({SelectedSeries.Id})" +
-                           $", {SelectedEvent.Name} ({SelectedEvent.Id})" +
-                           $", {SelectedSession.FriendlyName} ({SelectedSession.Id}) ");
+                LogService.Log($"Starting event... {SelectedSeries.Name} ({SelectedSeries.Id})" +
+                               $", {SelectedEvent.Name} ({SelectedEvent.Id})" +
+                               $", {SelectedSession.FriendlyName} ({SelectedSession.Id}) ");
 
 
-            LogService.Log("Starting configuration..");
-            this.ConfigurationStarted?.Invoke(SelectedEvent.ImageUrl);
+                LogService.Log("Starting configuration..");
+                this.ConfigurationStarted?.Invoke(SelectedEvent.ImageUrl);
 
-            ConfigureEvent(seriesId, eventId, sessionId);
+                ConfigureEvent(seriesId, eventId, sessionId);
 
-            LogService.Log("Configuration end..");
-            this.ConfigurationEnded?.Invoke(new object());
+                LogService.Log("Configuration end..");
+                this.ConfigurationEnded?.Invoke(new object());
 
-            StartAssettoCorsa();
+                StartAssettoCorsa();
+            }
+            catch (Exception ex)
+            {
+                LogService.Error($"Error while starting the event. SeriesId: {seriesId}, EventId: {eventId}, " +
+                                 $" sessionId: {sessionId}, exception: {ex}");
+
+            }
+
             //ReturnResult();
         }
 
 
-        private ConfiguredSessionDTO ConfigureEvent(Guid seriesId, Guid eventId, Guid sessionId) {
+        private ConfiguredSessionDTO ConfigureEvent(Guid seriesId, Guid eventId, Guid sessionId)
+        {
 
             var eventData = SeriesService.GetEvent(seriesId, eventId);
             var sessionData = SeriesService.GetSession(seriesId, eventId, sessionId);
 
             var sessionDto = new ConfiguredSessionDTO();
-            SessionData previousSession = eventData.CareerSessions.IndexOf(sessionData) > 0 
-                ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(sessionData) -1]
+            SessionData previousSession = eventData.CareerSessions.IndexOf(sessionData) > 0
+                ? eventData.CareerSessions[eventData.CareerSessions.IndexOf(sessionData) - 1]
                 : null;
 
             sessionDto.PreviousSessionResult = previousSession != null
@@ -114,10 +126,10 @@ namespace Assetto.Manager
             sessionDto.EventData = eventData;
             sessionDto.SessionData = sessionData;
             this.EventService.OrderGrid(sessionDto); // TODO!
-          
 
-            eventData.GameSessions = new List<SessionData>() { sessionData };
-            var eventConfig = new EventConfig(sessionDto); 
+
+            eventData.GameSessions = new List<SessionData>() {sessionData};
+            var eventConfig = new EventConfig(sessionDto);
             var raceIni = eventConfig.ToString();
 
             try
@@ -139,10 +151,17 @@ namespace Assetto.Manager
 
         private void StartAssettoCorsa()
         {
-            this.ProcessService.StartProcess(ConfigService.GetAssettoCorsaExeLoc());
-            this.ProcessService.MonitorProcess(ConfigService.GetAcX64ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
-            this.ProcessService.MonitorProcess(ConfigService.GetAcX86ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
-        }
+            try
+            {
+                this.ProcessService.StartProcess(ConfigService.GetAssettoCorsaExeLoc());
+                this.ProcessService.MonitorProcess(ConfigService.GetAcX64ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
+                this.ProcessService.MonitorProcess(ConfigService.GetAcX86ProcessName(), AcsExeStartHandler, AcsExeTerminateHandler);
+            }
+            catch (Exception ex)
+            {
+                LogService.Error($"Error while starting assetto corsa, exception: {ex}");
+            }
+           }
 
         private void AcsExeStartHandler(object sender, EventArgs e)
         {
@@ -167,11 +186,6 @@ namespace Assetto.Manager
                     , this.SelectedSession.Id,
                     currentResult);
 
-                // TODO: Where to do this?
-                //foreach (var item in this.SelectedSession.PrimarySessionObjectives)
-                //{
-                //    var result = item.Evaluate(retVar.CurrentResult);
-                //}
 
                 retVar =  GetResultDTO(this.SelectedSeries.Id
                     , this.SelectedEvent.Id

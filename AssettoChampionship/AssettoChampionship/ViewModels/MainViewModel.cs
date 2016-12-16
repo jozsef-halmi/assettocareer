@@ -18,8 +18,6 @@ namespace AssettoChampionship.ViewModels
     //[Export(typeof(IShell))]
     public class MainViewModel : Screen
     {
-  
-
         // Managers
         public IEventAggregator EventAggregator { get; set; }
         public IEventManager EventManager { get; set; }

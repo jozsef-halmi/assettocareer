@@ -53,64 +53,85 @@ namespace Assetto.Manager
             catch (Exception ex)
             {
                 LogService.Fatal("Error getting available series! Exception: " + ex.ToString());
-                throw;
             }
             return retVar;
         }
 
         public SeriesDTO GetSeries(Guid seriesId)
         {
-            var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
-            var retVar = new SeriesDTO()
+            try
             {
-                SeriesId = selectedSeries.Id,
-                Description = selectedSeries.Description,
-                Title = selectedSeries.FriendlyName,
-                ImageUrl = selectedSeries.ImageUrl,
-                IsAvailable = IsSeasonAvailable(seriesId),
-                Events = selectedSeries.Events.Select(e => 
-                            GetEvent(seriesId, e.Id)
-                ).ToList(),
-                Standings = ChampionshipService.GetCurrentStandings(selectedSeries.Id).OrderByDescending(p => p.Points).ToList(),
-                VideoUrl = selectedSeries.VideoUrl,
-                Credits =  new CreditsDTO()
+                var selectedSeries = SeriesService.GetAvailableSeries().FirstOrDefault(s => s.Id == seriesId);
+                var retVar = new SeriesDTO()
                 {
-                    ToolTip = selectedSeries.Credits?.ToolTip,
-                    ExternalLink =  selectedSeries.Credits?.ExternalLink,
-                    TooltipTitle = selectedSeries.FriendlyName
-                } 
-            };
+                    SeriesId = selectedSeries.Id,
+                    Description = selectedSeries.Description,
+                    Title = selectedSeries.FriendlyName,
+                    ImageUrl = selectedSeries.ImageUrl,
+                    IsAvailable = IsSeasonAvailable(seriesId),
+                    Events = selectedSeries.Events.Select(e =>
+                                GetEvent(seriesId, e.Id)
+                    ).ToList(),
+                    Standings =
+                        ChampionshipService.GetCurrentStandings(selectedSeries.Id)
+                            .OrderByDescending(p => p.Points)
+                            .ToList(),
+                    VideoUrl = selectedSeries.VideoUrl,
+                    Credits = new CreditsDTO()
+                    {
+                        ToolTip = selectedSeries.Credits?.ToolTip,
+                        ExternalLink = selectedSeries.Credits?.ExternalLink,
+                        TooltipTitle = selectedSeries.FriendlyName
+                    }
+                };
 
-            // TODO: Test this
-            retVar.IsDone = retVar.Events.All(s => s.IsDone) 
-                && ChampionshipService.IsPlayerWinning(selectedSeries.Id);
-            retVar.IsStarted = ChampionshipService.GetCurrentStandings(selectedSeries.Id).Count > 0;
-            return retVar;
+                // TODO: Test this
+                retVar.IsDone = retVar.Events.All(s => s.IsDone)
+                                && ChampionshipService.IsPlayerWinning(selectedSeries.Id);
+                retVar.IsStarted = ChampionshipService.GetCurrentStandings(selectedSeries.Id).Count > 0;
+                return retVar;
+            }
+            catch (Exception ex)
+            {
+                LogService.Fatal($"Error getting a specific season, id: {seriesId}, Exception: {ex}");
+                return null;
+            }
+
         }
 
         public EventDTO GetEvent(Guid seriesId, Guid eventId)
         {
-            var selectedEvent = SeriesService.GetAvailableSeries()
-                .FirstOrDefault(s => s.Id == seriesId)
-                .Events.FirstOrDefault(e => e.Id == eventId);
-
-            var retVar = new EventDTO()
+            try
             {
-                Title =  selectedEvent.FriendlyName,
-                Description = selectedEvent.FriendlyName, // TODO
-                ImageUrl = selectedEvent.ImageUrl,
-                EventId = selectedEvent.Id,
-                SeriesId = seriesId,
-                IsAvailable = IsEventAvailable(seriesId, eventId),
-                Track = selectedEvent.Track.FriendlyName,
-                Layout = selectedEvent.Layout?.FriendlyName,
-                SessionsCount = selectedEvent.CareerSessions.Count,
-                Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
-            };
 
-            retVar.IsDone = retVar.Sessions.All(s => s.IsDone);
+                var selectedEvent = SeriesService.GetAvailableSeries()
+                    .FirstOrDefault(s => s.Id == seriesId)
+                    .Events.FirstOrDefault(e => e.Id == eventId);
 
-            return retVar;
+                var retVar = new EventDTO()
+                {
+                    Title = selectedEvent.FriendlyName,
+                    Description = selectedEvent.FriendlyName, // TODO
+                    ImageUrl = selectedEvent.ImageUrl,
+                    EventId = selectedEvent.Id,
+                    SeriesId = seriesId,
+                    IsAvailable = IsEventAvailable(seriesId, eventId),
+                    Track = selectedEvent.Track.FriendlyName,
+                    Layout = selectedEvent.Layout?.FriendlyName,
+                    SessionsCount = selectedEvent.CareerSessions.Count,
+                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
+                };
+
+                retVar.IsDone = retVar.Sessions.All(s => s.IsDone);
+
+                return retVar;
+            }
+            catch (Exception ex)
+            {
+                LogService.Fatal(
+                    $"Error getting a specific event, seriesId: {seriesId}, eventId: {eventId},  Exception: {ex}");
+                return null;
+            }
         }
 
 
@@ -123,32 +144,42 @@ namespace Assetto.Manager
         private SessionData GetSessionData(Guid seriesId, Guid eventId, Guid sessionId)
         {
             return SeriesService.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId)
-                   .Events.FirstOrDefault(e => e.Id == eventId)
-                   .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
+                .Events.FirstOrDefault(e => e.Id == eventId)
+                .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
         }
 
         private SessionDTO GetSessionDTO(Guid seriesId, Guid eventId, Guid sessionId)
         {
-            var data = GetSessionData(seriesId, eventId, sessionId);
-            var result = SaveService.LoadResult(seriesId, eventId, sessionId);
-            return new SessionDTO()
+            try
             {
-                Title = data.FriendlyName,
-                Description = data.FriendlyName, // todo
-                ImageUrl = data.ImageUrl,
-                IsDone = data.PrimarySessionObjectives.Count() == GetAchievedGoalsCount(seriesId, eventId, data.Id),
-                IsAvailable = IsSessionAvailable(seriesId, eventId, sessionId),
-                SessionId = data.Id,
-                Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
+                var data = GetSessionData(seriesId, eventId, sessionId);
+                var result = SaveService.LoadResult(seriesId, eventId, sessionId);
+                return new SessionDTO()
                 {
-                    IsDone = pso.Evaluate(result),
-                    Text = pso.ToString(),
-                    DoneText = pso.GetDoneText(result)
-                }).ToList(),
-                FinishedPosition = ResultService.GetPlayerPosition(result),
-                Duration = data.Duration ?? 0,
-                LapCount = data.Laps ?? 0
-            };
+                    Title = data.FriendlyName,
+                    Description = data.FriendlyName, // todo
+                    ImageUrl = data.ImageUrl,
+                    IsDone = data.PrimarySessionObjectives.Count() == GetAchievedGoalsCount(seriesId, eventId, data.Id),
+                    IsAvailable = IsSessionAvailable(seriesId, eventId, sessionId),
+                    SessionId = data.Id,
+                    Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
+                    {
+                        IsDone = pso.Evaluate(result),
+                        Text = pso.ToString(),
+                        DoneText = pso.GetDoneText(result)
+                    }).ToList(),
+                    FinishedPosition = ResultService.GetPlayerPosition(result),
+                    Duration = data.Duration ?? 0,
+                    LapCount = data.Laps ?? 0
+                };
+            }
+            catch (Exception ex)
+            {
+                LogService.Fatal(
+                   $"Error getting a specific session, seriesId: {seriesId}, eventId: {eventId}, sessionId: {sessionId} Exception: {ex}");
+                return null;
+            }
+           
         }
 
         private int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId)
@@ -225,18 +256,6 @@ namespace Assetto.Manager
             }
 
             return isPrevSeasonDone;
-
-            //var prevEvent = selectedSeries.Events.ElementAt(indexOfSelectedEvent - 1);
-            //var isPrevEventDone = true;
-            //foreach (var prevEventSession in prevEvent.CareerSessions)
-            //{
-            //    var result = SaveService.LoadResult(seriesId, prevEvent.Id, prevEventSession.Id);
-            //    var goalCount = GoalService.GetAchievedGoalsCount(seriesId, prevEvent.Id, prevEventSession.Id, result);
-            //    if (goalCount != prevEventSession.PrimarySessionObjectives.Count)
-            //        isPrevEventDone = false;
-            //}
-
-            //return isPrevEventDone;
         }
     }
 }

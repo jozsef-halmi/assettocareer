@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using Assetto.Common.Interfaces.Service;
 using AssettoChampionship.Utils;
 
 namespace AssettoChampionship.ViewModels
@@ -22,26 +23,38 @@ namespace AssettoChampionship.ViewModels
         public IEventManager EventManager { get; set; }
         public IEventAggregator EventAggregator { get; set; }
 
+        public ILogService LogService { get; set; }
+
 
         public SeriesViewModel(ISeriesManager seriesManager
-             , IEventManager eventManager
-             , IEventAggregator eventAggregator)
+            , IEventManager eventManager
+            , IEventAggregator eventAggregator
+            , ILogService logService)
         {
             this.EventManager = eventManager;
             this.SeriesManager = seriesManager;
             this.EventAggregator = eventAggregator;
-
+            this.LogService = logService;
         }
 
         public void SeriesSelected(Guid seriesId)
         {
-            var series = this.AvailableSeries.FirstOrDefault(s => s.SeriesId == seriesId);
-            if (series.IsAvailable || AppConfigService.IsDebugMode()) { 
-                this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
+            try
+            {
+                var series = this.AvailableSeries.FirstOrDefault(s => s.SeriesId == seriesId);
+                if (series.IsAvailable || AppConfigService.IsDebugMode())
                 {
-                    SelectedSeriesId = seriesId
-                }), action => { Task.Factory.StartNew(action); });
+                    this.EventAggregator.Publish(new ChangePageMessage(typeof(EventsViewModel), new ChangePageParameters()
+                    {
+                        SelectedSeriesId = seriesId
+                    }), action => { Task.Factory.StartNew(action); });
+                }
             }
+            catch (Exception ex)
+            {
+                LogService.Error($"Error while selecting series, id: {seriesId}, exception: {ex}");
+            }
+           
         }
 
         private void RefreshData() {
@@ -51,7 +64,6 @@ namespace AssettoChampionship.ViewModels
         protected override void OnActivate()
         {
             RefreshData();
-            // TODO: refresh elements
             base.OnActivate();
         }
     }

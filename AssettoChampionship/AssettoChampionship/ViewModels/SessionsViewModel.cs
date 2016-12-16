@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using Assetto.Common.Interfaces.Service;
+using Assetto.Service;
 using AssettoChampionship.Utils;
 
 namespace AssettoChampionship.ViewModels
@@ -29,15 +31,19 @@ namespace AssettoChampionship.ViewModels
         public IEventAggregator EventAggregator { get; set; }
         public IEventManager EventManager { get; set; }
         public ISeriesManager SeriesManager { get; set; }
+        public ILogService LogService { get; set; }
+
 
 
         public SessionsViewModel(IEventAggregator eventAggregator
-             , IEventManager eventManager
-            , ISeriesManager seriesManager)
+            , IEventManager eventManager
+            , ISeriesManager seriesManager
+            , ILogService logService)
         {
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
             this.SeriesManager = seriesManager;
+            this.LogService = logService;
         }
 
 
@@ -48,8 +54,18 @@ namespace AssettoChampionship.ViewModels
 
         public void SessionSelected(Guid sessionId)
         {
-           if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable || AppConfigService.IsDebugMode())
-                EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
+            try
+            {
+                if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable 
+                    || AppConfigService.IsDebugMode())
+                {
+                    EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error($"Error while selecting session, id: {sessionId}, exception: {ex}");
+            }
         }
     }
 }
