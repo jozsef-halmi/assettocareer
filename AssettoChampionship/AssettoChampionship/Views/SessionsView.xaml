@@ -47,7 +47,7 @@
             </ListBox.Resources>-->
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid VerticalAlignment="Stretch" Height="550px" Width="400px" Margin="10" 
+                    <Grid VerticalAlignment="Stretch" Height="550px" Width="320px" Margin="10" 
                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"></RowDefinition>
@@ -126,8 +126,11 @@
                                 <DataTemplate>
                                     <Grid HorizontalAlignment="Stretch">
                                         <Grid.ToolTip>
-                                            <ToolTip>
-                                                <TextBlock Text="{Binding DoneText}"></TextBlock>
+                                            <ToolTip Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}">
+                                                <TextBlock Text="{Binding DoneText}"
+                                                           
+                                                           
+                                                           ></TextBlock>
                                             </ToolTip>
                                         </Grid.ToolTip>
                                         <Grid.ColumnDefinitions>

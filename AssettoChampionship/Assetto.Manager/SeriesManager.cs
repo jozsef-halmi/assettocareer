@@ -12,6 +12,7 @@ using Assetto.Service;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.ProcessedResult;
 using Assetto.Common.Extensions;
+using Assetto.Common.Helpers;
 
 namespace Assetto.Manager
 {
@@ -176,7 +177,7 @@ namespace Assetto.Manager
                     RoadTemperature = data.RoadTemperature.ToString() + "°C",
                     TimeOfDay = data.TimeOfDay.GetStringValue(),
                     TrackCondition = data.DynamicTrack.Preset.GetStringValue() + " track",
-                    Weather = data.Weather.GetStringValue()
+                    Weather = WeatherToFriendlyString.Convert(data.Weather)
                 };
             }
             catch (Exception ex)

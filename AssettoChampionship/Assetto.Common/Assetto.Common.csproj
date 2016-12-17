@@ -91,6 +91,7 @@
     <Compile Include="Framework\ChangePageMessage.cs" />
     <Compile Include="Framework\ChangePageParameters.cs" />
     <Compile Include="Helpers\LapTimeHelper.cs" />
+    <Compile Include="Helpers\WeatherToFriendlyString.cs" />
     <Compile Include="Objectives\FinishBeforeObjective.cs" />
     <Compile Include="Objectives\BestLapObjective.cs" />
     <Compile Include="Objectives\PercentageObjective.cs" />
