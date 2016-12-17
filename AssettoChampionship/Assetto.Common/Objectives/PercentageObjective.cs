@@ -34,7 +34,7 @@ namespace Assetto.Common.Objectives
             var bestLap = resultPlayers.OrderByDescending(rp => rp.BestLap).First().BestLap;
             // Car with ID 0 is controlled by the Player
             var player = resultPlayers.FirstOrDefault(c => c.Id == 0);
-            return player.BestLap <= bestLap*percentage;
+            return (player.BestLap != 0) && (player.BestLap <= bestLap*percentage);
         }
 
         public override string ToString()

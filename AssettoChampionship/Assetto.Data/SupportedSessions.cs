@@ -86,7 +86,7 @@ namespace Assetto.Data
                 SupportedSessionObjectives.Under107Percentage,
                 new LapTimeUnderObjective()
                 {
-                    ChallengeTime = 57000
+                    ChallengeTime = 60500
                 }
 
             }
@@ -124,9 +124,7 @@ namespace Assetto.Data
             PrimarySessionObjectives = new List<SessionObjective>()
             {
                SupportedSessionObjectives.Top8,
-                new FinishBeforeObjective() {
-                   Name = "Alex Pomt"
-               },
+              
                //new FinishBeforeObjective() {
                //    Name = "Tristin Garrick"
                //}

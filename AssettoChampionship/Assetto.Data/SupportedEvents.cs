@@ -94,7 +94,7 @@ namespace Assetto.Data
             FriendlyName = "Abarth 500 at Tor Poznań",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.TorPoznan],
-            Layout = SupportedLayouts.TorPoznanLaser,
+            Layout = SupportedLayouts.TorPoznanWinter,
             Player = SupportedPlayers.Abarth500RaceOfficial,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Abarth500RaceCar],
             EventType = EventType.QualiTwoRacesSecondReversed,
@@ -121,7 +121,7 @@ namespace Assetto.Data
             Layout = SupportedLayouts.PaulRicardWtcc,
             Player = SupportedPlayers.Formula3,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
-            EventType = EventType.QualiTwoRacesSecondReversed,
+            EventType = EventType.QualiThreeRaces,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3PaulRicardPractice,
                 SupportedSessions.Formula3PaulRicardQualy,
@@ -140,7 +140,7 @@ namespace Assetto.Data
             Layout = null,
             Player = SupportedPlayers.Formula3,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
-            EventType = EventType.QualiTwoRacesSecondReversed,
+            EventType = EventType.QualiThreeRaces,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3HringPractice,
                 SupportedSessions.Formula3HringQualy,
@@ -160,7 +160,7 @@ namespace Assetto.Data
             Layout = SupportedLayouts.RedBullGp,
             Player = SupportedPlayers.Formula3,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
-            EventType = EventType.QualiTwoRacesSecondReversed,
+            EventType = EventType.QualiThreeRaces,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3RedBullPractice,
                 SupportedSessions.Formula3RedBullQualy,
@@ -180,7 +180,7 @@ namespace Assetto.Data
             Layout = null,
             Player = SupportedPlayers.Formula3,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
-            EventType = EventType.QualiTwoRacesSecondReversed,
+            EventType = EventType.QualiThreeRaces,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3ZandvoortPractice,
                 SupportedSessions.Formula3ZandvoortQualy,
@@ -200,7 +200,7 @@ namespace Assetto.Data
             Layout = null,
             Player = SupportedPlayers.Formula3,
             Opponents = SupportedOpponents.OpponentsDictionary[CarNames.Formula3],
-            EventType = EventType.QualiTwoRacesSecondReversed,
+            EventType = EventType.QualiThreeRaces,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.Formula3SpaPractice,
                 SupportedSessions.Formula3SpaQualy,

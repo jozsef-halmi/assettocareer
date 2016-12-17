@@ -62,6 +62,12 @@ namespace Assetto.Data
             FriendlyName = "Laser",
             Name = "laser"
         };
+
+        public static LayoutData TorPoznanWinter = new LayoutData()
+        {
+            FriendlyName = "Winter",
+            Name = "zima"
+        };
     }
 
 }
