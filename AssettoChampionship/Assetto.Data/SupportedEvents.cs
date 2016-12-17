@@ -27,6 +27,7 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent1Race1,
                 SupportedSessions.Abarth500RaceEvent1Race2
             }
+            , Description = "Driving the Abarth 500 at Magione will be your first event. In these series, both young titans and less skilled drives compete. It's essential to make your debug to the series unforgettable!"
         };
 
         public static EventData Abarth500RaceEvent2 = new EventData()
@@ -45,6 +46,7 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent2Race1,
                 SupportedSessions.Abarth500RaceEvent2Race2
             }
+            , Description = "Your second race weekend is going to be on Brands Hatch, England. The expectations still aren't too high, but you have a personal rivar from the last weekend: Alex Pomt. Sponsors are interested in supporting you, so let's this weekend a be a big hit: finish before your rival and do a superb qualifying to get the sponsors!"
         };
 
         public static EventData Abarth500RaceEvent3 = new EventData()
@@ -62,7 +64,8 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent3Qualy,
                 SupportedSessions.Abarth500RaceEvent3Race1,
                 SupportedSessions.Abarth500RaceEvent3Race2
-            }
+            },
+            Description = "The series is travelling to Austria, Red Bull Ring is going to host the third race weekend in the season. Your results are satisfying so far, let's make outstanding results: we are expecting a podium for you this weekend!"
         };
 
         public static EventData Abarth500RaceEvent4 = new EventData()
@@ -80,7 +83,8 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent4Qualy,
                 SupportedSessions.Abarth500RaceEvent4Race1,
                 SupportedSessions.Abarth500RaceEvent4Race2
-            }
+            },
+            Description = "So far so good! Congratulations on your podium. The fourth race weekend is in Italy again. Vallelunga is a great opportunity for the team to score as many points as you can - we are expecting you a podium again and a strong reversed grid second race result."
         };
 
         public static EventData Abarth500RaceEvent5TorPoznan = new EventData()
@@ -98,7 +102,9 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent5Qualy,
                 SupportedSessions.Abarth500RaceEvent5Race1,
                 SupportedSessions.Abarth500RaceEvent5Race2
-            }
+            },
+            
+            Description = "The season finale takes place at Tor Poznań, Poland. Winter came early, you will have to face new conditions: it's cold, and it's slippy outside, but the show must go on! Score as many points as you can to win your first series! Good luck!"
         };
         #endregion Abarth500
 

@@ -113,7 +113,7 @@ namespace Assetto.Manager
                 var retVar = new EventDTO()
                 {
                     Title = selectedEvent.FriendlyName,
-                    Description = selectedEvent.FriendlyName, // TODO
+                    Description = selectedEvent.Description,
                     ImageUrl = selectedEvent.ImageUrl,
                     EventId = selectedEvent.Id,
                     SeriesId = seriesId,
@@ -121,7 +121,7 @@ namespace Assetto.Manager
                     Track = selectedEvent.Track.FriendlyName,
                     Layout = selectedEvent.Layout?.FriendlyName,
                     SessionsCount = selectedEvent.CareerSessions.Count,
-                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
+                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList(),
                 };
 
                 retVar.IsDone = retVar.Sessions.All(s => s.IsDone);

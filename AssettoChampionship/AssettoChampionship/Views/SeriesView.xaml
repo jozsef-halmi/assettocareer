@@ -53,7 +53,7 @@
                                        Style="{StaticResource ListBoxDescription}"
                                         Text="{Binding Description}" 
                                         TextWrapping="Wrap"></TextBlock>
-                            <StackPanel Orientation="Horizontal">
+                            <!--<StackPanel Orientation="Horizontal">
                                 <TextBlock>Available: </TextBlock>
                                 <TextBlock Text="{Binding IsAvailable}"></TextBlock>
                             </StackPanel>
@@ -64,7 +64,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Started:</TextBlock>
                                 <TextBlock Text="{Binding IsStarted}"></TextBlock>
-                            </StackPanel>
+                            </StackPanel>-->
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

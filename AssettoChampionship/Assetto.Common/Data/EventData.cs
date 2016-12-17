@@ -20,6 +20,8 @@ namespace Assetto.Common.Data
 
 
         public string FriendlyName { get; set; }
+        public string Description { get; set; }
+
 
         public EventType EventType { get; set; }
 
