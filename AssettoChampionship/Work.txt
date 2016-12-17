@@ -1,20 +1,13 @@
 TODO:
 MUST:
 Log backend
-hibakezelés, AC.exe, log, outlog
 ListView selection (goals)
-calendar! winter race tor poznan :)
-Tooltip: Objective text, for example: under xx:xx, and display the player's time
 Championship points - TEST IT!
 Initial championship points - develop and test it + abarth500 use it
-Formula3 pictures redo, abarth500 pics
-TimeOfDay, Weather settings! + road, ambient temp, dynamic track
-
 
 SHOULD:
 formula3 skinpack add
 green ok to trophy :)
-weather, time of the day
 
 
 NICE TO HAVE:

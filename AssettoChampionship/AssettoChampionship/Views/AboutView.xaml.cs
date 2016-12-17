@@ -23,6 +23,7 @@ namespace AssettoChampionship.Views
         public AboutView()
         {
             InitializeComponent();
+            //webBrowser.Navigate("http://assettobackend.azurewebsites.net/web/index.html");
         }
     }
 }

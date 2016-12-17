@@ -33,7 +33,7 @@ namespace Assetto.Data
         {
             Id = new Guid("87e44ef2-59ed-47e1-8f9a-a4bfbab6bbcc")
            , SessionType = Common.Enum.SessionType.Race
-           , Laps = 1,
+           , Laps = 7,
               TimeOfDay = TimeOfDayEnum.Time1300,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Green,
@@ -50,7 +50,7 @@ namespace Assetto.Data
         {
             Id = new Guid("52519df7-3f92-4caf-9ba4-97f159826bd5"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 6,
             TimeOfDay = TimeOfDayEnum.Time1700,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Green,
@@ -95,7 +95,7 @@ namespace Assetto.Data
         {
             Id = new Guid("bb9a4eab-9ff4-43e3-bdb5-4c6ebc4fbcec"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 9,
             TimeOfDay = TimeOfDayEnum.Time1300,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Slow,
@@ -115,7 +115,7 @@ namespace Assetto.Data
         {
             Id = new Guid("ac4b32a5-422e-452f-8851-91243b37311a"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 8,
             FriendlyName = SessionNames.REVERSED_RACE,
             TimeOfDay = TimeOfDayEnum.Time1800,
             AmbientTemperature = 24,
@@ -157,7 +157,7 @@ namespace Assetto.Data
         {
             Id = new Guid("440997be-d3df-4301-8eb8-3e4cddfceba8"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 8,
             TimeOfDay = TimeOfDayEnum.Time1300,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Green,
@@ -174,7 +174,7 @@ namespace Assetto.Data
         {
             Id = new Guid("50e06c1f-49f4-4704-a9eb-553f7d09e975"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 7,
             TimeOfDay = TimeOfDayEnum.Time1630,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Green,
@@ -211,7 +211,7 @@ namespace Assetto.Data
         {
             Id = new Guid("2b805cc5-3479-46ca-bca8-8ef9867bad6e"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 8,
             TimeOfDay = TimeOfDayEnum.Time1300,
             AmbientTemperature = 25,
             DynamicTrack = DynamicTracks.Green,
@@ -229,7 +229,7 @@ namespace Assetto.Data
         {
             Id = new Guid("739f18ee-de4f-4d06-9eba-7c3e95ba4259"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 7,
             TimeOfDay = TimeOfDayEnum.Time1700,
             AmbientTemperature = 25,
             DynamicTrack = DynamicTracks.Green,
@@ -264,7 +264,7 @@ namespace Assetto.Data
         {
             Id = new Guid("f3fdf448-48ba-4f66-ae63-7bc2bba77f3d"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps =8,
             FriendlyName = SessionNames.RACE,
             TimeOfDay = TimeOfDayEnum.Time1430,
             AmbientTemperature = 12,
@@ -281,7 +281,7 @@ namespace Assetto.Data
         {
             Id = new Guid("93b73df3-b4cc-4d55-badd-ffb3b6778640"),
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 1,
+            Laps = 7,
             TimeOfDay = TimeOfDayEnum.Time1700,
             AmbientTemperature = 10,
             DynamicTrack = DynamicTracks.Dusty,

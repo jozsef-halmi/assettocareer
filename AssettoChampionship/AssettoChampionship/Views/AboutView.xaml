@@ -28,5 +28,10 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <TextBlock Margin="5,50,5,5" Text="Follow the development process on the web: http://assettobackend.azurewebsites.net/web/index.html" Style="{StaticResource ListBoxDescription}"></TextBlock>
+
+        <!--<WebBrowser x:Name="webBrowser">
+        
+            </WebBrowser>-->
     </StackPanel>
 </UserControl>

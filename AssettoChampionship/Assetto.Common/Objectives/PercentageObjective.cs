@@ -39,7 +39,7 @@ namespace Assetto.Common.Objectives
 
         public override string ToString()
         {
-            return $"Be under {this.ChallengedPercentage}%";
+            return $"Be within the {this.ChallengedPercentage}% range";
         }
     }
 }

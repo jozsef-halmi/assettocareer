@@ -27,7 +27,7 @@ namespace Assetto.Data
                 SupportedSessions.Abarth500RaceEvent1Race1,
                 SupportedSessions.Abarth500RaceEvent1Race2
             }
-            , Description = "Driving the Abarth 500 at Magione will be your first event. In these series, both young titans and less skilled drives compete. It's essential to make your debug to the series unforgettable!"
+            , Description = "Driving the Abarth 500 at Magione will be your first event. In these series, both young titans and less skilled drives compete. It's essential to make your debut to the series unforgettable!"
         };
 
         public static EventData Abarth500RaceEvent2 = new EventData()
