@@ -44,22 +44,32 @@ namespace Assetto.Service
                 , severity
                 , message.Replace(" ", string.Empty).Replace(".", string.Empty));
 
+
             HttpGet(url);
 
         }
 
         private static async Task<string> HttpGet(string url)
         {
-            var request = WebRequest.Create(new Uri(url)) as HttpWebRequest;
-            request.Method = "GET";
-            request.ContentType = "application/json";
-            request.Accept = "application/json";
-            WebResponse responseObject = await Task<WebResponse>.Factory.FromAsync(request.BeginGetResponse, request.EndGetResponse, request);
-            var responseStream = responseObject.GetResponseStream();
-            var sr = new StreamReader(responseStream);
-            string received = await sr.ReadToEndAsync();
+            try
+            {
+                var request = WebRequest.Create(new Uri(url)) as HttpWebRequest;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                request.Accept = "application/json";
+                WebResponse responseObject = await Task<WebResponse>.Factory.FromAsync(request.BeginGetResponse, request.EndGetResponse, request);
+                var responseStream = responseObject.GetResponseStream();
+                var sr = new StreamReader(responseStream);
+                string received = await sr.ReadToEndAsync();
 
-            return received;
+                return received;
+            }
+            catch (Exception ex)
+            {
+                Log4Net.Error("Error while sendings logs: "+ex);
+            }
+            return null;
+           
         }
     }
 }
