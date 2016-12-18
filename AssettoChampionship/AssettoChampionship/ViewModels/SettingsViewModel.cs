@@ -22,6 +22,7 @@ namespace AssettoChampionship.ViewModels
         public INotificationService NotificationService { get; set; }
         public IFileService FileService { get; set; }
         public IConfigService ConfigService { get; set; }
+        public IEventAggregator EventAggregator { get; set; }
 
         private AppSettings _settings;
         public AppSettings Settings {
@@ -68,12 +69,14 @@ namespace AssettoChampionship.ViewModels
         public SettingsViewModel(IConfigManager configManager,
             INotificationService notificationService,
             IFileService fileService,
-            IConfigService configService)
+            IConfigService configService,
+            IEventAggregator eventAggregator)
         {
             ConfigManager = configManager;
             NotificationService = notificationService;
             FileService = fileService;
             ConfigService = configService;
+            EventAggregator = eventAggregator;
         }
 
         private void RefreshData()
@@ -84,10 +87,21 @@ namespace AssettoChampionship.ViewModels
 
         public void Save()
         {
+            if (!IsDocFolderValid)
+            {
+                DialogService.ShowMessageBox("Error! ", "Please provide a valide documents folder.");
+                return;
+            }
+            if (!IsAcFolderValid)
+            {
+                DialogService.ShowMessageBox("Error! ", "Please provide a valid Assetto Corsa install location.");
+                return;
+            }
+
             if (ConfigManager.SaveSettings(Settings))
             {
                 NotificationService.ShowMessage("Settings have been saved.");
-
+                this.EventAggregator.Publish(new GoBackMessage(), action => { Task.Factory.StartNew(action); });
             }
             else
             {

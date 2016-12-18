@@ -157,6 +157,9 @@ namespace AssettoChampionship.ViewModels
                 case "AboutViewModel":
                     ShowAboutPage();
                     break;
+                case "SettingsViewModel":
+                    ShowSettings();
+                    break;
                 default:
                     break;
             }

@@ -129,5 +129,15 @@ namespace Assetto.Service.Utils
         {
             return FileService.FileExists(SETTINGS_FILE);
         }
+
+        public bool IsSettingsValid()
+        {
+            var isAcInstallFolderValid =  FileService.FileExists(Settings.AssettoCorsaInstallLoc + GetAcExeName());
+            var isDocFolderValid = FileService.FileExists(Settings.DocumentsFolder 
+                + Path.DirectorySeparatorChar
+                + GetOutputLogRelativePathToDocFolder());
+            return isAcInstallFolderValid && isDocFolderValid;
+
+        }
     }
 }

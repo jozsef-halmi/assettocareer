@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Service;
 using AssettoChampionship.Utils;
+using AssettoChampionship.Services;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -23,18 +24,21 @@ namespace AssettoChampionship.ViewModels
         public IEventManager EventManager { get; set; }
         public IEventAggregator EventAggregator { get; set; }
 
+        public IConfigService ConfigService { get; set; }
         public ILogService LogService { get; set; }
 
 
         public SeriesViewModel(ISeriesManager seriesManager
             , IEventManager eventManager
             , IEventAggregator eventAggregator
-            , ILogService logService)
+            , ILogService logService
+            , IConfigService configService)
         {
             this.EventManager = eventManager;
             this.SeriesManager = seriesManager;
             this.EventAggregator = eventAggregator;
             this.LogService = logService;
+            this.ConfigService = configService;
         }
 
         public void SeriesSelected(Guid seriesId)
@@ -65,6 +69,17 @@ namespace AssettoChampionship.ViewModels
         {
             RefreshData();
             base.OnActivate();
+
+            if (!ConfigService.IsSettingsAvailable() || !ConfigService.IsSettingsValid())
+            {
+                DialogService.ShowMessageBox("Error! ", "There are errors in your settings. Please fix those first.");
+
+                this.EventAggregator.Publish(new ChangePageMessage(typeof(SettingsViewModel), new ChangePageParameters()
+                {
+                }), action => { Task.Factory.StartNew(action); });
+            }
+
+           
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using Assetto.Data;
+﻿//using Assetto.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +10,12 @@ namespace Assetto.Backend.Controllers
     [RoutePrefix("series")]
     public class SeriesController : ApiController
     {
-        [HttpGet]
-        [Route("GetSeries")]
-        public IHttpActionResult GetSeries()
-        {
-            return Json(SupportedSeries.AllSeries);
-        }
+        //[HttpGet]
+        //[Route("GetSeries")]
+        //public IHttpActionResult GetSeries()
+        //{
+        //    return Json(SupportedSeries.getv);
+        //}
 
         //[HttpGet]
         //[Route("GetVideo/{seriesId}")]

@@ -27,5 +27,6 @@ namespace Assetto.Common.Interfaces.Service
         AppSettings GetSettings();
         AppSettings CreateSettings();
         bool IsSettingsAvailable();
+        bool IsSettingsValid();
     }
 }

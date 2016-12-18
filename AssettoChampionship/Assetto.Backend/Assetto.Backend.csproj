@@ -239,16 +239,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Assetto.Common\Assetto.Common.csproj">
-      <Project>{c05be200-2b0f-4cf5-afff-7b0a63c16058}</Project>
-      <Name>Assetto.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Assetto.Data\Assetto.Data.csproj">
-      <Project>{39d17deb-409d-4edd-be26-c6fa36ce668b}</Project>
-      <Name>Assetto.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

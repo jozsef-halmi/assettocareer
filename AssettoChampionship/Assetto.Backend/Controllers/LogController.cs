@@ -61,12 +61,12 @@ namespace Assetto.Backend.Controllers
         }
 
         [HttpGet]
-        [Route("GetMachines/")]
-        public IHttpActionResult GetMachines(string machineName)
+        [Route("GetMachines")]
+        public IHttpActionResult GetMachines()
         {
             using (var db = new AssettoDBEntities3())
             {
-                return Json(db.LogEntries.GroupBy(g => g.MachineName).Select(g => g));
+                return Json(db.LogEntries.Select(g => g.MachineName).Distinct().ToList());
             }
         }
 
