@@ -61,6 +61,16 @@ namespace Assetto.Backend.Controllers
         }
 
         [HttpGet]
+        [Route("GetMachines/")]
+        public IHttpActionResult GetMachines(string machineName)
+        {
+            using (var db = new AssettoDBEntities3())
+            {
+                return Json(db.LogEntries.GroupBy(g => g.MachineName).Select(g => g));
+            }
+        }
+
+        [HttpGet]
         [Route("RemoveLogs")]
         public IHttpActionResult RemoveLogs(string machineName)
         {

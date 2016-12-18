@@ -33,7 +33,7 @@ namespace Assetto.Manager
             }
             else if (HasSavedSettings())
             {
-                // Settigns not loaded, but present
+                // Settings not loaded, but present
                 var settingsFile = FileService.ReadFile(ConfigService.GetSettingsFilePath());
                 settings = JsonConvert.DeserializeObject<AppSettings>(settingsFile);
                 ConfigService.SetSettings(settings);

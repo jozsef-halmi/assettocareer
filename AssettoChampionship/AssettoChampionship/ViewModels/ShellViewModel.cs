@@ -34,6 +34,7 @@ namespace AssettoChampionship.ViewModels
         public IEventAggregator EventAggregator { get; private set; }
         public IConfigManager ConfigManager { get; set; }
         public ILogService LogService { get; set; }
+        public IConfigService ConfigService { get; set; }
 
 
 
@@ -114,25 +115,28 @@ namespace AssettoChampionship.ViewModels
             , IEventAggregator eventAggregator
             , IUnityContainer container
             , IConfigManager configManager
-            , ILogService logService)
+            , ILogService logService
+            , IConfigService configService)
         {
             this.WindowManager = windowManager;
             this.Container = container;
             this.EventAggregator = eventAggregator;
             this.ConfigManager = configManager;
             this.LogService = logService;
+            this.ConfigService = configService;
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
             ShowMainPage();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
-            ConfigManager.GetSettings();
+            //ConfigManager.GetSettings();
             LogService.Log("Startup");
         }
 
 
         public void Handle(ChangePageMessage message)
         {
+
             switch (message.ViewModelType.Name)
             {
                 case "SeriesViewModel":
@@ -309,5 +313,20 @@ namespace AssettoChampionship.ViewModels
         {
             this.GoBack();
         }
+
+        protected override void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            if (!ConfigService.IsSettingsAvailable())
+            {
+                DialogService.ShowMessageBox("Welcome! ", "It looks like you haven't set your Assetto Corsa install location. Please take the time and do that!");
+                OpenSettings();
+            }
+            ConfigManager.GetSettings();
+
+
+        }
+
+
     }
 }

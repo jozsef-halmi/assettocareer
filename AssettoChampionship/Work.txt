@@ -1,9 +1,10 @@
 TODO:
 MUST:
-Log backend
 ListView selection (goals)
 Championship points - TEST IT!
 Initial championship points - develop and test it + abarth500 use it
+Paths
+Series to backend
 
 SHOULD:
 formula3 skinpack add

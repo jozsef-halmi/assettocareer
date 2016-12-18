@@ -28,15 +28,17 @@ namespace Assetto.Service.Utils
 
         //public string PlayerName { get; set; }
 
+        public IFileService FileService { get; set; }
 
 
-        public ConfigService()
+
+        public ConfigService(IFileService fileService)
         {
             this.RaceIniRelativePathToDocFolder = "Assetto Corsa\\cfg\\race.ini";
             this.OutputLogRelativePathToDocFolder = "Assetto Corsa\\out\\race_out.json";
             //this.AssettoCorsaInstallLoc = "e:\\Games\\Steam\\steamapps\\common\\assettocorsa\\";
             this.AssettoCorsaExeRelativePathToACFolder = "AssettoCorsa.exe";
-
+            this.FileService = fileService;
             
 
         }
@@ -121,6 +123,11 @@ namespace Assetto.Service.Utils
         public string GetOutputLogRelativePathToDocFolder()
         {
             return OutputLogRelativePathToDocFolder;
+        }
+
+        public bool IsSettingsAvailable()
+        {
+            return FileService.FileExists(SETTINGS_FILE);
         }
     }
 }
