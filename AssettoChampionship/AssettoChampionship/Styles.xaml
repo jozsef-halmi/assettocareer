@@ -31,4 +31,6 @@
     </Style>
     
     <SolidColorBrush x:Key="WarningColor" Color="Orange" />
+    <SolidColorBrush x:Key="ErrorColor" Color="Red" />
+
 </ResourceDictionary>

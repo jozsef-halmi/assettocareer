@@ -81,6 +81,10 @@ namespace Assetto.Service.Utils
                 return GetFolderWithSeparatorAtEnd(Settings.AssettoCorsaInstallLoc) + AssettoCorsaExeRelativePathToACFolder;
         }
 
+        public string GetAssettoFolder() {
+            return GetFolderWithSeparatorAtEnd(Settings.AssettoCorsaInstallLoc);
+        }
+
         private string GetFolderWithSeparatorAtEnd(string basePath) {
             if (basePath.EndsWith("" + Path.DirectorySeparatorChar))
                 return basePath;
@@ -109,5 +113,14 @@ namespace Assetto.Service.Utils
             return this.Settings.PlayerName;
         }
 
+        public string GetAcExeName()
+        {
+            return AssettoCorsaExeRelativePathToACFolder;
+        }
+
+        public string GetOutputLogRelativePathToDocFolder()
+        {
+            return OutputLogRelativePathToDocFolder;
+        }
     }
 }

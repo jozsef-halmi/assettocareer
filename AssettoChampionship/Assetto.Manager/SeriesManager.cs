@@ -18,7 +18,10 @@ namespace Assetto.Manager
 {
     public class SeriesManager : ManagerBase, ISeriesManager
     {
-        public IFileService FileService { get; set; }
+        private const string TRACK_REL_PATH = "content/tracks/";
+        private const string CAR_REL_PATH = "content/cars/";
+
+
         public ISeriesService SeriesService { get; set; }
         public ISaveService SaveService { get; set; }
         public IGoalService GoalService { get; set; }
@@ -121,10 +124,20 @@ namespace Assetto.Manager
                     Track = selectedEvent.Track.FriendlyName,
                     Layout = selectedEvent.Layout?.FriendlyName,
                     SessionsCount = selectedEvent.CareerSessions.Count,
-                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList(),
+                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
                 };
 
                 retVar.IsDone = retVar.Sessions.All(s => s.IsDone);
+                retVar.IsCarMissing = !FileService.DirExists(ConfigService.GetAssettoFolder()
+                                                            + CAR_REL_PATH
+                                                            + selectedEvent.Player.Car.Name)
+                                        && selectedEvent.Opponents.Any(
+                                            o => !FileService.DirExists(ConfigService.GetAssettoFolder()
+                                                            + CAR_REL_PATH
+                                                            + o.Car.Name));
+                retVar.IsTrackMissing = !FileService.DirExists(ConfigService.GetAssettoFolder()
+                                                            + TRACK_REL_PATH
+                                                            + selectedEvent.Track.Name);
 
                 return retVar;
             }

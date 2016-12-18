@@ -11,6 +11,8 @@ using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Common.Settings;
 using AssettoChampionship.Services;
+using System.Windows.Controls;
+using System.IO;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -18,6 +20,8 @@ namespace AssettoChampionship.ViewModels
     {
         public IConfigManager ConfigManager { get; set; }
         public INotificationService NotificationService { get; set; }
+        public IFileService FileService { get; set; }
+        public IConfigService ConfigService { get; set; }
 
         private AppSettings _settings;
         public AppSettings Settings {
@@ -31,16 +35,51 @@ namespace AssettoChampionship.ViewModels
                 NotifyOfPropertyChange(() => Settings);
             }
         }
+
+        private bool _isACFolderValid;
+        public bool IsAcFolderValid
+        {
+            get
+            {
+                return _isACFolderValid;
+            }
+            set
+            {
+                _isACFolderValid = value;
+                NotifyOfPropertyChange(() => IsAcFolderValid);
+            }
+        }
+
+        private bool _isDocFolderValid;
+        public bool IsDocFolderValid
+        {
+            get
+            {
+                return _isDocFolderValid;
+            }
+            set
+            {
+                _isDocFolderValid = value;
+                NotifyOfPropertyChange(() => IsDocFolderValid);
+            }
+        }
+
+
         public SettingsViewModel(IConfigManager configManager,
-            INotificationService notificationService)
+            INotificationService notificationService,
+            IFileService fileService,
+            IConfigService configService)
         {
             ConfigManager = configManager;
             NotificationService = notificationService;
+            FileService = fileService;
+            ConfigService = configService;
         }
 
         private void RefreshData()
         {
             Settings = ConfigManager.GetSettings();
+            InitValidators();
         }
 
         public void Save()
@@ -62,6 +101,67 @@ namespace AssettoChampionship.ViewModels
             RefreshData();
             // TODO: refresh elements
             base.OnActivate();
+        }
+
+
+        //Validation
+        public void ACInstallTextChanged(ActionExecutionContext context)
+        {
+           var dirPath = (context.Source as TextBox).Text;
+           var isValid = FileService.FileExists(dirPath
+                + ConfigService.GetAcExeName());
+
+            if (isValid)
+            {
+                this.IsAcFolderValid = true;
+                this.Settings.AssettoCorsaInstallLoc = dirPath;
+                return;
+            }
+            else {
+                var isValidWithSeparator = FileService.FileExists(dirPath
+                     + Path.DirectorySeparatorChar
+                     + ConfigService.GetAcExeName());
+
+                if (isValidWithSeparator)
+                {
+                    (context.Source as TextBox).Text = dirPath + Path.DirectorySeparatorChar;
+                    this.Settings.AssettoCorsaInstallLoc = dirPath + Path.DirectorySeparatorChar;
+                    this.IsAcFolderValid = true;
+                }
+                else
+                {
+                    this.IsAcFolderValid = false;
+                }
+            }
+        }
+        public void DocFolderTextChanged(ActionExecutionContext context)
+        {
+            var dirPath = (context.Source as TextBox).Text;
+            var isValid = FileService.FileExists(dirPath
+                 + Path.DirectorySeparatorChar
+                 + ConfigService.GetOutputLogRelativePathToDocFolder());
+
+            if (isValid)
+            {
+                this.IsDocFolderValid = true;
+                this.Settings.DocumentsFolder = dirPath;
+                return;
+            }
+            else
+            {
+                
+                this.IsDocFolderValid = false;
+            }
+        }
+
+        private void InitValidators()
+        {
+            this.IsAcFolderValid = FileService.FileExists(Settings.AssettoCorsaInstallLoc
+                                        + ConfigService.GetAcExeName());
+            this.IsDocFolderValid = FileService.FileExists(Settings.DocumentsFolder
+                                        + Path.DirectorySeparatorChar
+                                     + ConfigService.GetOutputLogRelativePathToDocFolder());
+
         }
     }
 

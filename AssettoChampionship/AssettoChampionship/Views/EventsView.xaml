@@ -168,7 +168,17 @@
                                        Style="{StaticResource ObjectiveTitle}"></TextBlock>
                                    
                             </StackPanel>
-                                <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                            <TextBlock Text="Car is missing" 
+                                       HorizontalAlignment="Center"
+                                       Style="{StaticResource ListBoxSubTitle}"
+                                       Visibility="{Binding IsCarMissing, Converter={StaticResource BoolToVis}}"
+                                       Foreground="{StaticResource ErrorColor}"></TextBlock>
+                            <TextBlock Text="Track is missing" 
+                                       HorizontalAlignment="Center"
+                                       Style="{StaticResource ListBoxSubTitle}"
+                                       Visibility="{Binding IsTrackMissing, Converter={StaticResource BoolToVis}}"
+                                       Foreground="{StaticResource ErrorColor}"></TextBlock>
+                            <Image Margin="5" Width="40px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
                                                 ></Image>
                         </StackPanel>

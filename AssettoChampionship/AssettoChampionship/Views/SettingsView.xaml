@@ -17,10 +17,54 @@
                    Margin="0,0,0,25"></TextBlock>
 
         <TextBlock Text="Assetto Corsa Install Location" Margin="0,0,0,5"></TextBlock>
-        <TextBox Text="{Binding Settings.AssettoCorsaInstallLoc}" Margin="0,0,0,15"></TextBox>
+        <Grid Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
 
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Text="{Binding Settings.AssettoCorsaInstallLoc}"  >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyUp">
+                        <cal:ActionMessage MethodName="ACInstallTextChanged">
+                            <cal:Parameter Value="$executionContext"/>
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Image Grid.Column="1" Width="20px" 
+                   VerticalAlignment="Center"
+                   Source="/Images/green_ok.png" Visibility="{Binding IsAcFolderValid, Converter={StaticResource BoolToVis}}"></Image>
+            <Image Grid.Column="1" Width="20px" 
+                   VerticalAlignment="Center"
+                   Source="/Images/red_cross.png" Visibility="{Binding IsAcFolderValid, Converter={StaticResource InvertAndVisibilitate}}"></Image>
+
+        </Grid>
+        
         <TextBlock Text="Documents Folder" Margin="0,0,0,5"></TextBlock>
-        <TextBox Text="{Binding Settings.DocumentsFolder}" Margin="0,0,0,15"></TextBox>
+        <Grid Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Text="{Binding Settings.DocumentsFolder}"  >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyUp">
+                        <cal:ActionMessage MethodName="DocFolderTextChanged">
+                            <cal:Parameter Value="$executionContext"/>
+                        </cal:ActionMessage>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Image Grid.Column="1" Width="20px" 
+                   VerticalAlignment="Center"
+                   Source="/Images/green_ok.png" Visibility="{Binding IsDocFolderValid, Converter={StaticResource BoolToVis}}"></Image>
+            <Image Grid.Column="1" Width="20px" 
+                   VerticalAlignment="Center"
+                   Source="/Images/red_cross.png" Visibility="{Binding IsDocFolderValid, Converter={StaticResource InvertAndVisibilitate}}"></Image>
+
+        </Grid>
 
 
         <StackPanel Margin="0,0,0,15">

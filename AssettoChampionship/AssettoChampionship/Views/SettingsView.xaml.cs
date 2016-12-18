@@ -24,5 +24,7 @@ namespace AssettoChampionship.Views
         {
             InitializeComponent();
         }
+
+   
     }
 }

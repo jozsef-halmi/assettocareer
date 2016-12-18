@@ -26,6 +26,11 @@ namespace Assetto.Service
             return File.Exists(path);
         }
 
+        public bool DirExists(string path)
+        {
+            return Directory.Exists(path);
+        }
+
         public void CreateDirIfNotExist(string dirPath)
         {
             System.IO.Directory.CreateDirectory(dirPath);

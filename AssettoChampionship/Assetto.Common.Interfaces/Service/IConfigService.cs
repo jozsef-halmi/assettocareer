@@ -13,6 +13,9 @@ namespace Assetto.Common.Interfaces.Service
         string GetRaceIniPath();
         string GetOutputLogPath();
         string GetAssettoCorsaExeLoc();
+        string GetAssettoFolder();
+        string GetAcExeName();
+        string GetOutputLogRelativePathToDocFolder();
         void SetAcFolder(string acFolderPath);
         string GetAcX86ProcessName();
         string GetAcX64ProcessName();

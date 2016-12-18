@@ -31,5 +31,8 @@ namespace Assetto.Common.DTO
 
         public List<SessionDTO> Sessions { get; set; }
 
+        public bool IsCarMissing { get; set; }
+        public bool IsTrackMissing { get; set; }
+
     }
 }
