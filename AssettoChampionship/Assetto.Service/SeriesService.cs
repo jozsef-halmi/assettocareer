@@ -13,7 +13,7 @@ namespace Assetto.Service
     {
         public IEnumerable<SeriesData> GetAvailableSeries()
         {
-            return SupportedSeries.AllSeries;
+            return SupportedSeries.GetAvailableSeries();
         }
 
         public SeriesData GetSeries(Guid seriesId)

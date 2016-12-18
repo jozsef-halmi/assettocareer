@@ -9,10 +9,12 @@ namespace Assetto.Data
 {
     public class SupportedSeries
     {
-        public static List<SeriesData> AllSeries = new List<SeriesData>() {
+        public static List<SeriesData> GetAvailableSeries() {
+            return new List<SeriesData>() {
                SupportedSeries.AbarthRaceSeries,
-                SupportedSeries.Formula3Series
-        };
+               SupportedSeries.Formula3Series
+            };
+        }
 
 
         // return EventData here

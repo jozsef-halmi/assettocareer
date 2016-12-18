@@ -220,10 +220,10 @@ namespace Assetto.Manager
 
             var prevSession = selectedEvent.CareerSessions.ElementAt(indexOfSelectedSession - 1);
             var prevResult = SaveService.LoadResult(seriesId, eventId, prevSession.Id);
-            var goalCount = GoalService.GetAchievedGoalsCount(seriesId, eventId, prevSession.Id, prevResult);
+            var achievedGoalCount = GoalService.GetAchievedGoalsCount(seriesId, eventId, prevSession.Id, prevResult);
 
             // Previous session has not been done
-            if (prevResult == null || prevResult != null && prevSession.PrimarySessionObjectives.Count < goalCount)
+            if (prevResult == null || prevResult != null && prevSession.PrimarySessionObjectives.Count > achievedGoalCount)
                 return false;
 
             return true;
