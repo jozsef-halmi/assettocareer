@@ -122,23 +122,37 @@ From="1.0" To="0.0" BeginTime="0:0:5" />
      
 
     </Grid>
-    <!--<Controls:MetroWindow.RightWindowCommands>
+    <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Content="settings" />
-            <Button>
+            <!--<Button Content="about">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="OpenAbout" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="settings">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <cal:ActionMessage MethodName="OpenAbout" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>-->
+
+            <!--<Button>
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
                    Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
                         <Rectangle.OpacityMask>
-                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cupcake}" />
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_settings}" />
                         </Rectangle.OpacityMask>
                     </Rectangle>
                     <TextBlock Margin="4 0 0 0"
                    VerticalAlignment="Center"
-                   Text="deploy cupcakes" />
+                   Text="settings" />
                 </StackPanel>
-            </Button>
+            </Button>-->
         </Controls:WindowCommands>
-    </Controls:MetroWindow.RightWindowCommands>-->
+    </Controls:MetroWindow.RightWindowCommands>
 </Controls:MetroWindow>

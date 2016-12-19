@@ -16,8 +16,6 @@ namespace Assetto.Service
         private static readonly ILog Log4Net = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static readonly string MachineName = Environment.MachineName;
 
-        // TODO: Use MachineName
-
         public void Log(string text)
         {
             Log4Net.Info(text);
