@@ -8,8 +8,8 @@ namespace Assetto.Common.SaveGames
 {
     public class SavedSeason
     {
-        public Guid SeasonId { get; set; }
+        public string SeasonId { get; set; }
 
-        public Dictionary<Guid, SavedEventResult> SavedEventResults { get; set; }
+        public Dictionary<string, SavedEventResult> SavedEventResults { get; set; }
     }
 }

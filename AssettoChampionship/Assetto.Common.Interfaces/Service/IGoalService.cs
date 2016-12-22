@@ -10,12 +10,12 @@ namespace Assetto.Common.Interfaces.Service
 {
     public interface IGoalService
     {
-        //int GetAchievedGoalsCount(Guid seriesId);
-        //int GetAchievedGoalsCount(Guid seriesId, Guid eventId);
+        //int GetAchievedGoalsCount(string seriesId);
+        //int GetAchievedGoalsCount(string seriesId, string eventId);
 
-        int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId, Result result);
+        int GetAchievedGoalsCount(string seriesId, string eventId, string sessionId, Result result);
 
-        List<SessionObjective> GetSessionGoals(Guid seriesId, Guid eventId, Guid sessionId);
+        List<SessionObjective> GetSessionGoals(string seriesId, string eventId, string sessionId);
 
     }
 }

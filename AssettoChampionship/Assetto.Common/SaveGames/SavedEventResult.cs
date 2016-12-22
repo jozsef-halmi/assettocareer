@@ -9,7 +9,7 @@ namespace Assetto.Common.SaveGames
 {
     public class SavedEventResult
     {
-        public Guid EventId { get; set; }
-        public Dictionary<Guid, Result> SessionResult { get; set; }
+        public string EventId { get; set; }
+        public Dictionary<string, Result> SessionResult { get; set; }
     }
 }

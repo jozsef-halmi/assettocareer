@@ -69,7 +69,7 @@ namespace Assetto.Manager
 
         public void StartEvent(
             //SeriesData seriesData, EventData eventData, SessionData session
-            Guid seriesId, Guid eventId, Guid sessionId
+            string seriesId, string eventId, string sessionId
         )
         {
             try
@@ -104,7 +104,7 @@ namespace Assetto.Manager
         }
 
 
-        private ConfiguredSessionDTO ConfigureEvent(Guid seriesId, Guid eventId, Guid sessionId)
+        private ConfiguredSessionDTO ConfigureEvent(string seriesId, string eventId, string sessionId)
         {
 
             var eventData = SeriesService.GetEvent(seriesId, eventId);
@@ -200,7 +200,7 @@ namespace Assetto.Manager
             this.ACProcessEnded?.Invoke(retVar);
         }
 
-        private ACExeTerminatedDTO GetResultDTO(Guid seriesId, Guid eventId, Guid sessionId, Result result)
+        private ACExeTerminatedDTO GetResultDTO(string seriesId, string eventId, string sessionId, Result result)
         {
             return new ACExeTerminatedDTO()
             {

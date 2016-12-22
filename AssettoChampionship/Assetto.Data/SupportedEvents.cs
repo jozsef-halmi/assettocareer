@@ -13,7 +13,7 @@ namespace Assetto.Data
         #region Abarth500
         public static EventData Abarth500RaceEvent1 = new EventData()
         {
-            Id = new Guid("a0c30bbb-936d-44c3-bcfd-6b28f18c7d65")
+            Id = "Abarth500_1_Magione"
             , Name = "Abarth500_Magione"
             , FriendlyName = "Abarth 500 at Magione"
             , JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough
@@ -32,7 +32,7 @@ namespace Assetto.Data
 
         public static EventData Abarth500RaceEvent2 = new EventData()
         {
-            Id = new Guid("02895201-89cf-45e7-9018-3850a2ceba30"),
+            Id = "Abarth500_2_Brands",
             Name = "Abarth500_Brands",
             FriendlyName = "Abarth 500 at Brands Hatch",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -51,7 +51,8 @@ namespace Assetto.Data
 
         public static EventData Abarth500RaceEvent3 = new EventData()
         {
-            Id = new Guid("a8c2d073-032c-477b-a304-378d33a2710b"),
+            Id = "Abarth500_3_RedBull",
+
             Name = "Abarth500_RedBull",
             FriendlyName = "Abarth 500 at Red Bull Ring",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -70,7 +71,8 @@ namespace Assetto.Data
 
         public static EventData Abarth500RaceEvent4 = new EventData()
         {
-            Id = new Guid("c1cf54dd-bec3-4aa1-94c3-b837867d8eec"),
+            Id = "Abarth500_4_Vallelunga",
+
             Name = "Abarth500_Vallelunga",
             FriendlyName = "Abarth 500 at Vallelunga",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -89,7 +91,7 @@ namespace Assetto.Data
 
         public static EventData Abarth500RaceEvent5TorPoznan = new EventData()
         {
-            Id = new Guid("c0e6414a-48d1-4306-a3b9-496480633261"),
+           Id = "Abarth500_5_TorPoznan",
             Name = "Abarth500_TorPoznan",
             FriendlyName = "Abarth 500 at Tor Poznań",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -113,7 +115,7 @@ namespace Assetto.Data
 
         public static EventData Formula3PaulRicard = new EventData()
         {
-            Id = new Guid("a3267660-836f-498e-b46d-16bd1d960de2"),
+            Id = "Formula3_PaulRicard",
             Name = "Formula3_PaulRicard",
             FriendlyName = "Formula3 at Circuit Paul Ricard",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -132,7 +134,7 @@ namespace Assetto.Data
 
         public static EventData Formula3Hring = new EventData()
         {
-            Id = new Guid("b30c06f1-fcbf-448d-81ae-ff6e005d1282"),
+            Id = "Formula3_Hring",
             Name = "Formula3_Hungaroring",
             FriendlyName = "Formula3 at Hungaroring",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -152,7 +154,7 @@ namespace Assetto.Data
 
         public static EventData Formula3RedBull = new EventData()
         {
-            Id = new Guid("5fe29330-eafa-427b-9135-35cde55c42be"),
+            Id = "Formula3_RedBull",
             Name = "Formula3_RedBull",
             FriendlyName = "Formula3 at Red Bull Ring",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -172,7 +174,7 @@ namespace Assetto.Data
 
         public static EventData Formula3Zandvoort = new EventData()
         {
-            Id = new Guid("99acc2d6-1561-4d40-a760-47a02ec12ad3"),
+            Id = "Formula3_Zandvoort",
             Name = "Formula3_Zandvoort",
             FriendlyName = "Formula3 at Zandvoort",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
@@ -192,7 +194,7 @@ namespace Assetto.Data
 
         public static EventData Formula3Spa = new EventData()
         {
-            Id = new Guid("5bcdf77f-30ea-446b-906a-e24f45c75c8d"),
+            Id = "Formula3_Spa",
             Name = "Formula3_Spa",
             FriendlyName = "Formula3 at Spa Francorchamps",
             JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,

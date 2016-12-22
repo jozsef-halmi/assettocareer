@@ -41,7 +41,7 @@ namespace AssettoChampionship.ViewModels
             this.ConfigService = configService;
         }
 
-        public void SeriesSelected(Guid seriesId)
+        public void SeriesSelected(string seriesId)
         {
             try
             {

@@ -8,7 +8,7 @@ namespace Assetto.Common.SaveGames
 {
     public class SaveCache
     {
-        public Guid SeasonId { get; set; }
+        public string SeasonId { get; set; }
         public SavedSeason Save { get; set; }
     }
 }

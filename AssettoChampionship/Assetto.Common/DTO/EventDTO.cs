@@ -8,8 +8,8 @@ namespace Assetto.Common.DTO
 {
     public class EventDTO
     {
-        public Guid EventId { get; set; }
-        public Guid SeriesId { get; set; }
+        public string EventId { get; set; }
+        public string SeriesId { get; set; }
 
 
         public string Title { get; set; }

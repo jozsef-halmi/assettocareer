@@ -147,6 +147,8 @@
     <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Utils\AppConfigService.cs" />
+    <Compile Include="Utils\OutlinedTextBlock.cs" />
+    <Compile Include="ViewModels\PathsViewModel.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
     <Compile Include="ViewModels\Dialog\VideoViewModel.cs" />
@@ -165,6 +167,9 @@
     </Compile>
     <Compile Include="Views\Dialog\VideoView.xaml.cs">
       <DependentUpon>VideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathsView.xaml.cs">
+      <DependentUpon>PathsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
@@ -192,6 +197,9 @@
     </Compile>
     <Compile Include="Views\UserControls\NotImplementedTooltip.xaml.cs">
       <DependentUpon>NotImplementedTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Path.xaml.cs">
+      <DependentUpon>Path.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +237,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PathsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -262,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\NotImplementedTooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\Path.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -388,6 +404,9 @@
     <Resource Include="Images\Events\Formula3_RedBull.jpg" />
     <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
     <Resource Include="Images\Series\Abarth500.jpg" />
+    <Resource Include="Images\Paths\Path_Formula.jpg" />
+    <Resource Include="Images\Paths\Path_GT.jpg" />
+    <Resource Include="Images\Paths\Path_Road.jpg" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

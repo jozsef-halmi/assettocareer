@@ -16,17 +16,17 @@ namespace Assetto.Service
             return SupportedSeries.GetAvailableSeries();
         }
 
-        public SeriesData GetSeries(Guid seriesId)
+        public SeriesData GetSeries(string seriesId)
         {
             return this.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId);
          
         }
 
-        public EventData GetEvent(Guid seriesId, Guid eventId) {
+        public EventData GetEvent(string seriesId, string eventId) {
             return this.GetSeries(seriesId).Events.FirstOrDefault(e => e.Id == eventId);
         }
 
-        public SessionData GetSession(Guid seriesId, Guid eventId, Guid sessionId)
+        public SessionData GetSession(string seriesId, string eventId, string sessionId)
         {
             return this.GetEvent(seriesId, eventId).CareerSessions.FirstOrDefault(s => s.Id == sessionId);
             //return this.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId)
@@ -35,22 +35,22 @@ namespace Assetto.Service
         }
 
 
-        public string GetFriendlySkinNameForOpponent(Guid sessionId, Guid eventId, string playerName)
+        public string GetFriendlySkinNameForOpponent(string sessionId, string eventId, string playerName)
         {
             return this.GetEvent(sessionId, eventId).Opponents.FirstOrDefault(p => p.Name == playerName).Skin.FriendlyName;
         }
 
-        public string GetFriendlySkinNameForPlayer(Guid sessionId, Guid eventId)
+        public string GetFriendlySkinNameForPlayer(string sessionId, string eventId)
         {
             return this.GetEvent(sessionId, eventId).Player.Car.FriendlyName;
         }
 
-        public string GetFriendlyCarNameForOpponent(Guid sessionId, Guid eventId, string playerName)
+        public string GetFriendlyCarNameForOpponent(string sessionId, string eventId, string playerName)
         {
             return this.GetEvent(sessionId, eventId).Opponents.FirstOrDefault(p => p.Name == playerName).Car.FriendlyName;
         }
 
-        public string GetFriendlyCarNameForPlayer(Guid sessionId, Guid eventId)
+        public string GetFriendlyCarNameForPlayer(string sessionId, string eventId)
         {
             return this.GetEvent(sessionId, eventId).Player.Skin.FriendlyName;
         }

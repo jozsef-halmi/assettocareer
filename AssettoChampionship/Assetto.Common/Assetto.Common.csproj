@@ -70,6 +70,7 @@
     <Compile Include="DTO\CreditsDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
     <Compile Include="DTO\ObjectiveDTO.cs" />
+    <Compile Include="DTO\PathDTO.cs" />
     <Compile Include="DTO\PlayerDTO.cs" />
     <Compile Include="DTO\ResultDTO.cs" />
     <Compile Include="DTO\SeriesDTO.cs" />
@@ -110,7 +111,6 @@
     <Compile Include="SaveGames\SaveCache.cs" />
     <Compile Include="SaveGames\SavedSeason.cs" />
     <Compile Include="SaveGames\SavedEventResult.cs" />
-    <Compile Include="Data\ClassPathData.cs" />
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Utils\ProcessInfo.cs" />
   </ItemGroup>

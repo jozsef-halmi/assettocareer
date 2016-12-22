@@ -10,7 +10,7 @@ namespace Assetto.Common.Data
 {
     public class EventData
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
 
         public string ImageUrl

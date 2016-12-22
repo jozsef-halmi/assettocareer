@@ -11,10 +11,10 @@ namespace Assetto.Common.Interfaces.Service
 {
     public interface IChampionshipService
     {
-        List<ChampionshipPlayerDTO> GetCurrentStandings(Guid seriesId);
+        List<ChampionshipPlayerDTO> GetCurrentStandings(string seriesId);
         List<ChampionshipPlayerDTO> GetPointsForResult(Result result, SessionType sessionType, ChampionshipPointType pointType);
 
-        int GetPlayerChampionshipPosition(Guid seriesId);
-        bool IsPlayerWinning(Guid seriesId);
+        int GetPlayerChampionshipPosition(string seriesId);
+        bool IsPlayerWinning(string seriesId);
     }
 }

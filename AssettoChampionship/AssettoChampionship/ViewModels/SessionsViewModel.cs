@@ -47,12 +47,12 @@ namespace AssettoChampionship.ViewModels
         }
 
 
-        public void SetEvent(Guid seriesId, Guid eventId)
+        public void SetEvent(string seriesId, string eventId)
         {
             this.Event = SeriesManager.GetEvent(seriesId, eventId);
         }
 
-        public void SessionSelected(Guid sessionId)
+        public void SessionSelected(string sessionId)
         {
             try
             {

@@ -23,7 +23,7 @@ namespace Assetto.Common.Data
             AmbientTemperature = 25;
         }
 
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string FriendlyName { get; set; }
 

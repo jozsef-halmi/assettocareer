@@ -11,12 +11,12 @@ namespace Assetto.Common.Interfaces.Service
     {
         IEnumerable<SeriesData> GetAvailableSeries();
 
-        SeriesData GetSeries(Guid seriesId);
-        EventData GetEvent(Guid seriesId, Guid eventId);
-        SessionData GetSession(Guid seriesId, Guid eventId, Guid sessionId);
-        string GetFriendlySkinNameForOpponent(Guid sessionId, Guid eventId, string playerName);
-        string GetFriendlySkinNameForPlayer(Guid sessionId, Guid eventId);
-        string GetFriendlyCarNameForOpponent(Guid sessionId, Guid eventId, string playerName);
-        string GetFriendlyCarNameForPlayer(Guid sessionId, Guid eventId);
+        SeriesData GetSeries(string seriesId);
+        EventData GetEvent(string seriesId, string eventId);
+        SessionData GetSession(string seriesId, string eventId, string sessionId);
+        string GetFriendlySkinNameForOpponent(string sessionId, string eventId, string playerName);
+        string GetFriendlySkinNameForPlayer(string sessionId, string eventId);
+        string GetFriendlyCarNameForOpponent(string sessionId, string eventId, string playerName);
+        string GetFriendlyCarNameForPlayer(string sessionId, string eventId);
     }
 }

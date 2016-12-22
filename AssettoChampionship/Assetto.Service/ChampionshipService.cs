@@ -29,7 +29,7 @@ namespace Assetto.Service
             this.ConfigService = configService;
         }
 
-        public List<ChampionshipPlayerDTO> GetCurrentStandings(Guid seriesId)
+        public List<ChampionshipPlayerDTO> GetCurrentStandings(string seriesId)
         {
             var series = this.SeriesService.GetSeries(seriesId);
             var standings = new List<ChampionshipPlayerDTO>();
@@ -74,14 +74,14 @@ namespace Assetto.Service
             return new List<ChampionshipPlayerDTO>();
         }
 
-        public int GetPlayerChampionshipPosition(Guid seriesId)
+        public int GetPlayerChampionshipPosition(string seriesId)
         {
             var currentStandings = GetCurrentStandings(seriesId);
             var player = currentStandings.FirstOrDefault(p => p.Name == ConfigService.GetPlayerName());
             return currentStandings.IndexOf(player)+1;
         }
 
-        public bool IsPlayerWinning(Guid seriesId)
+        public bool IsPlayerWinning(string seriesId)
         {
             return this.GetPlayerChampionshipPosition(seriesId) == 1;
         }

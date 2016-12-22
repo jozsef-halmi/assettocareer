@@ -11,10 +11,10 @@ namespace Assetto.Common.Interfaces.Service
 {
     public interface ISaveService
     {
-        SavedSeason SaveResult(Guid seasonId, Guid eventId, Guid sessionId, Result result);
+        SavedSeason SaveResult(string seasonId, string eventId, string sessionId, Result result);
 
-        Result LoadResult(Guid seasonId, Guid eventId, Guid sessionId);
+        Result LoadResult(string seasonId, string eventId, string sessionId);
 
-        SavedSeason GetSavedSeason(Guid seasonId);
+        SavedSeason GetSavedSeason(string seasonId);
     }
 }

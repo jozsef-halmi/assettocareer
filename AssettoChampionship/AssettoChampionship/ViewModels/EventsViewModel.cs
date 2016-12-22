@@ -20,7 +20,7 @@ namespace AssettoChampionship.ViewModels
     {
         #region Properties
 
-        private Guid _selectedSeriesId;
+        private string _selectedSeriesId;
 
         private SeriesDTO _series;
 
@@ -74,14 +74,14 @@ namespace AssettoChampionship.ViewModels
             this.LogService = logService;
         }
 
-        public void SetSeries(Guid seriesId)
+        public void SetSeries(string seriesId)
         {
             this.Series = SeriesManager.GetSeries(seriesId);
             this._selectedSeriesId = seriesId;
 
         }
 
-        public void EventSelected(Guid eventId)
+        public void EventSelected(string eventId)
         {
             try
             {

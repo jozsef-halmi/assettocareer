@@ -12,10 +12,10 @@ namespace Assetto.Common.Interfaces.Manager
     {
         List<SeriesDTO> GetAvailableSeries();
 
-        SeriesDTO GetSeries(Guid id);
+        SeriesDTO GetSeries(string id);
 
-        EventDTO GetEvent(Guid seriesId, Guid eventId);
-        SessionDTO GetSession(Guid seriesId, Guid eventId, Guid sessionId);
+        EventDTO GetEvent(string seriesId, string eventId);
+        SessionDTO GetSession(string seriesId, string eventId, string sessionId);
 
 
     }

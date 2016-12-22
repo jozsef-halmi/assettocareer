@@ -14,8 +14,8 @@ namespace Assetto.Common.Framework
 
         //public EventData EventData { get; set; }
 
-        public Guid SelectedSeriesId { get; set; }
-        public Guid SelectedEventId { get; set; }
+        public string SelectedSeriesId { get; set; }
+        public string SelectedEventId { get; set; }
 
 
         public SessionData SessionData { get; set; }

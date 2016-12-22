@@ -13,7 +13,7 @@ namespace Assetto.Common.DTO
         //public SeriesData SeriesData { get; set; }
         //public SavedSeason SavedSeason { get; set; }
 
-        public Guid SeriesId { get; set; }
+        public string SeriesId { get; set; }
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public string VideoUrl { get; set; }

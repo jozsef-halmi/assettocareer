@@ -22,7 +22,7 @@ namespace Assetto.Service
             this.SeriesService = seriesService;
         }
 
-        public int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId, Result result)
+        public int GetAchievedGoalsCount(string seriesId, string eventId, string sessionId, Result result)
         {
             var goalCount = 0;
             if (result != null)
@@ -36,7 +36,7 @@ namespace Assetto.Service
             return goalCount;
         }
 
-        public List<SessionObjective> GetSessionGoals(Guid seriesId, Guid eventId, Guid sessionId)
+        public List<SessionObjective> GetSessionGoals(string seriesId, string eventId, string sessionId)
         {
             return SeriesService.GetSession(seriesId, eventId, sessionId).PrimarySessionObjectives;
         }

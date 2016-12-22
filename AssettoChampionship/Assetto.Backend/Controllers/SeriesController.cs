@@ -19,7 +19,7 @@ namespace Assetto.Backend.Controllers
 
         //[HttpGet]
         //[Route("GetVideo/{seriesId}")]
-        //public IHttpActionResult GetVideo(Guid seriesId)
+        //public IHttpActionResult GetVideo(string seriesId)
         //{
         //    var selectedSeriesVideourl = SupportedSeries.AllSeries.FirstOrDefault(s => s.Id == seriesId)?.VideoUrl;
         //    return File(Server.MapPath("~/Videos/a2.mp4"), "video/mp4", "my.mp4");

@@ -20,7 +20,7 @@ namespace Assetto.Data
         // return EventData here
         public static SeriesData AbarthRaceSeries = new SeriesData()
         {
-            Id = new Guid("8fe421d8-3ed1-4b3a-8bd2-a32c336880dc")
+            Id = "Abarth500RaceSeries"
             , Name = "Abarth500"
             , FriendlyName = "Trofeo Abarth 500 Series"
             , Description = "The Trofeo Abarth 500 Cup is an entry-level series, which will be your first step in your career. The series take place in European countries, such as Italy, England, Austria and Poland. The tracks are short, the opponents are tough - You are going to have some serious challenges and wheel-to-wheel fights. Good luck and have fun, driver!"
@@ -36,7 +36,7 @@ namespace Assetto.Data
 
         public static SeriesData Formula3Series = new SeriesData()
         {
-            Id = new Guid("54a0417b-a320-48eb-8ce6-876a4558bb6e"),
+            Id = "Formula3Series",
             Name = "Formula3",
             FriendlyName = "Formula 3 Dallara F312 Series",
             Description = "The Formula 3 Championship is a multi-event motor racing championship for single-seat open wheel formula racing cars that is held across Europe. The championship features drivers competing in two-litre Formula Three racing cars which conform to the technical regulations, or formula, for the championship. ",

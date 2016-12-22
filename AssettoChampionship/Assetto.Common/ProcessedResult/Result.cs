@@ -10,7 +10,7 @@ namespace Assetto.Common.ProcessedResult
 {
     public class Result
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Track { get; set; }
 

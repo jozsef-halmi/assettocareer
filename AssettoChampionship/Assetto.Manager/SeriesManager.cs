@@ -62,7 +62,7 @@ namespace Assetto.Manager
             return retVar;
         }
 
-        public SeriesDTO GetSeries(Guid seriesId)
+        public SeriesDTO GetSeries(string seriesId)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace Assetto.Manager
 
         }
 
-        public EventDTO GetEvent(Guid seriesId, Guid eventId)
+        public EventDTO GetEvent(string seriesId, string eventId)
         {
             try
             {
@@ -151,19 +151,19 @@ namespace Assetto.Manager
 
 
 
-        public SessionDTO GetSession(Guid seriesId, Guid eventId, Guid sessionId)
+        public SessionDTO GetSession(string seriesId, string eventId, string sessionId)
         {
             return GetSessionDTO(seriesId, eventId, sessionId);
         }
 
-        private SessionData GetSessionData(Guid seriesId, Guid eventId, Guid sessionId)
+        private SessionData GetSessionData(string seriesId, string eventId, string sessionId)
         {
             return SeriesService.GetAvailableSeries().FirstOrDefault(series => series.Id == seriesId)
                 .Events.FirstOrDefault(e => e.Id == eventId)
                 .CareerSessions.FirstOrDefault(s => s.Id == sessionId);
         }
 
-        private SessionDTO GetSessionDTO(Guid seriesId, Guid eventId, Guid sessionId)
+        private SessionDTO GetSessionDTO(string seriesId, string eventId, string sessionId)
         {
             try
             {
@@ -202,13 +202,13 @@ namespace Assetto.Manager
            
         }
 
-        private int GetAchievedGoalsCount(Guid seriesId, Guid eventId, Guid sessionId)
+        private int GetAchievedGoalsCount(string seriesId, string eventId, string sessionId)
         {
            return this.GoalService.GetAchievedGoalsCount(seriesId, eventId, sessionId,
                 SaveService.LoadResult(seriesId, eventId, sessionId));
         }
 
-        private bool IsSessionAvailable(Guid seriesId, Guid eventId, Guid sessionId)
+        private bool IsSessionAvailable(string seriesId, string eventId, string sessionId)
         {
             var selectedEvent = this.SeriesService.GetEvent(seriesId, eventId);
             var indexOfSelectedSession = selectedEvent.CareerSessions.IndexOf(
@@ -229,7 +229,7 @@ namespace Assetto.Manager
             return true;
         }
 
-        private bool IsEventAvailable(Guid seriesId, Guid eventId)
+        private bool IsEventAvailable(string seriesId, string eventId)
         {
             var selectedSeries = this.SeriesService.GetSeries(seriesId);
             var indexOfSelectedEvent = selectedSeries.Events.IndexOf(
@@ -252,7 +252,7 @@ namespace Assetto.Manager
             return isPrevEventDone;
         }
 
-        private bool IsSeasonAvailable(Guid seriesId)
+        private bool IsSeasonAvailable(string seriesId)
         {
             var availableSeries = this.SeriesService.GetAvailableSeries().ToList();
             var indexOfSelectedSeries = availableSeries.IndexOf(

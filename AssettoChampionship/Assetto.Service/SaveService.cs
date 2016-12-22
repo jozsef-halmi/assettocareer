@@ -44,12 +44,12 @@ namespace Assetto.Service
             }
         }
 
-        private SaveCache LoadCache(Guid seriesId)
+        private SaveCache LoadCache(string seriesId)
         {
             return CachedSave.FirstOrDefault(cs => cs.SeasonId == seriesId);
         }
 
-        public SavedSeason SaveResult(Guid seasonId, Guid eventId, Guid sessionId, Result result)
+        public SavedSeason SaveResult(string seasonId, string eventId, string sessionId, Result result)
         {
             SavedSeason seasonResults = null;
             if (!CreateResultFileIfNotExist(seasonId))
@@ -68,7 +68,7 @@ namespace Assetto.Service
         }
 
 
-        public SavedSeason InsertOrUpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        public SavedSeason InsertOrUpdateResult(SavedSeason savedSeason, string eventId, string sessionId, Result result)
         {
             if (SavedSeasonContainsSession(savedSeason, eventId, sessionId))
             {
@@ -81,14 +81,14 @@ namespace Assetto.Service
             return savedSeason;
         }
 
-        public SavedSeason InsertResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        public SavedSeason InsertResult(SavedSeason savedSeason, string eventId, string sessionId, Result result)
         {
             if (!savedSeason.SavedEventResults.ContainsKey(eventId))
             {
                 savedSeason.SavedEventResults[eventId] = new SavedEventResult()
                 {
                     EventId = eventId,
-                    SessionResult = new Dictionary<Guid, Result>()
+                    SessionResult = new Dictionary<string, Result>()
                 };
             }
 
@@ -101,7 +101,7 @@ namespace Assetto.Service
             return savedSeason;
         }
 
-        public SavedSeason UpdateResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        public SavedSeason UpdateResult(SavedSeason savedSeason, string eventId, string sessionId, Result result)
         {
             if (!savedSeason.SavedEventResults[eventId].SessionResult.ContainsKey(sessionId)
                 //|| savedSeason.SavedEventResults[eventId].SessionResult[sessionId] == null
@@ -113,14 +113,14 @@ namespace Assetto.Service
 
         }
 
-        public SavedSeason StoreResult(SavedSeason savedSeason, Guid eventId, Guid sessionId, Result result)
+        public SavedSeason StoreResult(SavedSeason savedSeason, string eventId, string sessionId, Result result)
         {
             result.Id = sessionId;
             savedSeason.SavedEventResults[eventId].SessionResult[sessionId] = result;
             return savedSeason;
         }
 
-        public bool SavedSeasonContainsSession(SavedSeason savedSeason, Guid eventId, Guid sessionId)
+        public bool SavedSeasonContainsSession(SavedSeason savedSeason, string eventId, string sessionId)
         {
             if (savedSeason == null 
                 || savedSeason.SavedEventResults == null
@@ -136,12 +136,12 @@ namespace Assetto.Service
             return true;
         }
 
-        private SavedSeason CreateSavedSeason(Guid seasonId, Guid eventId, Guid sessionId, Result result)
+        private SavedSeason CreateSavedSeason(string seasonId, string eventId, string sessionId, Result result)
         {
             var savedEventResult = new SavedEventResult()
             {
                 EventId = eventId,
-                SessionResult = new Dictionary<Guid, Result>()
+                SessionResult = new Dictionary<string, Result>()
                 {
                     {sessionId, result}
                 }
@@ -152,7 +152,7 @@ namespace Assetto.Service
             {
                 SeasonId = seasonId
                 ,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {eventId, savedEventResult}
 
@@ -160,7 +160,7 @@ namespace Assetto.Service
             };
         }
 
-        public SavedSeason GetSavedSeason(Guid seasonId)
+        public SavedSeason GetSavedSeason(string seasonId)
         {
             try
             {
@@ -173,7 +173,7 @@ namespace Assetto.Service
             
         }
 
-        public Result LoadResult(Guid seasonId, Guid eventId, Guid sessionId)
+        public Result LoadResult(string seasonId, string eventId, string sessionId)
         {
             try
             {
@@ -198,7 +198,7 @@ namespace Assetto.Service
                     }
                     catch (Exception)
                     {
-                        savedSeason = new SavedSeason() { SeasonId = seasonId, SavedEventResults = new Dictionary<Guid, SavedEventResult>() };
+                        savedSeason = new SavedSeason() { SeasonId = seasonId, SavedEventResults = new Dictionary<string, SavedEventResult>() };
                         this.SaveCache(savedSeason);
                         return null;
                     }
@@ -215,7 +215,7 @@ namespace Assetto.Service
         }
 
 
-        private SavedSeason LoadResultFile(Guid seasonId)
+        private SavedSeason LoadResultFile(string seasonId)
         {
             var text = this.FileService.ReadFile(
                 RESULT_DIR
@@ -227,7 +227,7 @@ namespace Assetto.Service
         }
 
 
-        private bool CreateResultFileIfNotExist(Guid seasonId)
+        private bool CreateResultFileIfNotExist(string seasonId)
         {
             // Create result dir if not exists
             this.FileService.CreateDirIfNotExist(RESULT_DIR);

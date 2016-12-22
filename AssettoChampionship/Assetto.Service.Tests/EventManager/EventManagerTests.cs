@@ -52,9 +52,9 @@ namespace Assetto.Service.Tests.EventManager
 
             // SaveService
             saveService
-                .Setup(m => m.LoadResult(It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>()))
+                .Setup(m => m.LoadResult(It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>()))
                 .Returns(new Result()
                 {
                     SessionType = SessionType.Qualifying,
@@ -63,9 +63,9 @@ namespace Assetto.Service.Tests.EventManager
 
             saveService
                 .Setup(m => m.SaveResult(
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
                     It.IsAny<Result>()
                 ))
                 .Returns(new SavedSeason());
@@ -127,17 +127,17 @@ namespace Assetto.Service.Tests.EventManager
 
             // SaveService
             saveService
-                .Setup(m => m.LoadResult(It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>()))
+                .Setup(m => m.LoadResult(It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>()))
                 .Throws(new Exception()) // Should not invoke this method
                 .Verifiable();
 
             saveService
                 .Setup(m => m.SaveResult(
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
-                    It.IsAny<Guid>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
                     It.IsAny<Result>()
                 ))
                 .Returns(new SavedSeason());

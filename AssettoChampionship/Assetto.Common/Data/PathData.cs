@@ -12,15 +12,12 @@ namespace Assetto.Common.Data
         public string Name { get; set; }
         public string FriendlyName { get; set; }
 
-        public string ImageUrl
-        {
-            get { return "/Images/Paths/" + Name + ".jpg"; }
-        }
+
 
         public string Description { get; set; }
         public string VideoUrl { get; set; }
 
-        public List<ClassPathData> PathClasses { get; set; }
-        public Guid PathId { get; set; }
+        public List<SeriesData> Series { get; set; }
+        public string PathId { get; set; }
     }
 }

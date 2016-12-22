@@ -35,14 +35,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id,
                                   sessionResult
@@ -85,14 +85,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id,
                                   sessionResult
@@ -142,14 +142,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 
                             }
@@ -182,14 +182,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 {sessionId, null}
                             }
@@ -226,14 +226,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 
                             }
@@ -275,14 +275,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, sessionResult }
                             }
@@ -319,14 +319,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, null }
                             }
@@ -366,14 +366,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, sessionResult }
                             }
@@ -406,14 +406,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, sessionResult }
                             }
@@ -435,7 +435,7 @@ namespace Assetto.Service.Tests.SaveService
         {
             var seasonId = SupportedEvents.Abarth500RaceEvent1.Id;
             var eventId = SupportedEvents.Abarth500RaceEvent1.Id;
-            var sessionId = Guid.NewGuid(); // New random guid
+            var sessionId = string.Newstring(); // New random string
 
 
             var selectedSeries = SupportedSeries.AbarthRaceSeries;
@@ -446,14 +446,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, sessionResult }
                             }
@@ -474,7 +474,7 @@ namespace Assetto.Service.Tests.SaveService
         public void SavedSeasonContainsSession_EventIdMissing()
         {
             var seasonId = SupportedEvents.Abarth500RaceEvent1.Id;
-            var eventId = Guid.NewGuid(); // New random guid
+            var eventId = string.Newstring(); // New random string
             var sessionId = SupportedSessions.Abarth500RaceEvent1Qualy.Id;
 
 
@@ -486,14 +486,14 @@ namespace Assetto.Service.Tests.SaveService
             var savedSeason = new SavedSeason()
             {
                 SeasonId = SupportedEvents.Abarth500RaceEvent1.Id,
-                SavedEventResults = new Dictionary<Guid, SavedEventResult>()
+                SavedEventResults = new Dictionary<string, SavedEventResult>()
                 {
                     {
                         SupportedEvents.Abarth500RaceEvent1.Id,
                         new SavedEventResult()
                         {
                             EventId = SupportedEvents.Abarth500RaceEvent1.Id,
-                            SessionResult = new Dictionary<Guid, Result>()
+                            SessionResult = new Dictionary<string, Result>()
                             {
                                 { SupportedSessions.Abarth500RaceEvent1Qualy.Id, sessionResult }
                             }
