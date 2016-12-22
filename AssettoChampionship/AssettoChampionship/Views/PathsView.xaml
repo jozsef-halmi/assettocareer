@@ -17,18 +17,21 @@
         <!--Paths are hard coded here-->
         <usercontrols:Path Grid.Column="0" 
                            DataContext="{Binding Paths[0]}"
+                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
             
         </usercontrols:Path>
 
         <usercontrols:Path Grid.Column="1" 
                            DataContext="{Binding Paths[1]}"
+                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
 
         </usercontrols:Path>
 
         <usercontrols:Path Grid.Column="2" 
                            DataContext="{Binding Paths[2]}"
+                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
 
         </usercontrols:Path>

@@ -34,7 +34,8 @@ namespace Assetto.Data
         public static PathData GTPath = new PathData()
         {
             Name = "Path_GT",
-            FriendlyName = "GT"
+            FriendlyName = "GT",
+            IsReadyToPlay = true
         };
 
         //public static SeriesData Formula3Series = new SeriesData()

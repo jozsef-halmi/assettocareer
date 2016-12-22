@@ -14,10 +14,18 @@
         <TextBlock 
             HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25"
             Text="{Binding FriendlyName}"
-            Foreground="White"  FontSize="36">
+            FontWeight="SemiBold"
+            Foreground="White"  FontSize="42">
             <TextBlock.Effect>
                 <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
             </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock 
+            HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25" 
+            Text="Coming soon"
+            FontWeight="Bold"
+            Visibility="{Binding IsAvailable, Converter={StaticResource InvertAndVisibilitate}}"
+            Foreground="{StaticResource WarningColor}"  FontSize="30">
         </TextBlock>
     </Grid>
 </UserControl>

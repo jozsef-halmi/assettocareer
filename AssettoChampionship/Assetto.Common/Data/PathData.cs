@@ -19,5 +19,8 @@ namespace Assetto.Common.Data
 
         public List<SeriesData> Series { get; set; }
         public string PathId { get; set; }
+
+        public bool IsReadyToPlay { get; set; }
+
     }
 }

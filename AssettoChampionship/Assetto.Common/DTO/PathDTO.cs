@@ -12,5 +12,7 @@ namespace Assetto.Common.DTO
         public string FriendlyName { get; set; }
 
         public string ImageUrl => "/Images/Paths/" + Name + ".jpg";
+
+        public bool IsAvailable { get; set; }
     }
 }
