@@ -9,7 +9,6 @@ namespace Assetto.Common.Data
 {
     public class PathData
     {
-        public string Name { get; set; }
         public string FriendlyName { get; set; }
 
 

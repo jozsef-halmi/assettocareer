@@ -27,6 +27,7 @@ namespace AssettoChampionship
             container.RegisterType<IEventManager, EventManager>(new ContainerControlledLifetimeManager());
             container.RegisterType<IConfigManager, ConfigManager>();
             container.RegisterType<IUtilsManager, UtilsManager>();
+            container.RegisterType<IPathManager, PathManager>();
 
 
             //Services

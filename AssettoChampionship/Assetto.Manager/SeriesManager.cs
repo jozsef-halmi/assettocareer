@@ -87,6 +87,10 @@ namespace Assetto.Manager
                         ToolTip = selectedSeries.Credits?.ToolTip,
                         ExternalLink = selectedSeries.Credits?.ExternalLink,
                         TooltipTitle = selectedSeries.FriendlyName
+                    },
+                    Class = new ClassDTO() {
+                        Name = selectedSeries.Name,
+                        FriendlyName = selectedSeries.FriendlyName
                     }
                 };
 
@@ -276,6 +280,13 @@ namespace Assetto.Manager
             }
 
             return isPrevSeasonDone;
+        }
+
+        public SessionDTO GetNextSession(string seriesId)
+        {
+            var series = GetSeries(seriesId);
+            var nextEvent = series.Events.FirstOrDefault(e => e.Sessions.Any(s => s.IsDone != true && s.IsAvailable == true));
+            return nextEvent.Sessions.FirstOrDefault(s => s.IsDone != true && s.IsAvailable == true);
         }
     }
 }

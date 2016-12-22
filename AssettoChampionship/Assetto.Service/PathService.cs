@@ -22,9 +22,9 @@ namespace Assetto.Service
         {
             return new PathDTO()
             {
-                Name = path.Name,
                 FriendlyName = path.FriendlyName,
-                IsAvailable = path.IsReadyToPlay
+                IsAvailable = path.IsReadyToPlay,
+                PathId = path.PathId
             };
         }
     }

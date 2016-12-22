@@ -29,6 +29,7 @@ namespace Assetto.Common.DTO
         public List<ChampionshipPlayerDTO> Standings { get; set; }
 
         public CreditsDTO Credits { get; set; }
-       
+        public ClassDTO Class { get; set; }
+
     }
 }

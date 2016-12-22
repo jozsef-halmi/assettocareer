@@ -421,6 +421,7 @@
     <Resource Include="Images\Tracks\Barcelona.jpg" />
     <Resource Include="Images\Tracks\Mugello.png" />
     <Resource Include="Images\Series\Abarth500.png" />
+    <Resource Include="Images\Classes\Abarth500.jpg" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -12,13 +12,14 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>  
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
         <!--Series Image-->
         <Image Grid.Column="0" Grid.Row="0" Margin="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-               Source="/Images/Series/Formula3.jpg" Stretch="UniformToFill"></Image>
+               Source="{Binding CurrentSeries.ImageUrl}"
+             Stretch="UniformToFill"></Image>
         
         <!--Session Info-->
         <Grid Grid.Column="1" Grid.Row="0">
@@ -27,14 +28,14 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="3*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
             </Grid.RowDefinitions>
             
             <!--Class Image-->
             <Image Grid.Column="0" Grid.Row="0" Margin="3"
-                   Source="/Images/Classes/GT3.png"></Image>
+                   Source="{Binding CurrentSeries.Class.ImageUrl}"></Image>
             
             <!--Track Image-->
             <Image Grid.Column="1" Grid.Row="0" Margin="3"

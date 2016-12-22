@@ -32,6 +32,7 @@ namespace Assetto.Data
                 SupportedEvents.Abarth500RaceEvent4,
                 SupportedEvents.Abarth500RaceEvent5TorPoznan
             }
+            , Class = SupportedClasses.Abarth
         };
 
         public static SeriesData Formula3Series = new SeriesData()

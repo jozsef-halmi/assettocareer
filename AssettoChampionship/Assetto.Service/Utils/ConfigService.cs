@@ -139,5 +139,11 @@ namespace Assetto.Service.Utils
             return isAcInstallFolderValid && isDocFolderValid;
 
         }
+
+        public string GetPath()
+        {
+            // TODO
+            return "Path_GT";
+        }
     }
 }

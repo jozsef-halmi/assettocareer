@@ -25,6 +25,9 @@ namespace Assetto.Common.Data
         public ChampionshipPointType ChampionshipPointType { get; set; }
 
         public CreditsData Credits { get; set; }
+        public ClassData Class { get; set; }
+        public bool IsAvailable { get; set; }
+        public bool IsDone { get; set; }
 
     }
 }

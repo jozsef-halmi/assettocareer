@@ -8,11 +8,14 @@ namespace Assetto.Common.DTO
 {
     public class PathDTO
     {
-        public string Name { get; set; }
         public string FriendlyName { get; set; }
 
-        public string ImageUrl => "/Images/Paths/" + Name + ".jpg";
+        public string ImageUrl => "/Images/Paths/" + PathId + ".jpg";
 
         public bool IsAvailable { get; set; }
+
+        public string PathId { get; set; }
+
+        public List<SeriesDTO> Series { get; set; }
     }
 }

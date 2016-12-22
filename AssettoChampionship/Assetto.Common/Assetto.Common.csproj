@@ -51,6 +51,7 @@
     <Compile Include="Data\AboutSection.cs" />
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
+    <Compile Include="Data\ClassData.cs" />
     <Compile Include="Data\PathData.cs" />
     <Compile Include="Data\CreditsData.cs" />
     <Compile Include="Data\DriverData.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Data\TrackData.cs" />
     <Compile Include="DTO\ACExeTerminatedDTO.cs" />
     <Compile Include="DTO\ChampionshipPlayerDTO.cs" />
+    <Compile Include="DTO\ClassDTO.cs" />
     <Compile Include="DTO\ConfiguredSessionDTO.cs" />
     <Compile Include="DTO\CreditsDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />

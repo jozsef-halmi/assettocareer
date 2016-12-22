@@ -16,6 +16,7 @@ namespace Assetto.Common.Interfaces.Manager
 
         EventDTO GetEvent(string seriesId, string eventId);
         SessionDTO GetSession(string seriesId, string eventId, string sessionId);
+        SessionDTO GetNextSession(string seriesId);
 
 
     }

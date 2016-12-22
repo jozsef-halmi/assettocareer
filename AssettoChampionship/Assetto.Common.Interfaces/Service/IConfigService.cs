@@ -20,6 +20,7 @@ namespace Assetto.Common.Interfaces.Service
         string GetAcX86ProcessName();
         string GetAcX64ProcessName();
         string GetPlayerName();
+        string GetPath();
 
         string GetSettingsFilePath();
 

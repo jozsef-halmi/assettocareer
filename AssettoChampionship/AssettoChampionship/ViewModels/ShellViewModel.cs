@@ -127,10 +127,10 @@ namespace AssettoChampionship.ViewModels
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
-            //ShowMainPage();
-            ShowPaths();
+            ShowMainPage();
+            //ShowNextSession("Path_GT");
+            //ShowPaths();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
-            //ConfigManager.GetSettings();
             LogService.Log("Startup");
         }
 
@@ -160,6 +160,9 @@ namespace AssettoChampionship.ViewModels
                     break;
                 case "SettingsViewModel":
                     ShowSettings();
+                    break;
+                case "NextSessionViewModel":
+                    ShowNextSession(message.Data.Parameter as string);
                     break;
                 default:
                     break;
@@ -298,6 +301,13 @@ namespace AssettoChampionship.ViewModels
             OpenPage(pathsVM);
         }
 
+        public void ShowNextSession(string pathId)
+        {
+            var nextSessionVM = Container.Resolve<NextSessionViewModel>();
+            nextSessionVM.SetPath(pathId);
+            OpenPage(nextSessionVM);
+        }
+
 
         public async Task ShowMessageAndHide(string message)
         {
@@ -322,7 +332,6 @@ namespace AssettoChampionship.ViewModels
 
         protected override void OnViewLoaded(object view)
         {
-            base.OnViewLoaded(view);
             if (!ConfigService.IsSettingsAvailable())
             {
                 DialogService.ShowMessageBox("Welcome! ", "It looks like you haven't set your Assetto Corsa install location. Please take the time and do that!");
@@ -330,6 +339,8 @@ namespace AssettoChampionship.ViewModels
             }
             ConfigManager.GetSettings();
 
+            base.OnViewLoaded(view);
+           
 
         }
 
