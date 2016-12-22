@@ -417,6 +417,7 @@
     <Resource Include="Images\Paths\Path_Road.jpg" />
     <Resource Include="Images\Classes\GT3.png" />
     <Resource Include="Images\Tracks\BrandsHatch.png" />
+    <Resource Include="Images\Series\LMP2.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
