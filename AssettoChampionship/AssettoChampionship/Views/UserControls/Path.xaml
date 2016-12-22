@@ -11,17 +11,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="{Binding ImageUrl}" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
-        <!--<utils:OutlinedTextBlock 
-            FontFamily="Verdana"
-            FontSize="20pt" 
-            FontWeight="ExtraBold" 
-            TextWrapping="Wrap"
-            StrokeThickness="1" 
-            Stroke="Black" 
-            Fill="White"
-            Text="{Binding FriendlyName}">
-           
-        </utils:OutlinedTextBlock>-->
         <TextBlock 
             HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25"
             Text="{Binding FriendlyName}"
@@ -30,9 +19,6 @@
                 <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
             </TextBlock.Effect>
         </TextBlock>
-        <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-            Text="{Binding FriendlyName}"
-            Style="{StaticResource PageTitle}"></TextBlock>-->
     </Grid>
 </UserControl>
 

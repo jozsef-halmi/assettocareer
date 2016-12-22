@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="AssettoChampionship.Views.NextSessionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AssettoChampionship.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>  
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!--Series Image-->
+        <Image Grid.Column="0" Grid.Row="0"></Image>
+        
+        <!--Session Info-->
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <!--Class Image-->
+            <Image Grid.Column="0" Grid.Row="0" Margin="3"
+                   Source="/Images/Classes/GT3.png"></Image>
+            
+            <!--Track Image-->
+            <Image Grid.Column="1" Grid.Row="0" Margin="3"
+                    Source="/Images/Tracks/BrandsHatch.png"></Image>
+            
+            <!--Event Info-->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                <TextBlock Text="Round 1/3" 
+                           Style="{StaticResource SessionRoundCounter}"
+                           ></TextBlock>
+                <TextBlock Text="Race 2"
+                           Style="{StaticResource SessionName}"></TextBlock>
+                <TextBlock Text="Session 4/4"
+                           Style="{StaticResource SessionSessionCounter}"></TextBlock>
+                <TextBlock Text="15:00 Event Start"
+                           Style="{StaticResource SessionInfo}"></TextBlock>
+            </StackPanel>
+
+            <!--Goals-->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+                
+            </StackPanel>
+
+        </Grid>
+        
+        <!--Options, start, etc-->
+        <!--Settings-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+
+            <Grid Margin="10,0,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Session Length" Margin="0,0,0,5"></TextBlock>
+                <TextBlock Grid.Column="1" Text="Shorter"></TextBlock>
+                <Slider Grid.Column="2" 
+                    Maximum="100" 
+                    Minimum="25" 
+                    TickFrequency="25" 
+                    TickPlacement="BottomRight" IsSnapToTickEnabled="True">
+                </Slider>
+                <TextBlock Grid.Column="3" Text="Longer" HorizontalAlignment="Left"></TextBlock>
+            </Grid>
+
+            <Grid Margin="10,0,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Difficulty" Margin="0,0,0,5"></TextBlock>
+                <TextBlock Grid.Column="1" Text="Beginner"></TextBlock>
+                <Slider Maximum="100"  Grid.Column="2"
+                    Minimum="50" 
+                    TickFrequency="5" 
+                    TickPlacement="BottomRight" IsSnapToTickEnabled="True">
+                </Slider>
+                <TextBlock Grid.Column="3" Text="Ace" HorizontalAlignment="Left"></TextBlock>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

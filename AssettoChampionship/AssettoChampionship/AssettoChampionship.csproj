@@ -148,6 +148,7 @@
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Utils\AppConfigService.cs" />
     <Compile Include="Utils\OutlinedTextBlock.cs" />
+    <Compile Include="ViewModels\NextSessionViewModel.cs" />
     <Compile Include="ViewModels\PathsViewModel.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\Dialog\LoadingViewModel.cs" />
@@ -167,6 +168,9 @@
     </Compile>
     <Compile Include="Views\Dialog\VideoView.xaml.cs">
       <DependentUpon>VideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NextSessionView.xaml.cs">
+      <DependentUpon>NextSessionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PathsView.xaml.cs">
       <DependentUpon>PathsView.xaml</DependentUpon>
@@ -234,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dialog\VideoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NextSessionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -407,6 +415,8 @@
     <Resource Include="Images\Paths\Path_Formula.jpg" />
     <Resource Include="Images\Paths\Path_GT.jpg" />
     <Resource Include="Images\Paths\Path_Road.jpg" />
+    <Resource Include="Images\Classes\GT3.png" />
+    <Resource Include="Images\Tracks\BrandsHatch.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
