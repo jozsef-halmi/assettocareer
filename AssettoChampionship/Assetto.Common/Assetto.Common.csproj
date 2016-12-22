@@ -51,6 +51,7 @@
     <Compile Include="Data\AboutSection.cs" />
     <Compile Include="Data\CarConfigData.cs" />
     <Compile Include="Data\CarData.cs" />
+    <Compile Include="Data\PathData.cs" />
     <Compile Include="Data\CreditsData.cs" />
     <Compile Include="Data\DriverData.cs" />
     <Compile Include="Data\DynamicTrackData.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="SaveGames\SaveCache.cs" />
     <Compile Include="SaveGames\SavedSeason.cs" />
     <Compile Include="SaveGames\SavedEventResult.cs" />
+    <Compile Include="Data\ClassPathData.cs" />
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Utils\ProcessInfo.cs" />
   </ItemGroup>
