@@ -128,7 +128,7 @@ namespace Assetto.Manager
                     Track = selectedEvent.Track.FriendlyName,
                     Layout = selectedEvent.Layout?.FriendlyName,
                     SessionsCount = selectedEvent.CareerSessions.Count,
-                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList()
+                    Sessions = selectedEvent.CareerSessions.Select(s => GetSessionDTO(seriesId, eventId, s.Id)).ToList(),
                 };
 
                 retVar.IsDone = retVar.Sessions.All(s => s.IsDone);
@@ -171,6 +171,8 @@ namespace Assetto.Manager
         {
             try
             {
+                var selectedSeries = SeriesService.GetSeries(seriesId);
+                var selectedEvent = SeriesService.GetEvent(seriesId, eventId);
                 var data = GetSessionData(seriesId, eventId, sessionId);
                 var result = SaveService.LoadResult(seriesId, eventId, sessionId);
                 return new SessionDTO()
@@ -194,7 +196,12 @@ namespace Assetto.Manager
                     RoadTemperature = data.RoadTemperature.ToString() + "°C",
                     TimeOfDay = data.TimeOfDay.GetStringValue(),
                     TrackCondition = data.DynamicTrack.Preset.GetStringValue() + " track",
-                    Weather = WeatherToFriendlyString.Convert(data.Weather)
+                    Weather = WeatherToFriendlyString.Convert(data.Weather),
+                    TrackId = selectedEvent.Track.Name,
+                    SessionCounterMax = selectedEvent.CareerSessions.Count,
+                    SessionCounterCurrent = SeriesService.GetSessionIndex(seriesId, eventId, sessionId),
+                    EventCounterMax = selectedSeries.Events.Count,
+                    EventCounterCurrent = SeriesService.GetEventIndex(seriesId, eventId)
                 };
             }
             catch (Exception ex)

@@ -10,9 +10,6 @@ namespace Assetto.Common.DTO
     {
         public string Name { get; set; }
         public string FriendlyName { get; set; }
-        public string ImageUrl { get {
-                return "/Images/Classes/" + this.Name + ".jpg";
-            }
-        }
+        public string ImageUrl => "/Images/Classes/" + this.Name + ".png";
     }
 }

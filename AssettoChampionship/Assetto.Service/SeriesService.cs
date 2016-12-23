@@ -54,5 +54,20 @@ namespace Assetto.Service
         {
             return this.GetEvent(sessionId, eventId).Player.Skin.FriendlyName;
         }
+
+        public int GetSessionIndex(string seriesId, string eventId, string sessionId)
+        {
+            var selectedEvent = GetSeries(seriesId).Events.FirstOrDefault(e => e.Id == eventId);
+            return selectedEvent.CareerSessions.IndexOf(
+                    selectedEvent.CareerSessions.FirstOrDefault(s => s.Id == sessionId)
+                    ) + 1;
+        }
+
+        public int GetEventIndex(string seriesId, string eventId)
+        {
+            var selectedSeries = GetSeries(seriesId);
+            var selectedEvent = GetSeries(seriesId).Events.FirstOrDefault(e => e.Id == eventId);
+            return selectedSeries.Events.IndexOf(selectedEvent) + 1;
+        }
     }
 }

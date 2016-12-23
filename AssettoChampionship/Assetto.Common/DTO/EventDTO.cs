@@ -18,15 +18,15 @@ namespace Assetto.Common.DTO
         public bool IsDone { get; set; }
         public bool IsAvailable { get; set; }
 
+
+
         public string Track { get; set; }
+
+
+
         public string Layout { get; set; }
 
-        public bool IsLayoutAvailable {
-            get
-            {
-                return !string.IsNullOrEmpty(Layout); 
-            }
-        }
+        public bool IsLayoutAvailable => !string.IsNullOrEmpty(Layout);
         public int SessionsCount { get; set; }
 
         public List<SessionDTO> Sessions { get; set; }
