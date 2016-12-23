@@ -412,8 +412,7 @@
     <Resource Include="Images\Events\Formula3_RedBull.jpg" />
     <Resource Include="Images\Events\Formula3_PaulRicard.jpg" />
     <Resource Include="Images\Series\Abarth500.jpg" />
-    <Resource Include="Images\Paths\Path_Formula.jpg" />
-    <Resource Include="Images\Paths\Path_GT.jpg" />
+    <Resource Include="Images\Paths\Path_OW.jpg" />
     <Resource Include="Images\Paths\Path_Road.jpg" />
     <Resource Include="Images\Classes\GT3.png" />
     <Resource Include="Images\Tracks\BrandsHatch.png" />
@@ -424,6 +423,8 @@
     <Resource Include="Images\Classes\Abarth500.jpg" />
     <Resource Include="Images\Classes\Abarth500.png" />
     <Resource Include="Images\Tracks\magione.png" />
+    <Resource Include="Images\Paths\Path_Historic.jpg" />
+    <Resource Include="Images\Paths\Path_CW.jpg" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

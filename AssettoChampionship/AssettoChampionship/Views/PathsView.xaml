@@ -12,6 +12,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
         </Grid.ColumnDefinitions>
             
         <!--Paths are hard coded here-->
@@ -33,7 +35,12 @@
                            DataContext="{Binding Paths[2]}"
                            Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
+        </usercontrols:Path>
 
+        <usercontrols:Path Grid.Column="3" 
+                           DataContext="{Binding Paths[3]}"
+                           Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
+                           Margin="5">
         </usercontrols:Path>
 
     </Grid>

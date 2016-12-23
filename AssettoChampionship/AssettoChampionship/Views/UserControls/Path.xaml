@@ -14,8 +14,8 @@
         <TextBlock 
             HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25"
             Text="{Binding FriendlyName}"
-            FontWeight="SemiBold"
-            Foreground="White"  FontSize="42">
+            FontWeight="SemiBold" TextWrapping="Wrap"
+            Foreground="White"  FontSize="36">
             <TextBlock.Effect>
                 <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
             </TextBlock.Effect>
@@ -23,9 +23,9 @@
         <TextBlock 
             HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25" 
             Text="Coming soon"
-            FontWeight="Bold"
+            FontWeight="Bold" TextWrapping="Wrap" 
             Visibility="{Binding IsAvailable, Converter={StaticResource InvertAndVisibilitate}}"
-            Foreground="{StaticResource WarningColor}"  FontSize="30">
+            Foreground="{StaticResource WarningColor}"  FontSize="22">
         </TextBlock>
     </Grid>
 </UserControl>

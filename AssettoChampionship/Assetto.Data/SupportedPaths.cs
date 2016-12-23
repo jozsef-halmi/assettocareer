@@ -19,17 +19,23 @@ namespace Assetto.Data
                     },
                 new PathData()
                     {
-                        PathId = "Path_Formula",
-                        FriendlyName = "Formula"
+                        PathId = "Path_OW",
+                        FriendlyName = "Open Wheel"
                     },
                  new PathData()
                     {
-                        PathId = "Path_GT",
-                        FriendlyName = "GT",
+                        PathId = "Path_CW",
+                        FriendlyName = "Closed Wheel",
                         IsReadyToPlay = true,
                         Series = new List<SeriesData>() {
                             SupportedSeries.AbarthRaceSeries
                         }
+                    },
+                  new PathData()
+                    {
+                        PathId = "Path_Historic",
+                        FriendlyName = "Historic",
+                        IsReadyToPlay = false,
                     }
             };
         }

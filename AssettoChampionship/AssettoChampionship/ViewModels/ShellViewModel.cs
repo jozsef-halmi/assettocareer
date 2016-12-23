@@ -36,6 +36,7 @@ namespace AssettoChampionship.ViewModels
         public ILogService LogService { get; set; }
         public IConfigService ConfigService { get; set; }
 
+        #region Data
 
 
         private string _windowTitle;
@@ -110,6 +111,8 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        #endregion
+
         public ShellViewModel(
             IWindowManager windowManager
             , IEventAggregator eventAggregator
@@ -127,9 +130,9 @@ namespace AssettoChampionship.ViewModels
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
-            ShowMainPage();
+            //ShowMainPage();
             //ShowNextSession("Path_GT");
-            //ShowPaths();
+            ShowPaths();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
             LogService.Log("Startup");
         }

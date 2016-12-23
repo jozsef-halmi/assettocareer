@@ -12,10 +12,7 @@ namespace Assetto.Common.Data
         public string Name { get; set; }
         public string FriendlyName { get; set; }
 
-        public string ImageUrl
-        {
-            get { return "/Images/Series/" + Name + ".jpg"; }
-        }
+        public string ImageUrl => "/Images/Series/" + Name + ".png";
 
         public string Description { get; set; }
         public string VideoUrl { get; set; }
