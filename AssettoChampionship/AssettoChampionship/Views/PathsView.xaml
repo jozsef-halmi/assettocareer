@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AssettoChampionship.Views"
              xmlns:usercontrols="clr-namespace:AssettoChampionship.Views.UserControls"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Visibility="{Binding IsPathsAvailable, Converter={StaticResource BoolToVis}}" Margin="15">
@@ -21,26 +23,53 @@
                            DataContext="{Binding Paths[0]}"
                            Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
-            
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <cal:ActionMessage MethodName="SelectPath" >
+                        <cal:Parameter Value="{Binding PathId}" />
+                    </cal:ActionMessage>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
         </usercontrols:Path>
 
         <usercontrols:Path Grid.Column="1" 
                            DataContext="{Binding Paths[1]}"
                            Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
-
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <cal:ActionMessage MethodName="SelectPath" >
+                        <cal:Parameter Value="{Binding PathId}" />
+                    </cal:ActionMessage>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </usercontrols:Path>
 
         <usercontrols:Path Grid.Column="2" 
                            DataContext="{Binding Paths[2]}"
                            Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <cal:ActionMessage MethodName="SelectPath" >
+                        <cal:Parameter Value="{Binding PathId}" />
+                    </cal:ActionMessage>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </usercontrols:Path>
 
         <usercontrols:Path Grid.Column="3" 
                            DataContext="{Binding Paths[3]}"
                            Opacity="{Binding IsAvailable, Converter={StaticResource BoolToOpacityConverter}}"
                            Margin="5">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <cal:ActionMessage MethodName="SelectPath" >
+                        <cal:Parameter Value="{Binding PathId}" />
+                    </cal:ActionMessage>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </usercontrols:Path>
 
     </Grid>

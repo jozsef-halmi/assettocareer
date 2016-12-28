@@ -20,7 +20,8 @@ namespace Assetto.Common.Interfaces.Service
         string GetAcX86ProcessName();
         string GetAcX64ProcessName();
         string GetPlayerName();
-        string GetPath();
+        string GetSelectedPathId();
+        void SetSelectedPathId(string pathId);
 
         string GetSettingsFilePath();
 
@@ -29,5 +30,6 @@ namespace Assetto.Common.Interfaces.Service
         AppSettings CreateSettings();
         bool IsSettingsAvailable();
         bool IsSettingsValid();
+
     }
 }

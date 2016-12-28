@@ -59,11 +59,23 @@ namespace Assetto.Manager
         }
 
         private bool WriteSettingsToFile(AppSettings settings) {
-            FileService.WriteFile(ConfigService.GetSettingsFilePath(), JsonConvert.SerializeObject(settings));
+            FileService.WriteFile(ConfigService.GetSettingsFilePath(), 
+                JsonConvert.SerializeObject(settings, Formatting.Indented));
             ConfigService.SetSettings(settings);
             return true;
         }
 
+        public string GetSelectedPathId()
+        {
+            return ConfigService.GetSelectedPathId();
+        }
 
+        public void SetSelectedPathId(string pathId)
+        {
+            AppSettings settings = GetSettings();
+            ConfigService.SetSelectedPathId(pathId);
+            settings.SelectedPathId = pathId;
+            WriteSettingsToFile(settings);
+        }
     }
 }

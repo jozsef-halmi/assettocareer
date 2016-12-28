@@ -42,7 +42,6 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
-        private PathDTO _path;
         #endregion
 
         // Managers
@@ -50,29 +49,29 @@ namespace AssettoChampionship.ViewModels
         public IEventManager EventManager { get; set; }
         public IPathManager PathManager { get; set; }
         public ISeriesManager SeriesManager { get; set; }
+        private IConfigManager ConfigManager { get; set; }
 
         public NextSessionViewModel(
             IEventAggregator eventAggregator
             , IEventManager eventManager
             , IPathManager pathManager
-            , ISeriesManager seriesManager)
+            , ISeriesManager seriesManager
+            , IConfigManager configManager)
         {
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
             this.PathManager = pathManager;
             this.SeriesManager = seriesManager;
-        }
-
-        public void SetPath(string pathId)
-        {
-            _path = PathManager.GetPath(pathId);
+            this.ConfigManager = configManager;
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
-            this.NextSession = PathManager.GetNextSession(_path.PathId);
-            this.CurrentSeries = PathManager.GetNextSeries(_path.PathId);
+            string path = ConfigManager.GetSelectedPathId();
+            this.NextSession = PathManager.GetNextSession(path);
+            this.CurrentSeries = PathManager.GetNextSeries(path);
+
         }
     }
 }

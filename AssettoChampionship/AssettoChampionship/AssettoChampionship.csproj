@@ -145,6 +145,8 @@
     <Compile Include="Model\PageDto.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\INotificationService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Utils\AppConfigService.cs" />
     <Compile Include="Utils\OutlinedTextBlock.cs" />

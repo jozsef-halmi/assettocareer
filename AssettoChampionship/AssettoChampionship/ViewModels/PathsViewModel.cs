@@ -8,6 +8,7 @@ using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Manager;
 using Assetto.Common.Interfaces.Service;
 using Caliburn.Micro;
+using AssettoChampionship.Services;
 
 namespace AssettoChampionship.ViewModels
 {
@@ -43,18 +44,33 @@ namespace AssettoChampionship.ViewModels
 
         private IUtilsManager UtilsManager { get; set; }
         private IPathService PathService { get; set; }
+        private IConfigManager ConfigManager { get; set; }
+        private INavigationService NavigationService { get; set; }
 
         public PathsViewModel(IUtilsManager utilsManager,
-            IPathService pathService)
+            IPathService pathService,
+            IConfigManager configManager,
+            INavigationService navigationService)
         {
             this.UtilsManager = utilsManager;
             this.PathService = pathService;
+            this.ConfigManager = configManager;
+            this.NavigationService = navigationService;
         }
 
         private void GetPaths()
         {
             this.Paths =  PathService.GetPaths();
             IsPathsAvailable = this.Paths != null && this.Paths.Count > 0;
+        }
+
+        public void SelectPath(string pathId)
+        {
+            if (this.Paths.FirstOrDefault(p => p.PathId == pathId).IsAvailable == true)
+            {
+                ConfigManager.SetSelectedPathId(pathId);
+                NavigationService.ShowNextSession();
+            }
         }
 
         protected override void OnActivate()

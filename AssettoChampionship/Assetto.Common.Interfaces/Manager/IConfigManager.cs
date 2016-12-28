@@ -12,5 +12,8 @@ namespace Assetto.Common.Interfaces.Manager
         AppSettings GetSettings();
         bool SaveSettings(AppSettings settings);
 
+        string GetSelectedPathId();
+        void SetSelectedPathId(string pathId);
+
     }
 }

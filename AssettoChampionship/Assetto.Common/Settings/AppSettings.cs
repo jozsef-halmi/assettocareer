@@ -13,5 +13,7 @@ namespace Assetto.Common.Settings
         public string PlayerName { get; set; }
 
         public string DocumentsFolder { get; set; }
+
+        public string SelectedPathId { get; set; }
     }
 }

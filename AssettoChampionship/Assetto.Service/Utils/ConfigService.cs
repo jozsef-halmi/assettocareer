@@ -18,10 +18,8 @@ namespace Assetto.Service.Utils
         public const string SETTINGS_FILE = "settings.acc";
 
 
-        //string DocumentsFolder { get; set; }
         string RaceIniRelativePathToDocFolder { get; set; }
         string OutputLogRelativePathToDocFolder { get; set; }
-        //string AssettoCorsaInstallLoc { get; set; }
         string AssettoCorsaExeRelativePathToACFolder { get; set; }
 
         public AppSettings Settings { get; set; }
@@ -57,7 +55,8 @@ namespace Assetto.Service.Utils
                                          "C:\\Program Files (x86)\\Steam\\SteamApps\\common\\assettocorsa",
                 DocumentsFolder = settings.DocumentsFolder ??
                                   Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                PlayerName = settings.PlayerName ?? "Player"
+                PlayerName = settings.PlayerName ?? "Player",
+                SelectedPathId = settings.SelectedPathId
             };
         }
 
@@ -140,10 +139,14 @@ namespace Assetto.Service.Utils
 
         }
 
-        public string GetPath()
+        public string GetSelectedPathId()
         {
-            // TODO
-            return "Path_GT";
+            return this.Settings?.SelectedPathId;
+        }
+
+        public void SetSelectedPathId(string pathId)
+        {
+            this.Settings.SelectedPathId = pathId;
         }
     }
 }

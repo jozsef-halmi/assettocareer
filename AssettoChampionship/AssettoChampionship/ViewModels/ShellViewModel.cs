@@ -130,13 +130,13 @@ namespace AssettoChampionship.ViewModels
 
             this.EventAggregator.Subscribe(this); //You should Unsubscribe when message handling is no longer needed
             this.BackStack = new Stack<object>();
-            //ShowMainPage();
-            //ShowNextSession("Path_GT");
-            ShowPaths();
+
+            ShowMainPage();
             this.PageTitle = this.WindowTitle = "Assetto Corsa 3rd party career mode";
             LogService.Log("Startup");
         }
 
+   
 
         public void Handle(ChangePageMessage message)
         {
@@ -165,7 +165,7 @@ namespace AssettoChampionship.ViewModels
                     ShowSettings();
                     break;
                 case "NextSessionViewModel":
-                    ShowNextSession(message.Data.Parameter as string);
+                    ShowNextSession();
                     break;
                 default:
                     break;
@@ -174,27 +174,15 @@ namespace AssettoChampionship.ViewModels
 
         public void Handle(OpenDialogMessage message)
         {
-            //WindowManager.ShowDialog(Container.Resolve<LoadingViewModel>(), null,null);
             var loadingVM = Container.Resolve<LoadingViewModel>();
             ActivateItem(loadingVM);
             loadingVM.UpdateData(message.Data.Text, message.Data.ImageUrl);
-            //loadingVM.Text = message.Data.Text;
-
-
         }
 
         public void Handle(UpdateDialogMessage message)
         {
             var loadingVM = Container.Resolve<LoadingViewModel>();
-            //loadingVM.Text = message.Data.Text;
             loadingVM.UpdateData(message.Data.Text, message.Data.ImageUrl);
-
-            //var loadingVM = Container.Resolve<LoadingViewModel>();
-            //if (loadingVM.IsOpen)
-            //{
-            //    loadingVM.UpdateData(message.Data);
-
-            //}
         }
 
         private void OpenPage(object screen)
@@ -304,10 +292,9 @@ namespace AssettoChampionship.ViewModels
             OpenPage(pathsVM);
         }
 
-        public void ShowNextSession(string pathId)
+        public void ShowNextSession()
         {
             var nextSessionVM = Container.Resolve<NextSessionViewModel>();
-            nextSessionVM.SetPath(pathId);
             OpenPage(nextSessionVM);
         }
 
@@ -341,10 +328,22 @@ namespace AssettoChampionship.ViewModels
                 OpenSettings();
             }
             ConfigManager.GetSettings();
-
+            CheckPath();
             base.OnViewLoaded(view);
-           
+        }
 
+
+        public void CheckPath()
+        {
+            var selectedPath = this.ConfigManager.GetSelectedPathId();
+            if (!string.IsNullOrEmpty(selectedPath))
+            {
+                ShowNextSession();
+            }
+            else
+            {
+                ShowPaths();
+            }
         }
 
 
