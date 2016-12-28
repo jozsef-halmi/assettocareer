@@ -41,25 +41,21 @@ namespace AssettoChampionship.ViewModels
             base.OnActivate();
         }
 
-        public void OpenSeries() {
-            // this.EventAggregator.Publish(new ChangePageMessage(typeof(SeriesViewModel), new ChangePageParameters())
-            // , action =>
-            // {
-            //     Task.Factory.StartNew(action);
-            // }
-            //);
-
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(NextSessionViewModel), new ChangePageParameters() {
-                Parameter = "Path_GT"
-            })
-           , action =>
-           {
-               Task.Factory.StartNew(action);
-           }
-          );
+        public void ContinueCareer()
+        {
+            
         }
 
-     
+        public void ResetCareer()
+        {
+            
+        }
+
+        public void NewCareer()
+        {
+            
+        }
+
 
         #region callbacks
 

@@ -427,6 +427,9 @@
     <Resource Include="Images\Tracks\magione.png" />
     <Resource Include="Images\Paths\Path_Historic.jpg" />
     <Resource Include="Images\Paths\Path_CW.jpg" />
+    <Resource Include="Images\car_1.png" />
+    <Resource Include="Images\car_2.png" />
+    <Resource Include="Images\car_3.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

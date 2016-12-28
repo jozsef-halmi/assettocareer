@@ -14,5 +14,12 @@ namespace AssettoChampionship.Utils
         {
             return bool.Parse(ConfigurationManager.AppSettings["DebugMode"]);
         }
+
+        public static string VideoBaseUrl()
+        {
+            return ConfigurationManager.AppSettings["VideoUrl"];
+        }
+
+        
     }
 }

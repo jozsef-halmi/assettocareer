@@ -328,7 +328,7 @@ namespace AssettoChampionship.ViewModels
                 OpenSettings();
             }
             ConfigManager.GetSettings();
-            CheckPath();
+            //CheckPath();
             base.OnViewLoaded(view);
         }
 
