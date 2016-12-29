@@ -10,7 +10,7 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
             BorderThickness="0" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="600">
         <Grid Margin="25">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -23,28 +23,70 @@
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Images/car_1.png" Stretch="UniformToFill"></ImageBrush>
             </StackPanel.Background>
-            <TextBlock>New Career</TextBlock>
+            <TextBlock     
+                       Margin="0,25,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="SemiBold" 
+                TextWrapping="Wrap"
+                Foreground="White"  
+                FontSize="26"
+                >New Career
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                </TextBlock.Effect>
+            </TextBlock>
             <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
+                <i:EventTrigger EventName="MouseLeftButtonUp">
                     <cal:ActionMessage MethodName="NewCareer" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </StackPanel>
 
-        <StackPanel Grid.Column="1"  Margin="5">
+        <StackPanel Grid.Column="1" 
+                    Margin="5" 
+                    Opacity="{Binding IsContinueAvailable, Converter={StaticResource BoolToOpacityConverter}}">
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Images/car_2.png" Stretch="UniformToFill"></ImageBrush>
             </StackPanel.Background>
-            <TextBlock>Continue Career</TextBlock>
+            <TextBlock     
+                Margin="0,25,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="SemiBold" 
+                TextWrapping="Wrap"
+                Foreground="White"  
+                FontSize="26" >Continue Career
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                </TextBlock.Effect>
+            </TextBlock>
             <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
+                <i:EventTrigger EventName="MouseLeftButtonUp">
                     <cal:ActionMessage MethodName="ContinueCareer" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </StackPanel>
 
-
         <StackPanel Grid.Column="2"  Margin="5">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/car_3.png" Stretch="UniformToFill"></ImageBrush>
+            </StackPanel.Background>
+            <TextBlock  Margin="0,25,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="SemiBold" 
+                TextWrapping="Wrap"
+                Foreground="White"  
+                FontSize="26">Progress
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" Opacity="0.7"></Grid>
+        </StackPanel>
+
+        <!--<StackPanel Grid.Column="2"  Margin="5">
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Images/car_3.png" Stretch="UniformToFill"></ImageBrush>
             </StackPanel.Background>
@@ -54,7 +96,7 @@
                     <cal:ActionMessage MethodName="ResetCareer" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </StackPanel>
+        </StackPanel>-->
 
 
         <!--<Border Grid.Row="1"  Canvas.Left="55"

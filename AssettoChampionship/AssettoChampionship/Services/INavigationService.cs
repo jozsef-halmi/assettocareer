@@ -9,5 +9,6 @@ namespace AssettoChampionship.Services
     public interface INavigationService
     {
         void ShowNextSession();
+        void ShowPathSelector();
     }
 }

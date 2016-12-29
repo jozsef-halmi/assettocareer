@@ -2,6 +2,7 @@
 using Assetto.Common.DTO;
 using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
+using AssettoChampionship.Services;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 using System;
@@ -19,16 +20,39 @@ namespace AssettoChampionship.ViewModels
     public class MainViewModel : Screen
     {
         // Managers
-        public IEventAggregator EventAggregator { get; set; }
-        public IEventManager EventManager { get; set; }
+        private IEventAggregator EventAggregator { get; set; }
+        private IEventManager EventManager { get; set; }
+        private ISeriesManager SeriesManager { get; set; }
+        private IConfigManager ConfigManager { get; set; }
+
+        private INavigationService NavigationService { get; set; }
+
+        #region Data
+
+        private bool _isContinueAvailable;
+        public bool IsContinueAvailable { get {
+                return _isContinueAvailable;
+            }
+            set {
+                _isContinueAvailable = value;
+                NotifyOfPropertyChange(() => IsContinueAvailable);
+            }
+        }
+
+        #endregion
 
         public MainViewModel(
             IEventAggregator eventAggregator
-            , IEventManager eventManager)
+            , IEventManager eventManager
+            , ISeriesManager seriesManager
+            , IConfigManager configManager
+            , INavigationService navigationService)
         {
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
-
+            this.SeriesManager = seriesManager;
+            this.ConfigManager = configManager;
+            this.NavigationService = navigationService;
             this.EventManager.SubscribeEvents(this.ConfigurationStarted
                 , this.ConfigurationEnded
                 , this.ACProcessStarted
@@ -38,12 +62,21 @@ namespace AssettoChampionship.ViewModels
 
         protected override void OnActivate()
         {
+            var path = this.ConfigManager.GetSelectedPathId();
+            this.IsContinueAvailable = !string.IsNullOrEmpty(this.ConfigManager.GetSelectedPathId());
             base.OnActivate();
         }
 
         public void ContinueCareer()
         {
-            
+            if (this.IsContinueAvailable)
+            {
+                this.NavigationService.ShowNextSession();
+            }
+            else
+            {
+
+            }
         }
 
         public void ResetCareer()
@@ -53,7 +86,7 @@ namespace AssettoChampionship.ViewModels
 
         public void NewCareer()
         {
-            
+            this.NavigationService.ShowPathSelector();
         }
 
 

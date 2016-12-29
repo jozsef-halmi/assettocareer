@@ -54,6 +54,10 @@
         <Setter Property="FontSize" Value="14" />
     </Style>
 
+    <Style x:Key="BorderedImage" TargetType="Border">
+        <Setter Property="BorderBrush" Value="DarkGray"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+    </Style>
 
     <SolidColorBrush x:Key="WarningColor" Color="Orange" />
     <SolidColorBrush x:Key="ErrorColor" Color="Red" />

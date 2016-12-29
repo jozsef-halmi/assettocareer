@@ -23,5 +23,12 @@ namespace AssettoChampionship.Services
             {
             }), action => { Task.Factory.StartNew(action); });
         }
+
+        public void ShowPathSelector()
+        {
+            this.EventAggregator.Publish(new ChangePageMessage(typeof(PathsViewModel), new ChangePageParameters()
+            {
+            }), action => { Task.Factory.StartNew(action); });
+        }
     }
 }
