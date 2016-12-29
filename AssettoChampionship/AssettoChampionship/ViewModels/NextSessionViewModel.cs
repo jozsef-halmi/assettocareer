@@ -73,8 +73,8 @@ namespace AssettoChampionship.ViewModels
         {
             base.OnActivate();
             string path = ConfigManager.GetSelectedPathId();
-            this.NextSession = PathManager.GetNextSession(path);
-            this.CurrentSeries = PathManager.GetNextSeries(path);
+            this.NextSession = PathManager.GetCurrentSession(path);
+            this.CurrentSeries = PathManager.GetCurrentSeries(path);
             if (!CurrentSeries.IsStarted && !EventManager.IsVideoAlreadyWatched(CurrentSeries.VideoUrl))
             {
                 EventManager.VideoWatched(CurrentSeries.VideoUrl);

@@ -28,7 +28,7 @@ namespace Assetto.Manager
             };
         }
 
-        public SessionDTO GetNextSession(string pathId)
+        public SessionDTO GetCurrentSession(string pathId)
         {
             var path = GetPath(pathId);
             return SeriesManager.GetNextSession(
@@ -36,7 +36,8 @@ namespace Assetto.Manager
                 );
         }
 
-        public SeriesDTO GetNextSeries(string pathId) {
+
+        public SeriesDTO GetCurrentSeries(string pathId) {
             var path = GetPath(pathId);
             return SeriesManager.GetSeries(path.Series.FirstOrDefault(s => s.IsAvailable == true && s.IsDone != true).SeriesId);
         }

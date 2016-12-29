@@ -24,6 +24,7 @@ namespace AssettoChampionship.ViewModels
         private IEventManager EventManager { get; set; }
         private ISeriesManager SeriesManager { get; set; }
         private IConfigManager ConfigManager { get; set; }
+        private IPathManager PathManager { get; set; }
 
         private INavigationService NavigationService { get; set; }
 
@@ -39,6 +40,20 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        private SeriesDTO _pathProgress;
+        public SeriesDTO PathProgress
+        {
+            get
+            {
+                return _pathProgress;
+            }
+            set
+            {
+                _pathProgress = value;
+                NotifyOfPropertyChange(() => PathProgress);
+            }
+        }
+
         #endregion
 
         public MainViewModel(
@@ -46,14 +61,16 @@ namespace AssettoChampionship.ViewModels
             , IEventManager eventManager
             , ISeriesManager seriesManager
             , IConfigManager configManager
-            , INavigationService navigationService)
+            , INavigationService navigationService
+            , IPathManager pathManager)
         {
-            this.EventAggregator = eventAggregator;
-            this.EventManager = eventManager;
-            this.SeriesManager = seriesManager;
-            this.ConfigManager = configManager;
-            this.NavigationService = navigationService;
-            this.EventManager.SubscribeEvents(this.ConfigurationStarted
+            EventAggregator = eventAggregator;
+            EventManager = eventManager;
+            SeriesManager = seriesManager;
+            ConfigManager = configManager;
+            NavigationService = navigationService;
+            PathManager = pathManager;
+            EventManager.SubscribeEvents(this.ConfigurationStarted
                 , this.ConfigurationEnded
                 , this.ACProcessStarted
                 , this.ACProcessEnded);
@@ -63,8 +80,19 @@ namespace AssettoChampionship.ViewModels
         protected override void OnActivate()
         {
             var path = this.ConfigManager.GetSelectedPathId();
-            this.IsContinueAvailable = !string.IsNullOrEmpty(this.ConfigManager.GetSelectedPathId());
+            var isPathStarted = !string.IsNullOrEmpty(this.ConfigManager.GetSelectedPathId());
+            this.IsContinueAvailable = isPathStarted;
             base.OnActivate();
+            if (!ConfigManager.AreSettingsValid())
+            {
+                DialogService.ShowMessageBox("Configuration error! ", "It looks like you have some configuration errors. Please fix them first!");
+                NavigationService.ShowSettings();
+            }
+
+            if (isPathStarted)
+            {
+                PathProgress = PathManager.GetCurrentSeries(path);
+            }
         }
 
         public void ContinueCareer()

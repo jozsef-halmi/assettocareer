@@ -15,5 +15,7 @@ namespace Assetto.Common.Interfaces.Manager
         string GetSelectedPathId();
         void SetSelectedPathId(string pathId);
 
+        bool AreSettingsValid();
+
     }
 }

@@ -22,7 +22,7 @@ namespace AssettoChampionship.ViewModels
         public INotificationService NotificationService { get; set; }
         public IFileService FileService { get; set; }
         public IConfigService ConfigService { get; set; }
-        public IEventAggregator EventAggregator { get; set; }
+        private INavigationService NavigationService { get; set; }
 
         private AppSettings _settings;
         public AppSettings Settings {
@@ -70,13 +70,13 @@ namespace AssettoChampionship.ViewModels
             INotificationService notificationService,
             IFileService fileService,
             IConfigService configService,
-            IEventAggregator eventAggregator)
+            INavigationService navigationService)
         {
             ConfigManager = configManager;
             NotificationService = notificationService;
             FileService = fileService;
             ConfigService = configService;
-            EventAggregator = eventAggregator;
+            navigationService = navigationService;
         }
 
         private void RefreshData()
@@ -101,7 +101,7 @@ namespace AssettoChampionship.ViewModels
             if (ConfigManager.SaveSettings(Settings))
             {
                 NotificationService.ShowMessage("Settings have been saved.");
-                this.EventAggregator.Publish(new GoBackMessage(), action => { Task.Factory.StartNew(action); });
+                NavigationService.ShowMain();
             }
             else
             {

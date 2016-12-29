@@ -329,11 +329,15 @@ namespace AssettoChampionship.ViewModels
             {
                 DialogService.ShowMessageBox("Welcome! ", "It looks like you haven't set your Assetto Corsa install location. Please take the time and do that!");
                 OpenSettings();
+                ConfigManager.GetSettings();
             }
-            ConfigManager.GetSettings();
+            else
+            {
+                ConfigManager.GetSettings();
+                ShowMainPage();
+            }
             //CheckPath();
             base.OnViewLoaded(view);
-            ShowMainPage();
 
         }
 

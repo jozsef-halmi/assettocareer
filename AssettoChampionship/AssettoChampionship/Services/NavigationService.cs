@@ -19,23 +19,35 @@ namespace AssettoChampionship.Services
             this.EventAggregator = eventAggregator;
         }
 
+        public void ShowMain()
+        {
+            ParameterlessNavigation(typeof(MainViewModel));
+        }
+
+        public void ShowSettings()
+        {
+            ParameterlessNavigation(typeof(SettingsViewModel));
+        }
+
         public void ShowNextSession() {
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(NextSessionViewModel), new ChangePageParameters()
-            {
-            }), action => { Task.Factory.StartNew(action); });
+            ParameterlessNavigation(typeof(NextSessionViewModel));
         }
 
         public void ShowPathSelector()
         {
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(PathsViewModel), new ChangePageParameters()
-            {
-            }), action => { Task.Factory.StartNew(action); });
+            ParameterlessNavigation(typeof(PathsViewModel));
         }
 
         public void ShowVideo(string videoUrl) {
             this.EventAggregator.Publish(new ChangePageMessage(typeof(VideoViewModel), new ChangePageParameters()
             {
                 Parameter = videoUrl
+            }), action => { Task.Factory.StartNew(action); });
+        }
+
+        private void ParameterlessNavigation(Type vmType) {
+            this.EventAggregator.Publish(new ChangePageMessage(vmType, new ChangePageParameters()
+            {
             }), action => { Task.Factory.StartNew(action); });
         }
     }

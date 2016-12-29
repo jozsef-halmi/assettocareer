@@ -77,5 +77,10 @@ namespace Assetto.Manager
             settings.SelectedPathId = pathId;
             WriteSettingsToFile(settings);
         }
+
+        public bool AreSettingsValid()
+        {
+            return ConfigService.IsSettingsValid();
+        }
     }
 }

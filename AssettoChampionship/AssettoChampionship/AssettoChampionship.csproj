@@ -417,7 +417,7 @@
     <Resource Include="Images\Paths\Path_OW.jpg" />
     <Resource Include="Images\Paths\Path_Road.jpg" />
     <Resource Include="Images\Classes\GT3.png" />
-    <Resource Include="Images\Tracks\BrandsHatch.png" />
+    <Resource Include="Images\Tracks\ks_brands_hatch.png" />
     <Resource Include="Images\Series\LMP2.png" />
     <Resource Include="Images\Tracks\Barcelona.jpg" />
     <Resource Include="Images\Tracks\Mugello.png" />

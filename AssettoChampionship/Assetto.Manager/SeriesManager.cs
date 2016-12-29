@@ -297,5 +297,6 @@ namespace Assetto.Manager
             var nextEvent = series.Events.FirstOrDefault(e => e.Sessions.Any(s => s.IsDone != true && s.IsAvailable == true));
             return nextEvent.Sessions.FirstOrDefault(s => s.IsDone != true && s.IsAvailable == true);
         }
+
     }
 }

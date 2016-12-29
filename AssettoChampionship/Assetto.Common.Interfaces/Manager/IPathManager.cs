@@ -10,7 +10,7 @@ namespace Assetto.Common.Interfaces.Manager
     public interface IPathManager
     {
         PathDTO GetPath(string pathId);
-        SessionDTO GetNextSession(string pathId);
-        SeriesDTO GetNextSeries(string pathId);
+        SessionDTO GetCurrentSession(string pathId);
+        SeriesDTO GetCurrentSeries(string pathId);
     }
 }

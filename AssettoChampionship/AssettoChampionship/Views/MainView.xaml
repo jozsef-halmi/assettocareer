@@ -17,13 +17,15 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
 
-        <StackPanel Grid.Column="0" Margin="5">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="/Images/car_1.png" Stretch="UniformToFill"></ImageBrush>
-            </StackPanel.Background>
-            <TextBlock     
+        <Border Grid.Column="0" Margin="3"
+                Style="{StaticResource BorderedImage}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <StackPanel Grid.Column="0" Margin="5">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/car_1.png" Stretch="UniformToFill"></ImageBrush>
+                </StackPanel.Background>
+                <TextBlock     
                        Margin="0,25,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -32,24 +34,28 @@
                 Foreground="White"  
                 FontSize="26"
                 >New Career
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
-                </TextBlock.Effect>
-            </TextBlock>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonUp">
-                    <cal:ActionMessage MethodName="NewCareer" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </StackPanel>
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <cal:ActionMessage MethodName="NewCareer" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </StackPanel>
+        </Border>
 
-        <StackPanel Grid.Column="1" 
+        <Border Grid.Column="1" Margin="3"
+                Style="{StaticResource BorderedImage}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <StackPanel Grid.Column="1" 
                     Margin="5" 
                     Opacity="{Binding IsContinueAvailable, Converter={StaticResource BoolToOpacityConverter}}">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="/Images/car_2.png" Stretch="UniformToFill"></ImageBrush>
-            </StackPanel.Background>
-            <TextBlock     
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/car_2.png" Stretch="UniformToFill"></ImageBrush>
+                </StackPanel.Background>
+                <TextBlock     
                 Margin="0,25,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -57,34 +63,83 @@
                 TextWrapping="Wrap"
                 Foreground="White"  
                 FontSize="26" >Continue Career
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
-                </TextBlock.Effect>
-            </TextBlock>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonUp">
-                    <cal:ActionMessage MethodName="ContinueCareer" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </StackPanel>
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <cal:ActionMessage MethodName="ContinueCareer" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </StackPanel>
 
-        <StackPanel Grid.Column="2"  Margin="5">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="/Images/car_3.png" Stretch="UniformToFill"></ImageBrush>
-            </StackPanel.Background>
-            <TextBlock  Margin="0,25,0,0"
+        </Border>
+
+        <Border Grid.Column="2" Margin="3"
+                Style="{StaticResource BorderedImage}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <StackPanel Grid.Column="2"  Margin="5">
+                <!--<StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/car_3.png" Stretch="UniformToFill"></ImageBrush>
+                </StackPanel.Background>-->
+                <TextBlock  Margin="0,25,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontWeight="SemiBold" 
                 TextWrapping="Wrap"
                 Foreground="White"  
                 FontSize="26">Progress
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
-                </TextBlock.Effect>
-            </TextBlock>
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" Opacity="0.7"></Grid>
-        </StackPanel>
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="Gray" Opacity="0.4">
+                        </SolidColorBrush>
+                    </StackPanel.Background>
+                    <TextBlock Text="{Binding PathProgress.Title}"
+                            TextWrapping="Wrap"
+                            Foreground="White"  
+                            FontSize="20">
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <ItemsControl ItemsSource="{Binding PathProgress.Events}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ObjectiveTitle}" 
+                                           >
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect ShadowDepth="1" BlurRadius="1" Color="#FF000000" />
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                    <Image Margin="5,0,0,0" Width="20px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
+                                                ></Image>
+                                    <!--<ItemsControl ItemsSource="{Binding Sessions}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="5,0,0,0">
+                                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" ></TextBlock>
+                                                <Image Margin="5,0,0,0" Width="20px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                                                Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
+                                                ></Image>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
 
         <!--<StackPanel Grid.Column="2"  Margin="5">
             <StackPanel.Background>

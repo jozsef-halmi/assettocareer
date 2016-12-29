@@ -8,6 +8,8 @@ namespace AssettoChampionship.Services
 {
     public interface INavigationService
     {
+        void ShowMain();
+        void ShowSettings();
         void ShowNextSession();
         void ShowPathSelector();
         void ShowVideo(string videoUrl);

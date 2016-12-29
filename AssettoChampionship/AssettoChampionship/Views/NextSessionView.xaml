@@ -15,8 +15,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>  
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
         
         <!--Series Image-->
@@ -152,40 +152,40 @@
                 Style="{StaticResource BorderedImage}"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <StackPanel Margin="5">
-                    <TextBlock Style="{StaticResource ListBoxSubTitle}">Goals</TextBlock>
-                <ListView ItemsSource="{Binding NextSession.Objectives}" >
-                    <ListView.Background>
-                        <SolidColorBrush  Color="Transparent"></SolidColorBrush>
-                    </ListView.Background>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid HorizontalAlignment="Stretch">
-                                <Grid.ToolTip>
-                                    <ToolTip Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}">
-                                        <TextBlock Text="{Binding DoneText}"
+                        <TextBlock Style="{StaticResource ListBoxSubTitle}">Goals</TextBlock>
+                        <ListView ItemsSource="{Binding NextSession.Objectives}" >
+                            <ListView.Background>
+                                <SolidColorBrush  Color="Transparent"></SolidColorBrush>
+                            </ListView.Background>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalAlignment="Stretch">
+                                        <Grid.ToolTip>
+                                            <ToolTip Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}">
+                                                <TextBlock Text="{Binding DoneText}"
                                                            
                                                            
                                                            ></TextBlock>
-                                    </ToolTip>
-                                </Grid.ToolTip>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Text}" 
+                                            </ToolTip>
+                                        </Grid.ToolTip>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="6*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Text}" 
                                                      Style="{StaticResource ObjectiveTitle}"
                                                    ></TextBlock>
-                                <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_off.png"
+                                        <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_off.png" Height="20px"
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource InvertAndVisibilitate}}"
                                                 ></Image>
-                                <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_on.png"
+                                        <Image Grid.Column="1" HorizontalAlignment="Right" Source="/Images/checkbox_on.png" Height="20px"
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
                                                 ></Image>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
             </Border>
 
         </Grid>
