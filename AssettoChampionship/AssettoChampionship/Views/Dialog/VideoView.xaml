@@ -20,6 +20,9 @@
                 <i:EventTrigger EventName="MediaEnded">
                     <cal:ActionMessage MethodName="VideoEnd" />
                 </i:EventTrigger>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <cal:ActionMessage MethodName="VideoEnd" />
+                </i:EventTrigger>
             </i:Interaction.Triggers>
         </MediaElement>
     </Grid>

@@ -28,7 +28,7 @@ BorderThickness="0"
     </Window.Background>-->
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="27*"></RowDefinition>
 
@@ -40,8 +40,8 @@ BorderThickness="0"
                 <ColumnDefinition Width="2*"></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Button Width="48" Grid.Column="0" HorizontalAlignment="Left"
-                        Height="48"
+            <Button Width="35" Grid.Column="0" HorizontalAlignment="Left"
+                        Height="35"
                         Margin="4"
                         IsEnabled="False"
                         Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
@@ -62,9 +62,9 @@ BorderThickness="0"
                         Margin="10"></TextBlock>
             
             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Width="48" 
+                <Button Width="35" 
                     HorizontalAlignment="Right"
-                        Height="48"
+                        Height="35"
                         Margin="4"
                         Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
                 <i:Interaction.Triggers>
@@ -76,9 +76,9 @@ BorderThickness="0"
                                               Height="20"
                                               Kind="Information" />
                 </Button>
-                <Button Width="48" 
+                <Button Width="35" 
                     HorizontalAlignment="Right"
-                        Height="48"
+                        Height="35"
                         Margin="4"
                         Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
                     <i:Interaction.Triggers>
@@ -112,13 +112,13 @@ From="1.0" To="0.0" BeginTime="0:0:5" />
                 </EventTrigger>
             </TextBlock.Triggers>-->
         </TextBlock>
-        <ScrollViewer  Grid.Row="2">
-            <Controls:TransitioningContentControl 
+        <!--<ScrollViewer  Grid.Row="2">-->
+        <Controls:TransitioningContentControl  Grid.Row="2"
             Transition="Down"
             x:Name="ActiveItem"
             >
             </Controls:TransitioningContentControl>
-        </ScrollViewer>
+        <!--</ScrollViewer>-->
      
 
     </Grid>

@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Interfaces.Service;
 using Assetto.Service;
+using AssettoChampionship.Services;
 
 namespace AssettoChampionship.ViewModels
 {
     public class ResultsViewModel : PropertyChangedBase
     {
+        #region Data
         private ResultDTO _result;
 
         public ResultDTO Result
@@ -38,11 +40,16 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
-        public ILogService LogService { get; set; }
+        #endregion
 
-        public ResultsViewModel(ILogService logService)
+        private ILogService LogService { get; set; }
+        private INavigationService NavigationService { get; set; }
+
+        public ResultsViewModel(ILogService logService,
+            INavigationService naviService)
         {
             this.LogService = logService;
+            this.NavigationService = naviService;
         }
 
         public void SetResults(ACExeTerminatedDTO acTerminatedDto)
@@ -57,6 +64,10 @@ namespace AssettoChampionship.ViewModels
                 LogService.Error($"Error while displaying results, result: {acTerminatedDto?.Result}, exception: {ex}");
             }
 
+        }
+
+        public void Continue() {
+            this.NavigationService.ShowNextSession();
         }
     }
 }

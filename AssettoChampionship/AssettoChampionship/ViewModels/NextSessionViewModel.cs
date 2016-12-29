@@ -2,6 +2,7 @@
 using Assetto.Common.DTO;
 using Assetto.Common.Framework;
 using Assetto.Common.Interfaces.Manager;
+using AssettoChampionship.Services;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 using System;
@@ -50,19 +51,22 @@ namespace AssettoChampionship.ViewModels
         public IPathManager PathManager { get; set; }
         public ISeriesManager SeriesManager { get; set; }
         private IConfigManager ConfigManager { get; set; }
+        private INavigationService NavigationService { get; set; }
 
         public NextSessionViewModel(
             IEventAggregator eventAggregator
             , IEventManager eventManager
             , IPathManager pathManager
             , ISeriesManager seriesManager
-            , IConfigManager configManager)
+            , IConfigManager configManager
+            , INavigationService navigationService)
         {
             this.EventAggregator = eventAggregator;
             this.EventManager = eventManager;
             this.PathManager = pathManager;
             this.SeriesManager = seriesManager;
             this.ConfigManager = configManager;
+            this.NavigationService = navigationService;
         }
 
         protected override void OnActivate()
@@ -71,7 +75,15 @@ namespace AssettoChampionship.ViewModels
             string path = ConfigManager.GetSelectedPathId();
             this.NextSession = PathManager.GetNextSession(path);
             this.CurrentSeries = PathManager.GetNextSeries(path);
+            if (!CurrentSeries.IsStarted && !EventManager.IsVideoAlreadyWatched(CurrentSeries.VideoUrl))
+            {
+                EventManager.VideoWatched(CurrentSeries.VideoUrl);
+                NavigationService.ShowVideo(CurrentSeries.VideoUrl);
+            }
+        }
 
+        public void StartSession() {
+            EventManager.StartEvent(this.NextSession.SeriesId, this.NextSession.EventId, this.NextSession.SessionId);
         }
     }
 }

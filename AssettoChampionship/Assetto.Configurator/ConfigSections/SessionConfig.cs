@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.Extensions;
+using System.Configuration;
 
 namespace Assetto.Configurator.ConfigSections
 {
@@ -33,7 +34,8 @@ namespace Assetto.Configurator.ConfigSections
             }
             else if (this.SessionData.SessionType == Common.Enum.SessionType.Race)
             {
-                sb.AppendLine("LAPS="+this.SessionData.Laps);
+                var lapsCount = !bool.Parse(ConfigurationManager.AppSettings["DebugMode"]) ? this.SessionData.Laps : 1;
+                sb.AppendLine("LAPS="+ lapsCount);
                 sb.AppendLine("SPAWN_SET=START");
                 sb.AppendLine("STARTING_POSITION="+this.SessionData.StartingPosition);
                 // TODO: Starting Pos

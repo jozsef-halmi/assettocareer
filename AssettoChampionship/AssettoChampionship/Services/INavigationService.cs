@@ -10,5 +10,6 @@ namespace AssettoChampionship.Services
     {
         void ShowNextSession();
         void ShowPathSelector();
+        void ShowVideo(string videoUrl);
     }
 }

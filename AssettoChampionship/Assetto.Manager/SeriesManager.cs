@@ -177,12 +177,14 @@ namespace Assetto.Manager
                 var result = SaveService.LoadResult(seriesId, eventId, sessionId);
                 return new SessionDTO()
                 {
+                    SeriesId = seriesId,
+                    EventId = eventId,
+                    SessionId = data.Id,
                     Title = data.FriendlyName,
                     Description = data.FriendlyName, // todo
                     ImageUrl = data.ImageUrl,
                     IsDone = data.PrimarySessionObjectives.Count() == GetAchievedGoalsCount(seriesId, eventId, data.Id),
                     IsAvailable = IsSessionAvailable(seriesId, eventId, sessionId),
-                    SessionId = data.Id,
                     Objectives = data.PrimarySessionObjectives.Select(pso => new ObjectiveDTO()
                     {
                         IsDone = pso.Evaluate(result),
