@@ -8,13 +8,44 @@
              xmlns:local="clr-namespace:AssettoChampionship.Views"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
-        <StackPanel Margin="15">
-            <TextBlock HorizontalAlignment="Center" Text="{Binding CurrentSeries.Title, FallbackValue=Series}" Style="{StaticResource PageTitle}" />
-            <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <ItemsControl ItemsSource="{Binding Players}" Margin="10,20,10,0">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="{Binding CurrentSeries.Title, FallbackValue=Series}" Style="{StaticResource PageTitle}" />
+            <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                    <Grid Margin="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="White" Grid.Column="1" >
+
+                        <TextBlock Text="Name" TextWrapping="Wrap" 
+                               Style="{StaticResource ListBoxSubTitle}"
+                               FontWeight="Bold"
+                               ></TextBlock>
+                    </Border>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="White" Grid.Column="2" >
+
+                        <TextBlock Text="Points" TextWrapping="Wrap" 
+                                           Style="{StaticResource ListBoxSubTitle}"
+                                           HorizontalAlignment="Right"
+                                            FontWeight="Bold"
+                                           ></TextBlock>
+                    </Border>
+
+                </Grid>
+
+                <ItemsControl ItemsSource="{Binding Players}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="5">
+                            <Grid Margin="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="3*"></ColumnDefinition>
                                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -22,14 +53,18 @@
                                     <ColumnDefinition Width="3*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource ListBoxSubTitle}"></TextBlock>
-                                <TextBlock Grid.Column="2" Text="{Binding Points}" TextWrapping="Wrap" Style="{StaticResource ListBoxSubTitle}"></TextBlock>
+                                <TextBlock Grid.Column="2" Text="{Binding Points}" TextWrapping="Wrap" 
+                                           Style="{StaticResource ListBoxSubTitle}"
+                                           HorizontalAlignment="Right"
+                                           ></TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
 
+            </StackPanel>
             </ScrollViewer>
-            <Button Content="continue" Margin="15" MinWidth="150" MaxWidth="250" HorizontalAlignment="Right"
+            <Button Grid.Row="2" Content="continue" Margin="15" MinWidth="150" MaxWidth="250" HorizontalAlignment="Right"
                  Style="{DynamicResource SquareButtonStyle}"
                 >
                 <i:Interaction.Triggers>
@@ -38,5 +73,5 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
-        </StackPanel>
+        </Grid>
 </UserControl>

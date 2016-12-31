@@ -23,7 +23,7 @@
         <Border Grid.Column="0" Grid.Row="0"  Margin="3"
                 Style="{StaticResource BorderedImage}"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
-            <Image Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            <Image Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                Source="{Binding CurrentSeries.ImageUrl}" MaxHeight="450"
              Stretch="UniformToFill"></Image>
         </Border>
