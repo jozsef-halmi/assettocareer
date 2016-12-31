@@ -157,6 +157,7 @@
     <Compile Include="ViewModels\Dialog\VideoViewModel.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\StandingsViewModel.cs" />
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\SeriesViewModel.cs" />
@@ -176,6 +177,9 @@
     </Compile>
     <Compile Include="Views\PathsView.xaml.cs">
       <DependentUpon>PathsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StandingsView.xaml.cs">
+      <DependentUpon>StandingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResultsView.xaml.cs">
       <DependentUpon>ResultsView.xaml</DependentUpon>
@@ -250,6 +254,10 @@
     <Page Include="Views\PathsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StandingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ResultsView.xaml">
       <SubType>Designer</SubType>

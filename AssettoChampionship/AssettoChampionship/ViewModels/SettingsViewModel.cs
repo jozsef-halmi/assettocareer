@@ -76,7 +76,7 @@ namespace AssettoChampionship.ViewModels
             NotificationService = notificationService;
             FileService = fileService;
             ConfigService = configService;
-            navigationService = navigationService;
+            NavigationService = navigationService;
         }
 
         private void RefreshData()

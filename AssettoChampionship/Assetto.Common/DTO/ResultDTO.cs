@@ -21,11 +21,11 @@ namespace Assetto.Common.DTO
 
         public string BestLap { get
             {
-                return this.Players.OrderBy(p => p.BestLap).First().BestLapTimeSpan;
+                return this.Players.Where(p => p.BestLap > 0).OrderBy(p => p.BestLap).First().BestLapTimeSpan;
             }
         }
         public string BestLapOwner { get {
-                return this.Players.OrderBy(p => p.BestLap).First().Name;
+                return this.Players.Where(p => p.BestLap > 0).OrderBy(p => p.BestLap).First().Name;
             }
         }
 

@@ -83,16 +83,19 @@ namespace AssettoChampionship.ViewModels
             var isPathStarted = !string.IsNullOrEmpty(this.ConfigManager.GetSelectedPathId());
             this.IsContinueAvailable = isPathStarted;
             base.OnActivate();
+          
+            if (isPathStarted)
+            {
+                PathProgress = PathManager.GetCurrentSeries(path);
+            }
+
             if (!ConfigManager.AreSettingsValid())
             {
                 DialogService.ShowMessageBox("Configuration error! ", "It looks like you have some configuration errors. Please fix them first!");
                 NavigationService.ShowSettings();
             }
 
-            if (isPathStarted)
-            {
-                PathProgress = PathManager.GetCurrentSeries(path);
-            }
+
         }
 
         public void ContinueCareer()

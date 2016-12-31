@@ -14,24 +14,24 @@ using Assetto.Common.Interfaces.Manager;
 
 namespace AssettoChampionship.ViewModels
 {
-    public class ResultsViewModel : PropertyChangedBase
+    public class StandingsViewModel : Screen
     {
         #region Data
-        private ResultDTO _result;
+        private SeriesDTO _currentSeries;
 
-        public ResultDTO Result
+        public SeriesDTO CurrentSeries
         {
-            get { return _result; }
+            get { return _currentSeries; }
             set
             {
-                _result = value;
-                NotifyOfPropertyChange(() => Result);
+                _currentSeries = value;
+                NotifyOfPropertyChange(() => CurrentSeries);
             }
         }
 
-        private BindableCollection<ResultPlayer> _players;
+        private BindableCollection<ChampionshipPlayerDTO> _players;
 
-        public BindableCollection<ResultPlayer> Players
+        public BindableCollection<ChampionshipPlayerDTO> Players
         {
             get { return _players; }
             set
@@ -48,7 +48,7 @@ namespace AssettoChampionship.ViewModels
         private IConfigManager ConfigManager { get; set; }
         private IPathManager PathManager { get; set; }
 
-        public ResultsViewModel(ILogService logService,
+        public StandingsViewModel(ILogService logService,
             INavigationService naviService,
             IConfigManager configManager,
             IPathManager pathManager)
@@ -59,23 +59,17 @@ namespace AssettoChampionship.ViewModels
             this.PathManager = pathManager;
         }
 
-        public void SetResults(ACExeTerminatedDTO acTerminatedDto)
+        protected override void OnActivate()
         {
-            try
-            {
-                Result = acTerminatedDto.Result;
-                this.Players = new BindableCollection<ResultPlayer>(Result.Players);
-            }
-            catch (Exception ex)
-            {
-                LogService.Error($"Error while displaying results, result: {acTerminatedDto?.Result}, exception: {ex}");
-            }
-            var series = PathManager.GetCurrentSeries(ConfigManager.GetSelectedPathId());
-
+            CurrentSeries = PathManager.GetCurrentSeries(ConfigManager.GetSelectedPathId());
+            Players = new BindableCollection<ChampionshipPlayerDTO>(CurrentSeries.Standings);
+            base.OnActivate();
         }
 
+
+
         public void Continue() {
-            this.NavigationService.ShowStandings();
+            this.NavigationService.ShowNextSession();
         }
     }
 }

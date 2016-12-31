@@ -36,7 +36,31 @@ namespace Assetto.Service
 
             foreach (var seriesEvent in series.Events)
             {
-                foreach (var session in seriesEvent.CareerSessions)
+                // Fill opponents
+                foreach (var opponent in seriesEvent.Opponents)
+                {
+                    if (!standings.Any(s => s.Name == opponent.Name))
+                    {
+                        standings.Add(new ChampionshipPlayerDTO()
+                        {
+                            Name = opponent.Name,
+                            Points = 0
+                        });
+                    }
+                }
+
+                // Fill player
+                if (!standings.Any(s => s.Name == seriesEvent.Player.Name))
+                {
+                    standings.Add(new ChampionshipPlayerDTO()
+                    {
+                        Name = seriesEvent.Player.Name,
+                        Points = 0
+                    });
+                }
+
+
+                    foreach (var session in seriesEvent.CareerSessions)
                 {
                     var sessionResult = SaveService.LoadResult(series.Id, seriesEvent.Id, session.Id);
                     if (sessionResult != null)

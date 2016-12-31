@@ -50,5 +50,15 @@ namespace AssettoChampionship.Services
             {
             }), action => { Task.Factory.StartNew(action); });
         }
+
+        public void ShowResults()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowStandings()
+        {
+            ParameterlessNavigation(typeof(StandingsViewModel));
+        }
     }
 }

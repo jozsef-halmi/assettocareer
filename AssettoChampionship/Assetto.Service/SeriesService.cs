@@ -42,7 +42,7 @@ namespace Assetto.Service
 
         public string GetFriendlySkinNameForPlayer(string sessionId, string eventId)
         {
-            return this.GetEvent(sessionId, eventId).Player.Car.FriendlyName;
+            return this.GetEvent(sessionId, eventId).Player.Skin.FriendlyName;
         }
 
         public string GetFriendlyCarNameForOpponent(string sessionId, string eventId, string playerName)
@@ -52,7 +52,7 @@ namespace Assetto.Service
 
         public string GetFriendlyCarNameForPlayer(string sessionId, string eventId)
         {
-            return this.GetEvent(sessionId, eventId).Player.Skin.FriendlyName;
+            return this.GetEvent(sessionId, eventId).Player.Car.FriendlyName;
         }
 
         public int GetSessionIndex(string seriesId, string eventId, string sessionId)

@@ -91,7 +91,7 @@ namespace Assetto.Manager
                 LogService.Log("Configuration end..");
                 this.ConfigurationEnded?.Invoke(new object());
 
-                StartAssettoCorsa();
+                //StartAssettoCorsa();
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ namespace Assetto.Manager
 
             }
 
-            //ReturnResult();
+            ReturnResult();
         }
 
 
@@ -225,7 +225,9 @@ namespace Assetto.Manager
                         Skin = p.IsPlayer == false
                         ? SeriesService.GetFriendlySkinNameForOpponent(seriesId, eventId, p.Name)
                         : SeriesService.GetFriendlySkinNameForPlayer(seriesId, eventId),
-                        Gap = p.Position == 1 ? 0 : result.Players.FirstOrDefault(rp => rp.Position == 1).TotalTime - p.TotalTime 
+                        Gap = (result.SessionType == Common.Enum.SessionType.Race) 
+                        ? p.Position == 1 ? 0 : result.Players.FirstOrDefault(rp => rp.Position == 1).TotalTime - p.TotalTime
+                        : p.Position == 1 ? 0 : result.Players.FirstOrDefault(rp => rp.Position == 1).BestLap - p.BestLap
                     }).ToList(),
                     SessionType = result.SessionType,
                     Track = result.Track

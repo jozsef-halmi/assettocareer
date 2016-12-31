@@ -155,6 +155,9 @@ namespace AssettoChampionship.ViewModels
                 case "ResultsViewModel":
                     ShowResultsPage(message.Data);
                     break;
+                case "StandingsViewModel":
+                    ShowStandingsPage();
+                    break;
                 case "VideoViewModel":
                     ShowVideoPage(message.Data);
                     break;
@@ -267,6 +270,12 @@ namespace AssettoChampionship.ViewModels
             var resultsVM = Container.Resolve<ResultsViewModel>();
             ActivateItem(resultsVM);
             resultsVM.SetResults(parameters.ACExeTerminatedDto);
+        }
+
+        public void ShowStandingsPage()
+        {
+            var resultsVM = Container.Resolve<StandingsViewModel>();
+            ActivateItem(resultsVM);
         }
 
         public void ShowVideoPage(ChangePageParameters parameters)
