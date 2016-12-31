@@ -9,6 +9,13 @@ namespace Assetto.Data
 {
     public static class SupportedClasses
     {
+
+        public static ClassData Mx5 = new ClassData()
+        {
+            Name = "Mx5",
+            FriendlyName = "MX-5 Cup"
+        };
+
         public static ClassData Abarth = new ClassData()
         {
             Name = "Abarth500",

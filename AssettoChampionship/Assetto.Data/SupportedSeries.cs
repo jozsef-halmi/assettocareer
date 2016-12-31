@@ -11,13 +11,27 @@ namespace Assetto.Data
     {
         public static List<SeriesData> GetAvailableSeries() {
             return new List<SeriesData>() {
+               SupportedSeries.MX5Series,
                SupportedSeries.AbarthRaceSeries,
                SupportedSeries.Formula3Series
             };
         }
 
+        public static SeriesData MX5Series = new SeriesData()
+        {
+            Id = "MX5EuropenSeries",
+            Name = "Mx5",
+            FriendlyName = "MX-5 European Cup",
+            Description = "The MX-5 Europen Cup is an entry-level series, which will be your first step in your career. The series take place in European countries, such as Italy, England, Austria and Poland. The tracks are short, the opponents are tough - You are going to have some serious challenges and wheel-to-wheel fights. Good luck and have fun, driver!",
+            VideoUrl = "Videos/Abarth500.mp4",
+            Events = new List<EventData>() {
+                SupportedEvents.Abarth500RaceEvent1,
+            },
+            Class = SupportedClasses.Mx5
+        };
 
-        // return EventData here
+        #region NotUsed
+
         public static SeriesData AbarthRaceSeries = new SeriesData()
         {
             Id = "Abarth500RaceSeries"
@@ -56,5 +70,6 @@ namespace Assetto.Data
             }
         };
 
+        #endregion
     }
 }

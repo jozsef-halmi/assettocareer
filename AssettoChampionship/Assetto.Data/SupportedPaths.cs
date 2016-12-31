@@ -28,7 +28,8 @@ namespace Assetto.Data
                         FriendlyName = "Closed Wheel",
                         IsReadyToPlay = true,
                         Series = new List<SeriesData>() {
-                            SupportedSeries.AbarthRaceSeries
+                            SupportedSeries.MX5Series
+                            //SupportedSeries.AbarthRaceSeries
                         }
                     },
                   new PathData()
