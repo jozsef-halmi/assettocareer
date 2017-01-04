@@ -10,6 +10,29 @@ namespace Assetto.Data
 {
     public class SupportedEvents
     {
+        #region MazdaMX5Cup
+
+        public static EventData MazdaMx5Cup_Magione = new EventData()
+        {
+            Id = "MazdaMx5Cup_Magione",
+            Name = "MazdaMx5Cup_Magione",
+            FriendlyName = "European MX5 Cup at Magione",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Magione],
+            Layout = null,
+            Player = SupportedPlayers.MazdaMx5CupPlayer,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.MazdaMx5Cup],
+            EventType = EventType.QualiTwoRacesSecondReversed,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.MazdaMx5MagioneQualy,
+                SupportedSessions.MazdaMx5MagioneRace1,
+                SupportedSessions.MazdaMx5MagioneRace2
+            },
+            Description = "Driving the Mazda Mx-5 at Magione will be your first event. In these series, both young titans and less skilled drives compete. It's essential to make your debut to the series unforgettable!"
+        };
+
+        #endregion
+
         #region Abarth500
         public static EventData Abarth500RaceEvent1 = new EventData()
         {

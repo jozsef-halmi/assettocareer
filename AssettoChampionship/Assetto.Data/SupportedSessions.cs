@@ -13,18 +13,79 @@ namespace Assetto.Data
 {
     public class SupportedSessions
     {
+        #region MazdaMx5Cup
+
+        public static SessionData MazdaMx5MagioneQualy = new SessionData()
+        {
+            Id = "MX5_Magione_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            TimeOfDay = TimeOfDayEnum.Time900,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData MazdaMx5MagioneRace1 = new SessionData()
+        {
+            Id = "MX5_Magione_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            TimeOfDay = TimeOfDayEnum.Time1300,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+        public static SessionData MazdaMx5MagioneRace2 = new SessionData()
+        {
+            Id = "MX5_Magione_R2",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 6,
+            TimeOfDay = TimeOfDayEnum.Time1700,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top8,
+            }
+        };
+
+        #endregion
+
         #region Abarth500Magione
+
         public static SessionData Abarth500RaceEvent1Qualy = new SessionData()
         {
             Id = "8b8b44ab-fc90-4b41-acd8-b905ee37d01c"
-            , SessionType = Common.Enum.SessionType.Qualifying
-            , Duration = 10
-            ,TimeOfDay = TimeOfDayEnum.Time900
-            , AmbientTemperature = 32
-            , DynamicTrack = DynamicTracks.Green
-            , Weather = WeatherEnum.Clear
-            , FriendlyName = SessionNames.QUALIFICATION
-            , PrimarySessionObjectives = new List<SessionObjective>()
+         ,
+            SessionType = Common.Enum.SessionType.Qualifying
+         ,
+            Duration = 10
+         ,
+            TimeOfDay = TimeOfDayEnum.Time900
+         ,
+            AmbientTemperature = 32
+         ,
+            DynamicTrack = DynamicTracks.Green
+         ,
+            Weather = WeatherEnum.Clear
+         ,
+            FriendlyName = SessionNames.QUALIFICATION
+         ,
+            PrimarySessionObjectives = new List<SessionObjective>()
             {
                 SupportedSessionObjectives.Under107Percentage
             }

@@ -79,48 +79,44 @@
         <Border Grid.Column="2" Margin="3"
                 Style="{StaticResource BorderedImage}"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
-            <StackPanel Grid.Column="2"  Margin="5">
-                <!--<StackPanel.Background>
-                    <ImageBrush ImageSource="/Images/car_3.png" Stretch="UniformToFill"></ImageBrush>
-                </StackPanel.Background>-->
-                <TextBlock  Margin="0,25,0,0"
+            <DockPanel Grid.Column="2"  Margin="5">
+                <DockPanel.Background>
+                    <ImageBrush ImageSource="{Binding PathProgress.ImageUrl}" 
+                                Stretch="UniformToFill"
+                                ></ImageBrush>
+                </DockPanel.Background>
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top">
+                    <DockPanel.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.75"></SolidColorBrush>
+                    </DockPanel.Background>
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <TextBlock  Margin="0,25,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                FontWeight="SemiBold" 
                 TextWrapping="Wrap"
                 Foreground="White"  
-                FontSize="26">Progress
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
-                    </TextBlock.Effect>
-                </TextBlock>
-                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25">
-                    <StackPanel.Background>
-                        <SolidColorBrush Color="Gray" Opacity="0.4">
-                        </SolidColorBrush>
-                    </StackPanel.Background>
-                    <TextBlock Text="{Binding PathProgress.Title}"
+                FontSize="26">Current series
+                            <TextBlock.Effect>
+                                <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="25">
+                            <TextBlock Text="{Binding PathProgress.Title}"
                             TextWrapping="Wrap"
                             Foreground="White"  
                             FontSize="20">
-                        <TextBlock.Effect>
-                            <DropShadowEffect ShadowDepth="3" BlurRadius="3" Color="#FF000000" />
-                        </TextBlock.Effect>
-                    </TextBlock>
-                    <ItemsControl ItemsSource="{Binding PathProgress.Events}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ObjectiveTitle}" 
+                            </TextBlock>
+                            <ItemsControl ItemsSource="{Binding PathProgress.Events}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource ObjectiveTitle}" 
                                            >
-                                        <TextBlock.Effect>
-                                            <DropShadowEffect ShadowDepth="1" BlurRadius="1" Color="#FF000000" />
-                                        </TextBlock.Effect>
-                                    </TextBlock>
-                                    <Image Margin="5,0,0,0" Width="20px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
+                                            </TextBlock>
+                                            <Image Margin="5,0,0,0" Width="20px" HorizontalAlignment="Center" Source="/Images/green_ok.png"
                                                 Visibility="{Binding Path=IsDone, Converter={StaticResource BoolToVis}}"
                                                 ></Image>
-                                    <!--<ItemsControl ItemsSource="{Binding Sessions}">
+                                            <!--<ItemsControl ItemsSource="{Binding Sessions}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Margin="5,0,0,0">
@@ -132,12 +128,17 @@
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>-->
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </StackPanel>
-            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </StackPanel>
+           
+                </DockPanel>
+            
+           
+            </DockPanel>
 
         </Border>
 

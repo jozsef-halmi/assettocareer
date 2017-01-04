@@ -92,6 +92,75 @@ namespace Assetto.Data
                     }
                 }
             },
+            { CarNames.MazdaMx5Cup, new List<OpponentData>() {
+                new OpponentData() {
+                    Name = "Nathaniel Sparks"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOrangeGrey]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 100
+                    },
+                 new OpponentData() {
+                    Name = "Ara Malkhassian"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing500]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 98
+                    },
+                 new OpponentData() {
+                    Name = "John Dean II"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarLightBlueOrange]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 95
+                    },
+                 new OpponentData() {
+                    Name = "Robby Foley"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarBlackNeon]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 95
+                    },
+                 new OpponentData() {
+                    Name = "Drake Kemper"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarSilverRed]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 93
+                    },
+                  new OpponentData() {
+                    Name = "Nikko Reger"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing501]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 93
+                    },
+                   new OpponentData() {
+                    Name = "Mark Drennan"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing502]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 92
+                    },
+                    new OpponentData() {
+                    Name = "Chris Stone"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRedYellow]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 91
+                    },
+                     new OpponentData() {
+                    Name = "Dean Copeland"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarMaroonWhite]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 91
+                    },
+                      new OpponentData() {
+                    Name = "Hernan Palermo"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarZe507]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 88
+                    },
+                       new OpponentData() {
+                    Name = "Glenn McGee"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarZe508]
+                    , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
+                    , Level = 86
+                    }
+                }
+            },
             { CarNames.Formula3, new List<OpponentData>() {
                 new OpponentData() {
                     Name = "Tristan Cliffe"

@@ -16,3 +16,7 @@ Qual: minimum time
 q1 q2 q3
 track locations, city, map
 
+
+----
+Mazda MX5 Cup skins fill
+player fill skin

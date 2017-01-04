@@ -11,6 +11,11 @@ namespace Assetto.Data
     {
         public static Dictionary<string, CarData> CarsDictionary = new Dictionary<string, CarData>()
         {
+            { CarNames.MazdaMx5Cup,  new CarData() {
+                Name = CarNames.MazdaMx5Cup
+                , FriendlyName = "Mazda MX-5 Cup"
+                , Description = "Description for Abarth 500 Assetto Corse" }
+            },
             { CarNames.Abarth500RaceCar,  new CarData() {
                 Name = CarNames.Abarth500RaceCar
                 , FriendlyName = "Abarth 500 Assetto Corse"

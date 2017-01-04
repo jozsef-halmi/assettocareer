@@ -9,6 +9,12 @@ namespace Assetto.Data
 {
     public class SupportedPlayers
     {
+        public static PlayerData MazdaMx5CupPlayer = new PlayerData()
+        {
+            Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup],
+            Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOfficialSkin1]
+        };
+
         public static PlayerData Abarth500RaceOfficial = new PlayerData()
         {
             Car = SupportedCars.CarsDictionary[Assetto.Data.CarNames.Abarth500RaceCar]
