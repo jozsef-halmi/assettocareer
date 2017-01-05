@@ -78,8 +78,8 @@ namespace Assetto.Manager
                 this.SelectedEvent = SeriesService.GetEvent(seriesId, eventId);
                 this.SelectedSession = SeriesService.GetSession(seriesId, eventId, sessionId);
 
-                LogService.Log($"Starting event... {SelectedSeries.Name} ({SelectedSeries.Id})" +
-                               $", {SelectedEvent.Name} ({SelectedEvent.Id})" +
+                LogService.Log($"Starting event... {SelectedSeries.FriendlyName} ({SelectedSeries.Id})" +
+                               $", {SelectedEvent.FriendlyName} ({SelectedEvent.Id})" +
                                $", {SelectedSession.FriendlyName} ({SelectedSession.Id}) ");
 
 

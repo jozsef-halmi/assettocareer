@@ -8,7 +8,8 @@ namespace Assetto.Data
 {
     public class TrackNames
     {
-        public static string Magione = "Magione";
+        public static string Magione = "Circuito di Magione";
+        public static string Mugello = "Circuito del Mugello";
         public static string Brands = "Brands Hatch";
         public static string RedBullRing = "Red Bull Ring";
         public static string Vallelunga = "Vallelunga";

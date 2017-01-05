@@ -23,9 +23,13 @@ namespace Assetto.Data
             Name = "Mx5",
             FriendlyName = "MX-5 European Cup",
             Description = "The MX-5 Europen Cup is an entry-level series, which will be your first step in your career. The series take place in European countries, such as Italy, England, Austria and Poland. The tracks are short, the opponents are tough - You are going to have some serious challenges and wheel-to-wheel fights. Good luck and have fun, driver!",
-            VideoUrl = "Videos/Abarth500.mp4",
+            VideoUrl = "Videos/Mx5Cup.mp4",
             Events = new List<EventData>() {
                 SupportedEvents.MazdaMx5Cup_Magione,
+                SupportedEvents.MazdaMx5Cup_Brands,
+                SupportedEvents.MazdaMx5Cup_RedBull,
+                SupportedEvents.MazdaMx5Cup_Vallelunga,
+                SupportedEvents.MazdaMx5Cup_Mugello
             },
             Class = SupportedClasses.Mx5
         };

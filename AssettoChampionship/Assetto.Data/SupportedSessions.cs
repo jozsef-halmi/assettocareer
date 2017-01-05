@@ -13,7 +13,7 @@ namespace Assetto.Data
 {
     public class SupportedSessions
     {
-        #region MazdaMx5Cup
+        #region Mx5_Magione
 
         public static SessionData MazdaMx5MagioneQualy = new SessionData()
         {
@@ -64,6 +64,235 @@ namespace Assetto.Data
         };
 
         #endregion
+
+        #region Mx5_Brands
+        public static SessionData MazdaMx5BrandsQual = new SessionData()
+        {
+            Id = "MX5_Brands_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 25,
+            DynamicTrack = DynamicTracks.Old,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top10,
+               new FinishBeforeObjective() {
+                   Name = "Mark Drennan"
+               },
+                SupportedSessionObjectives.Under107Percentage,
+                new LapTimeUnderObjective()
+                {
+                    ChallengeTime = 59000
+                }
+
+            }
+        };
+        public static SessionData MazdaMx5BrandsRace1 = new SessionData()
+        {
+            Id = "MX5_Brands_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 9,
+            TimeOfDay = TimeOfDayEnum.Time1300,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Slow,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top8,
+                  new FinishBeforeObjective() {
+                   Name = "Mark Drennan"
+               },
+            }
+
+        };
+
+        public static SessionData MazdaMx5BrandsRace2 = new SessionData()
+        {
+            Id = "MX5_Brands_R2",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            TimeOfDay = TimeOfDayEnum.Time1800,
+            AmbientTemperature = 24,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top8,
+            }
+        };
+
+        #endregion
+
+        #region Mx5_RedBull
+        public static SessionData MazdaMx5RedBullQual = new SessionData()
+        {
+            Id = "MX5_RedBull_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            TimeOfDay = TimeOfDayEnum.Time900,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage,
+                 new FinishBeforeObjective() {
+                   Name = "Mark Drennan"
+               }
+            }
+
+        };
+        public static SessionData MazdaMx5RedBullRace1 = new SessionData()
+        {
+            Id = "MX5_RedBull_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            TimeOfDay = TimeOfDayEnum.Time1300,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+
+            }
+        };
+
+        public static SessionData MazdaMx5RedBullRace2 = new SessionData()
+        {
+            Id = "MX5_RedBull_R2",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            TimeOfDay = TimeOfDayEnum.Time1630,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top10,
+               new FinishBeforeObjective() {
+                   Name = "Nikko Reger"
+               }
+            }
+        };
+        #endregion
+
+        #region Abarth500_Vallelunga
+        public static SessionData MazdaMx5VallelungaQual = new SessionData()
+        {
+            Id = "MX5_Vallelunga_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            TimeOfDay = TimeOfDayEnum.Time900,
+            AmbientTemperature = 25,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+
+        };
+        public static SessionData MazdaMx5VallelungaRace1 = new SessionData()
+        {
+            Id = "MX5_Vallelunga_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            TimeOfDay = TimeOfDayEnum.Time1300,
+            AmbientTemperature = 25,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+               SupportedSessionObjectives.BestLap
+            }
+
+        };
+
+        public static SessionData MazdaMx5VallelungaRace2 = new SessionData()
+        {
+            Id = "MX5_Vallelunga_R2",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            TimeOfDay = TimeOfDayEnum.Time1700,
+            AmbientTemperature = 25,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightClouds,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5,
+            }
+        };
+        #endregion
+
+        #region Mx5_Mugello
+        public static SessionData MazdaMx5MugelloQual = new SessionData()
+        {
+            Id = "MX5_Mugello_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 10,
+            FriendlyName = SessionNames.QUALIFICATION,
+            TimeOfDay = TimeOfDayEnum.Time900,
+            AmbientTemperature = 10,
+            DynamicTrack = DynamicTracks.Dusty,
+            Weather = WeatherEnum.HeavyFog,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+
+        };
+        public static SessionData MazdaMx5MugelloRace1 = new SessionData()
+        {
+            Id = "MX5_Mugello_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 8,
+            FriendlyName = SessionNames.RACE,
+            TimeOfDay = TimeOfDayEnum.Time1430,
+            AmbientTemperature = 12,
+            DynamicTrack = DynamicTracks.Dusty,
+            Weather = WeatherEnum.HeavyFog,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium
+            }
+
+        };
+
+        public static SessionData MazdaMx5MugelloRace2 = new SessionData()
+        {
+            Id = "MX5_Mugello_R2",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            TimeOfDay = TimeOfDayEnum.Time1700,
+            AmbientTemperature = 10,
+            DynamicTrack = DynamicTracks.Dusty,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.REVERSED_RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Podium,
+               new FinishBeforeObjective() {
+                   Name = "Chris Stone"
+               }
+            }
+        };
+        #endregion
+
+
+
 
         #region Abarth500Magione
 

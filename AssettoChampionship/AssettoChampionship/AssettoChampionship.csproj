@@ -447,6 +447,7 @@
     <Content Include="Videos\Abarth500.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Videos\Mx5Cup.mp4" />
     <Content Include="Videos\RSR_Formula3.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

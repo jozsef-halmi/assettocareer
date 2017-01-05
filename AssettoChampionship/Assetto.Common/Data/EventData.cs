@@ -11,11 +11,9 @@ namespace Assetto.Common.Data
     public class EventData
     {
         public string Id { get; set; }
-        public string Name { get; set; }
-
         public string ImageUrl
         {
-            get { return "/Images/Events/" + Name + ".jpg"; }
+            get { return "/Images/Events/" + Id + ".jpg"; }
         }
 
 
