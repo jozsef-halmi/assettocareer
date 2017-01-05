@@ -442,6 +442,8 @@
     <Resource Include="Images\Classes\Mx5.png" />
     <Resource Include="Images\Tracks\magione.png" />
     <Resource Include="Images\Classes\GT4.png" />
+    <Resource Include="Images\Tracks\monza.png" />
+    <Resource Include="Images\Series\PorscheGT4.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

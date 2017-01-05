@@ -185,7 +185,7 @@ namespace Assetto.Data
         };
         #endregion
 
-        #region Abarth500_Vallelunga
+        #region Mx5_Vallelunga
         public static SessionData MazdaMx5VallelungaQual = new SessionData()
         {
             Id = "MX5_Vallelunga_Q",
@@ -291,6 +291,59 @@ namespace Assetto.Data
         };
         #endregion
 
+        #region PorscheGT4_Monza
+
+        public static SessionData PorscheGT4MonzaPract = new SessionData()
+        {
+            Id = "PorscheGT4_Monza_P",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 60,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 20,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Do5Laps
+            }
+        };
+
+
+        public static SessionData PorscheGT4MonzaQualy = new SessionData()
+        {
+            Id = "PorscheGT4_Monza_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 30,
+            TimeOfDay = TimeOfDayEnum.Time1200,
+            AmbientTemperature = 26,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.MidClear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData PorscheGT4MonzaRace1 = new SessionData()
+        {
+            Id = "PorscheGT4_Monza_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 7,
+            TimeOfDay = TimeOfDayEnum.Time1600,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Fast,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
 
 
 

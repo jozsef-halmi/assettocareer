@@ -16,6 +16,11 @@ namespace Assetto.Data
                 , FriendlyName = "Mazda MX-5 Cup"
                 , Description = "Description for Abarth 500 Assetto Corse" }
             },
+             { CarNames.PorscheGT4Cup,  new CarData() {
+                Name = CarNames.PorscheGT4Cup
+                , FriendlyName = "Porsche Cayman GT4 Clubsport"
+                , Description = "Description" }
+            },
             { CarNames.Abarth500RaceCar,  new CarData() {
                 Name = CarNames.Abarth500RaceCar
                 , FriendlyName = "Abarth 500 Assetto Corse"

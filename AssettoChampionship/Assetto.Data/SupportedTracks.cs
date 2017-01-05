@@ -13,6 +13,7 @@ namespace Assetto.Data
         {
             { Assetto.Data.TrackNames.Magione, new TrackData() { Name = "magione", FriendlyName = TrackNames.Magione }},
             { Assetto.Data.TrackNames.Mugello, new TrackData() { Name = "mugello", FriendlyName = TrackNames.Mugello }},
+            { Assetto.Data.TrackNames.Monza, new TrackData() { Name = "monza", FriendlyName = TrackNames.Monza }},
             { Assetto.Data.TrackNames.Brands, new TrackData() { Name = "ks_brands_hatch", FriendlyName = "Brands Hatch" }},
             { Assetto.Data.TrackNames.RedBullRing, new TrackData() { Name = "ks_red_bull_ring", FriendlyName = "Red Bull Ring" }},
             { Assetto.Data.TrackNames.Vallelunga, new TrackData() { Name = "ks_vallelunga", FriendlyName = "Vallelunga" }},

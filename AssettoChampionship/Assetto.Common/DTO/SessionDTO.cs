@@ -8,9 +8,12 @@ namespace Assetto.Common.DTO
 {
     public class SessionDTO
     {
+
         public string SeriesId { get; set; }
         public string EventId { get; set; }
         public string SessionId { get; set; }
+
+        public string SeriesTitle { get; set; }
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }

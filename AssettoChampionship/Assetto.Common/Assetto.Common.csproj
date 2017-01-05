@@ -99,6 +99,7 @@
     <Compile Include="Helpers\WeatherToFriendlyString.cs" />
     <Compile Include="Objectives\FinishBeforeObjective.cs" />
     <Compile Include="Objectives\BestLapObjective.cs" />
+    <Compile Include="Objectives\LapCountObjective.cs" />
     <Compile Include="Objectives\PercentageObjective.cs" />
     <Compile Include="Objectives\LapTimeUnderObjective.cs" />
     <Compile Include="Objectives\FinishTopNSessionObjective.cs" />

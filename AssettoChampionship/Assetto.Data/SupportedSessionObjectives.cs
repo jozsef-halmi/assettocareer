@@ -43,5 +43,10 @@ namespace Assetto.Data
         {
             ChallengedPercentage = 107
         };
+
+        public static SessionObjective Do5Laps = new LapCountObjective()
+        {
+            ChallengedLapCount = 5
+        };
     }
 }

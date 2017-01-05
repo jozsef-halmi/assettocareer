@@ -11,9 +11,10 @@ namespace Assetto.Data
     {
         public static List<SeriesData> GetAvailableSeries() {
             return new List<SeriesData>() {
-               SupportedSeries.MX5Series,
-               SupportedSeries.AbarthRaceSeries,
-               SupportedSeries.Formula3Series
+               MX5Series,
+               AbarthRaceSeries,
+               Formula3Series,
+               PorscheGT4Series
             };
         }
 
@@ -40,11 +41,11 @@ namespace Assetto.Data
             Id = "PorscheGT4",
             Name = "PorscheGT4",
             FriendlyName = "European GT4 Series",
-            Description = "todo",
+            Description = "In the GT4 European Series, you're gonna drive a wonderful, rear wheel drive, 385 hp car. The series cover famous tracks like Monza and Spa, and you're going to get a chance to try a little longer races. ",
             VideoUrl = "Videos/PorscheGT4.mp4",
             VideoMessage = "Official trailer for Cayman GT4 Clubsport (Porsche Pack Volume 1)",
             Events = new List<EventData>() {
-              
+              SupportedEvents.PorscheGT4
             },
             Class = SupportedClasses.GT4
         };

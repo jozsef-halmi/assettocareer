@@ -73,7 +73,7 @@ namespace Assetto.Manager
                     Description = selectedSeries.Description,
                     Title = selectedSeries.FriendlyName,
                     ImageUrl = selectedSeries.ImageUrl,
-                    IsAvailable = IsSeasonAvailable(seriesId),
+                    IsAvailable = true,//IsSeasonAvailable(seriesId),
                     Events = selectedSeries.Events.Select(e =>
                                 GetEvent(seriesId, e.Id)
                     ).ToList(),
@@ -93,8 +93,8 @@ namespace Assetto.Manager
                         TooltipTitle = selectedSeries.FriendlyName
                     },
                     Class = new ClassDTO() {
-                        Name = selectedSeries.Name,
-                        FriendlyName = selectedSeries.FriendlyName
+                        Name = selectedSeries.Class.Name,
+                        FriendlyName = selectedSeries.Class.FriendlyName
                     }
                 };
 
@@ -209,7 +209,8 @@ namespace Assetto.Manager
                     SessionCounterMax = selectedEvent.CareerSessions.Count,
                     SessionCounterCurrent = SeriesService.GetSessionIndex(seriesId, eventId, sessionId),
                     EventCounterMax = selectedSeries.Events.Count,
-                    EventCounterCurrent = SeriesService.GetEventIndex(seriesId, eventId)
+                    EventCounterCurrent = SeriesService.GetEventIndex(seriesId, eventId),
+                    SeriesTitle = selectedSeries.FriendlyName
                 };
             }
             catch (Exception ex)

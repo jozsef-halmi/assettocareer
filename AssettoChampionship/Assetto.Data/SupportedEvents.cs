@@ -107,6 +107,32 @@ namespace Assetto.Data
 
         #endregion
 
+        #region PorscheGT4
+
+        public static EventData PorscheGT4 = new EventData()
+        {
+            Id = "PorscheGT4_Monza",
+            FriendlyName = "GT4 European Series at Monza",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Monza],
+            Layout = null,
+            Player = SupportedPlayers.PorscheGT4Player,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            EventType = EventType.PracticeQualifyRace,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.PorscheGT4MonzaPract,
+                SupportedSessions.PorscheGT4MonzaQualy,
+                SupportedSessions.PorscheGT4MonzaRace1
+            },
+            Description = "Monza is the first location of the GT4 Europen Series Calendar. This famous, well known track is located near the city of Monza. Drivers are on full throttle for most of the lap due to its long straights and fast corners - I advise you to lower the downforce to make your car faster in the straights. Good luck!"
+        };
+
+
+        #endregion
+
+
+
+
         #region Abarth500
         public static EventData Abarth500RaceEvent1 = new EventData()
         {
@@ -199,7 +225,6 @@ namespace Assetto.Data
             Description = "The season finale takes place at Tor Poznań, Poland. Winter came early, you will have to face new conditions: it's cold, and it's slippy outside, but the show must go on! Score as many points as you can to win your first series! Good luck!"
         };
         #endregion Abarth500
-
 
         #region Formula3
 

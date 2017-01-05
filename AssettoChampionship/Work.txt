@@ -20,3 +20,5 @@ track locations, city, map
 ----
 Mazda MX5 Cup skins fill
 player fill skin
+porsche gt4 same
+series, event messages display
