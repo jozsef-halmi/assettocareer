@@ -75,10 +75,10 @@ namespace AssettoChampionship.ViewModels
             string path = ConfigManager.GetSelectedPathId();
             this.NextSession = PathManager.GetCurrentSession(path);
             this.CurrentSeries = PathManager.GetCurrentSeries(path);
-            if (!CurrentSeries.IsStarted && !EventManager.IsVideoAlreadyWatched(CurrentSeries.VideoUrl))
+            if (!CurrentSeries.IsStarted && !EventManager.IsVideoAlreadyWatched(CurrentSeries.Video?.Url))
             {
-                EventManager.VideoWatched(CurrentSeries.VideoUrl);
-                NavigationService.ShowVideo(CurrentSeries.VideoUrl);
+                EventManager.VideoWatched(CurrentSeries.Video?.Url);
+                NavigationService.ShowVideo(CurrentSeries.Video);
             }
         }
 

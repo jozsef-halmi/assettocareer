@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.DTO;
 
 namespace AssettoChampionship.ViewModels.Dialog
 {
@@ -23,6 +24,21 @@ namespace AssettoChampionship.ViewModels.Dialog
             }
         }
 
+        private string _videoMsg;
+        public string VideoMsg
+        {
+            get
+            {
+                return _videoMsg;
+            }
+            set
+            {
+                _videoMsg = value;
+                NotifyOfPropertyChange(() => VideoMsg);
+            }
+        }
+
+
         public VideoViewModel(IEventAggregator eventAggregator)
         {
             EventAggregator = eventAggregator;
@@ -38,8 +54,9 @@ namespace AssettoChampionship.ViewModels.Dialog
         {
         }
 
-        public void SetVideo(string videoUrl) {
-            this.VideoUrl = videoUrl;
+        public void SetVideo(VideoDTO video) {
+            this.VideoUrl = video.Url;
+            this.VideoMsg = video.Message;
         }
 
         public void VideoEnd() {

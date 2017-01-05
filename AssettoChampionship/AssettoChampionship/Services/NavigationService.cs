@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assetto.Common.DTO;
 
 namespace AssettoChampionship.Services
 {
@@ -38,10 +39,10 @@ namespace AssettoChampionship.Services
             ParameterlessNavigation(typeof(PathsViewModel));
         }
 
-        public void ShowVideo(string videoUrl) {
+        public void ShowVideo(VideoDTO video) {
             this.EventAggregator.Publish(new ChangePageMessage(typeof(VideoViewModel), new ChangePageParameters()
             {
-                Parameter = videoUrl
+                Parameter = video
             }), action => { Task.Factory.StartNew(action); });
         }
 

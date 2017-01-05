@@ -24,6 +24,7 @@ namespace Assetto.Data
             FriendlyName = "MX-5 European Cup",
             Description = "The MX-5 Europen Cup is an entry-level series, which will be your first step in your career. The series take place in European countries, such as Italy, England, Austria and Poland. The tracks are short, the opponents are tough - You are going to have some serious challenges and wheel-to-wheel fights. Good luck and have fun, driver!",
             VideoUrl = "Videos/Mx5Cup.mp4",
+            VideoMessage = "Official trailer for Mazda MX 5 Cup (Japanase Pack DLC)",
             Events = new List<EventData>() {
                 SupportedEvents.MazdaMx5Cup_Magione,
                 SupportedEvents.MazdaMx5Cup_Brands,
@@ -32,6 +33,20 @@ namespace Assetto.Data
                 SupportedEvents.MazdaMx5Cup_Mugello
             },
             Class = SupportedClasses.Mx5
+        };
+
+        public static SeriesData PorscheGT4Series = new SeriesData()
+        {
+            Id = "PorscheGT4",
+            Name = "PorscheGT4",
+            FriendlyName = "European GT4 Series",
+            Description = "todo",
+            VideoUrl = "Videos/PorscheGT4.mp4",
+            VideoMessage = "Official trailer for Cayman GT4 Clubsport (Porsche Pack Volume 1)",
+            Events = new List<EventData>() {
+              
+            },
+            Class = SupportedClasses.GT4
         };
 
         #region NotUsed

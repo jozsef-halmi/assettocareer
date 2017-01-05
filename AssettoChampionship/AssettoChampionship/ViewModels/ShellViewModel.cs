@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using Assetto.Common.DTO;
 using Assetto.Common.Interfaces.Service;
 
 namespace AssettoChampionship.ViewModels
@@ -282,7 +283,9 @@ namespace AssettoChampionship.ViewModels
         {
             var videoVM = Container.Resolve<VideoViewModel>();
             OpenPage(videoVM);
-            videoVM.SetVideo(parameters.Parameter as string);
+
+            var videoDto = parameters.Parameter as VideoDTO;
+            videoVM.SetVideo(videoDto);
         }
 
         public void ShowAboutPage()

@@ -16,7 +16,7 @@ namespace Assetto.Common.Data
 
         public string Description { get; set; }
         public string VideoUrl { get; set; }
-        public string VideoText { get; set; }
+        public string VideoMessage { get; set; }
 
         public List<EventData> Events { get; set; }
         public string Id { get; set; }

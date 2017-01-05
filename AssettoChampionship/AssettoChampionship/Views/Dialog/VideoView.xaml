@@ -8,7 +8,9 @@
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock Text="{Binding VideoMsg}" Style="{StaticResource EventSubTitle}"
+                   HorizontalAlignment="Center" Margin="0,0,0,8"></TextBlock>
         <MediaElement Source="{Binding VideoUrl}" 
                       HorizontalAlignment="Stretch" 
                       VerticalAlignment="Stretch"
@@ -25,5 +27,5 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </MediaElement>
-    </Grid>
+    </StackPanel>
 </UserControl>

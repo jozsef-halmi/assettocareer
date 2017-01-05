@@ -441,13 +441,19 @@
     <Resource Include="Images\Series\Mx5.png" />
     <Resource Include="Images\Classes\Mx5.png" />
     <Resource Include="Images\Tracks\magione.png" />
+    <Resource Include="Images\Classes\GT4.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Videos\Abarth500.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Videos\Mx5Cup.mp4" />
+    <Content Include="Videos\PorscheGT4.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Mx5Cup.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Videos\RSR_Formula3.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

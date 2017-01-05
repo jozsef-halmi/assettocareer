@@ -81,7 +81,11 @@ namespace Assetto.Manager
                         ChampionshipService.GetCurrentStandings(selectedSeries.Id)
                             .OrderByDescending(p => p.Points)
                             .ToList(),
-                    VideoUrl = selectedSeries.VideoUrl,
+                    Video = new VideoDTO()
+                    {
+                       Url  = selectedSeries.VideoUrl,
+                       Message = selectedSeries.VideoMessage
+                    },
                     Credits = new CreditsDTO()
                     {
                         ToolTip = selectedSeries.Credits?.ToolTip,
@@ -97,7 +101,9 @@ namespace Assetto.Manager
                 // TODO: Test this
                 retVar.IsDone = retVar.Events.All(s => s.IsDone)
                                 && ChampionshipService.IsPlayerWinning(selectedSeries.Id);
-                retVar.IsStarted = ChampionshipService.GetCurrentStandings(selectedSeries.Id).Count > 0;
+                retVar.IsStarted = retVar.Events.First().Sessions.First().IsDone;
+                    
+                    //ChampionshipService.GetCurrentStandings(selectedSeries.Id).First().Points > 0;
                 return retVar;
             }
             catch (Exception ex)

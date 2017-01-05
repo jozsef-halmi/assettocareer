@@ -16,6 +16,12 @@ namespace Assetto.Data
             FriendlyName = "MX-5 Cup"
         };
 
+        public static ClassData GT4 = new ClassData()
+        {
+            Name = "GT4",
+            FriendlyName = "GT4"
+        };
+
         public static ClassData Abarth = new ClassData()
         {
             Name = "Abarth500",

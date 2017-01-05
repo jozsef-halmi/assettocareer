@@ -105,9 +105,9 @@ namespace AssettoChampionship.ViewModels
         {
             RefreshData();
             base.OnActivate();
-            if (!Series.IsStarted && !EventManager.IsVideoAlreadyWatched(Series.VideoUrl))
+            if (!Series.IsStarted && !EventManager.IsVideoAlreadyWatched(Series.Video.Url))
             {
-                EventManager.VideoWatched(Series.VideoUrl);
+                EventManager.VideoWatched(Series.Video.Url);
                 OpenVideo();
             }
         }
@@ -118,10 +118,10 @@ namespace AssettoChampionship.ViewModels
         }
 
         public void OpenVideo() {
-            this.EventAggregator.Publish(new ChangePageMessage(typeof(VideoViewModel), new ChangePageParameters()
-            {
-                Parameter = this.Series.VideoUrl
-            }), action => { Task.Factory.StartNew(action); });
+            //this.EventAggregator.Publish(new ChangePageMessage(typeof(VideoViewModel), new ChangePageParameters()
+            //{
+            //    Parameter = this.Series.VideoUrl
+            //}), action => { Task.Factory.StartNew(action); });
         }
 
     }
