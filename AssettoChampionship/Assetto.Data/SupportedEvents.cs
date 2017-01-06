@@ -109,7 +109,7 @@ namespace Assetto.Data
 
         #region PorscheGT4
 
-        public static EventData PorscheGT4 = new EventData()
+        public static EventData PorscheGT4_1_Monza = new EventData()
         {
             Id = "PorscheGT4_Monza",
             FriendlyName = "GT4 European Series at Monza",
@@ -125,6 +125,24 @@ namespace Assetto.Data
                 SupportedSessions.PorscheGT4MonzaRace1
             },
             Description = "Monza is the first location of the GT4 Europen Series Calendar. This famous, well known track is located near the city of Monza. Drivers are on full throttle for most of the lap due to its long straights and fast corners - I advise you to lower the downforce to make your car faster in the straights. Good luck!"
+        };
+
+        public static EventData PorscheGT4_2_Silverstone = new EventData()
+        {
+            Id = "PorscheGT4_Silverstone",
+            FriendlyName = "GT4 European Series at Silverstone",
+            JumpStartPenalty = Common.Enum.JumpStartPenaltyType.DriveThrough,
+            Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Silverstone],
+            Layout = null,
+            Player = SupportedPlayers.PorscheGT4Player,
+            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            EventType = EventType.PracticeQualifyRace,
+            CareerSessions = new List<SessionData>() {
+                SupportedSessions.PorscheGT4SilverstonePract,
+                SupportedSessions.PorscheGT4SilverstoneQualy,
+                SupportedSessions.PorscheGT4SilverstoneRace1
+            },
+            Description = ""
         };
 
 

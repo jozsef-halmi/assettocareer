@@ -330,7 +330,7 @@ namespace Assetto.Data
         {
             Id = "PorscheGT4_Monza_R1",
             SessionType = Common.Enum.SessionType.Race,
-            Laps = 7,
+            Laps = 12,
             TimeOfDay = TimeOfDayEnum.Time1600,
             AmbientTemperature = 32,
             DynamicTrack = DynamicTracks.Fast,
@@ -345,7 +345,59 @@ namespace Assetto.Data
 
         #endregion
 
+        #region PorscheGT4_Silverstone
 
+        public static SessionData PorscheGT4SilverstonePract = new SessionData()
+        {
+            Id = "PorscheGT4_Silverstone_P",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 60,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 20,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Do5Laps
+            }
+        };
+
+
+        public static SessionData PorscheGT4SilverstoneQualy = new SessionData()
+        {
+            Id = "PorscheGT4_Silverstone_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 30,
+            TimeOfDay = TimeOfDayEnum.Time1200,
+            AmbientTemperature = 26,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.MidClear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData PorscheGT4SilverstoneRace1 = new SessionData()
+        {
+            Id = "PorscheGT4_Silverstone_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 11,
+            TimeOfDay = TimeOfDayEnum.Time1600,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Fast,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
 
         #region Abarth500Magione
 

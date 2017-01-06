@@ -14,6 +14,7 @@ namespace Assetto.Data
         public static string Brands = "Brands Hatch";
         public static string RedBullRing = "Red Bull Ring";
         public static string Vallelunga = "Vallelunga";
+        public static string Silverstone = "Silverstone Circuit";
         public static string Spa = "Circuit de Spa-Francorchamps";
         public static string Hungaroring = "Hungaroring";
         public static string PaulRicard = "Paul Ricard";
