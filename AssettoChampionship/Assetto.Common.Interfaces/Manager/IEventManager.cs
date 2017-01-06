@@ -10,9 +10,10 @@ namespace Assetto.Common.Interfaces.Manager
     public interface IEventManager
     {
 
-        void StartEvent(string seriesId, string eventId, string sessionId);
+        void StartEvent(string seriesId, string eventId, string sessionId, float difficulty, float length);
         void SubscribeEvents(Action<object> configurationStarted, Action<object> configurationEnded, Action<object> processStarted, Action<object> processEnded);
         void VideoWatched(string videoUrl);
         bool IsVideoAlreadyWatched(string videoUrl);
+        int GetCalculatedSessionLength(string seriesId, string eventId, string sessionId, float lengthMultiplier);
     }
 }

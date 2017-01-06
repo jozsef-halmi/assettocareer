@@ -68,6 +68,10 @@
       <Project>{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}</Project>
       <Name>Assetto.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Assetto.Configurator\Assetto.Configurator.csproj">
+      <Project>{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}</Project>
+      <Name>Assetto.Configurator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

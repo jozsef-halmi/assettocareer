@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assetto.Common.DTO;
+using Assetto.Common.Enum;
 using Assetto.Common.Interfaces.Manager;
 using Assetto.Configurator;
 using Assetto.Service;
@@ -69,7 +70,7 @@ namespace Assetto.Manager
 
         public void StartEvent(
             //SeriesData seriesData, EventData eventData, SessionData session
-            string seriesId, string eventId, string sessionId
+            string seriesId, string eventId, string sessionId, float difficulty, float sessionLength
         )
         {
             try
@@ -86,7 +87,7 @@ namespace Assetto.Manager
                 LogService.Log("Starting configuration..");
                 this.ConfigurationStarted?.Invoke(SelectedEvent.ImageUrl);
 
-                ConfigureEvent(seriesId, eventId, sessionId);
+                ConfigureEvent(seriesId, eventId, sessionId, difficulty, sessionLength);
 
                 LogService.Log("Configuration end..");
                 this.ConfigurationEnded?.Invoke(new object());
@@ -104,7 +105,8 @@ namespace Assetto.Manager
         }
 
 
-        private ConfiguredSessionDTO ConfigureEvent(string seriesId, string eventId, string sessionId)
+        private ConfiguredSessionDTO ConfigureEvent(string seriesId, string eventId, string sessionId,
+            float difficulty, float sessionLength)
         {
 
             var eventData = SeriesService.GetEvent(seriesId, eventId);
@@ -130,6 +132,13 @@ namespace Assetto.Manager
 
             eventData.GameSessions = new List<SessionData>() {sessionData};
             var eventConfig = new EventConfig(sessionDto);
+
+            // Calculate and save session length
+            var calculatedLength = GetCalculatedSessionLength(this.SelectedSeries.Id
+                , this.SelectedEvent.Id
+                , previousSession.Id, sessionLength);
+            SaveCalculatedSessionLength(eventConfig, calculatedLength);
+
             var raceIni = eventConfig.ToString();
 
             try
@@ -142,6 +151,75 @@ namespace Assetto.Manager
                 throw;
             }
             return sessionDto;
+        }
+
+  
+
+        #region DurationLogic
+        private int CalculateLapsCount(SessionData session, float lengthMultiplier)
+        {
+            int newLaps = Convert.ToInt32(Math.Round((float)session.Laps.Value * lengthMultiplier));
+            return newLaps;
+        }
+
+        private int CalculateDuration(SessionData session, float lengthMultiplier)
+        {
+            int newDuration = Convert.ToInt32(Math.Round((float)session.Duration * lengthMultiplier));
+            return newDuration;
+        }
+
+
+
+        private void SetRaceLaps(EventConfig eventConfig, int laps)
+        {
+            eventConfig.ConfiguredSessionDto.SessionData.Laps = laps;
+        }
+
+
+        private void SetDuration(EventConfig eventConfig, int duration)
+        {
+            eventConfig.ConfiguredSessionDto.SessionData.Duration = duration;
+        }
+
+        public int GetCalculatedSessionLength(string seriesId, string eventId, string sessionId, float lengthMultiplier)
+        {
+            var session = this.SeriesService.GetSession(seriesId, eventId, sessionId);
+            switch (session.SessionType)
+            {
+                case SessionType.Race:
+                {
+                    return CalculateLapsCount(session, lengthMultiplier);
+                }
+                default:
+                {
+                    return CalculateDuration(session, lengthMultiplier);
+                }
+            }
+        }
+
+        public void SaveCalculatedSessionLength(EventConfig eventConfig, int length)
+        {
+            switch (eventConfig.ConfiguredSessionDto.SessionData.SessionType)
+            {
+                case SessionType.Race:
+                {
+                    SetRaceLaps(eventConfig, length);
+                    break;
+                }
+                default:
+                {
+                    SetDuration(eventConfig, length);
+                    break;
+                }
+            }
+        }
+
+        #endregion
+
+
+        private void SetSessionDifficulty(EventConfig eventConfig, float difficulty)
+        {
+
         }
 
         private void ProcessResults(OutputLog result)

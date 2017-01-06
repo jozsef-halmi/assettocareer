@@ -59,7 +59,7 @@ namespace AssettoChampionship.ViewModels
                 if (this.Event.Sessions.FirstOrDefault(s => s.SessionId == sessionId).IsAvailable 
                     || AppConfigService.IsDebugMode())
                 {
-                    EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId);
+                    EventManager.StartEvent(this.Event.SeriesId, this.Event.EventId, sessionId, 1, 1);
                 }
             }
             catch (Exception ex)

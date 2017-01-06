@@ -43,6 +43,40 @@ namespace AssettoChampionship.ViewModels
             }
         }
 
+        private int _sessionLength;
+
+        public int SessionLength
+        {
+            get { return _sessionLength; }
+            set
+            {
+                _sessionLength = value;
+                NotifyOfPropertyChange(() => SessionLength);
+                NotifyOfPropertyChange(() => CalculatedSessionLength);
+            }
+        }
+
+        public int CalculatedSessionLength => this.EventManager.GetCalculatedSessionLength(
+                NextSession.SeriesId,
+                NextSession.EventId,
+                NextSession.SessionId,
+                SessionLength
+                ) / 100 ;
+            
+        
+
+        private int _difficulty;
+
+        public int Difficulty
+        {
+            get { return _difficulty; }
+            set
+            {
+                _difficulty = value;
+                NotifyOfPropertyChange(() => Difficulty);
+            }
+        }
+
         #endregion
 
         // Managers
@@ -80,10 +114,16 @@ namespace AssettoChampionship.ViewModels
                 EventManager.VideoWatched(CurrentSeries.Video?.Url);
                 NavigationService.ShowVideo(CurrentSeries.Video);
             }
+            Difficulty = 100;
+            SessionLength = 100;
         }
 
         public void StartSession() {
-            EventManager.StartEvent(this.NextSession.SeriesId, this.NextSession.EventId, this.NextSession.SessionId);
+            EventManager.StartEvent(this.NextSession.SeriesId
+                , this.NextSession.EventId
+                , this.NextSession.SessionId
+                , ((float)Difficulty) / 100
+                , ((float)SessionLength) / 100);
         }
     }
 }

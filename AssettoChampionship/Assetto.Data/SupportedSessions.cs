@@ -376,7 +376,11 @@ namespace Assetto.Data
             FriendlyName = SessionNames.QUALIFICATION,
             PrimarySessionObjectives = new List<SessionObjective>()
             {
-                SupportedSessionObjectives.Under107Percentage
+                SupportedSessionObjectives.Under107Percentage,
+                new LapTimeUnderObjective()
+                {
+                    ChallengeTime = 137000
+                }
             }
         };
 
