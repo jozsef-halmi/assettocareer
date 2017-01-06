@@ -31,5 +31,7 @@ namespace Assetto.Common.Interfaces.Service
         bool IsSettingsAvailable();
         bool IsSettingsValid();
 
+        int GetDifficulty();
+        void SetDifficulty(int difficulty);
     }
 }

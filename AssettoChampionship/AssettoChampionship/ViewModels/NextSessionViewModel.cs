@@ -114,10 +114,11 @@ namespace AssettoChampionship.ViewModels
                 EventManager.VideoWatched(CurrentSeries.Video?.Url);
                 NavigationService.ShowVideo(CurrentSeries.Video);
             }
-            Difficulty = 100;
+            Difficulty = ConfigManager.GetDifficulty() >= 50 
+                ? ConfigManager.GetDifficulty() 
+                : 100;
             SessionLength = 100;
         }
-
         public void StartSession() {
             EventManager.StartEvent(this.NextSession.SeriesId
                 , this.NextSession.EventId

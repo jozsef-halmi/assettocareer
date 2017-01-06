@@ -17,5 +17,7 @@ namespace Assetto.Common.Interfaces.Manager
 
         bool AreSettingsValid();
 
+        int GetDifficulty();
+        void SetDifficulty(int difficulty);
     }
 }

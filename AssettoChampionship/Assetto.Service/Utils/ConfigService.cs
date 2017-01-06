@@ -56,7 +56,8 @@ namespace Assetto.Service.Utils
                 DocumentsFolder = settings.DocumentsFolder ??
                                   Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 PlayerName = settings.PlayerName ?? "Player",
-                SelectedPathId = settings.SelectedPathId
+                SelectedPathId = settings.SelectedPathId,
+                Difficulty = 75
             };
         }
 
@@ -137,6 +138,16 @@ namespace Assetto.Service.Utils
                 + GetOutputLogRelativePathToDocFolder());
             return isAcInstallFolderValid && isDocFolderValid;
 
+        }
+
+        public int GetDifficulty()
+        {
+            return Settings.Difficulty;
+        }
+
+        public void SetDifficulty(int difficulty)
+        {
+            Settings.Difficulty = difficulty;
         }
 
         public string GetSelectedPathId()

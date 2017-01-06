@@ -15,5 +15,7 @@ namespace Assetto.Common.Settings
         public string DocumentsFolder { get; set; }
 
         public string SelectedPathId { get; set; }
+
+        public int Difficulty { get; set; }
     }
 }

@@ -82,5 +82,16 @@ namespace Assetto.Manager
         {
             return ConfigService.IsSettingsValid();
         }
+
+        public int GetDifficulty()
+        {
+            return ConfigService.GetDifficulty();
+        }
+
+        public void SetDifficulty(int difficulty)
+        {
+            ConfigService.SetDifficulty(difficulty);
+            SaveSettings(ConfigService.GetSettings());
+        }
     }
 }

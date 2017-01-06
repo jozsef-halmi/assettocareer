@@ -26,6 +26,8 @@ namespace Assetto.Manager
         public IEventService EventService { get; set; }
         public IVideoService VideoService { get; set; }
 
+        public IConfigManager ConfigManager { get; set; }
+
 
         public Action<object> ConfigurationStarted { get; set; }
         public Action<object> ConfigurationEnded { get; set; }
@@ -45,7 +47,8 @@ namespace Assetto.Manager
             , ISaveService saveService
             , IConfigService configService
             , IEventService eventService
-            , IVideoService videoService) : base(logService, fileService, configService)
+            , IVideoService videoService
+            , IConfigManager configManager) : base(logService, fileService, configService)
         {
             this.SeriesService = seriesService;
             this.ProcessService = processService;
@@ -53,6 +56,7 @@ namespace Assetto.Manager
             this.SaveService = saveService;
             this.EventService = eventService;
             this.VideoService = videoService;
+            this.ConfigManager = configManager;
         }
 
         public void SubscribeEvents(Action<object> configurationStarted
@@ -136,8 +140,14 @@ namespace Assetto.Manager
             // Calculate and save session length
             var calculatedLength = GetCalculatedSessionLength(this.SelectedSeries.Id
                 , this.SelectedEvent.Id
-                , previousSession.Id, sessionLength);
+                , this.SelectedSession.Id, sessionLength);
             SaveCalculatedSessionLength(eventConfig, calculatedLength);
+
+            // Set difficulty
+            SetSessionDifficulty(eventConfig,difficulty);
+
+            // Store difficulty settings
+            ConfigManager.SetDifficulty(Convert.ToInt32(difficulty * 100));
 
             var raceIni = eventConfig.ToString();
 
@@ -150,6 +160,8 @@ namespace Assetto.Manager
                 LogService.Fatal("Race ini could not be overwritten! Exception: " + ex.ToString());
                 throw;
             }
+
+           
             return sessionDto;
         }
 
@@ -219,7 +231,14 @@ namespace Assetto.Manager
 
         private void SetSessionDifficulty(EventConfig eventConfig, float difficulty)
         {
-
+            foreach (var eventDataOpponent in eventConfig.ConfiguredSessionDto.EventData.Opponents)
+            {
+                //
+                var opponentSkillToSubtract = 20-Convert.ToInt32(Math.Round(20*difficulty));
+                eventDataOpponent.Level = eventDataOpponent.Level - opponentSkillToSubtract < 80
+                    ? 80
+                    : eventDataOpponent.Level - opponentSkillToSubtract;
+            }
         }
 
         private void ProcessResults(OutputLog result)
