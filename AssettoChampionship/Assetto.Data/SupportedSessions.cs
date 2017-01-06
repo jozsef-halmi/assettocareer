@@ -399,6 +399,171 @@ namespace Assetto.Data
 
         #endregion
 
+        #region PorscheGT4_Barcelona
+
+        public static SessionData PorscheGT4BarcelonaPract = new SessionData()
+        {
+            Id = "PorscheGT4_Barcelona_P",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 60,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 20,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Do5Laps
+            }
+        };
+
+
+        public static SessionData PorscheGT4BarcelonaQualy = new SessionData()
+        {
+            Id = "PorscheGT4_Barcelona_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 30,
+            TimeOfDay = TimeOfDayEnum.Time1200,
+            AmbientTemperature = 26,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.MidClear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData PorscheGT4BarcelonaRace1 = new SessionData()
+        {
+            Id = "PorscheGT4_Barcelona_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 11,
+            TimeOfDay = TimeOfDayEnum.Time1600,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Fast,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
+
+
+        #region PorscheGT4_Spa
+
+        public static SessionData PorscheGT4SpaPract = new SessionData()
+        {
+            Id = "PorscheGT4_Spa_P",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 60,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 20,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Do5Laps
+            }
+        };
+
+
+        public static SessionData PorscheGT4SpaQualy = new SessionData()
+        {
+            Id = "PorscheGT4_Spa_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 30,
+            TimeOfDay = TimeOfDayEnum.Time1200,
+            AmbientTemperature = 26,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.MidClear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData PorscheGT4SpaRace1 = new SessionData()
+        {
+            Id = "PorscheGT4_Spa_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 11,
+            TimeOfDay = TimeOfDayEnum.Time1600,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Fast,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
+
+
+        #region PorscheGT4_Zandvoort
+
+        public static SessionData PorscheGT4ZandvoortPract = new SessionData()
+        {
+            Id = "PorscheGT4_Zandvoort_P",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 60,
+            TimeOfDay = TimeOfDayEnum.Time800,
+            AmbientTemperature = 20,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.LightFog,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Do5Laps
+            }
+        };
+
+
+        public static SessionData PorscheGT4ZandvoortQualy = new SessionData()
+        {
+            Id = "PorscheGT4_Zandvoort_Q",
+            SessionType = Common.Enum.SessionType.Qualifying,
+            Duration = 30,
+            TimeOfDay = TimeOfDayEnum.Time1200,
+            AmbientTemperature = 26,
+            DynamicTrack = DynamicTracks.Green,
+            Weather = WeatherEnum.MidClear,
+            FriendlyName = SessionNames.QUALIFICATION,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+                SupportedSessionObjectives.Under107Percentage
+            }
+        };
+
+        public static SessionData PorscheGT4ZandvoortRace1 = new SessionData()
+        {
+            Id = "PorscheGT4_Zandvoort_R1",
+            SessionType = Common.Enum.SessionType.Race,
+            Laps = 11,
+            TimeOfDay = TimeOfDayEnum.Time1600,
+            AmbientTemperature = 32,
+            DynamicTrack = DynamicTracks.Fast,
+            Weather = WeatherEnum.Clear,
+            FriendlyName = SessionNames.RACE,
+            PrimarySessionObjectives = new List<SessionObjective>()
+            {
+               SupportedSessionObjectives.Top5
+            }
+        };
+
+
+        #endregion
+
+
         #region Abarth500Magione
 
         public static SessionData Abarth500RaceEvent1Qualy = new SessionData()

@@ -45,8 +45,11 @@ namespace Assetto.Data
             VideoUrl = "Videos/PorscheGT4.mp4",
             VideoMessage = "Official trailer for Cayman GT4 Clubsport (Porsche Pack Volume 1)",
             Events = new List<EventData>() {
-              SupportedEvents.PorscheGT4_1_Monza,
-              SupportedEvents.PorscheGT4_2_Silverstone
+              SupportedEvents.PorscheGT4_Monza,
+              SupportedEvents.PorscheGT4_Silverstone,
+              SupportedEvents.PorscheGT4_Barcelona,
+              SupportedEvents.PorscheGT4_Spa,
+              SupportedEvents.PorscheGT4_Zandvoort
             },
             Class = SupportedClasses.GT4
         };

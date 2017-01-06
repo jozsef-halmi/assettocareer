@@ -445,6 +445,9 @@
     <Resource Include="Images\Tracks\monza.png" />
     <Resource Include="Images\Series\PorscheGT4.png" />
     <Resource Include="Images\Tracks\ks_silverstone.png" />
+    <Resource Include="Images\Tracks\ks_barcelona.png" />
+    <Resource Include="Images\Tracks\spa.png" />
+    <Resource Include="Images\Tracks\ks_zandvoort.png" />
     <Content Include="Videos\3sec.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

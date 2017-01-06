@@ -11,6 +11,7 @@ namespace Assetto.Data
         public static string Magione = "Circuito di Magione";
         public static string Monza = "Autodromo di Monza";
         public static string Mugello = "Circuito del Mugello";
+        public static string Barcelona = "Circuit de Barcelona-Catalunya";
         public static string Brands = "Brands Hatch";
         public static string RedBullRing = "Red Bull Ring";
         public static string Vallelunga = "Vallelunga";
