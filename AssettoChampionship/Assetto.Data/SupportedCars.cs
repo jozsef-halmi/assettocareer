@@ -21,6 +21,11 @@ namespace Assetto.Data
                 , FriendlyName = "Porsche Cayman GT4 Clubsport"
                 , Description = "Description" }
             },
+                { CarNames.MaseratiGT4,  new CarData() {
+                Name = CarNames.MaseratiGT4
+                , FriendlyName = "Maserati Granturismo MC GT4"
+                , Description = "Description" }
+            },
             { CarNames.Abarth500RaceCar,  new CarData() {
                 Name = CarNames.Abarth500RaceCar
                 , FriendlyName = "Abarth 500 Assetto Corse"

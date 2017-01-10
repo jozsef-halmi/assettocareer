@@ -9,6 +9,70 @@ namespace Assetto.Data
 {
     public class SupportedOpponents
     {
+
+        public static List<OpponentData> EuropeanGT4Opponents = new List<OpponentData>() {
+                new OpponentData() {
+                    Name = "Peter TERTING"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOrangeGrey] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 100
+                    },
+                 new OpponentData() {
+                    Name = "Jörg VIEBAHN"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing500] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 100
+                    },
+                 new OpponentData() {
+                    Name = "Maciej DRESZER"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarLightBlueOrange] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.MaseratiGT4]
+                    , Level = 96
+                    },
+                 new OpponentData() {
+                    Name = "Mads SILJEHAUG"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarBlackNeon] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.MaseratiGT4]
+                    , Level = 95
+                    },
+                 new OpponentData() {
+                    Name = "Andreas PATZELT"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarSilverRed] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 95
+                    },
+                  new OpponentData() {
+                    Name = "Nicolaj MOLLER MADSEN"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing501] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 94
+                    },
+                   new OpponentData() {
+                    Name = "Luca ANSELMI"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing502] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.MaseratiGT4]
+                    , Level = 92
+                    },
+                    new OpponentData() {
+                    Name = "Ricardo VAN DER ENDE"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRedYellow] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.MaseratiGT4]
+                    , Level = 91
+                    },
+                     new OpponentData() {
+                    Name = "Simon KNAP"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarMaroonWhite] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 91
+                    },
+                      new OpponentData() {
+                    Name = "Rob SEVERS"
+                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarZe507] // TODO
+                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
+                    , Level = 88
+                    }
+                };
+
         public static Dictionary<string, List<OpponentData>> OpponentsDictionary = new Dictionary<string, List<OpponentData>>()
         {
             { CarNames.Abarth500RaceCar, new List<OpponentData>() {
@@ -158,69 +222,6 @@ namespace Assetto.Data
                     , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarZe508]
                     , Car = SupportedCars.CarsDictionary[CarNames.MazdaMx5Cup]
                     , Level = 86
-                    }
-                }
-            },
-               { CarNames.PorscheGT4Cup, new List<OpponentData>() {
-                new OpponentData() {
-                    Name = "Peter TERTING"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarOrangeGrey] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 100
-                    },
-                 new OpponentData() {
-                    Name = "Jörg VIEBAHN"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing500] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 100
-                    },
-                 new OpponentData() {
-                    Name = "Maciej DRESZER"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarLightBlueOrange] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 96
-                    },
-                 new OpponentData() {
-                    Name = "Mads SILJEHAUG"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarBlackNeon] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 95
-                    },
-                 new OpponentData() {
-                    Name = "Andreas PATZELT"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarSilverRed] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 95
-                    },
-                  new OpponentData() {
-                    Name = "Nicolaj MOLLER MADSEN"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing501] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 94
-                    },
-                   new OpponentData() {
-                    Name = "Luca ANSELMI"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRacing502] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 92
-                    },
-                    new OpponentData() {
-                    Name = "Ricardo VAN DER ENDE"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarRedYellow] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 91
-                    },
-                     new OpponentData() {
-                    Name = "Simon KNAP"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarMaroonWhite] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 91
-                    },
-                      new OpponentData() {
-                    Name = "Rob SEVERS"
-                    , Skin = SupportedSkins.Abarth500RaceCarSkins[Skins.Abarth500RaceCarZe507] // TODO
-                    , Car = SupportedCars.CarsDictionary[CarNames.PorscheGT4Cup]
-                    , Level = 88
                     }
                 }
             },

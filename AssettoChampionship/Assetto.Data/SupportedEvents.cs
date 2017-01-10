@@ -117,7 +117,7 @@ namespace Assetto.Data
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Monza],
             Layout = null,
             Player = SupportedPlayers.PorscheGT4Player,
-            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            Opponents = SupportedOpponents.EuropeanGT4Opponents,
             EventType = EventType.PracticeQualifyRace,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.PorscheGT4MonzaPract,
@@ -135,7 +135,7 @@ namespace Assetto.Data
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Silverstone],
             Layout = null,
             Player = SupportedPlayers.PorscheGT4Player,
-            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            Opponents = SupportedOpponents.EuropeanGT4Opponents,
             EventType = EventType.PracticeQualifyRace,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.PorscheGT4SilverstonePract,
@@ -153,7 +153,7 @@ namespace Assetto.Data
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Barcelona],
             Layout = null,
             Player = SupportedPlayers.PorscheGT4Player,
-            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            Opponents = SupportedOpponents.EuropeanGT4Opponents,
             EventType = EventType.PracticeQualifyRace,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.PorscheGT4BarcelonaPract,
@@ -171,7 +171,7 @@ namespace Assetto.Data
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Spa],
             Layout = null,
             Player = SupportedPlayers.PorscheGT4Player,
-            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            Opponents = SupportedOpponents.EuropeanGT4Opponents,
             EventType = EventType.PracticeQualifyRace,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.PorscheGT4SpaPract,
@@ -189,7 +189,7 @@ namespace Assetto.Data
             Track = SupportedTracks.TracksDictionary[Assetto.Data.TrackNames.Zandvoort],
             Layout = null,
             Player = SupportedPlayers.PorscheGT4Player,
-            Opponents = SupportedOpponents.OpponentsDictionary[CarNames.PorscheGT4Cup],
+            Opponents = SupportedOpponents.EuropeanGT4Opponents,
             EventType = EventType.PracticeQualifyRace,
             CareerSessions = new List<SessionData>() {
                 SupportedSessions.PorscheGT4ZandvoortPract,
