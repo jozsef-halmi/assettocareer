@@ -46,6 +46,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Backend", "Assetto.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Assetto.Backend.Database", "..\..\..\Users\halmi\Documents\Visual Studio 2015\Projects\Assetto.Backend.Database\Assetto.Backend.Database.sqlproj", "{E75BEAF2-97F8-4809-B541-B9A251D5FF41}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FA0FA3FD-95DC-4176-9B3E-30CBABB204F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Web", "Assetto.Web\Assetto.Web.csproj", "{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -154,6 +158,14 @@ Global
 		{E75BEAF2-97F8-4809-B541-B9A251D5FF41}.Release|x86.ActiveCfg = Release|Any CPU
 		{E75BEAF2-97F8-4809-B541-B9A251D5FF41}.Release|x86.Build.0 = Release|Any CPU
 		{E75BEAF2-97F8-4809-B541-B9A251D5FF41}.Release|x86.Deploy.0 = Release|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Debug|x86.Build.0 = Debug|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|x86.ActiveCfg = Release|Any CPU
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +183,6 @@ Global
 		{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF} = {9B675ECE-AF62-4274-8211-E2C9A537E9EB}
 		{EFF7A1F0-41C7-431B-8B02-2103FD29875C} = {0084E652-5612-4F76-989D-08D3F2E6103D}
 		{E75BEAF2-97F8-4809-B541-B9A251D5FF41} = {0084E652-5612-4F76-989D-08D3F2E6103D}
+		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88} = {FA0FA3FD-95DC-4176-9B3E-30CBABB204F2}
 	EndGlobalSection
 EndGlobal
