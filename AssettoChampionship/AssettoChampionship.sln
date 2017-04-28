@@ -1,18 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship", "AssettoChampionship\AssettoChampionship.csproj", "{87A25F49-33C0-4496-A885-C7126FD8172A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Configurator", "Assetto.Configurator\Assetto.Configurator.csproj", "{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.SharedMemory", "Assetto.SharedMemory\Assetto.SharedMemory.csproj", "{D99F35F2-D3E0-41E5-A877-3F8983283D11}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Manager", "Assetto.Manager\Assetto.Manager.csproj", "{BB3A9050-25A4-4EBF-A3FF-7AC203E0F5AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Data", "Assetto.Data\Assetto.Data.csproj", "{39D17DEB-409D-4EDD-BE26-C6FA36CE668B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{DD55FBDB-E3DA-48A4-B253-18A0E6CA9554}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{53A1275B-5E36-40B3-A707-7F47B3EBB5A2}"
@@ -23,17 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{085045DB-B32
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FD6224D5-CE48-4F65-81D2-BBCD4B87A869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Common", "Assetto.Common\Assetto.Common.csproj", "{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Common.Interfaces", "Assetto.Common.Interfaces\Assetto.Common.Interfaces.csproj", "{67B1B0C4-8E91-4BB8-85BE-BC84841A94DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service", "Assetto.Service\Assetto.Service.csproj", "{1CC94B2D-D293-4A3C-84D6-3A638433D661}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship.Web", "AssettoChampionship.Web\AssettoChampionship.Web.csproj", "{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9B675ECE-AF62-4274-8211-E2C9A537E9EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service.Tests", "Assetto.Service.Tests\Assetto.Service.Tests.csproj", "{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkTrack", "WorkTrack", "{2289C54B-D972-4460-A18E-D7A7A7061FF1}"
 	ProjectSection(SolutionItems) = preProject
@@ -42,13 +22,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkTrack", "WorkTrack", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{0084E652-5612-4F76-989D-08D3F2E6103D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FA0FA3FD-95DC-4176-9B3E-30CBABB204F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2", "V2", "{011455E7-BC92-4F3C-9AEC-558EC1999EB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship", "AssettoChampionship\AssettoChampionship.csproj", "{87A25F49-33C0-4496-A885-C7126FD8172A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Configurator", "Assetto.Configurator\Assetto.Configurator.csproj", "{8ED53A6B-C23B-4447-AD08-1DBA7465D63F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.SharedMemory", "Assetto.SharedMemory\Assetto.SharedMemory.csproj", "{D99F35F2-D3E0-41E5-A877-3F8983283D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Manager", "Assetto.Manager\Assetto.Manager.csproj", "{BB3A9050-25A4-4EBF-A3FF-7AC203E0F5AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Data", "Assetto.Data\Assetto.Data.csproj", "{39D17DEB-409D-4EDD-BE26-C6FA36CE668B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Common", "Assetto.Common\Assetto.Common.csproj", "{C05BE200-2B0F-4CF5-AFFF-7B0A63C16058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Common.Interfaces", "Assetto.Common.Interfaces\Assetto.Common.Interfaces.csproj", "{67B1B0C4-8E91-4BB8-85BE-BC84841A94DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service", "Assetto.Service\Assetto.Service.csproj", "{1CC94B2D-D293-4A3C-84D6-3A638433D661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssettoChampionship.Web", "AssettoChampionship.Web\AssettoChampionship.Web.csproj", "{DE0CEB3D-89DD-4067-BC57-689D2DA1F20A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Service.Tests", "Assetto.Service.Tests\Assetto.Service.Tests.csproj", "{0A3EAC33-0CEF-4493-8A8F-2B576083CDCF}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Backend", "Assetto.Backend\Assetto.Backend.csproj", "{EFF7A1F0-41C7-431B-8B02-2103FD29875C}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Assetto.Backend.Database", "..\..\..\Users\halmi\Documents\Visual Studio 2015\Projects\Assetto.Backend.Database\Assetto.Backend.Database.sqlproj", "{E75BEAF2-97F8-4809-B541-B9A251D5FF41}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FA0FA3FD-95DC-4176-9B3E-30CBABB204F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assetto.Web", "Assetto.Web\Assetto.Web.csproj", "{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssettoChampionship.Web.Core", "AssettoChampionship.Web.Core\AssettoChampionship.Web.Core.csproj", "{43AE9D68-25C1-436B-AB66-56A58E9BD26D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -166,6 +170,14 @@ Global
 		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|x86.ActiveCfg = Release|Any CPU
 		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88}.Release|x86.Build.0 = Release|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Debug|x86.Build.0 = Debug|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Release|x86.ActiveCfg = Release|Any CPU
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,5 +196,6 @@ Global
 		{EFF7A1F0-41C7-431B-8B02-2103FD29875C} = {0084E652-5612-4F76-989D-08D3F2E6103D}
 		{E75BEAF2-97F8-4809-B541-B9A251D5FF41} = {0084E652-5612-4F76-989D-08D3F2E6103D}
 		{F90B4625-2795-4A2B-BEAB-6ADA11D6ED88} = {FA0FA3FD-95DC-4176-9B3E-30CBABB204F2}
+		{43AE9D68-25C1-436B-AB66-56A58E9BD26D} = {011455E7-BC92-4F3C-9AEC-558EC1999EB6}
 	EndGlobalSection
 EndGlobal
